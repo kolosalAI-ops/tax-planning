@@ -1,0 +1,245 @@
+{
+  "country": "Indonesia",
+  "country_code": "ID",
+  "currency": "IDR",
+  "tax_year": "2024/2025",
+  "corporate_tax": {
+    "standard_rate": 22.0,
+    "listed_company_rate": 19.0,
+    "listed_discount": 3.0,
+    "rate_type": "flat_with_sme_concessions",
+    "sme_regimes": {
+      "msme_final_tax": {
+        "rate": 0.5,
+        "basis": "gross_turnover",
+        "threshold": 4800000000,
+        "duration_corporate": "4 years",
+        "individual_exempt_threshold": 500000000
+      },
+      "article_31e_reduction": {
+        "discount": 50.0,
+        "effective_rate_on_portion": 11.0,
+        "applies_to_revenue_up_to": 4800000000,
+        "full_rate_applies_above": 4800000000,
+        "max_gross_revenue": 50000000000
+      }
+    },
+    "tax_holiday": {
+      "tiers": [
+        {"min_investment": 100000000000, "max_investment": 500000000000, "years": 5, "reduction_pct": 100},
+        {"min_investment": 500000000000, "max_investment": 1000000000000, "years": 7, "reduction_pct": 100},
+        {"min_investment": 1000000000000, "max_investment": 5000000000000, "years": 10, "reduction_pct": 100},
+        {"min_investment": 5000000000000, "max_investment": 15000000000000, "years": 15, "reduction_pct": 100},
+        {"min_investment": 15000000000000, "max_investment": null, "years": 20, "reduction_pct": 100}
+      ],
+      "transition_reduction": 50.0,
+      "transition_years": 2
+    }
+  },
+  "individual_tax_brackets": [
+    {"min": 0, "max": 60000000, "rate": 5.0},
+    {"min": 60000001, "max": 250000000, "rate": 15.0},
+    {"min": 250000001, "max": 500000000, "rate": 25.0},
+    {"min": 500000001, "max": 5000000000, "rate": 30.0},
+    {"min": 5000000001, "max": null, "rate": 35.0}
+  ],
+  "vat": {
+    "standard_rate": 11.0,
+    "planned_increase_2025": 12.0,
+    "export_rate": 0.0,
+    "small_entrepreneur_threshold": 4800000000
+  },
+  "withholding_taxes": {
+    "pph_23_domestic": {
+      "dividends_individual": 10.0,
+      "dividends_corporate": 0.0,
+      "interest": 15.0,
+      "royalties": 15.0,
+      "services": 2.0
+    },
+    "pph_26_nonresident": {
+      "dividends": {"default": 20.0, "treaty_range": "5-15%"},
+      "interest": {"default": 20.0, "treaty_range": "0-15%"},
+      "royalties": {"default": 20.0, "treaty_range": "5-15%"},
+      "branch_profit": 20.0
+    },
+    "pph_4_2_final": {
+      "bank_deposits": 20.0,
+      "land_building_rental": 10.0,
+      "construction_services_range": {"min": 1.75, "max": 6.0},
+      "land_building_transfer": 2.5,
+      "lottery": 25.0
+    }
+  },
+  "payroll_contributions_employer": {
+    "jkk": {"min": 0.24, "max": 1.74},
+    "jkm": 0.3,
+    "jht": 3.7,
+    "jp": 2.0,
+    "bpjs_health": 4.0,
+    "total_approximate": {"min": 10.24, "max": 11.74}
+  },
+  "international_investors": {
+    "screening": {
+      "body": "BKPM/OSS-RBA",
+      "threshold": "all_foreign_investment",
+      "minimum_investment_idr": 10000000000,
+      "positive_investment_list": "Perpres 10/2021",
+      "legal_basis": "UU 25/2007; PP 5/2021; UU 11/2020 (Cipta Kerja)"
+    },
+    "nonresident_taxation": {
+      "cgt_shares_unlisted_pct": 5.0,
+      "cgt_shares_listed_pct": 0.1,
+      "dividend_wht_default_pct": 20.0,
+      "dividend_wht_reinvested_pct": 0.0,
+      "branch_profits_tax_pct": 20.0,
+      "exit_tax": false
+    },
+    "repatriation": {
+      "fx_controls": "moderate",
+      "bi_reporting_required": true,
+      "export_proceeds_domestic_deposit": true,
+      "dividend_restrictions": "none_after_tax",
+      "central_bank_registration": true
+    },
+    "branch_vs_subsidiary": {
+      "branch_tax_rate_pct": 22.0,
+      "branch_profits_tax_pct": 20.0,
+      "subsidiary_tax_rate_pct": 22.0,
+      "subsidiary_dividend_wht_pct": 20.0
+    },
+    "foreign_tax_credit": {
+      "method": "credit",
+      "limitation": "per_country",
+      "carry_forward_years": 0,
+      "carry_back_years": 0
+    },
+    "cfc_rules": {
+      "has_cfc": true,
+      "regime_name": "Deemed Dividend",
+      "ownership_threshold_pct": 50.0,
+      "active_income_exemption": false
+    },
+    "treaty_network": {
+      "total_comprehensive_treaties": 70,
+      "has_lob": true,
+      "has_ppt": false
+    },
+    "pe_rules": {
+      "construction_pe_months": 6,
+      "service_pe_days": 60,
+      "digital_pe": false,
+      "dependent_agent_pe": true
+    }
+  },
+  "income_by_source": {
+    "service_income": {
+      "domestic_rate_pct": 22.0,
+      "pph23_service_wht_pct": 2.0,
+      "pph26_nonresident_pct": 20.0,
+      "legal_basis": "UU 7/2021 Pasal 17, Pasal 23(1)(c), Pasal 26"
+    },
+    "royalty_income": {
+      "domestic_rate_pct": 22.0,
+      "pph23_royalty_wht_pct": 15.0,
+      "patent_box": false,
+      "legal_basis": "Pasal 23(1)(a), Pasal 11A UU PPh"
+    },
+    "rental_income": {
+      "land_building_final_pct": 10.0,
+      "equipment_pph23_pct": 2.0,
+      "legal_basis": "PP 34/2017, Pasal 23"
+    },
+    "capital_gains": {
+      "listed_shares_final_pct": 0.1,
+      "founder_shares_additional_pct": 0.5,
+      "nonlisted_shares_rate_pct": 22.0,
+      "land_building_transfer_pct": 2.5,
+      "legal_basis": "PP 41/1994, PP 34/2016, PP 44/2022"
+    },
+    "dividend_income": {
+      "domestic_exempt": true,
+      "foreign_exempt_if_reinvested": true,
+      "foreign_taxable_rate_pct": 22.0,
+      "legal_basis": "UU 7/2021 Pasal 4(3)(f), PMK 18/2021"
+    },
+    "interest_income": {
+      "bank_deposit_final_pct": 20.0,
+      "bond_final_pct": 10.0,
+      "intercompany_pph23_pct": 15.0,
+      "legal_basis": "PP 131/2000, PP 9/2021, Pasal 23(1)(a)"
+    }
+  },
+  "sector_specific_taxes": {
+    "digital_services_tax": {
+      "has_dst": true,
+      "vat_on_digital_pct": 11.0,
+      "crypto_pph_final_pct": 0.1,
+      "crypto_vat_final_pct": 0.11,
+      "legal_basis": "PER-12/PJ/2020, PMK 68/2022, UU HPP"
+    },
+    "natural_resources": {
+      "coal_royalty_pct_range": {"min": 3.0, "max": 7.0},
+      "gold_royalty_pct": 3.75,
+      "nickel_royalty_pct": 5.0,
+      "oil_gas_gross_split_contractor_oil_pct": 57.0,
+      "oil_gas_gross_split_contractor_gas_pct": 52.0,
+      "legal_basis": "PP 26/2022, PP 53/2017"
+    },
+    "insurance_premium_tax": {
+      "has_ipt": false,
+      "reinsurance_pph26_pct": 20.0,
+      "note": "No specific insurance premium tax; standard CIT applies"
+    },
+    "financial_transaction_tax": {
+      "stock_exchange_levy_pct": 0.1,
+      "stamp_duty_idr": 10000,
+      "stamp_duty_threshold_idr": 5000000,
+      "legal_basis": "UU 10/2020"
+    },
+    "gaming_tax": {
+      "gambling_legal": false,
+      "lottery_prize_final_pct": 25.0,
+      "note": "Gambling largely illegal; no formal gaming tax regime"
+    },
+    "agricultural_income": {
+      "cpo_export_levy_per_ton_usd_range": {"min": 55, "max": 200},
+      "standard_cit_pct": 22.0,
+      "msme_final_pct": 0.5,
+      "legal_basis": "PP 55/2022, BPDPKS regulations"
+    }
+  },
+  "deductions": {
+    "depreciation": {
+      "tangible_non_building": [
+        {"group": 1, "useful_life": 4, "sl_rate": 25.0, "db_rate": 50.0, "examples": "Computers, printers, motorcycles"},
+        {"group": 2, "useful_life": 8, "sl_rate": 12.5, "db_rate": 25.0, "examples": "Furniture, cars, machinery"},
+        {"group": 3, "useful_life": 16, "sl_rate": 6.25, "db_rate": 12.5, "examples": "Heavy machinery, ships"},
+        {"group": 4, "useful_life": 20, "sl_rate": 5.0, "db_rate": 10.0, "examples": "Locomotives, docks"}
+      ],
+      "buildings": [
+        {"type": "permanent", "useful_life": 20, "rate": 5.0},
+        {"type": "non_permanent", "useful_life": 10, "rate": 10.0}
+      ]
+    },
+    "nol": {
+      "carry_forward_years": 5,
+      "extended_carry_forward": 10,
+      "carry_back": false,
+      "limitation_pct": 100.0
+    },
+    "thin_capitalization": {
+      "debt_equity_ratio": "4:1",
+      "excess_interest": "non_deductible"
+    },
+    "rnd_super_deduction": {
+      "tier_1": {"total_deduction": 200, "extra": 100, "requirement": "Priority sectors"},
+      "tier_2": {"total_deduction": 250, "extra": 150, "requirement": "University partnership"},
+      "tier_3": {"total_deduction": 300, "extra": 200, "requirement": "National research body"}
+    },
+    "charitable": {
+      "deductible_categories": ["disaster_relief", "rnd", "education", "sports", "social_infrastructure", "religious"],
+      "general_donations": "not_deductible"
+    }
+  }
+}

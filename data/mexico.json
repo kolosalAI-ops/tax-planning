@@ -1,0 +1,299 @@
+{
+  "country": "Mexico",
+  "country_code": "MX",
+  "currency": "MXN",
+  "tax_year": "2024/2025",
+  "corporate_tax": {
+    "standard_rate": 30.0,
+    "rate_type": "flat",
+    "historical_rates": [
+      {"year": "2002-2004", "rates": "35-33%"},
+      {"year": "2005-2009", "rates": "28-30%"},
+      {"year": "2010-2013", "rate": 30.0},
+      {"year": "2014+", "rate": 30.0}
+    ],
+    "resico_individuals": {
+      "brackets": [
+        {"min": 0, "max": 300000, "rate": 1.0},
+        {"min": 300001, "max": 600000, "rate": 1.1},
+        {"min": 600001, "max": 1000000, "rate": 1.5},
+        {"min": 1000001, "max": 2500000, "rate": 2.0},
+        {"min": 2500001, "max": 3500000, "rate": 2.5}
+      ],
+      "revenue_limit": 3500000,
+      "basis": "gross_income_no_deductions"
+    },
+    "resico_legal_entities": {
+      "rate": 30.0,
+      "revenue_limit": 35000000,
+      "benefit": "cash_basis_simplified_compliance"
+    },
+    "regional_incentives": {
+      "northern_border": {
+        "isr_effective_rate": 20.0,
+        "iva_rate": 8.0,
+        "revenue_requirement_from_zone": 90.0,
+        "municipalities": 43
+      },
+      "southeast_border": {
+        "isr_effective_rate": 20.0,
+        "iva_rate": 8.0
+      }
+    }
+  },
+  "iva": {
+    "standard_rate": 16.0,
+    "border_zone_rate": 8.0,
+    "zero_rate_items": ["basic_food", "medicine", "agricultural_inputs", "exports", "books"],
+    "exempt_items": ["medical_services", "education", "residential_rent", "land_sales", "financial_services"],
+    "digital_services_nonresident": 16.0
+  },
+  "ieps_excise": {
+    "beer": 26.5,
+    "spirits_above_20pct": 53.0,
+    "tobacco_cigarettes": 160.0,
+    "sugary_beverages_per_liter": 1.5868,
+    "high_calorie_foods": 8.0,
+    "gambling": 30.0
+  },
+  "ptu_profit_sharing": {
+    "rate": 10.0,
+    "cap_per_employee": "3 months salary or avg PTU 3 years (greater of)",
+    "deductible": true
+  },
+  "state_payroll_tax": {
+    "cdmx": 3.0, "estado_de_mexico": 3.0, "jalisco": 2.0,
+    "nuevo_leon": 3.0, "baja_california": 1.8, "quintana_roo": 3.0,
+    "guanajuato": 2.9, "chihuahua": 3.0,
+    "range": {"min": 1.0, "max": 4.0}
+  },
+  "imss_employer_contributions": {
+    "workplace_accident_disease": {"min": 0.5, "max": 15.0},
+    "sickness_maternity_cash": 0.7,
+    "sickness_maternity_inkind_fixed": "20.40% of 1 UMA",
+    "sickness_maternity_inkind_excess": 1.1,
+    "disability_life": 1.75,
+    "retirement_sar": 2.0,
+    "old_age_unemployment": {"min": 3.15, "max": 11.875},
+    "nursery": 1.0,
+    "infonavit_housing": 5.0,
+    "total_approximate": {"min": 25.0, "max": 35.0},
+    "uma_2024_daily": 108.57,
+    "uma_2024_monthly": 3300.53
+  },
+  "withholding_taxes_nonresident": {
+    "dividends": {"default": 10.0, "us_treaty": "5-10%"},
+    "interest_general": {"min": 4.9, "max": 35.0},
+    "interest_banks": 4.9,
+    "royalties": {"default": 25.0, "us_treaty": 10.0},
+    "technical_assistance": 25.0,
+    "management_fees": 25.0
+  },
+  "inflation_adjustment": {
+    "net_debtor_gain": "taxable",
+    "net_creditor_loss": "deductible",
+    "index": "INPC"
+  },
+  "mining_tax": {
+    "ebitda_rate": 7.5,
+    "precious_metals_gross_revenue": 0.5,
+    "extraordinary_rate": "50% of revenue above 50x investment"
+  },
+  "deductions": {
+    "depreciation": {
+      "method": "straight_line_only",
+      "rates": {
+        "commercial_buildings": 5.0,
+        "industrial_buildings": 5.0,
+        "general_machinery": 10.0,
+        "mining_equipment": 100.0,
+        "automotive_machinery": 25.0,
+        "energy_generation": 5.0,
+        "automobiles": 25.0,
+        "buses": 20.0,
+        "trucks": 25.0,
+        "computers": 30.0,
+        "office_furniture": 10.0,
+        "molds_dies": 35.0,
+        "pollution_control": 100.0,
+        "renewable_energy": 100.0,
+        "rnd_equipment": 25.0,
+        "agricultural_machinery": 25.0
+      },
+      "vehicle_cap": 175000,
+      "electric_vehicle_cap": 250000,
+      "inflation_adjustment": true
+    },
+    "nol": {
+      "carry_forward_years": 10,
+      "carry_back": false,
+      "limitation_pct": 100.0,
+      "inflation_adjusted": true,
+      "not_transferable_in_merger": true
+    },
+    "interest_limitation": {
+      "pct_of_ebitda": 30.0,
+      "excess_carry_forward_years": 10,
+      "exemption_threshold": 20000000
+    },
+    "thin_capitalization": {
+      "related_party_ratio": "3:1",
+      "excess_interest": "non_deductible"
+    },
+    "meals": {
+      "restaurant_deductible_pct": 91.5,
+      "entertainment": 0.0,
+      "company_events": 100.0
+    },
+    "charitable": {
+      "limit_pct_prior_year_income": 7.0,
+      "government_donations": "100% no limit"
+    },
+    "rnd": {
+      "credit_rate": 30.0,
+      "max_credit": 50000000,
+      "basis": "incremental_over_3yr_avg",
+      "carry_forward_years": 10
+    }
+  },
+  "international_investors": {
+    "screening": {
+      "body": "CNIE (National Foreign Investment Commission)",
+      "legal_basis": "Ley de Inversion Extranjera (LIE) Art. 10-11",
+      "restricted_zone": "50km borders, 100km coast",
+      "rnie_registration": true
+    },
+    "nonresident_taxation": {
+      "cgt_shares_pct": 10.0,
+      "dividend_wht_post2014_pct": 10.0,
+      "dividend_wht_pre2014_pct": 0.0,
+      "branch_remittance_tax_pct": 10.0,
+      "exit_tax": false
+    },
+    "repatriation": {
+      "fx_controls": "none",
+      "dividend_restrictions": "none",
+      "central_bank_registration": false,
+      "sat_large_transfer_reporting": true
+    },
+    "branch_vs_subsidiary": {
+      "branch_tax_rate_pct": 30.0,
+      "branch_remittance_tax_pct": 10.0,
+      "subsidiary_tax_rate_pct": 30.0,
+      "subsidiary_dividend_wht_pct": 10.0
+    },
+    "foreign_tax_credit": {
+      "method": "credit",
+      "limitation": "per_country",
+      "carry_forward_years": 0,
+      "carry_back_years": 0
+    },
+    "cfc_rules": {
+      "has_cfc": true,
+      "regime_name": "REFIPRE",
+      "effective_rate_threshold_pct": 22.5,
+      "active_income_exemption": true,
+      "ownership_threshold_pct": 50.0
+    },
+    "treaty_network": {
+      "total_comprehensive_treaties": 60,
+      "has_lob": true,
+      "has_ppt": true
+    },
+    "pe_rules": {
+      "construction_pe_months": 6,
+      "service_pe_days": 183,
+      "digital_pe": false,
+      "dependent_agent_pe": true,
+      "maquiladora_safe_harbor": true
+    }
+  },
+  "income_by_source": {
+    "service_income": {
+      "domestic_rate_pct": 30.0,
+      "iva_pct": 16.0,
+      "nonresident_wht_gross_pct": 25.0,
+      "digital_platform_range_pct": {"min": 1.0, "max": 4.0},
+      "legal_basis": "LISR Art. 9, Art. 113-A, Art. 153-156"
+    },
+    "royalty_income": {
+      "domestic_rate_pct": 30.0,
+      "nonresident_wht_pct": 25.0,
+      "ip_amortization_annual_pct": 15.0,
+      "patent_box": false,
+      "legal_basis": "LISR Art. 167, Art. 33(IV)"
+    },
+    "rental_income": {
+      "rate_pct": 30.0,
+      "individual_blind_deduction_pct": 35.0,
+      "residential_iva_exempt": true,
+      "nonresident_wht_pct": 25.0,
+      "legal_basis": "LISR Art. 115, Art. 158, LIVA Art. 20(II)"
+    },
+    "capital_gains": {
+      "corporate_rate_pct": 30.0,
+      "listed_shares_resident_pct": 10.0,
+      "nonresident_shares_gross_pct": 25.0,
+      "nonresident_shares_net_pct": 35.0,
+      "inflation_adjustment": true,
+      "legal_basis": "LISR Art. 22-23, Art. 129, Art. 161"
+    },
+    "dividend_income": {
+      "from_cufin_additional_tax": false,
+      "exceeding_cufin_additional_pct": 30.0,
+      "individual_additional_pct": 10.0,
+      "nonresident_wht_pct": 10.0,
+      "legal_basis": "LISR Art. 10, Art. 77-78, Art. 140, Art. 164"
+    },
+    "interest_income": {
+      "corporate_rate_pct": 30.0,
+      "inflation_adjustment": true,
+      "nonresident_bank_pct": 4.9,
+      "nonresident_other_range_pct": {"min": 15.0, "max": 35.0},
+      "legal_basis": "LISR Art. 44-46, Art. 166"
+    }
+  },
+  "sector_specific_taxes": {
+    "digital_services_tax": {
+      "has_dst": false,
+      "platform_isr_retention_range_pct": {"min": 1.0, "max": 4.0},
+      "iva_on_digital_services_pct": 16.0,
+      "nonresident_registration_required": true,
+      "legal_basis": "LISR Art. 113-A/B, LIVA Art. 18-B through 18-J"
+    },
+    "natural_resources": {
+      "mining_ebitda_pct": 7.5,
+      "mining_gold_silver_gross_pct": 0.5,
+      "oil_license_royalty_pct": 7.5,
+      "ieps_fuels": true,
+      "legal_basis": "Ley Federal de Derechos Art. 268-270, Ley de Ingresos sobre Hidrocarburos"
+    },
+    "insurance_premium_tax": {
+      "has_ipt": false,
+      "insurance_iva_exempt": true,
+      "reinsurance_wht_range_pct": {"min": 2.0, "max": 25.0},
+      "legal_basis": "LIVA Art. 15(IX), LISR Art. 163"
+    },
+    "financial_transaction_tax": {
+      "has_ftt": false,
+      "ide_repealed": true,
+      "isabi_range_pct": {"min": 2.0, "max": 5.0},
+      "listed_shares_cgt_pct": 10.0,
+      "legal_basis": "LISR Art. 129"
+    },
+    "gaming_tax": {
+      "ieps_net_gaming_revenue_pct": 30.0,
+      "isr_prizes_federal_pct": 1.0,
+      "iva_pct": 16.0,
+      "state_tax_range_pct": {"min": 2.0, "max": 10.0},
+      "legal_basis": "Ley del IEPS Art. 2(II)(B), LISR Art. 137-138"
+    },
+    "agricultural_income": {
+      "agape_individual_exempt_uma": 40,
+      "agape_corporate_exempt_uma_per_partner": 20,
+      "agape_max_uma": 200,
+      "agricultural_inputs_iva_pct": 0.0,
+      "legal_basis": "LISR Art. 74-75, LIVA Art. 2-A"
+    }
+  }
+}

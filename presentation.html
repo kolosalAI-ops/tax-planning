@@ -1,0 +1,2797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolosal Tax 301: Advanced International Tax Planning &amp; Cross-Border Structuring</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #0f172a;
+    --card-hover: #f8fafc;
+    --border: #e2e8f0;
+    --muted: #64748b;
+    --light: #f1f5f9;
+    --medium: #cbd5e1;
+    --dark: #1e293b;
+    --accent: #0f766e;
+    --accent-light: #ccfbf1;
+    --accent-mid: #14b8a6;
+    --blue: #1d4ed8;
+    --blue-light: #dbeafe;
+    --amber: #b45309;
+    --amber-light: #fef3c7;
+    --red: #b91c1c;
+    --red-light: #fee2e2;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100vw; height: 100vh; overflow: hidden; }
+  body { font-family: var(--sans); background: var(--fg); color: var(--fg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  .slide {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--bg); display: flex; flex-direction: column;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(30px); overflow-y: auto;
+    aspect-ratio: 16/9;
+  }
+  .slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); z-index: 10; }
+
+  .inner {
+    max-width: 100%; width: 100%; margin: 0 auto;
+    padding: 36px 72px 64px; flex: 1;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  /* Nav */
+  .nav {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 56px;
+    background: var(--bg); border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px; z-index: 100;
+  }
+  .nav-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 18px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--fg);
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .nav-btn:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+  .nav-btn:disabled:hover { background: var(--bg); color: var(--fg); border-color: var(--border); }
+  .nav-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .counter { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); transition: width 0.35s ease; z-index: 101; }
+
+  /* Typography */
+  .label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .title { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; color: var(--fg); margin-bottom: 12px; }
+  .subtitle { font-size: 14px; font-weight: 400; line-height: 1.6; color: var(--muted); max-width: 620px; }
+  .h2 { font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--fg); margin-bottom: 16px; }
+  .h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 10px; padding-bottom: 4px; border-bottom: 2px solid var(--accent); }
+  .mono { font-family: var(--mono); }
+  .bold { font-weight: 700; }
+
+  /* Divider */
+  .divider { width: 48px; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); margin: 16px 0; border-radius: 2px; }
+
+  /* Styles replaced by enhanced version below */
+
+  /* Key Point / Highlight */
+  .key-point {
+    border-left: 3px solid var(--accent); padding: 10px 14px; margin: 12px 0 0;
+    background: var(--accent-light); font-size: 11px; line-height: 1.55; color: var(--dark);
+    border-radius: 0 8px 8px 0;
+  }
+  .key-point strong { color: var(--accent); }
+
+  /* Layout */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+  /* Cards */
+  .card { border: 1px solid var(--border); padding: 16px; border-radius: 10px; border-left: 3px solid var(--accent); box-shadow: 0 1px 3px rgba(15,23,42,0.04); }
+  .card .h3 { margin-bottom: 12px; }
+
+  /* Metric row */
+  .metrics { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 18px; border-radius: 10px; overflow: hidden; }
+  .metric { background: var(--bg); padding: 12px; text-align: center; flex: 1; position: relative; }
+  .metric::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+  .metric-val { font-size: 22px; font-weight: 700; font-family: var(--mono); letter-spacing: -0.02em; color: var(--fg); }
+  .metric-lbl { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 3px; font-weight: 600; }
+
+  /* Country flag label */
+  .country-item { display: flex; justify-content: space-between; align-items: flex-start; }
+  .country-item .right { text-align: right; flex-shrink: 0; margin-left: 16px; }
+  .country-item .right .num { font-family: var(--mono); font-weight: 700; font-size: 13px; }
+
+  /* Tags */
+  .tag { display: inline-block; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 7px; border: 1px solid var(--border); color: var(--muted); margin: 0 3px 3px 0; border-radius: 4px; }
+  .tag.filled { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+  /* Title slide */
+  .title-slide .title { font-size: 42px; font-weight: 800; letter-spacing: -0.035em; margin-bottom: 14px; }
+  .title-meta { display: flex; gap: 28px; margin-top: 24px; }
+  .title-meta-item { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 0; border-top: 2px solid var(--accent); }
+  .title-meta-item strong { color: var(--fg); display: block; margin-top: 3px; font-size: 12px; text-transform: none; letter-spacing: 0; }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 0; padding: 0; }
+  .checklist li {
+    padding: 7px 0 7px 24px; position: relative;
+    font-size: 13px; line-height: 1.5; color: var(--dark);
+    border-bottom: 1px solid var(--light);
+  }
+  .checklist li::before {
+    content: '\2610'; position: absolute; left: 0; top: 3px;
+    font-size: 12px; color: var(--accent);
+  }
+  .checklist li:last-child { border-bottom: none; }
+
+  /* Icon system */
+  .icon-svg { position: absolute; width: 0; height: 0; overflow: hidden; }
+  svg.si { stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: middle; }
+
+  /* Slide header with icon */
+  .slide-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .slide-header .icon-box {
+    width: 36px; height: 36px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border: none; border-radius: 8px;
+    background: var(--accent-light);
+  }
+  .slide-header .icon-box svg { width: 18px; height: 18px; color: var(--accent); }
+  .slide-header .h2 { margin-bottom: 0; }
+
+  /* H3 icon */
+  .h3 svg.si { width: 13px; height: 13px; vertical-align: -2px; margin-right: 4px; }
+
+  /* Enhanced key-point with icon */
+  .kp-wrap { display: flex; gap: 10px; align-items: flex-start; }
+  .kp-wrap svg.si { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; color: var(--fg); }
+
+  /* Metric icon */
+  .metric-icon { display: block; text-align: center; margin-bottom: 4px; }
+  .metric-icon svg.si { width: 18px; height: 18px; color: var(--muted); }
+
+  /* Title meta icons */
+  .title-meta-item svg.si { width: 12px; height: 12px; color: var(--muted); margin-right: 2px; vertical-align: -1px; }
+
+  /* Scroll */
+  .slide::-webkit-scrollbar { width: 4px; }
+  .slide::-webkit-scrollbar-track { background: var(--light); }
+  .slide::-webkit-scrollbar-thumb { background: var(--medium); }
+
+  /* === NEW 301 COMPONENTS === */
+
+  /* Section Divider */
+  .section-divider { background: var(--fg) !important; color: var(--bg); }
+  .section-divider .inner { align-items: center; text-align: center; justify-content: center; }
+  .section-slide { background: var(--fg) !important; color: var(--bg) !important; }
+  .section-slide .label { color: var(--accent-mid) !important; }
+  .section-slide .title { color: var(--bg) !important; }
+  .section-slide .divider { background: linear-gradient(90deg, var(--accent-mid), var(--accent)) !important; }
+  .section-slide .tag { border-color: var(--accent-mid); color: var(--accent-mid); }
+  .section-number { font-family: var(--mono); font-size: 72px; font-weight: 700; color: var(--accent-mid); line-height: 1; margin-bottom: 12px; }
+  .section-title { font-size: 36px; font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 20px; }
+  .section-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .section-tags .tag { border-color: var(--accent-mid); color: var(--accent-mid); }
+
+  /* Calc Box */
+  .calc-box { border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .calc-box .calc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; }
+  .calc-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
+  .calc-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); padding: 4px 8px; border-bottom: 2px solid var(--accent); font-weight: 700; }
+  .calc-table td { padding: 4px 8px; border-bottom: 1px solid var(--light); color: var(--dark); }
+  .calc-table tr:last-child td { border-bottom: none; }
+  .calc-table .total td { font-weight: 700; border-top: 2px solid var(--accent); color: var(--fg); }
+  .calc-table .highlight td { background: var(--light); font-weight: 700; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 28px; margin: 12px 0; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: var(--accent); }
+  .timeline-item { position: relative; padding: 6px 0; }
+  .timeline-dot { position: absolute; left: -28px; top: 10px; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg); z-index: 1; }
+  .timeline-dot.future { background: var(--medium); }
+  .timeline-year { font-family: var(--mono); font-weight: 700; font-size: 13px; color: var(--accent); }
+  .timeline-desc { font-size: 12px; color: var(--dark); line-height: 1.5; margin-top: 2px; }
+
+  /* Matrix Three */
+  .matrix-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .matrix-col { border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .matrix-col.survives { border-left: 3px solid #16a34a; }
+  .matrix-col.diminished { border-left: 3px solid #d97706; }
+  .matrix-col.unaffected { border-left: 3px solid var(--muted); }
+  .matrix-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .matrix-col.survives .matrix-header { color: #16a34a; }
+  .matrix-col.diminished .matrix-header { color: #d97706; }
+  .matrix-col.unaffected .matrix-header { color: var(--muted); }
+  .matrix-list { list-style: none; padding: 0; margin: 0; }
+  .matrix-list li { font-size: 12px; line-height: 1.5; padding: 4px 0; color: var(--dark); border-bottom: 1px solid var(--light); }
+  .matrix-list li:last-child { border-bottom: none; }
+  .matrix-list li strong { color: var(--fg); }
+
+  /* Flow Diagram */
+  .flow-diagram { display: flex; align-items: center; gap: 0; margin: 16px 0; flex-wrap: wrap; justify-content: center; }
+  .flow-box { border: 2px solid var(--accent); border-radius: 8px; padding: 10px 16px; font-size: 12px; font-weight: 700; text-align: center; min-width: 100px; background: var(--bg); box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+  .flow-box .flow-detail { font-weight: 400; font-size: 10px; color: var(--muted); margin-top: 4px; }
+  .flow-arrow { font-size: 20px; color: var(--accent-mid); padding: 0 8px; font-family: var(--mono); }
+
+  /* Scenario Compare */
+  .scenario-compare { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; margin: 12px 0; }
+  .scenario-panel { border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .scenario-panel.better { border-left: 3px solid #16a34a; }
+  .scenario-panel.worse { border-left: 3px solid #dc2626; }
+  .scenario-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .scenario-panel.better .scenario-header { color: #16a34a; }
+  .scenario-panel.worse .scenario-header { color: #dc2626; }
+  .scenario-body { font-size: 12px; line-height: 1.6; color: var(--dark); }
+  .scenario-body .num { font-family: var(--mono); font-weight: 700; }
+  .scenario-vs { display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--muted); }
+
+  @media (max-width: 768px) {
+    .inner { padding: 28px 20px 72px; }
+    .title-slide .title { font-size: 32px; }
+    .h2 { font-size: 22px; }
+    .two-col, .three-col, .matrix-three { grid-template-columns: 1fr; }
+    .metrics { flex-wrap: wrap; }
+    .scenario-compare { grid-template-columns: 1fr; }
+    .section-number { font-size: 48px; }
+    .section-title { font-size: 28px; }
+  }
+
+  @page { size: 16in 9in; margin: 0; }
+
+  @media print {
+    html, body { width: 100%; height: 100%; overflow: visible; margin: 0; padding: 0; background: #fff; }
+    .slide {
+      position: relative !important; opacity: 1 !important; pointer-events: auto !important;
+      transform: none !important; transition: none !important;
+      width: 100%; height: 100vh; max-height: 100vh;
+      overflow: hidden;
+      page-break-after: always; page-break-inside: avoid;
+      break-after: page; break-inside: avoid;
+      display: flex; flex-direction: column;
+    }
+    .slide:last-of-type { page-break-after: auto; break-after: auto; }
+    .inner {
+      padding: 28px 48px 28px; justify-content: flex-start;
+      flex: 1; overflow: hidden; max-height: 100%;
+    }
+    .nav, .progress { display: none !important; }
+    .title { font-size: 30px; margin-bottom: 10px; }
+    .title-slide .title { font-size: 38px; }
+    .title-slide .inner { justify-content: center; }
+    .h2 { font-size: 22px; margin-bottom: 14px; }
+    .h3 { font-size: 10px; margin-bottom: 8px; padding-bottom: 4px; }
+    .label { font-size: 9px; margin-bottom: 8px; }
+    .subtitle { font-size: 13px; }
+    .divider { margin: 10px 0; height: 2px; }
+    .points li { font-size: 11px; padding: 4px 0 4px 16px; line-height: 1.45; }
+    .points li::before { top: 11px; width: 4px; height: 4px; }
+    .sub-points li { font-size: 9.5px; padding: 2px 0 2px 12px; line-height: 1.4; }
+    .sub-points li::before { top: 7px; width: 3px; height: 3px; }
+    .key-point { font-size: 10px; padding: 6px 10px; margin: 8px 0 0; line-height: 1.45; }
+    .metrics { margin-bottom: 14px; }
+    .metric { padding: 8px; }
+    .metric-val { font-size: 18px; }
+    .metric-lbl { font-size: 7px; margin-top: 2px; }
+    .card { padding: 10px; }
+    .tag { font-size: 7px; padding: 2px 5px; margin: 0 3px 3px 0; }
+    .tag-inline, .points li .tag-inline { font-size: 7px; padding: 1px 4px; }
+    .checklist li { font-size: 10px; padding: 4px 0 4px 20px; }
+    .two-col { gap: 16px; }
+    .three-col { gap: 12px; }
+    .title-meta { margin-top: 20px; }
+    .title-meta-item { font-size: 9px; }
+    .title-meta-item strong { font-size: 11px; }
+    .country-item .right .num { font-size: 11px; }
+    .slide-header .icon-box { width: 28px; height: 28px; border-radius: 6px; border-width: 1.5px; }
+    .slide-header .icon-box svg { width: 14px; height: 14px; }
+    .slide-header { gap: 8px; margin-bottom: 10px; }
+    .h3 svg.si { width: 10px; height: 10px; margin-right: 2px; }
+    .kp-wrap svg.si { width: 12px; height: 12px; }
+    .metric-icon svg.si { width: 13px; height: 13px; }
+    .card { border-radius: 5px; border-left-width: 2px; }
+    /* 301 print overrides */
+    .section-divider { background: var(--fg) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-number { font-size: 48px; }
+    .section-title { font-size: 24px; margin-bottom: 12px; }
+    .section-divider .inner { justify-content: center; }
+    .calc-box { padding: 8px; margin: 6px 0; }
+    .calc-table { font-size: 9px; }
+    .calc-table th { font-size: 8px; padding: 2px 4px; }
+    .calc-table td { padding: 2px 4px; }
+    .timeline { margin: 6px 0; padding-left: 22px; }
+    .timeline-item { padding: 3px 0; }
+    .timeline-year { font-size: 10px; }
+    .timeline-desc { font-size: 9px; }
+    .timeline-dot { width: 8px; height: 8px; left: -22px; top: 7px; }
+    .matrix-three { gap: 8px; }
+    .matrix-col { padding: 8px; }
+    .matrix-header { font-size: 8px; margin-bottom: 6px; }
+    .matrix-list li { font-size: 9px; padding: 2px 0; }
+    .flow-diagram { margin: 8px 0; }
+    .flow-box { padding: 6px 10px; font-size: 9px; min-width: 70px; }
+    .flow-box .flow-detail { font-size: 8px; }
+    .flow-arrow { font-size: 14px; padding: 0 4px; }
+    .scenario-compare { gap: 6px; margin: 6px 0; }
+    .scenario-panel { padding: 8px; }
+    .scenario-header { font-size: 8px; margin-bottom: 6px; }
+    .scenario-body { font-size: 9px; line-height: 1.4; }
+    .hbar-track { height: 14px; }
+    .hbar-label { font-size: 8px; width: 60px; }
+    .hbar-val { font-size: 8px; width: 40px; }
+    .dtable { font-size: 9px; margin: 4px 0; }
+    .dtable th { font-size: 7px; padding: 3px 5px; }
+    .dtable td { padding: 3px 5px; }
+    .timeline .tl-item { font-size: 9px; padding: 4px 0 4px 10px; }
+    .score-track { height: 16px; }
+    .score-label { font-size: 8px; width: 60px; }
+    .flow-node { padding: 6px 8px; font-size: 8px; min-width: 80px; }
+    .flow-arrow { font-size: 14px; }
+  }
+
+  /* ===== CHART COMPONENTS ===== */
+  .hbar { width: 100%; margin: 4px 0; }
+  .hbar-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+  .hbar-label { width: 76px; font-size: 10px; font-weight: 600; text-align: right; flex-shrink: 0; color: var(--dark); }
+  .hbar-track { flex: 1; height: 20px; background: var(--light); border-radius: 4px; overflow: hidden; position: relative; }
+  .hbar-fill { height: 100%; background: var(--accent); border-radius: 4px; min-width: 2px; transition: width 0.5s ease; }
+  .hbar-fill.alt { background: var(--medium); }
+  .hbar-fill.accent { background: var(--amber); }
+  .hbar-fill.high { background: var(--red); }
+  .hbar-val { width: 52px; font-family: var(--mono); font-size: 10px; font-weight: 700; flex-shrink: 0; }
+  .hbar-group { display: flex; flex-direction: column; gap: 1px; flex: 1; }
+  .hbar-group .hbar-track { height: 12px; }
+  .dtable { width: 100%; border-collapse: collapse; font-size: 11px; margin: 6px 0; }
+  .dtable th { text-align: left; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bg); padding: 7px 8px; background: var(--fg); font-weight: 700; }
+  .dtable th:first-child { border-radius: 6px 0 0 0; }
+  .dtable th:last-child { border-radius: 0 6px 0 0; }
+  .dtable td { padding: 6px 8px; border-bottom: 1px solid var(--light); color: var(--dark); vertical-align: top; }
+  .dtable tr:nth-child(even) td { background: var(--light); }
+  .dtable tr:last-child td { border-bottom: 2px solid var(--fg); }
+  .dtable .num { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+  .dtable .right { text-align: right; }
+  .dtable .highlight { background: var(--accent-light) !important; font-weight: 700; }
+  .dtable .result td { background: var(--accent-light) !important; font-weight: 700; }
+  .timeline { position: relative; padding-left: 20px; border-left: 3px solid var(--accent); margin: 8px 0; }
+  .tl-item { position: relative; padding: 6px 0 6px 14px; font-size: 11px; line-height: 1.5; color: var(--dark); }
+  .tl-item::before { content: ''; position: absolute; left: -26px; top: 11px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg); }
+  .tl-year { font-family: var(--mono); font-weight: 700; color: var(--accent); margin-right: 6px; }
+  .vs-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; }
+  .vs-box { border: 1px solid var(--border); padding: 14px; border-radius: 10px; box-shadow: 0 1px 3px rgba(15,23,42,0.04); }
+  .vs-box.win { border-color: var(--accent); border-width: 2px; background: var(--accent-light); }
+  .vs-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+  .vs-divider { display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--medium); }
+  .flow { display: flex; align-items: center; gap: 6px; justify-content: center; margin: 10px 0; flex-wrap: wrap; }
+  .flow-node { border: 2px solid var(--accent); padding: 10px 14px; text-align: center; font-size: 10px; line-height: 1.4; border-radius: 8px; background: var(--bg); min-width: 120px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+  .flow-node strong { display: block; font-size: 11px; color: var(--accent); }
+  .flow-arrow { font-size: 18px; color: var(--accent-mid); flex-shrink: 0; }
+  .flow-arrow-down { text-align: center; font-size: 18px; color: var(--accent-mid); padding: 2px 0; }
+  .score-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+  .score-label { width: 76px; font-size: 10px; font-weight: 600; text-align: right; flex-shrink: 0; }
+  .score-track { flex: 1; height: 24px; background: var(--light); border-radius: 4px; position: relative; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; background: var(--accent); }
+  .score-fill span { font-family: var(--mono); font-size: 10px; font-weight: 700; color: var(--bg); }
+  .score-delta { width: 60px; font-size: 9px; color: var(--muted); flex-shrink: 0; }
+
+  /* ===== ENHANCED VISUAL STYLES ===== */
+
+  /* Slide entrance animations */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(15,118,110,0.1); }
+    50% { box-shadow: 0 0 20px 4px rgba(15,118,110,0.08); }
+  }
+
+  .slide.active .anim-item { animation: fadeInUp 0.5s ease both; }
+  .slide.active .anim-item:nth-child(1) { animation-delay: 0.05s; }
+  .slide.active .anim-item:nth-child(2) { animation-delay: 0.1s; }
+  .slide.active .anim-item:nth-child(3) { animation-delay: 0.15s; }
+  .slide.active .anim-item:nth-child(4) { animation-delay: 0.2s; }
+  .slide.active .anim-item:nth-child(5) { animation-delay: 0.25s; }
+  .slide.active .anim-item:nth-child(6) { animation-delay: 0.3s; }
+  .slide.active .anim-item:nth-child(7) { animation-delay: 0.35s; }
+  .slide.active .anim-item:nth-child(8) { animation-delay: 0.4s; }
+  .slide.active .anim-item:nth-child(9) { animation-delay: 0.45s; }
+  .slide.active .anim-item:nth-child(10) { animation-delay: 0.5s; }
+  .slide.active .anim-item:nth-child(11) { animation-delay: 0.55s; }
+  .slide.active .anim-item:nth-child(12) { animation-delay: 0.6s; }
+
+  /* Transformed bullet points → info cards */
+  .points {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: 1fr; gap: 6px;
+  }
+  .points.grid-2 { grid-template-columns: 1fr 1fr; }
+  .points.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .points li {
+    position: relative;
+    padding: 10px 14px 10px 40px;
+    font-size: 12px; line-height: 1.55; color: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+  }
+  .points li:hover {
+    background: var(--card-hover);
+    transform: translateX(3px);
+    box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+    border-left-color: var(--accent-mid);
+  }
+  .points li:last-child { border-bottom: 1px solid var(--border); }
+  .points li::before {
+    content: counter(point-counter);
+    counter-increment: point-counter;
+    position: absolute; left: 10px; top: 10px;
+    width: 22px; height: 22px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-mid));
+    color: white;
+    border-radius: 6px;
+    font-size: 10px; font-weight: 700; font-family: var(--mono);
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1;
+    text-align: center;
+    padding-top: 1px;
+  }
+  .points { counter-reset: point-counter; }
+  .points li strong { color: var(--fg); font-weight: 700; }
+  .points li .num {
+    font-family: var(--mono); font-weight: 700; color: var(--accent);
+    background: var(--accent-light); padding: 1px 6px; font-size: 11px; margin: 0 2px; border-radius: 3px;
+  }
+  .points li .tag-inline {
+    display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 2px 6px; border: 1px solid var(--border);
+    color: var(--muted); vertical-align: middle; margin-left: 6px; border-radius: 3px;
+  }
+  .points li .tag-inline.dark {
+    background: var(--accent); color: var(--bg); border-color: var(--accent);
+  }
+
+  /* Sub-points as inline pills */
+  .sub-points { list-style: none; margin: 6px 0 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+  .sub-points li {
+    position: relative; padding: 3px 10px;
+    font-size: 10px; line-height: 1.5; color: var(--muted);
+    border-bottom: none;
+    background: var(--light);
+    border-radius: 20px;
+    border: none;
+    border-left: none;
+    transition: all 0.15s;
+  }
+  .sub-points li:hover { background: var(--accent-light); color: var(--accent); transform: none; box-shadow: none; }
+  .sub-points li:last-child { border-bottom: none; }
+  .sub-points li::before { display: none; }
+  .sub-points li strong { color: var(--accent); }
+
+  /* Enhanced cards with hover */
+  .card {
+    border: 1px solid var(--border); padding: 16px; border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    box-shadow: 0 1px 3px rgba(15,23,42,0.04);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+    border-left-color: var(--accent-mid);
+  }
+  .card::after {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at top right, var(--accent-light) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .card:hover::after { opacity: 1; }
+  .card .h3 { margin-bottom: 12px; }
+
+  /* Enhanced key-point blocks */
+  .key-point {
+    border-left: 3px solid var(--accent); padding: 12px 16px; margin: 12px 0 0;
+    background: linear-gradient(135deg, var(--accent-light), rgba(204,251,241,0.3));
+    font-size: 11px; line-height: 1.55; color: var(--dark);
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .key-point::before {
+    content: '\2192';
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    font-size: 16px; color: var(--accent); opacity: 0.3;
+  }
+  .key-point strong { color: var(--accent); }
+
+  /* Glassmorphism metric cards */
+  .metric {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 14px; text-align: center; flex: 1; position: relative;
+    transition: transform 0.2s;
+  }
+  .metric:hover { transform: scale(1.02); }
+  .metric::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); }
+  .metric-val { font-size: 22px; font-weight: 700; font-family: var(--mono); letter-spacing: -0.02em; color: var(--fg); }
+  .metric-lbl { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 3px; font-weight: 600; }
+
+  /* Checklist enhanced */
+  .checklist li {
+    position: relative;
+    transition: all 0.15s ease;
+    border-radius: 6px;
+    margin-bottom: 2px;
+  }
+  .checklist li:hover {
+    background: var(--accent-light);
+    padding-left: 28px;
+  }
+
+  /* Enhanced slide transitions */
+  .slide {
+    transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(40px) scale(0.98);
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0) scale(1);
+    z-index: 10;
+  }
+
+  /* Section divider enhancements */
+  .section-divider, .section-slide {
+    position: relative;
+  }
+  .section-divider::before, .section-slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(15,118,110,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(20,184,166,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Dot pattern decoration */
+  .dot-pattern {
+    position: absolute;
+    width: 120px; height: 120px;
+    background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+    background-size: 12px 12px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Score bars enhanced */
+  .score-fill {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .score-row:hover .score-fill {
+    filter: brightness(1.1);
+  }
+
+  /* Horizontal bar enhanced */
+  .hbar-fill {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hbar-row:hover .hbar-fill {
+    filter: brightness(1.1);
+  }
+
+  /* Tag enhancements */
+  .tag {
+    transition: all 0.15s ease;
+  }
+  .tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(15,23,42,0.08);
+  }
+
+  /* Flow node enhancements */
+  .flow-node {
+    transition: all 0.2s ease;
+  }
+  .flow-node:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15,23,42,0.08);
+  }
+
+  /* VS grid enhancement */
+  .vs-box {
+    transition: all 0.2s ease;
+  }
+  .vs-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15,23,42,0.06);
+  }
+
+  /* Data table row hover */
+  .dtable tr {
+    transition: background 0.15s;
+  }
+  .dtable tr:hover {
+    background: var(--accent-light) !important;
+  }
+  .dtable tr.highlight:hover {
+    background: var(--accent-light) !important;
+  }
+
+</style>
+</head>
+<body>
+
+<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M2 22h20"/><rect x="9" y="8" width="1.5" height="1" rx=".5"/><rect x="13.5" y="8" width="1.5" height="1" rx=".5"/><rect x="9" y="12" width="1.5" height="1" rx=".5"/><rect x="13.5" y="12" width="1.5" height="1" rx=".5"/><rect x="9" y="16" width="1.5" height="1" rx=".5"/><rect x="13.5" y="16" width="1.5" height="1" rx=".5"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  <symbol id="i-git-branch" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+  <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+  <symbol id="i-dollar" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol>
+  <symbol id="i-trending-down" viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6l-5 8a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-8V3"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-bar-chart" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-pie-chart" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  <symbol id="i-check-square" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+  <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <!-- 301 new icons -->
+  <symbol id="i-calculator" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+</svg>
+
+<div class="progress" id="progress"></div>
+
+<!-- ===================== SLIDE 1: Title (MODIFIED) ===================== -->
+<div class="slide title-slide active" data-s="0">
+<div class="inner">
+  <div class="label">Kolosal Tax 301</div>
+  <h1 class="title">Advanced International Tax Planning<br>&amp; Cross-Border Structuring</h1>
+  <p class="subtitle">Beyond headline rates &mdash; worked GILTI/BEAT calculations, FTC basket mechanics, Pillar 2 restructuring, multi-tier leveraging, and corridor-specific ETR walk-throughs for CFOs and tax directors.</p>
+  <div class="divider"></div>
+  <div class="title-meta">
+    <div class="title-meta-item"><svg class="si" style="width:12px;height:12px;"><use href="#i-globe"/></svg> Jurisdictions<strong>US &middot; CA &middot; ID &middot; BR &middot; MX &middot; AU &middot; SG</strong></div>
+    <div class="title-meta-item"><svg class="si" style="width:12px;height:12px;"><use href="#i-clock"/></svg> Tax Year<strong>2024 / 2025</strong></div>
+    <div class="title-meta-item"><svg class="si" style="width:12px;height:12px;"><use href="#i-layers"/></svg> Level<strong>Advanced</strong></div>
+    <div class="title-meta-item"><svg class="si" style="width:12px;height:12px;"><use href="#i-calculator"/></svg> Slides<strong>53</strong></div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 2: Why This Matters (DEEPENED) ===================== -->
+<div class="slide" data-s="1">
+<div class="inner">
+  <div class="label">Context</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-zap"/></svg></div><h2 class="h2">Why Cross-Border Tax Architecture Matters</h2></div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-building"/></svg></div><div class="metric-val">17pp</div><div class="metric-lbl">CIT Spread (SG 17% vs BR 34%)</div></div>
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-dollar"/></svg></div><div class="metric-val">30pp</div><div class="metric-lbl">WHT Spread (SG 0% vs US 30%)</div></div>
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-flask"/></svg></div><div class="metric-val">400%</div><div class="metric-lbl">Max R&D Deduction (SG EIS)</div></div>
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-target"/></svg></div><div class="metric-val">15%</div><div class="metric-lbl">BEPS Pillar 2 Minimum</div></div>
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-shield"/></svg></div><div class="metric-val">$500M</div><div class="metric-lbl">US BEAT Threshold</div></div>
+  </div>
+  <ul class="points">
+    <li><strong>Headline CIT rates tell less than half the story</strong> &mdash; the real cost includes withholding taxes, CFC regimes, interest caps (EIFEL/&sect;163(j)), CAMT, and repatriation mechanics</li>
+    <li><strong>Effective tax rate on repatriated profits</strong> = Local CIT + WHT on dividends/interest &minus; Foreign Tax Credits &minus; Treaty benefits &minus; Structural optimizations</li>
+    <li>Example: US subsidiary at <span class="num">21%</span> CIT + <span class="num">30%</span> branch tax = <span class="num">44.7%</span> combined &mdash; vs Singapore subsidiary at flat <span class="num">17%</span> with <span class="num">0%</span> WHT</li>
+    <li><strong>New 2024/2025 complexity:</strong> US CAMT (&sect;55, 15% book minimum on &ge;$1B groups), Canada EIFEL (ITA &sect;18.2, 30% EBITDA cap), Australia new thin cap (30% EBITDA from July 2024), Singapore DMTT (Pillar 2 top-up from Jan 2025)</li>
+    <li><strong>This presentation provides worked calculations</strong> for GILTI/BEAT/FDII, FTC basket mechanics, Pillar 2 top-ups, multi-tier debt structures, and corridor-specific ETR walk-throughs</li>
+  </ul>
+</div>
+</div>
+
+<!-- ===================== SLIDE 3: Section Divider I (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="2">
+<div class="inner">
+  <div class="section-number">I</div>
+  <div class="section-title">Tax Fundamentals<br>&amp; Rate Architecture</div>
+  <div class="section-tags">
+    <span class="tag">CIT Rates</span>
+    <span class="tag">SME Regimes</span>
+    <span class="tag">VAT/GST</span>
+    <span class="tag">Payroll</span>
+    <span class="tag">Brazil CBS/IBS</span>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 4: Corporate Tax Rates (DEEPENED) ===================== -->
+<div class="slide" data-s="3">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">Fundamentals</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-building"/></svg></div><h2 class="h2">Corporate Tax Rates &amp; SME Regimes</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-building"/></svg> Headline CIT Rates</div>
+      <ul class="points">
+        <li><strong>Singapore:</strong> <span class="num">17%</span> flat &mdash; lowest headline rate; effective as low as 4.25% under SUTE/PTE (ITA &sect;43A/43B)</li>
+        <li><strong>United States:</strong> <span class="num">21%</span> flat (IRC &sect;11(b)); <strong>CAMT:</strong> 15% corporate AMT on adjusted financial statement income for groups with 3-yr avg &ge;$1B (IRC &sect;55)
+          <ul class="sub-points">
+            <li>CAMT applies to book income after adjustments &mdash; affects companies with low ETR from accelerated depreciation, stock comp, or credits</li>
+          </ul>
+        </li>
+        <li><strong>Indonesia:</strong> <span class="num">22%</span> standard; 50% reduction on taxable income &le;IDR 50B (Pasal 31E); <strong>listed companies get <span class="num">19%</span></strong> (3pp discount for &ge;40% public float)</li>
+        <li><strong>Canada:</strong> <span class="num">15%</span> federal + <span class="num">8-16%</span> provincial = 23-31% combined (ITA &sect;123(1), &sect;124)
+          <ul class="sub-points">
+            <li><strong>SBD phase-out:</strong> 9% rate lost when taxable capital exceeds C$10M (fully clawed back at C$15M); also lost when prior-year passive income exceeds C$50K (ITA &sect;125(5.1))</li>
+          </ul>
+        </li>
+        <li><strong>Australia:</strong> <span class="num">30%</span> general; <span class="num">25%</span> base rate entities (&lt;A$50M turnover, &le;80% passive) (ITAA 1997 &sect;23-5)</li>
+        <li><strong>Mexico:</strong> <span class="num">30%</span> flat (LISR Art. 9); ~20% effective in northern border zone (1/3 ISR credit)</li>
+        <li><strong>Brazil:</strong> <span class="num">34%</span> combined &mdash; IRPJ 25% + CSLL 9% (Lei 9.249/1995 Art. 3&deg;, Lei 7.689/1988)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-layers"/></svg> SME &amp; Reduced Regimes</div>
+      <ul class="points">
+        <li><strong>SG Startup (SUTE):</strong> 75% exempt on first S$100K + 50% on next S$100K for first 3 years = effective <span class="num">4.25%</span></li>
+        <li><strong>SG PTE:</strong> 75% exempt on first S$10K + 50% on next S$190K = effective <span class="num">8.29%</span> on first S$200K</li>
+        <li><strong>Canada SBD:</strong> <span class="num">9%</span> federal on first C$500K for CCPCs (ITA &sect;125(1)) = ~12.2% combined
+          <ul class="sub-points">
+            <li>Phase-out: taxable capital &gt;C$10M or passive income &gt;C$50K</li>
+          </ul>
+        </li>
+        <li><strong>Indonesia MSME:</strong> <span class="num">0.5%</span> final tax on gross revenue &le;IDR 4.8B/year (PP 55/2022)</li>
+        <li><strong>Brazil Simples Nacional:</strong> <span class="num">4-33%</span> progressive on gross revenue &le;R$4.8M (LC 123/2006)
+          <ul class="sub-points">
+            <li>Lucro Presumido: ~6-11% effective for service/trade companies &le;R$78M revenue</li>
+          </ul>
+        </li>
+        <li><strong>Mexico RESICO:</strong> <span class="num">1-2.5%</span> for individuals &le;MXN 3.5M (LISR Art. 113-E); no corporate equivalent</li>
+        <li><strong>Australia BRE:</strong> <span class="num">25%</span> vs 30% for turnover &lt;A$50M (ITAA 1997 &sect;23-12)</li>
+      </ul>
+      <div class="key-point">
+        <strong>Range:</strong> A startup paying 0.5% final tax in Indonesia or 4.25% in Singapore vs 34% in Brazil &mdash; a 30pp spread before any structuring.
+      </div>
+    </div>
+  </div>
+  <div class="hbar" style="margin-top:12px;">
+    <div class="hbar-row"><div class="hbar-label">Singapore</div><div class="hbar-track"><div class="hbar-fill" style="width:50%"></div></div><div class="hbar-val">17%</div></div>
+    <div class="hbar-row"><div class="hbar-label">United States</div><div class="hbar-track"><div class="hbar-fill" style="width:61.8%"></div></div><div class="hbar-val">21%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Indonesia</div><div class="hbar-track"><div class="hbar-fill" style="width:64.7%"></div></div><div class="hbar-val">22%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Canada</div><div class="hbar-track"><div class="hbar-fill alt" style="width:67.6%"></div><div class="hbar-fill" style="width:91.2%;position:absolute;top:0;opacity:0.3"></div></div><div class="hbar-val">23-31%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Australia</div><div class="hbar-track"><div class="hbar-fill alt" style="width:73.5%"></div><div class="hbar-fill" style="width:88.2%;position:absolute;top:0;opacity:0.3"></div></div><div class="hbar-val">25-30%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Mexico</div><div class="hbar-track"><div class="hbar-fill" style="width:88.2%"></div></div><div class="hbar-val">30%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Brazil</div><div class="hbar-track"><div class="hbar-fill accent" style="width:100%"></div></div><div class="hbar-val">34%</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 5: VAT/GST (DEEPENED) ===================== -->
+<div class="slide" data-s="4">
+<div class="inner">
+  <div class="label">Indirect Taxes</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-percent"/></svg></div><h2 class="h2">VAT, GST &amp; Sales Tax Comparison</h2></div>
+  <div class="hbar" style="margin-bottom:14px;">
+    <div class="hbar-row"><div class="hbar-label">Mexico (IVA)</div><div class="hbar-track"><div class="hbar-fill accent" style="width:100%"></div></div><div class="hbar-val">16%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Indonesia (PPN)</div><div class="hbar-track"><div class="hbar-fill" style="width:75%"></div></div><div class="hbar-val">12%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Australia (GST)</div><div class="hbar-track"><div class="hbar-fill" style="width:62.5%"></div></div><div class="hbar-val">10%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Singapore (GST)</div><div class="hbar-track"><div class="hbar-fill" style="width:56.3%"></div></div><div class="hbar-val">9%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Canada (GST)</div><div class="hbar-track"><div class="hbar-fill alt" style="width:31.3%"></div><div class="hbar-fill" style="width:93.8%;position:absolute;top:0;opacity:0.3"></div></div><div class="hbar-val">5-15%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Brazil</div><div class="hbar-track"><div class="hbar-fill high" style="width:93.8%"></div></div><div class="hbar-val">~9-25%</div></div>
+    <div class="hbar-row"><div class="hbar-label">US (State)</div><div class="hbar-track"><div class="hbar-fill alt" style="width:64%"></div></div><div class="hbar-val">0-10.25%</div></div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-percent"/></svg> Standard Rates &amp; Exemptions</div>
+      <table class="dtable">
+        <tr><th>Country</th><th>Standard Rate</th><th>Key Exemptions</th></tr>
+        <tr><td>Mexico</td><td class="num">16% (8% border)</td><td>Food, medicine, exports</td></tr>
+        <tr><td>Indonesia</td><td class="num">12% (Jan 2025)</td><td>Basic food, education, health</td></tr>
+        <tr><td>Australia</td><td class="num">10%</td><td>Basic food, health, education</td></tr>
+        <tr><td>Singapore</td><td class="num">9% (Jan 2024)</td><td>Exports, intl services, financial</td></tr>
+        <tr><td>Canada</td><td class="num">5% + 8-10% prov</td><td>Basic groceries, Rx drugs</td></tr>
+        <tr><td>Brazil</td><td class="num">9.25% + 7-25%</td><td>Multi-layer (PIS/COFINS+ICMS+ISS)</td></tr>
+        <tr><td>US</td><td class="num">0-10.25% state</td><td>No federal VAT; varies by state</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-info"/></svg> Key Details</div>
+      <ul class="points">
+        <li><strong>Indonesia:</strong> registration threshold IDR 4.8B/year gross turnover</li>
+        <li><strong>Australia:</strong> registration threshold A$75K (A$150K non-profits); input-taxed: financial services, residential rent</li>
+        <li><strong>Canada:</strong> HST 13-15% in harmonized provinces (ETA &sect;165(1))</li>
+        <li><strong>Brazil reform:</strong> CBS + IBS replacing PIS/COFINS/ICMS/ISS by 2033 (EC No. 132/2023)</li>
+        <li><strong>US:</strong> post-<em>Wayfair</em> (2018): $100K sales or 200 transactions triggers nexus</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 6: Payroll (EXISTING - unchanged) ===================== -->
+<div class="slide" data-s="5">
+<div class="inner">
+  <div class="label">Employment Costs</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-users"/></svg></div><h2 class="h2">Payroll &amp; Employer Social Contributions</h2></div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-users"/></svg></div><div class="metric-val">7.65%</div><div class="metric-lbl">US (Lowest)</div></div>
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-users"/></svg></div><div class="metric-val">17.25%</div><div class="metric-lbl">Singapore (CPF)</div></div>
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-users"/></svg></div><div class="metric-val">~30%</div><div class="metric-lbl">Mexico (IMSS+)</div></div>
+    <div class="metric"><div class="metric-icon"><svg class="si"><use href="#i-users"/></svg></div><div class="metric-val">35.8%</div><div class="metric-lbl">Brazil (Highest)</div></div>
+  </div>
+  <ul class="points">
+    <li><strong>United States:</strong> <span class="num">~7.65%</span> &mdash; Social Security 6.2% (first $168,600) + Medicare 1.45% (no cap) + FUTA 0.6% (IRC &sect;3111, &sect;3301)</li>
+    <li><strong>Canada:</strong> <span class="num">~8.3%</span> &mdash; CPP 5.95% ($3,500-$68,500) + EI 2.282% + provincial varies (CPP Act &sect;9(1), EI Act &sect;68(1))</li>
+    <li><strong>Indonesia:</strong> <span class="num">~11-15%</span> &mdash; BPJS Kesehatan 4% + JKK 0.24-1.74% + JKM 0.3% + JP 2% + Pension 3.7% (PP 84/2013, PP 46/2015)</li>
+    <li><strong>Australia:</strong> <span class="num">~11.5-16.5%</span> &mdash; Superannuation Guarantee 11.5% + state payroll tax 0-6.85% + workers comp (SG Act &sect;19)
+      <ul class="sub-points">
+        <li>SG rate rising to 12% from 1 July 2025</li>
+      </ul>
+    </li>
+    <li><strong>Singapore:</strong> <span class="num">~17.25%</span> &mdash; CPF employer 17% (citizens/PRs, age &le;55) + SDL 0.25% (CPF Act &sect;7(1))
+      <ul class="sub-points">
+        <li><strong>Key insight:</strong> CPF applies ONLY to citizens/PRs. For foreign workers: 0% CPF, only SDL 0.25% + Foreign Worker Levy</li>
+      </ul>
+    </li>
+    <li><strong>Mexico:</strong> <span class="num">~26-35%</span> &mdash; IMSS ~25% (health, disability, retirement, childcare) + Infonavit 5% + state payroll tax 2-3% (LSS Arts. 106-147)</li>
+    <li><strong>Brazil:</strong> <span class="num">~35.8%</span> &mdash; INSS 20% + RAT/SAT 1-3% + Terceiros ~5.8% + FGTS 8% (Lei 8.212/1991 Art. 22, Lei 8.036/1990 Art. 15)</li>
+  </ul>
+  <div class="hbar" style="margin-top:10px;">
+    <div class="hbar-row"><div class="hbar-label">US</div><div class="hbar-track"><div class="hbar-fill" style="width:21.4%"></div></div><div class="hbar-val">~7.65%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Canada</div><div class="hbar-track"><div class="hbar-fill" style="width:23.2%"></div></div><div class="hbar-val">~8.3%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Indonesia</div><div class="hbar-track"><div class="hbar-fill alt" style="width:30.7%"></div><div class="hbar-fill" style="width:41.9%;position:absolute;top:0;opacity:0.3"></div></div><div class="hbar-val">~11-15%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Australia</div><div class="hbar-track"><div class="hbar-fill" style="width:32.1%"></div></div><div class="hbar-val">~11.5%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Singapore</div><div class="hbar-track"><div class="hbar-fill" style="width:48.2%"></div></div><div class="hbar-val">17.25%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Mexico</div><div class="hbar-track"><div class="hbar-fill accent" style="width:97.8%"></div></div><div class="hbar-val">~35%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Brazil</div><div class="hbar-track"><div class="hbar-fill accent" style="width:100%"></div></div><div class="hbar-val">35.8%</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 7: Brazil CBS/IBS Timeline (NEW) ===================== -->
+<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="6">
+<div class="inner">
+  <div class="label">Brazil Tax Reform</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-clock"/></svg></div><h2 class="h2">Brazil Tax Reform: CBS/IBS Timeline 2026&ndash;2033</h2></div>
+  <p class="subtitle" style="margin-bottom:16px;">EC 132/2023 replaces 5 indirect taxes (PIS, COFINS, IPI, ICMS, ISS) with two new value-added taxes: CBS (federal) and IBS (state/municipal).</p>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-clock"/></svg> Reform Timeline</div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2026</div><div class="timeline-desc">CBS pilot at 0.9%; IBS pilot at 0.1%. Existing taxes remain in full.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2027</div><div class="timeline-desc">PIS/COFINS fully replaced by CBS. IPI reduced to zero except for Manaus Free Zone products.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot future"></div><div class="timeline-content"><div class="timeline-year">2029&ndash;2032</div><div class="timeline-desc">Gradual ICMS/ISS phase-out: rates reduced 10%/year while IBS rate increases proportionally.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot future"></div><div class="timeline-content"><div class="timeline-year">2033</div><div class="timeline-desc">Full transition: ICMS and ISS fully extinguished. CBS + IBS as sole indirect taxes. Destination-based collection.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-info"/></svg> Key Design Features</div>
+      <ul class="points">
+        <li><strong>Destination principle:</strong> tax collected where goods/services are consumed, not where produced &mdash; eliminates inter-state tax wars</li>
+        <li><strong>Combined CBS + IBS rate:</strong> estimated at <span class="num">~26.5%</span> (one of the world's highest VAT rates)</li>
+        <li><strong>Broad base:</strong> fewer exemptions than current system; reduced rates for health, education, public transport, agriculture</li>
+        <li><strong>Cashback mechanism:</strong> lower-income families receive refund of tax on basic goods via Bolsa Fam&iacute;lia</li>
+        <li><strong>Selective tax (IS):</strong> new excise on tobacco, alcohol, sugary beverages, mineral extraction, and polluting products</li>
+      </ul>
+      <div class="key-point">
+        <strong>Impact:</strong> Compliance simplification from 5 taxes to 2, but the ~26.5% combined rate is steep. MNEs should model the transition's impact on pricing, cash flow timing, and credit recovery during the 7-year phase-in.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 8: Section Divider II (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="7">
+<div class="inner">
+  <div class="section-number">II</div>
+  <div class="section-title">International Tax<br>Architecture</div>
+  <div class="section-tags">
+    <span class="tag">Territorial vs Worldwide</span>
+    <span class="tag">CFC Rules</span>
+    <span class="tag">GILTI / BEAT / FDII</span>
+    <span class="tag">Holding Structures</span>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 9: Territorial vs Worldwide (EXISTING) ===================== -->
+<div class="slide" data-s="8">
+<div class="inner">
+  <div class="label">Fundamentals</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-globe"/></svg></div><h2 class="h2">Territorial vs. Worldwide Tax Systems</h2></div>
+  <div class="vs-grid" style="margin-bottom:16px;">
+    <div class="vs-box win">
+      <div class="vs-label">Territorial System</div>
+      <p style="font-size:12px;line-height:1.6;color:var(--dark);margin-bottom:8px;">Only tax income earned domestically; foreign income generally <strong>exempt</strong>.</p>
+      <div style="font-size:11px;color:var(--accent);font-weight:700;margin-bottom:6px;">Singapore (ITA &sect;13(8))</div>
+      <ul class="points">
+        <li>Foreign income taxed only when remitted</li>
+        <li>Broad FSIE exemptions for dividends, branch profits, service income</li>
+        <li><strong>No CFC rules</strong> &mdash; maximum flexibility</li>
+      </ul>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-box">
+      <div class="vs-label">Worldwide System</div>
+      <p style="font-size:12px;line-height:1.6;color:var(--dark);margin-bottom:8px;">Tax <strong>all income</strong> regardless of where earned; foreign taxes may be credited.</p>
+      <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:6px;">US, Canada, Australia, Brazil, Mexico, Indonesia</div>
+      <ul class="points">
+        <li>Each country has CFC rules determining <em>when</em> and <em>how</em> they tax foreign subsidiaries</li>
+        <li>FTC complexity varies by basket system</li>
+        <li>CFC severity ranges widely (see below)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="h3"><svg class="si"><use href="#i-globe"/></svg> Parent Country Impact on Structuring</div>
+  <div class="three-col">
+    <div class="card" style="border-left-color:#16a34a;">
+      <div style="font-size:11px;font-weight:700;color:#16a34a;margin-bottom:4px;">MOST FLEXIBLE</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:4px;">Singapore as Parent</div>
+      <p style="font-size:11px;color:var(--dark);line-height:1.5;">No CFC rules, no tax on foreign dividends/profits. Maximum structuring freedom.</p>
+    </div>
+    <div class="card" style="border-left-color:var(--amber);">
+      <div style="font-size:11px;font-weight:700;color:var(--amber);margin-bottom:4px;">COMPLEX</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:4px;">US as Parent</div>
+      <p style="font-size:11px;color:var(--dark);line-height:1.5;">GILTI imposes 10.5% minimum tax on all CFC earnings. HTE election critical.</p>
+    </div>
+    <div class="card" style="border-left-color:var(--red);">
+      <div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:4px;">MOST RESTRICTIVE</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:4px;">Brazil as Parent</div>
+      <p style="font-size:11px;color:var(--dark);line-height:1.5;">Universal CFC &mdash; all foreign profits taxed annually at 34%, zero deferral.</p>
+    </div>
+  </div>
+  <div class="key-point" style="margin-top:12px;">
+    <strong>Key takeaway:</strong> Before choosing where to set up subsidiaries, first understand what your parent country will do with the profits earned abroad.
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 10: CFC Rules (EXISTING) ===================== -->
+<div class="slide" data-s="9">
+<div class="inner">
+  <div class="label">CFC Rules</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-shield"/></svg></div><h2 class="h2">What Are CFC Rules &amp; Why Do They Matter?</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-info"/></svg> What Are CFC Rules?</div>
+      <ul class="points">
+        <li><strong>CFC = Controlled Foreign Company</strong> &mdash; a foreign subsidiary where the parent country's residents own a controlling stake</li>
+        <li><strong>CFC rules force the parent</strong> to include certain foreign subsidiary income in its own tax return &mdash; even if no dividends are paid</li>
+        <li>The goal: <strong>prevent profit deferral</strong> by parking income in low-tax jurisdictions indefinitely</li>
+      </ul>
+      <div class="h3" style="margin-top:12px;"><svg class="si"><use href="#i-search"/></svg> What Varies by Country</div>
+      <ul class="checklist">
+        <li>Ownership threshold (when are you "controlling"?)</li>
+        <li>What income gets caught (all, passive only, or below a rate threshold?)</li>
+        <li>Whether active business income is exempted</li>
+        <li>Whether foreign tax credits offset double taxation</li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-alert"/></svg> CFC Severity Ranking</div>
+      <div class="score-row"><div class="score-label">Brazil</div><div class="score-track"><div class="score-fill" style="width:100%;background:var(--red);"><span>10/10</span></div></div><div class="score-delta">Universal</div></div>
+      <div class="score-row"><div class="score-label">US</div><div class="score-track"><div class="score-fill" style="width:85%;background:var(--amber);"><span>8.5</span></div></div><div class="score-delta">GILTI+SubF</div></div>
+      <div class="score-row"><div class="score-label">Canada</div><div class="score-track"><div class="score-fill" style="width:55%;background:var(--accent);"><span>5.5</span></div></div><div class="score-delta">FAPI</div></div>
+      <div class="score-row"><div class="score-label">Australia</div><div class="score-track"><div class="score-fill" style="width:45%;background:var(--accent);"><span>4.5</span></div></div><div class="score-delta">Part X</div></div>
+      <div class="score-row"><div class="score-label">Mexico</div><div class="score-track"><div class="score-fill" style="width:35%;background:var(--accent-mid);"><span>3.5</span></div></div><div class="score-delta">REFIPRE</div></div>
+      <div class="score-row"><div class="score-label">Indonesia</div><div class="score-track"><div class="score-fill" style="width:20%;background:var(--medium);"><span>2.0</span></div></div><div class="score-delta">Deemed Div</div></div>
+      <div class="score-row"><div class="score-label">Singapore</div><div class="score-track"><div class="score-fill" style="width:0%;background:var(--accent);"><span></span></div></div><div class="score-delta">None</div></div>
+      <table class="dtable" style="margin-top:10px;">
+        <tr><th>Country</th><th>Income Caught</th><th>Statute</th></tr>
+        <tr><td>Brazil</td><td class="num">ALL foreign profits</td><td>Lei 12.973 Arts. 76-92</td></tr>
+        <tr><td>US</td><td class="num">All CFC income @ 10.5%</td><td>IRC &sect;951A</td></tr>
+        <tr><td>Canada</td><td>Passive only (FAPI)</td><td>ITA &sect;91-95</td></tr>
+        <tr><td>Australia</td><td>Passive (95% safe harbor)</td><td>ITAA 1936 Part X</td></tr>
+        <tr><td>Mexico</td><td>Passive &lt;22.5% rate</td><td>LISR Art. 176</td></tr>
+        <tr><td>Indonesia</td><td>Deemed dividend</td><td>PMK 107</td></tr>
+        <tr class="result"><td>Singapore</td><td>No CFC rules</td><td>&mdash;</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+<!-- ===================== SLIDE 11: CFC Thresholds (EXISTING) ===================== -->
+<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="10">
+<div class="inner">
+  <div class="label">CFC Rules</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-shield"/></svg></div><h2 class="h2">CFC Thresholds &amp; Planning Points</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-shield"/></svg> Ownership &amp; Income Triggers</div>
+      <ul class="points">
+        <li><strong>US:</strong> <span class="num">10%</span> individual + <span class="num">50%</span> aggregate &mdash; catches <em>all</em> CFC income via GILTI</li>
+        <li><strong>Canada:</strong> <span class="num">10%</span> + <span class="num">50%</span> combined &mdash; only passive + service income caught</li>
+        <li><strong>Australia:</strong> <span class="num">50%</span> control &mdash; passive income caught; 95% active income test exempts most operating subs</li>
+        <li><strong>Mexico:</strong> <span class="num">50%</span> control &mdash; only passive income in jurisdictions below 22.5% effective rate</li>
+        <li><strong>Indonesia:</strong> <span class="num">50%</span> control &mdash; deemed dividend on passive income</li>
+        <li><strong>Brazil:</strong> <span class="num">50%</span> control &mdash; <em>all income</em> regardless of character or source country rate</li>
+        <li><strong>Singapore:</strong> No threshold &mdash; no CFC regime exists</li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-lightbulb"/></svg> Key Planning Points</div>
+      <ul class="points">
+        <li><strong>US GILTI High-Tax Exclusion:</strong> if the CFC pays an effective rate &ge;<span class="num">18.9%</span> (90% of 21%), GILTI inclusion can be excluded
+          <ul class="sub-points">
+            <li>Indonesia (22%), Canada (23-27%), Australia (25-30%) naturally qualify</li>
+            <li>Singapore (17%) does NOT qualify &mdash; GILTI applies at 10.5%</li>
+          </ul>
+        </li>
+        <li><strong>Canada FAPI:</strong> active business income earned in treaty countries qualifies for "exempt surplus" &mdash; dividends flow to Canada tax-free</li>
+        <li><strong>Australia Part X:</strong> keep each CFC at 95%+ active income to stay outside the CFC net</li>
+        <li><strong>Brazil:</strong> no planning avoids CFC inclusion &mdash; focus instead on maximizing foreign tax credits to offset the 34% domestic rate</li>
+        <li><strong>FTC carry-forward:</strong> US allows 10 years, Canada 10 years, others generally none</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 12: GILTI, BEAT & FDII (NEW) ===================== -->
+<div class="slide" data-s="11">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">US International Tax</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">US GILTI, BEAT &amp; FDII: The Trifecta</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-calculator"/></svg> GILTI Worked Calculation</div>
+      <div class="calc-box">
+        <div class="calc-title">Example: Singapore CFC with $50M Tested Income</div>
+        <table class="calc-table">
+          <tr><th>Line</th><th>Amount</th></tr>
+          <tr><td>CFC Tested Income</td><td>$50,000,000</td></tr>
+          <tr><td>QBAI (tangible assets)</td><td>$100,000,000</td></tr>
+          <tr><td>NDTIR (10% &times; QBAI)</td><td>($10,000,000)</td></tr>
+          <tr class="highlight"><td>Net GILTI Inclusion</td><td>$40,000,000</td></tr>
+          <tr><td>&sect;250 Deduction (50%)</td><td>($20,000,000)</td></tr>
+          <tr><td>Taxable @ 21%</td><td>$20,000,000</td></tr>
+          <tr class="total"><td>US Tax on GILTI</td><td>$4,200,000</td></tr>
+          <tr><td>Effective rate on $50M</td><td>8.4%</td></tr>
+        </table>
+      </div>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>&sect;250 phase-down:</strong> The 50% GILTI deduction drops to 37.5% after 2025 (IRC &sect;250(a)(3)), raising the effective GILTI rate from <span class="num">10.5%</span> to <span class="num">13.125%</span>.
+      </div>
+      <table class="dtable" style="margin-top:8px;">
+        <tr><th>GILTI Component</th><th class="right">Amount</th></tr>
+        <tr><td>Tested Income</td><td class="right num">$50,000,000</td></tr>
+        <tr><td>QBAI (Tangible Assets)</td><td class="right num">$100,000,000</td></tr>
+        <tr><td>NDTIR (10% &times; QBAI)</td><td class="right num">($10,000,000)</td></tr>
+        <tr class="highlight"><td>Net GILTI Inclusion</td><td class="right num">$40,000,000</td></tr>
+        <tr><td>&sect;250 Deduction (50%)</td><td class="right num">($20,000,000)</td></tr>
+        <tr><td>Tax @ 21%</td><td class="right num">$4,200,000</td></tr>
+        <tr class="result"><td>Effective Rate on $50M</td><td class="right num">8.4%</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-shield"/></svg> BEAT &amp; FDII</div>
+      <ul class="points">
+        <li><strong>BEAT (IRC &sect;59A):</strong> 10% minimum tax on "modified taxable income" (adds back deductible payments to foreign affiliates)
+          <ul class="sub-points">
+            <li>Threshold: <span class="num">$500M</span> 3-yr avg gross receipts + base erosion payments &ge;3% of total deductions</li>
+            <li>Catches: intercompany royalties, management fees, interest to foreign affiliates</li>
+            <li>Does NOT catch: COGS, services eligible for SCM exception</li>
+          </ul>
+        </li>
+        <li><strong>FDII (IRC &sect;250):</strong> 37.5% deduction on income from serving foreign markets = effective <span class="num">13.125%</span> rate
+          <ul class="sub-points">
+            <li>Applies to: US-based companies earning export income from IP, services, property sold for foreign use</li>
+            <li>Phase-down: deduction drops from 37.5% to 21.875% after 2025 &rarr; effective rate rises to ~16.4%</li>
+          </ul>
+        </li>
+        <li><strong>Strategic interaction:</strong> GILTI incentivizes placing IP offshore (lower inclusion), while FDII incentivizes keeping IP onshore (lower rate on exports). Post-2025, the gap narrows significantly.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 13: Brazil CFC & JCP (NEW) ===================== -->
+<div class="slide" data-s="12">
+<div class="inner">
+  <div class="label">Brazil International Tax</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">Brazil Universal CFC &amp; JCP Optimization</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-shield"/></svg> Universal CFC &mdash; Severity Analysis</div>
+      <div class="metrics" style="margin-bottom:10px;">
+        <div class="metric"><div class="metric-val" style="color:var(--red);">34%</div><div class="metric-lbl">CFC Rate (IRPJ 25% + CSLL 9%)</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--red);">0</div><div class="metric-lbl">Active Income Exemptions</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--red);">0yr</div><div class="metric-lbl">FTC Carry-Forward</div></div>
+      </div>
+      <ul class="checklist">
+        <li><strong>Scope:</strong> ALL foreign profits taxed annually, regardless of distribution (Lei 12.973 Arts. 76-92)</li>
+        <li><strong>No active income exemption</strong> &mdash; unique among all 7 jurisdictions</li>
+        <li><strong>FTC:</strong> available only with reciprocity/treaty; use-it-or-lose-it</li>
+        <li><strong>Consolidation:</strong> CFC profits/losses may offset within same fiscal year only</li>
+      </ul>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>Implication:</strong> For Brazilian parents, the only optimization lever is maximizing FTC utilization and using JCP for inbound flows. No holding structure avoids the 34% CFC inclusion.
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-calculator"/></svg> JCP Worked Example</div>
+      <div class="calc-box">
+        <div class="calc-title">Juros sobre Capital Pr&oacute;prio &mdash; R$100M Equity Base</div>
+        <table class="calc-table">
+          <tr><th>Item</th><th>Dividend Route</th><th>JCP Route</th></tr>
+          <tr><td>Pre-tax Profit</td><td>R$100M</td><td>R$100M</td></tr>
+          <tr><td>JCP Deduction (TJLP ~12%)</td><td>&mdash;</td><td>(R$12M)</td></tr>
+          <tr><td>Taxable Income</td><td>R$100M</td><td>R$88M</td></tr>
+          <tr><td>CIT @ 34%</td><td>(R$34M)</td><td>(R$29.9M)</td></tr>
+          <tr><td>WHT on JCP @ 15%</td><td>&mdash;</td><td>(R$1.8M)</td></tr>
+          <tr><td>WHT on Dividends</td><td>R$0</td><td>&mdash;</td></tr>
+          <tr class="total"><td>Total Tax</td><td>R$34M (34%)</td><td>R$31.7M (31.7%)</td></tr>
+          <tr class="highlight"><td>Net to Parent</td><td>R$66M</td><td>R$68.3M</td></tr>
+        </table>
+      </div>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>JCP saves ~2.3pp ETR</strong> (R$2.3M on R$100M). Savings scale with equity &mdash; R$1B equity base saves ~R$23M/year. Limited to TJLP &times; equity (Lei 9.249/1995 Art. 9).
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 14: Holding Company (EXISTING) ===================== -->
+<div class="slide" data-s="13">
+<div class="inner">
+  <div class="label">Structuring</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-layers"/></svg></div><h2 class="h2">How to Pick a Holding Company Jurisdiction</h2></div>
+  <ul class="points">
+    <li><strong>Start with your parent country's CFC regime</strong> &mdash; this is the #1 factor, not the holding company's local tax rate</li>
+    <li><strong>Singapore parent</strong> &rarr; use Singapore itself as holding company
+      <ul class="sub-points">
+        <li>No CFC rules, 0% dividend WHT, 0% capital gains tax, 90+ tax treaties</li>
+      </ul>
+    </li>
+    <li><strong>Canada parent</strong> &rarr; hold subsidiaries in treaty countries for "exempt surplus"
+      <ul class="sub-points">
+        <li>Active business income dividends from treaty country subs = tax-free under ITA &sect;113</li>
+      </ul>
+    </li>
+    <li><strong>Australia parent</strong> &rarr; ensure each foreign sub has 95%+ active income
+      <ul class="sub-points">
+        <li>Operating subsidiaries with genuine substance work well; avoid IP-heavy or passive-income CFCs</li>
+      </ul>
+    </li>
+    <li><strong>US parent</strong> &rarr; structure for GILTI High-Tax Exclusion (&ge;18.9% ETR)
+      <ul class="sub-points">
+        <li>Push CFC effective rates above 18.9% to exclude from GILTI; consider FDII for US-based exports</li>
+      </ul>
+    </li>
+    <li><strong>Mexico parent</strong> &rarr; ensure foreign subs have &gt;75% active income and pay &gt;22.5% local rate</li>
+    <li><strong>Brazil parent</strong> &rarr; no holding structure avoids universal CFC; focus on FTC maximization and JCP</li>
+  </ul>
+  <table class="dtable" style="margin-top:10px;">
+    <tr><th>Parent Country</th><th>Holding Strategy</th><th>Key ETR Benefit</th></tr>
+    <tr><td>Singapore</td><td>Self as holding (no CFC, 0% WHT, 0% CGT)</td><td class="num">0% on dividends</td></tr>
+    <tr><td>Canada</td><td>Treaty-country subs for exempt surplus</td><td class="num">0% on active income dividends</td></tr>
+    <tr><td>Australia</td><td>&ge;95% active income per CFC</td><td class="num">0% CFC inclusion</td></tr>
+    <tr><td>United States</td><td>GILTI HTE (&ge;18.9% ETR)</td><td class="num">0% GILTI if &ge;18.9%</td></tr>
+    <tr><td>Mexico</td><td>&gt;75% active + &gt;22.5% local rate</td><td class="num">CFC exemption</td></tr>
+    <tr class="result"><td>Brazil</td><td>JCP optimization (no CFC escape)</td><td class="num">~2.3pp ETR saving via JCP</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== SLIDE 15: Branch vs Subsidiary (EXISTING) ===================== -->
+<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="14">
+<div class="inner">
+  <div class="label">Entity Structure</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-git-branch"/></svg></div><h2 class="h2">Branch vs. Subsidiary: When to Use Which</h2></div>
+  <div class="scenario-compare" style="margin-bottom:14px;">
+    <div class="scenario-panel better">
+      <div class="scenario-header">Use a Branch When</div>
+      <div class="scenario-body">
+        <ul class="checklist">
+          <li><strong>Expecting initial losses</strong> &mdash; offset HQ profits in US, CA, and worldwide-system countries</li>
+          <li><strong>Temporary projects</strong> &mdash; construction/consulting below PE thresholds</li>
+          <li><strong>Brazil or Australia ops</strong> &mdash; <span class="num">0%</span> branch profits tax</li>
+          <li><strong>Singapore ops</strong> &mdash; <span class="num">0%</span> branch tax, only <span class="num">17%</span> CIT</li>
+        </ul>
+      </div>
+    </div>
+    <div class="scenario-vs">VS</div>
+    <div class="scenario-panel worse" style="border-left-color:var(--accent);">
+      <div class="scenario-header" style="color:var(--accent);">Use a Subsidiary When</div>
+      <div class="scenario-body">
+        <ul class="checklist">
+          <li><strong>Profitable from the start</strong> &mdash; access Tax Holiday, Pioneer, SBD, PTE</li>
+          <li><strong>Long-term operations</strong> &mdash; asset protection, reinvest without branch tax</li>
+          <li><strong>Dividend repatriation via treaty</strong> &mdash; WHT often lower than branch tax</li>
+          <li><strong>ID:</strong> Tax Holiday 0% for 5-20 years</li>
+          <li><strong>CA:</strong> SBD 9% on first C$500K</li>
+          <li><strong>AU:</strong> BRE 25% vs 30%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="h3"><svg class="si"><use href="#i-alert"/></svg> Branch Profits Tax by Country</div>
+  <div class="hbar">
+    <div class="hbar-row"><div class="hbar-label">SG / BR / AU</div><div class="hbar-track"><div class="hbar-fill" style="width:0%;min-width:2px"></div></div><div class="hbar-val">0%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Indonesia</div><div class="hbar-track"><div class="hbar-fill accent" style="width:67%"></div></div><div class="hbar-val">20%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Canada</div><div class="hbar-track"><div class="hbar-fill accent" style="width:83%"></div></div><div class="hbar-val">25%</div></div>
+    <div class="hbar-row"><div class="hbar-label">US</div><div class="hbar-track"><div class="hbar-fill high" style="width:100%"></div></div><div class="hbar-val">30%</div></div>
+  </div>
+  <div class="key-point" style="margin-top:8px;">
+    <strong>Watch out:</strong> US branch profits tax is <span class="num">30%</span> and Canada is <span class="num">25%</span> &mdash; combined branch rates hit 44.7% (US) and 36.3% (CA). Always model both structures before entry.
+  </div>
+</div>
+</div>
+<!-- ===================== SLIDE 16: Section Divider III (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="15">
+<div class="inner">
+  <div class="section-number">III</div>
+  <div class="section-title">Treaty Networks, WHT<br>&amp; Profit Repatriation</div>
+  <div class="section-tags">
+    <span class="tag">WHT Rates</span>
+    <span class="tag">FTC Baskets</span>
+    <span class="tag">Franking Credits</span>
+    <span class="tag">FSIE</span>
+    <span class="tag">Repatriation</span>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 17: WHT & Treaties (EXISTING) ===================== -->
+<div class="slide" data-s="16">
+<div class="inner">
+  <div class="label">Treaty Planning</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-file-text"/></svg></div><h2 class="h2">Withholding Taxes &amp; Treaty Networks</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-dollar"/></svg> Default vs Best Treaty Rate (Dividends)</div>
+      <table class="dtable">
+        <tr><th>Country</th><th class="right">Default WHT</th><th class="right">Best Treaty</th><th>Note</th></tr>
+        <tr class="highlight"><td>Singapore</td><td class="right num">0%</td><td class="right num">0%</td><td>One-tier; no WHT ever (ITA &sect;44)</td></tr>
+        <tr class="highlight"><td>Brazil</td><td class="right num">0%</td><td class="right num">0%</td><td>Dividends exempt; JCP: 15% WHT</td></tr>
+        <tr><td>Mexico</td><td class="right num">10%</td><td class="right num">0%</td><td>Pre-2014 CUFIN also 0%</td></tr>
+        <tr><td>Indonesia</td><td class="right num">20%</td><td class="right num">10%</td><td>Reinvestment exemption available</td></tr>
+        <tr><td>Canada</td><td class="right num">25%</td><td class="right num">5%</td><td>Arm's length interest already 0%</td></tr>
+        <tr><td>US</td><td class="right num">30%</td><td class="right num">5%</td><td>Portfolio interest exemption exists</td></tr>
+        <tr><td>Australia</td><td class="right num">30%</td><td class="right num">0%</td><td>0% on franked dividends</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-globe"/></svg> Key Investment Corridors</div>
+      <table class="dtable">
+        <tr><th>Corridor</th><th class="right">Dividends</th><th class="right">Interest</th><th class="right">Royalties</th></tr>
+        <tr class="highlight"><td>US &harr; Canada</td><td class="right num">5%</td><td class="right num">0%</td><td class="right num">0-10%</td></tr>
+        <tr><td>SG &harr; Indonesia</td><td class="right num">10%</td><td class="right num">10%</td><td class="right num">10%</td></tr>
+        <tr><td>SG &harr; Australia</td><td class="right num">15%</td><td class="right num">10%</td><td class="right num">10%</td></tr>
+        <tr><td>CA &harr; Australia</td><td class="right num">5%</td><td class="right num">10%</td><td class="right num">10%</td></tr>
+        <tr><td>BR &harr; Mexico</td><td class="right num">10%</td><td class="right num">15%</td><td class="right num">10-15%</td></tr>
+        <tr class="result"><td>US &harr; Singapore</td><td class="right num">30%*</td><td class="right num">30%*</td><td class="right num">30%*</td></tr>
+      </table>
+      <div class="key-point" style="margin-top:6px;">
+        <strong>* No US-SG comprehensive treaty</strong> &mdash; only limited shipping/aircraft agreement. Creates 30% WHT exposure on US-source dividends to Singapore parents.
+      </div>
+    </div>
+  </div>
+  <table class="dtable" style="margin-top:10px;">
+    <tr><th>Source</th><th class="right">Foreign CIT</th><th class="right">US Tax @21%</th><th class="right">FTC Allowed</th><th class="right">Net US Tax</th></tr>
+    <tr><td>Singapore (17%)</td><td class="right num">$1.7M</td><td class="right num">$2.1M</td><td class="right num">$1.7M</td><td class="right num">$0.4M</td></tr>
+    <tr><td>Indonesia (22% + 10% WHT)</td><td class="right num">$2.38M</td><td class="right num">$1.68M</td><td class="right num">$1.68M</td><td class="right num">$0</td></tr>
+    <tr><td>Australia (30%, franked)</td><td class="right num">$1.8M</td><td class="right num">$1.26M</td><td class="right num">$1.26M</td><td class="right num">$0</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== SLIDE 18: Repatriation (EXISTING) ===================== -->
+<div class="slide" data-s="17">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">Repatriation</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-dollar"/></svg></div><h2 class="h2">Repatriating $10M to a Singapore Parent</h2></div>
+  <div class="metrics" style="margin-bottom:14px;">
+    <div class="metric"><div class="metric-val" style="color:#16a34a;">$8.5M</div><div class="metric-lbl">Brazil (JCP) Best</div></div>
+    <div class="metric"><div class="metric-val">$7.5M</div><div class="metric-lbl">US (Treaty)</div></div>
+    <div class="metric"><div class="metric-val">$7.0M</div><div class="metric-lbl">ID / AU / MX</div></div>
+    <div class="metric"><div class="metric-val" style="color:var(--red);">$6.6M</div><div class="metric-lbl">Brazil (Div) Worst</div></div>
+  </div>
+  <table class="dtable">
+    <tr><th>Source Country</th><th class="right">CIT</th><th class="right">WHT</th><th class="right">Combined ETR</th><th class="right">Cash Received</th></tr>
+    <tr class="highlight"><td>Brazil (JCP route)</td><td class="right num">~22%*</td><td class="right num">15%</td><td class="right num">~15%</td><td class="right num">$8.5M</td></tr>
+    <tr><td>US (treaty)</td><td class="right num">21%</td><td class="right num">5%</td><td class="right num">24.95%</td><td class="right num">$7.5M</td></tr>
+    <tr><td>Indonesia</td><td class="right num">22%</td><td class="right num">10%</td><td class="right num">29.8%</td><td class="right num">$7.0M</td></tr>
+    <tr><td>Australia (franked)</td><td class="right num">30%</td><td class="right num">0%</td><td class="right num">30%</td><td class="right num">$7.0M</td></tr>
+    <tr><td>Mexico (treaty)</td><td class="right num">30%</td><td class="right num">0%</td><td class="right num">30%</td><td class="right num">$7.0M</td></tr>
+    <tr><td>Canada (Ontario)</td><td class="right num">26.5%</td><td class="right num">5%</td><td class="right num">30.2%</td><td class="right num">$6.98M</td></tr>
+    <tr class="result"><td>Brazil (dividends)</td><td class="right num">34%</td><td class="right num">0%</td><td class="right num">34%</td><td class="right num">$6.6M</td></tr>
+  </table>
+  <p style="font-size:10px;color:var(--muted);margin-top:4px;">* JCP is deductible against 34% CIT, reducing effective corporate tax. Note: US without treaty would be 30% WHT (no US-SG DTA).</p>
+  <div class="two-col" style="margin-top:16px;">
+    <div class="key-point" style="margin:0;">
+      <strong>Singapore FSIE:</strong> foreign-source dividends and branch profits exempt when source country headline rate &ge;15% (ITA &sect;13(8)). All 6 above qualify.
+    </div>
+    <div class="key-point" style="margin:0;">
+      <strong>FX controls:</strong> Indonesia requires BI reporting + export proceeds in domestic banks. Brazil requires BCB RDE-IED registration + IOF on FX operations.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 19: FTC Mechanics (DEEPENED) ===================== -->
+<div class="slide" style="background: linear-gradient(135deg, #fefffe 0%, #f5f3ff 50%, #ffffff 100%);" data-s="18">
+<div class="inner">
+  <div class="label">Double Tax Relief</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-refresh"/></svg></div><h2 class="h2">Foreign Tax Credit Mechanics</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-refresh"/></svg> US FTC Basket System (IRC &sect;904(d))</div>
+      <table class="dtable">
+        <tr><th>Basket</th><th>Income Type</th><th class="right">Carry-Fwd</th><th class="right">Carry-Back</th></tr>
+        <tr><td>General</td><td>Active business income</td><td class="right num">10yr</td><td class="right num">1yr</td></tr>
+        <tr><td>Passive</td><td>Dividends, interest, royalties, rents</td><td class="right num">10yr</td><td class="right num">1yr</td></tr>
+        <tr class="result"><td>GILTI</td><td>CFC tested income inclusions</td><td class="right num" style="color:var(--red);">0</td><td class="right num" style="color:var(--red);">0</td></tr>
+        <tr><td>Foreign Branch</td><td>Branch-attributable income</td><td class="right num">10yr</td><td class="right num">1yr</td></tr>
+      </table>
+      <div class="key-point" style="margin-top:6px;">
+        <strong>GILTI basket:</strong> single-year only; limited to 80% of foreign taxes (IRC &sect;960(d)). <strong>Cross-basket:</strong> excess credits in one basket CANNOT offset tax in another &mdash; permanent double taxation risk.
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-globe"/></svg> Other Jurisdictions</div>
+      <table class="dtable">
+        <tr><th>Country</th><th>Method</th><th class="right">Carry-Fwd</th><th>Statute</th></tr>
+        <tr><td>Canada</td><td>Per-country (bus/non-bus)</td><td class="right num">10yr / 0</td><td>ITA &sect;126</td></tr>
+        <tr><td>Australia</td><td>Single basket (FITO)</td><td class="right num" style="color:var(--red);">None</td><td>Div. 770</td></tr>
+        <tr><td>Singapore</td><td>Per-country + pooling</td><td class="right num" style="color:var(--red);">None</td><td>ITA &sect;50A</td></tr>
+        <tr><td>Indonesia</td><td>Per-country</td><td class="right num" style="color:var(--red);">None</td><td>Pasal 24</td></tr>
+        <tr><td>Mexico</td><td>Per-country</td><td class="right num" style="color:var(--red);">None</td><td>LISR Art. 5</td></tr>
+        <tr><td>Brazil</td><td>Per-country (reciprocity)</td><td class="right num" style="color:var(--red);">None</td><td>RIR Art. 292</td></tr>
+      </table>
+      <div class="key-point" style="margin-top:6px;">
+        <strong>Risk:</strong> In ID, MX, BR, AU &mdash; excess FTCs are <strong>permanently lost</strong>. Plan intercompany pricing and dividend timing to match FTC capacity each year.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 20: FTC Basket Calculation (NEW) ===================== -->
+<div class="slide" data-s="19">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">Worked Example</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">FTC Basket Calculation: Multi-Jurisdiction Case</h2></div>
+  <p class="subtitle" style="margin-bottom:14px;">Singapore parent with 3 subsidiaries. US parent claiming FTC on repatriated dividends.</p>
+  <div class="calc-box">
+    <div class="calc-title">Per-Basket FTC Limitation &mdash; US Parent with SG, ID &amp; AU Subsidiaries</div>
+    <table class="calc-table">
+      <tr><th>Item</th><th>SG Sub (General)</th><th>ID Sub (General)</th><th>AU Sub (General)</th><th>Total</th></tr>
+      <tr><td>Foreign Pre-tax Income</td><td>$10M</td><td>$8M</td><td>$6M</td><td>$24M</td></tr>
+      <tr><td>Local CIT Paid</td><td>$1.7M (17%)</td><td>$1.76M (22%)</td><td>$1.8M (30%)</td><td>$5.26M</td></tr>
+      <tr><td>WHT on Dividends</td><td>$0 (0%)</td><td>$0.62M (10%)</td><td>$0 (franked)</td><td>$0.62M</td></tr>
+      <tr><td>Total Foreign Tax</td><td>$1.7M</td><td>$2.38M</td><td>$1.8M</td><td>$5.88M</td></tr>
+      <tr><td>US Tax @ 21%</td><td>$2.1M</td><td>$1.68M</td><td>$1.26M</td><td>$5.04M</td></tr>
+      <tr><td>FTC Allowed (capped at US tax)</td><td>$1.7M</td><td>$1.68M</td><td>$1.26M</td><td>$4.64M</td></tr>
+      <tr class="highlight"><td>Excess / (Shortfall)</td><td>($0.4M)</td><td>$0.7M excess</td><td>$0.54M excess</td><td>$0.84M excess</td></tr>
+      <tr class="total"><td>Net US Tax Due</td><td>$0.4M</td><td>$0</td><td>$0</td><td>$0.4M</td></tr>
+    </table>
+  </div>
+  <div class="key-point">
+    <strong>Result:</strong> SG subsidiary under-credits (17% &lt; 21% US rate), creating $0.4M residual US tax. ID/AU over-credit, but excess credits in the general basket can cross-credit within the same basket. Net US tax: $0.4M on $24M = 1.7% incremental. Total combined ETR: 26.2%.
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 21: Australia Franking Deep-Dive (NEW) ===================== -->
+<div class="slide" data-s="20">
+<div class="inner">
+  <div class="label">Australia Deep-Dive</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">Australia Franking Credit System Deep-Dive</h2></div>
+  <div class="scenario-compare">
+    <div class="scenario-panel better">
+      <div class="scenario-header">Scenario A: Fully Franked Dividend</div>
+      <div class="scenario-body">
+        <p><strong>AU subsidiary earns A$10M pre-tax</strong></p>
+        <p>CIT @ 30%: <span class="num">(A$3M)</span></p>
+        <p>After-tax profit: A$7M</p>
+        <p>Franking credit attached: A$3M</p>
+        <p>WHT on franked dividend: <span class="num">0%</span> (Div. 202)</p>
+        <p>Cash received by SG parent: <span class="num">A$7M</span></p>
+        <p style="margin-top:8px;"><strong>Total ETR: 30%</strong></p>
+        <p>SG FSIE exempt (AU headline &ge;15%)</p>
+      </div>
+    </div>
+    <div class="scenario-vs">VS</div>
+    <div class="scenario-panel worse">
+      <div class="scenario-header">Scenario B: Unfranked Dividend</div>
+      <div class="scenario-body">
+        <p><strong>AU subsidiary earns A$10M pre-tax</strong></p>
+        <p>CIT @ 30%: <span class="num">(A$3M)</span></p>
+        <p>After-tax profit: A$7M</p>
+        <p>No franking credit (e.g., from exempt income)</p>
+        <p>WHT on unfranked @ 15% treaty: <span class="num">(A$1.05M)</span></p>
+        <p>Cash received by SG parent: <span class="num">A$5.95M</span></p>
+        <p style="margin-top:8px;"><strong>Total ETR: 40.5%</strong></p>
+        <p>10.5pp worse than franked route</p>
+      </div>
+    </div>
+  </div>
+  <ul class="points">
+    <li><strong>Div. 202 (ITAA 1997):</strong> franked dividends carry imputation credits equal to CIT already paid; WHT is reduced or eliminated</li>
+    <li><strong>Div. 802 (conduit foreign income):</strong> foreign income flowing through an AU company can be distributed as unfranked + "conduit foreign income" &mdash; 0% WHT to non-residents</li>
+    <li><strong>Planning:</strong> always maintain sufficient franking account balance; timing dividend declarations around tax payments maximizes franking availability</li>
+  </ul>
+  <div class="flow" style="margin-top:10px;">
+    <div class="flow-node"><strong>AU Subsidiary</strong>A$10M pre-tax<br>CIT 30% = A$3M</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-node"><strong>Franking Credit</strong>A$3M attached<br>WHT: 0%</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-node"><strong>SG Parent</strong>A$7M received<br>FSIE exempt</div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 22: Singapore FSIE & Pillar 2 DTT (NEW) ===================== -->
+<div class="slide" data-s="21">
+<div class="inner">
+  <div class="label">Singapore Deep-Dive</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-globe"/></svg></div><h2 class="h2">Singapore FSIE &amp; Pillar 2 DTT Interaction</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-globe"/></svg> FSIE 3-Condition Test (ITA &sect;13(8))</div>
+      <div class="flow" style="margin:8px 0 10px;">
+        <div class="flow-node"><strong>Condition 1</strong>Source jurisdiction<br>headline rate &ge;15%</div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-node"><strong>Condition 2</strong>Source CIT &ge;15%<br>when SG receives</div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-node"><strong>Condition 3</strong>SG tax-resident<br>+ substance</div>
+      </div>
+      <div class="key-point" style="margin-top:6px;">
+        <strong>All 6 peer countries qualify</strong> (US 21%, CA 15%+, ID 22%, BR 34%, MX 30%, AU 30%). Singapore income from these jurisdictions is fully exempt when remitted.
+      </div>
+      <div class="h3" style="margin-top:16px;"><svg class="si"><use href="#i-shield"/></svg> DTT (Domestic Top-up Tax)</div>
+      <ul class="points">
+        <li>Singapore enacted DMTT effective 1 January 2025 for MNE groups &gt;&euro;750M revenue</li>
+        <li>Qualified DMTT: top-up tax stays in Singapore (not ceded to parent country via IIR)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-calculator"/></svg> Pioneer Status + Pillar 2 Worked Example</div>
+      <div class="calc-box">
+        <div class="calc-title">Pioneer Company: 5% CIT &rarr; 15% after DTT</div>
+        <table class="calc-table">
+          <tr><th>Item</th><th>Pre-Pillar 2</th><th>Post-Pillar 2</th></tr>
+          <tr><td>Qualifying Income</td><td>S$50M</td><td>S$50M</td></tr>
+          <tr><td>Pioneer CIT @ 5%</td><td>(S$2.5M)</td><td>(S$2.5M)</td></tr>
+          <tr><td>GloBE ETR</td><td>5%</td><td>5%</td></tr>
+          <tr><td>DTT Top-up (15% - 5%)</td><td>&mdash;</td><td>(S$5M)</td></tr>
+          <tr class="total"><td>Total Tax</td><td>S$2.5M (5%)</td><td>S$7.5M (15%)</td></tr>
+        </table>
+      </div>
+      <ul class="points" style="margin-top:8px;">
+        <li><strong>SBIE exclusion:</strong> substance-based income exclusion deducts 5% of payroll + 5% of tangible assets from GloBE base (reducing top-up)</li>
+        <li><strong>Impact:</strong> for in-scope MNEs, rate-based incentives (Pioneer, DEI, GTP) effectively floor at 15%. Groups under &euro;750M are unaffected.</li>
+      </ul>
+      <table class="dtable" style="margin-top:8px;">
+        <tr><th>Incentive</th><th class="right">Pre-Pillar 2</th><th class="right">Post-Pillar 2</th><th class="right">&Delta;</th></tr>
+        <tr><td>Pioneer Status (0-5%)</td><td class="right num">5%</td><td class="right num">15%</td><td class="right num">+10pp</td></tr>
+        <tr><td>DEI (5-10%)</td><td class="right num">10%</td><td class="right num">15%</td><td class="right num">+5pp</td></tr>
+        <tr><td>GTP (5-10%)</td><td class="right num">10%</td><td class="right num">15%</td><td class="right num">+5pp</td></tr>
+        <tr><td>Standard CIT (17%)</td><td class="right num">17%</td><td class="right num">17%</td><td class="right num">0pp</td></tr>
+        <tr class="result"><td>SUTE/PTE (4.25-8.29%)</td><td class="right num">4.25%</td><td class="right num">15%</td><td class="right num">+10.75pp</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+<!-- ===================== SLIDE 23: Section Divider IV (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="22">
+<div class="inner">
+  <div class="section-number">IV</div>
+  <div class="section-title">Debt Structuring<br>&amp; Interest Limitation</div>
+  <div class="section-tags">
+    <span class="tag">Thin Cap</span>
+    <span class="tag">EBITDA Limits</span>
+    <span class="tag">EIFEL</span>
+    <span class="tag">Multi-Tier Leverage</span>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 24: Interest Deductibility (DEEPENED) ===================== -->
+<div class="slide" data-s="23">
+<div class="inner">
+  <div class="label">Debt Structuring</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-trending-down"/></svg></div><h2 class="h2">Interest Deductibility &amp; Thin Capitalization</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-trending-down"/></svg> EBITDA-Based Limits</div>
+      <ul class="points">
+        <li><strong>United States:</strong> <span class="num">30%</span> of ATI (IRC &sect;163(j))
+          <ul class="sub-points">
+            <li>De minimis: $29M gross receipts; disallowed interest carries forward indefinitely</li>
+          </ul>
+        </li>
+        <li><strong>Canada (EIFEL):</strong> <span class="num">30%</span> of tax-EBITDA (ITA &sect;18.2) &mdash; effective June 2024
+          <ul class="sub-points">
+            <li>Excess capacity carried forward 20 years; de minimis C$250K; group ratio election available</li>
+            <li>Applies to interest paid to both related and arm's length lenders</li>
+          </ul>
+        </li>
+        <li><strong>Mexico:</strong> <span class="num">30%</span> of EBITDA + DER 3:1 hybrid; disallowed interest carried forward 10 years</li>
+        <li><strong>Australia:</strong> <span class="num">30%</span> of tax-EBITDA &mdash; new rules from <strong>1 July 2024</strong> replacing the old safe harbour DER test
+          <ul class="sub-points">
+            <li>A$2M de minimis; 15-year carry-forward; arm's length debt test and safe harbour (60% assets) retained as alternatives</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-trending-down"/></svg> DER &amp; Other Limits</div>
+      <ul class="points">
+        <li><strong>Indonesia:</strong> <span class="num">4:1</span> DER &mdash; generous; excess interest permanently non-deductible (PMK 169/2015)</li>
+        <li><strong>Brazil:</strong> <span class="num">2:1</span> DER for related parties; <strong>0.3:1</strong> for tax haven lenders (Lei 12.249 Arts. 24-26)</li>
+        <li><strong>Singapore:</strong> <span class="num">No fixed limit</span> &mdash; interest must be arm's length (ITA &sect;34D); most flexible regime</li>
+      </ul>
+      <div class="key-point">
+        <strong>2024/2025 changes:</strong> Both Canada (EIFEL) and Australia shifted to EBITDA-based limits, converging on the OECD BEPS Action 4 model. All EBITDA-limit countries now use 30%. Design intercompany debt before operations begin &mdash; exceeding limits creates permanent disallowance in most jurisdictions.
+      </div>
+      <table class="dtable" style="margin-top:8px;">
+        <tr><th>Country</th><th>Limit Type</th><th class="right">Cap</th><th>Carry-Forward</th></tr>
+        <tr><td>US</td><td>30% ATI</td><td class="right num">30%</td><td>Indefinite</td></tr>
+        <tr><td>Canada</td><td>30% tax-EBITDA</td><td class="right num">30%</td><td>20 years</td></tr>
+        <tr><td>Mexico</td><td>30% EBITDA + 3:1 DER</td><td class="right num">30%</td><td>10 years</td></tr>
+        <tr><td>Australia</td><td>30% tax-EBITDA</td><td class="right num">30%</td><td>15 years</td></tr>
+        <tr><td>Indonesia</td><td>4:1 DER</td><td class="right num">4:1</td><td>None</td></tr>
+        <tr><td>Brazil</td><td>2:1 DER (related)</td><td class="right num">2:1</td><td>None</td></tr>
+        <tr class="result"><td>Singapore</td><td>No fixed limit</td><td class="right num">N/A</td><td>Most flexible</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 25: Multi-Tier Leveraging (NEW) ===================== -->
+<div class="slide" data-s="24">
+<div class="inner">
+  <div class="label">Case Study</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">Multi-Tier Leveraging: SG &rarr; ID &amp; AU Case Study</h2></div>
+  <div class="flow-diagram">
+    <div class="flow-box">SG Parent<div class="flow-detail">Lender &mdash; 17% CIT<br>No thin cap limit</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box">ID Sub<div class="flow-detail">Borrower &mdash; 22% CIT<br>4:1 DER limit</div></div>
+    <div class="flow-arrow" style="color:var(--border);">|</div>
+    <div class="flow-box">AU Sub<div class="flow-detail">Borrower &mdash; 30% CIT<br>30% EBITDA limit</div></div>
+  </div>
+  <div class="two-col" style="margin-top:12px;">
+    <div>
+      <div class="calc-box">
+        <div class="calc-title">ID Subsidiary: $20M Intercompany Loan @ 6%</div>
+        <table class="calc-table">
+          <tr><th>Item</th><th>Amount</th></tr>
+          <tr><td>EBITDA</td><td>$8M</td></tr>
+          <tr><td>Equity</td><td>$5M (DER = 4:1 allows $20M debt)</td></tr>
+          <tr><td>Interest Expense</td><td>$1.2M</td></tr>
+          <tr><td>DER Test: $20M / $5M = 4:1</td><td>PASS</td></tr>
+          <tr><td>Deductible Interest</td><td>$1.2M (full)</td></tr>
+          <tr><td>Tax Shield (22%)</td><td>$264K</td></tr>
+          <tr><td>WHT on Interest (SG-ID treaty 10%)</td><td>($120K)</td></tr>
+          <tr class="total"><td>Net Annual Benefit</td><td>$144K</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div class="calc-box">
+        <div class="calc-title">AU Subsidiary: $15M Intercompany Loan @ 5.5%</div>
+        <table class="calc-table">
+          <tr><th>Item</th><th>Amount</th></tr>
+          <tr><td>Tax-EBITDA</td><td>$6M</td></tr>
+          <tr><td>30% EBITDA Cap</td><td>$1.8M</td></tr>
+          <tr><td>Interest Expense</td><td>$825K</td></tr>
+          <tr><td>EBITDA Test: $825K &lt; $1.8M</td><td>PASS</td></tr>
+          <tr><td>Deductible Interest</td><td>$825K (full)</td></tr>
+          <tr><td>Tax Shield (30%)</td><td>$247.5K</td></tr>
+          <tr><td>WHT on Interest (SG-AU treaty 10%)</td><td>($82.5K)</td></tr>
+          <tr class="total"><td>Net Annual Benefit</td><td>$165K</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="key-point">
+    <strong>SG interest income taxed at 17%</strong>, deducted at 22% (ID) and 30% (AU). Combined annual net benefit: $309K on $35M deployed. SG's lack of thin cap limits makes it the ideal intercompany lender.
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 26: Canada EIFEL & SBD (NEW) ===================== -->
+<div class="slide" data-s="25">
+<div class="inner">
+  <div class="label">Canada Deep-Dive</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">Canada EIFEL &amp; SBD Phase-Out Mechanics</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-trending-down"/></svg> EIFEL Rules (ITA &sect;18.2)</div>
+      <div class="metrics" style="margin-bottom:8px;">
+        <div class="metric"><div class="metric-val">30%</div><div class="metric-lbl">EBITDA Cap</div></div>
+        <div class="metric"><div class="metric-val">C$250K</div><div class="metric-lbl">De Minimis</div></div>
+        <div class="metric"><div class="metric-val">20yr</div><div class="metric-lbl">Carry-Forward</div></div>
+      </div>
+      <ul class="checklist">
+        <li><strong>Effective:</strong> June 2024 for most taxpayers</li>
+        <li><strong>Scope:</strong> applies to interest paid to <em>both</em> related and arm's length lenders</li>
+        <li><strong>Group ratio election:</strong> use group's ratio if higher than 30%</li>
+        <li><strong>Excluded:</strong> CCPCs with taxable capital &le;C$50M and certain partnerships</li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-building"/></svg> SBD Phase-Out Traps</div>
+      <div class="key-point" style="margin-bottom:8px;">
+        <strong>SBD:</strong> 9% federal rate on first C$500K for CCPCs (ITA &sect;125)
+      </div>
+      <div class="scenario-compare" style="margin-bottom:8px;">
+        <div class="scenario-panel worse" style="border-left-color:var(--amber);">
+          <div class="scenario-header" style="color:var(--amber);">Capital Grind</div>
+          <div class="scenario-body">
+            <p>SBD reduced when taxable capital &gt;<span class="num">C$10M</span></p>
+            <p>Fully eliminated at <span class="num">C$15M</span></p>
+            <p style="font-size:10px;color:var(--muted);margin-top:4px;">C$500K &times; (C$15M - capital) / C$5M</p>
+          </div>
+        </div>
+        <div class="scenario-vs">&amp;</div>
+        <div class="scenario-panel worse" style="border-left-color:var(--amber);">
+          <div class="scenario-header" style="color:var(--amber);">Passive Income Grind</div>
+          <div class="scenario-body">
+            <p>SBD reduced C$5 per C$1 of AAII above <span class="num">C$50K</span></p>
+            <p>Fully eliminated at <span class="num">C$150K</span> AAII</p>
+          </div>
+        </div>
+      </div>
+      <ul class="points">
+        <li><strong>SR&ED interaction:</strong> CCPCs get <span class="num">35%</span> refundable ITC on first C$3M R&D (ITA &sect;127.44); non-CCPCs get only 15% non-refundable</li>
+      </ul>
+      <div class="key-point">
+        <strong>Planning:</strong> Monitor taxable capital and passive income to avoid losing SBD + SR&ED enhanced credit simultaneously. For growing CCPCs, the C$10M-$15M capital band is a critical planning zone.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 27: Section Divider V (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="26">
+<div class="inner">
+  <div class="section-number">V</div>
+  <div class="section-title">R&amp;D Strategy, Incentives<br>&amp; BEPS Pillar 2</div>
+  <div class="section-tags">
+    <span class="tag">R&D Credits</span>
+    <span class="tag">Tax Holidays</span>
+    <span class="tag">GloBE Rules</span>
+    <span class="tag">QRTC vs Rate Reduction</span>
+  </div>
+</div>
+</div>
+<!-- ===================== SLIDE 28: R&D Hub (DEEPENED) ===================== -->
+<div class="slide" data-s="27">
+<div class="inner">
+  <div class="label">R&D Strategy</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-flask"/></svg></div><h2 class="h2">Where to Place Your R&amp;D Hub</h2></div>
+  <ul class="points">
+    <li><strong>Singapore (EIS):</strong> <span class="num">400%</span> enhanced deduction on qualifying R&D (ITA &sect;14C) &mdash; $1M spend = $272K tax saving
+      <ul class="sub-points">
+        <li>Cap: S$400K tax benefit per YA; 20% cash payout option for startups (capped S$100K)</li>
+        <li><strong>QRTC distinction:</strong> EIS is a <em>rate reduction</em> (lowers ETR below 15%) &mdash; triggers Pillar 2 top-up for in-scope MNEs</li>
+      </ul>
+    </li>
+    <li><strong>Indonesia:</strong> <span class="num">300%</span> super deduction &mdash; $1M = $440K tax saving (22% &times; $2M extra); must be BRIN-approved; also rate reduction</li>
+    <li><strong>Canada (CCPC):</strong> <span class="num">35%</span> refundable ITC on first C$3M via SR&ED (ITA &sect;127.44) &mdash; $1M = $350K
+      <ul class="sub-points">
+        <li><strong>Refundable = cash back</strong> even if no tax owed &mdash; and it's a <strong>QRTC</strong>, so it's safe under Pillar 2</li>
+        <li>Non-CCPCs: 15% non-refundable ITC, no cap but cannot generate refund</li>
+      </ul>
+    </li>
+    <li><strong>Australia (small co):</strong> <span class="num">43.5%</span> refundable offset (25% + 18.5%) &mdash; $1M = $185K; also <strong>QRTC-safe</strong>; cap: A$150M notional deductions</li>
+    <li><strong>United States:</strong> <span class="num">20%</span> R&D credit (IRC &sect;41) &mdash; $1M = $200K; since 2022, R&D must be amortized 5yr domestic / 15yr foreign (&sect;174)</li>
+    <li><strong>Brazil:</strong> <span class="num">60-80%</span> extra deduction under Lei do Bem &mdash; $1M = $204-272K (must be Lucro Real &amp; profitable)</li>
+    <li><strong>Mexico:</strong> <span class="num">30%</span> incremental credit (EFIDT) &mdash; capped at MXN 50M/taxpayer/year (LISR Art. 202)</li>
+  </ul>
+  <div class="key-point">
+    <strong>Pillar 2 matters here:</strong> For MNE groups &gt;&euro;750M, choose <strong>refundable credits (QRTC)</strong> &mdash; Canada SR&ED, Australia R&D offset &mdash; over <strong>rate reductions</strong> &mdash; Singapore EIS, Indonesia super deduction. QRTCs are excluded from GloBE top-up calculations.
+  </div>
+  <table class="dtable" style="margin-top:8px;">
+    <tr><th>Country</th><th>Mechanism</th><th class="right">Saving/$1M</th><th>Type</th><th>Pillar 2 Safe?</th></tr>
+    <tr><td>Singapore</td><td>EIS 400% deduction</td><td class="right num">$272K</td><td>Rate reduction</td><td>&#10007;</td></tr>
+    <tr><td>Indonesia</td><td>300% super deduction</td><td class="right num">$440K</td><td>Rate reduction</td><td>&#10007;</td></tr>
+    <tr><td>Canada (CCPC)</td><td>35% refundable ITC</td><td class="right num">$350K</td><td>QRTC</td><td>&#10003;</td></tr>
+    <tr><td>Australia</td><td>43.5% refundable offset</td><td class="right num">$185K</td><td>QRTC</td><td>&#10003;</td></tr>
+    <tr><td>United States</td><td>20% R&D credit</td><td class="right num">$200K</td><td>QRTC</td><td>&#10003;</td></tr>
+    <tr><td>Brazil</td><td>60-80% extra deduction</td><td class="right num">$204-272K</td><td>Rate reduction</td><td>&#10007;</td></tr>
+    <tr><td>Mexico</td><td>30% incremental credit</td><td class="right num">$150K (cap)</td><td>Credit</td><td>Partial</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== SLIDE 29: R&D Hub Arbitrage (NEW) ===================== -->
+<div class="slide" data-s="28">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">Worked Example</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">R&amp;D Hub Arbitrage: $5M Spend Comparison</h2></div>
+  <div class="calc-box">
+    <div class="calc-title">Annual Tax Saving on $5M Qualifying R&D Expenditure &mdash; Pre vs Post Pillar 2</div>
+    <table class="calc-table">
+      <tr><th>Country</th><th>Mechanism</th><th>Pre-Pillar 2 Saving</th><th>Post-Pillar 2 Saving</th><th>Type</th></tr>
+      <tr><td>Singapore</td><td>EIS 400% deduction</td><td>$1,360K</td><td>$750K (capped at 15%)</td><td>Rate reduction</td></tr>
+      <tr><td>Indonesia</td><td>300% super deduction</td><td>$2,200K</td><td>$1,250K (capped at 15%)</td><td>Rate reduction</td></tr>
+      <tr><td>Canada (CCPC)</td><td>35% refundable ITC</td><td>$1,050K*</td><td>$1,050K (unchanged)</td><td>QRTC</td></tr>
+      <tr><td>Australia</td><td>43.5% refundable offset</td><td>$925K</td><td>$925K (unchanged)</td><td>QRTC</td></tr>
+      <tr><td>United States</td><td>20% R&D credit</td><td>$1,000K</td><td>$1,000K (unchanged)</td><td>QRTC</td></tr>
+      <tr><td>Brazil</td><td>80% extra deduction</td><td>$1,360K</td><td>$1,360K (N/A yet)</td><td>Rate reduction</td></tr>
+      <tr><td>Mexico</td><td>30% incremental credit</td><td>$750K (capped)</td><td>$750K (N/A yet)</td><td>Credit</td></tr>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--muted);margin-top:4px;">* Canada capped at 35% on first C$3M; excess at 15%. Assumes C$3M at 35% + C$2M at 15%.</p>
+  <div class="key-point">
+    <strong>Post-Pillar 2 winner:</strong> Canada and Australia maintain full R&D benefits because refundable credits (QRTCs) are excluded from GloBE ETR calculation. Singapore and Indonesia lose 40-45% of their R&D advantage for in-scope MNEs.
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 30: Special Incentives (DEEPENED) ===================== -->
+<div class="slide" data-s="29">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">Incentive Programs</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-award"/></svg></div><h2 class="h2">Special Incentives &amp; Concessionary Rates</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-globe"/></svg> Indonesia Tax Holiday Tiers (PMK 130/2020)</div>
+      <p style="font-size:11px;color:var(--dark);margin-bottom:8px;"><strong>100% CIT exemption</strong> for pioneer industries:</p>
+      <div class="hbar">
+        <div class="hbar-row"><div class="hbar-label">IDR 500B-1T</div><div class="hbar-track"><div class="hbar-fill" style="width:25%"></div></div><div class="hbar-val">5 years</div></div>
+        <div class="hbar-row"><div class="hbar-label">IDR 1T-5T</div><div class="hbar-track"><div class="hbar-fill" style="width:35%"></div></div><div class="hbar-val">7 years</div></div>
+        <div class="hbar-row"><div class="hbar-label">IDR 5T-15T</div><div class="hbar-track"><div class="hbar-fill" style="width:50%"></div></div><div class="hbar-val">10 years</div></div>
+        <div class="hbar-row"><div class="hbar-label">IDR 15T-30T</div><div class="hbar-track"><div class="hbar-fill" style="width:75%"></div></div><div class="hbar-val">15 years</div></div>
+        <div class="hbar-row"><div class="hbar-label">&gt;IDR 30T</div><div class="hbar-track"><div class="hbar-fill accent" style="width:100%"></div></div><div class="hbar-val">20 years</div></div>
+      </div>
+      <ul class="points" style="margin-top:6px;">
+        <li>+ 50% CIT reduction for <strong>2 additional years</strong> after holiday ends</li>
+        <li><strong>Tax Allowance:</strong> 30% of investment deducted over 6 years + accelerated depreciation + NOL extended to 10 years (PP 78/2019)</li>
+        <li><strong>KEK (SEZs):</strong> 10-100% CIT reduction for 25 years (PP 40/2021)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-globe"/></svg> Mexico &amp; Singapore Incentives</div>
+      <table class="dtable" style="margin-bottom:10px;">
+        <tr><th>Incentive</th><th class="right">Rate</th><th>Detail</th></tr>
+        <tr><td>MX Border Zone</td><td class="right num">~20% ISR</td><td>1/3 CIT credit + 8% IVA</td></tr>
+        <tr><td>MX IMMEX</td><td class="right num">~2-3%</td><td>Duty-free; safe harbour TP (LISR Art. 182)</td></tr>
+        <tr><td>SG Pioneer</td><td class="right num">0-5%</td><td>5-15 years (ITA &sect;13(1))</td></tr>
+        <tr><td>SG DEI</td><td class="right num">5-10%</td><td>Concessionary (ITA &sect;43C)</td></tr>
+        <tr><td>SG GTP</td><td class="right num">5-10%</td><td>Qualifying trading income</td></tr>
+      </table>
+      <div class="h3"><svg class="si"><use href="#i-award"/></svg> Other Highlights</div>
+      <table class="dtable">
+        <tr><th>Country</th><th>Incentive</th><th class="right">Benefit</th></tr>
+        <tr><td>Brazil</td><td>SUDENE/SUDAM</td><td class="right num">75% IRPJ reduction, 10yr</td></tr>
+        <tr><td>Canada</td><td>Clean Tech ITC</td><td class="right num">30% refundable</td></tr>
+        <tr><td>Australia</td><td>Small Biz CGT</td><td class="right num">Up to 100% exempt</td></tr>
+        <tr><td>US</td><td>FDII + Opp Zones</td><td class="right num">13.125% export rate</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 31: BEPS Pillar 2 (DEEPENED) ===================== -->
+<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="30">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">BEPS Pillar 2</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-target"/></svg></div><h2 class="h2">Global Minimum Tax: What Changes in 2025</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="metrics" style="margin-bottom:12px;">
+        <div class="metric"><div class="metric-val">15%</div><div class="metric-lbl">Global Minimum ETR</div></div>
+        <div class="metric"><div class="metric-val">&euro;750M</div><div class="metric-lbl">Revenue Threshold</div></div>
+        <div class="metric"><div class="metric-val">5%+5%</div><div class="metric-lbl">SBIE (Payroll + Assets)</div></div>
+      </div>
+      <div class="h3"><svg class="si"><use href="#i-globe"/></svg> Country Adoption Status</div>
+      <table class="dtable" style="margin-bottom:10px;">
+        <tr><th>Country</th><th>Status</th><th>Mechanism</th></tr>
+        <tr class="highlight"><td>Singapore</td><td class="num">Enacted</td><td>DMTT from Jan 2025 (Qualified DMTT)</td></tr>
+        <tr class="highlight"><td>Canada</td><td class="num">Enacted</td><td>DMTT + UTPR enacted</td></tr>
+        <tr class="highlight"><td>Australia</td><td class="num">Enacted</td><td>DMTT from Jan 2025</td></tr>
+        <tr><td>Brazil</td><td>Considering</td><td>Qualified DMTT under consideration</td></tr>
+        <tr><td>Indonesia</td><td>Considering</td><td>Not yet enacted</td></tr>
+        <tr><td>Mexico</td><td style="color:var(--muted);">No action</td><td>No legislation proposed</td></tr>
+        <tr><td>US</td><td style="color:var(--amber);">Parallel</td><td>GILTI exists but not GloBE-aligned</td></tr>
+      </table>
+      <ul class="points">
+        <li><strong>How it works:</strong> if a group's ETR in any jurisdiction falls below 15%, the parent country (or host via DMTT) collects a "top-up tax"</li>
+        <li><strong>SBIE exclusion:</strong> substance-based carve-out = <span class="num">5%</span> of eligible payroll + <span class="num">5%</span> of tangible assets deducted from GloBE income (reduces top-up amount)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-calculator"/></svg> Worked Pillar 2 Calculation</div>
+      <div class="calc-box">
+        <div class="calc-title">SG Entity: 17% CIT with SBIE Exclusion</div>
+        <table class="calc-table">
+          <tr><th>Item</th><th>Amount</th></tr>
+          <tr><td>GloBE Income</td><td>S$100M</td></tr>
+          <tr><td>CIT Paid @ 17%</td><td>S$17M</td></tr>
+          <tr><td>SBIE (payroll S$20M &times; 5%)</td><td>(S$1M)</td></tr>
+          <tr><td>SBIE (assets S$50M &times; 5%)</td><td>(S$2.5M)</td></tr>
+          <tr><td>Adjusted GloBE Income</td><td>S$96.5M</td></tr>
+          <tr><td>ETR = S$17M / S$96.5M</td><td>17.6%</td></tr>
+          <tr class="total"><td>Top-up Tax</td><td>NIL (ETR &gt; 15%)</td></tr>
+        </table>
+      </div>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>Key insight:</strong> Singapore's 17% standard rate already exceeds 15% GloBE minimum for most entities. Top-up mainly affects entities on Pioneer/DEI concessionary rates. SBIE further cushions entities with significant payroll and assets in Singapore.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 32: Pillar 2 Incentive Matrix (NEW) ===================== -->
+<div class="slide" data-s="31">
+<div class="inner">
+  <div class="label">Pillar 2 Impact</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-target"/></svg></div><h2 class="h2">Pillar 2 Incentive Restructuring Matrix</h2></div>
+  <div class="matrix-three">
+    <div class="matrix-col survives">
+      <div class="matrix-header">Survives Pillar 2 (QRTC / Above 15%)</div>
+      <ul class="matrix-list">
+        <li><strong>CA SR&ED 35% ITC</strong> &mdash; refundable, QRTC-safe</li>
+        <li><strong>AU R&D 43.5% offset</strong> &mdash; refundable, QRTC-safe</li>
+        <li><strong>US R&D 20% credit</strong> &mdash; QRTC treatment confirmed</li>
+        <li><strong>CA Clean Tech 30% ITC</strong> &mdash; refundable, QRTC</li>
+        <li><strong>AU Small Biz CGT</strong> &mdash; not rate-based</li>
+        <li><strong>SG standard 17%</strong> &mdash; above 15% floor</li>
+        <li><strong>ID standard 22%</strong> &mdash; above 15% floor</li>
+        <li><strong>MX Border Zone ~20%</strong> &mdash; above 15% floor</li>
+      </ul>
+    </div>
+    <div class="matrix-col diminished">
+      <div class="matrix-header">Diminished (Rate Reductions &lt; 15%)</div>
+      <ul class="matrix-list">
+        <li><strong>SG Pioneer 0-5%</strong> &mdash; topped up to 15%</li>
+        <li><strong>SG DEI 5-10%</strong> &mdash; topped up to 15%</li>
+        <li><strong>SG GTP 5-10%</strong> &mdash; topped up to 15%</li>
+        <li><strong>SG EIS 400%</strong> &mdash; rate reduction effect capped</li>
+        <li><strong>ID Tax Holiday 0%</strong> &mdash; topped up to 15%</li>
+        <li><strong>ID 300% Super Deduction</strong> &mdash; rate effect capped</li>
+        <li><strong>ID KEK 0-10%</strong> &mdash; topped up to 15%</li>
+        <li><strong>BR SUDENE/SUDAM</strong> &mdash; may push below 15%</li>
+      </ul>
+    </div>
+    <div class="matrix-col unaffected">
+      <div class="matrix-header">Unaffected (Below &euro;750M Threshold)</div>
+      <ul class="matrix-list">
+        <li><strong>All incentives intact</strong> for groups with consolidated revenue &lt;&euro;750M</li>
+        <li><strong>SG SUTE/PTE</strong> &mdash; targets SMEs (well below threshold)</li>
+        <li><strong>ID MSME 0.5%</strong> &mdash; revenue cap IDR 4.8B</li>
+        <li><strong>BR Simples Nacional</strong> &mdash; revenue cap R$4.8M</li>
+        <li><strong>MX RESICO</strong> &mdash; individual regime</li>
+        <li><strong>CA SBD 9%</strong> &mdash; CCPC limit C$500K</li>
+        <li>Pillar 2 is a large-MNE rule &mdash; SMEs and mid-market fully exempt</li>
+      </ul>
+    </div>
+  </div>
+  <div class="key-point">
+    <strong>Action:</strong> For in-scope MNEs, restructure R&D and IP from rate-reduction jurisdictions to QRTC jurisdictions (Canada, Australia). Retain rate-based incentives only where SBIE exclusion keeps ETR above 15%.
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 33: Singapore EIS & PTE/SUTE (NEW) ===================== -->
+<div class="slide" data-s="32">
+<div class="inner">
+  <div class="label">Singapore Deep-Dive</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">Singapore EIS &amp; PTE/SUTE Optimization</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-flask"/></svg> EIS 400% Deep-Dive (ITA &sect;14C)</div>
+      <div class="metrics" style="margin-bottom:8px;">
+        <div class="metric"><div class="metric-val">400%</div><div class="metric-lbl">Deduction Rate</div></div>
+        <div class="metric"><div class="metric-val">S$400K</div><div class="metric-lbl">Tax Benefit Cap/YA</div></div>
+        <div class="metric"><div class="metric-val">20%</div><div class="metric-lbl">Cash Payout Option</div></div>
+      </div>
+      <ul class="checklist">
+        <li><strong>Scope:</strong> R&D performed in Singapore (staff costs, consumables, IP costs)</li>
+        <li><strong>Cash payout:</strong> startups elect 20% on up to S$100K (in lieu of 400% deduction)</li>
+        <li><strong>Pillar 2 impact:</strong> EIS reduces GloBE ETR &mdash; DTT top-up erodes benefit for &gt;&euro;750M groups</li>
+      </ul>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>Strategy:</strong> For sub-&euro;750M groups, EIS delivers maximum value. For in-scope MNEs, consider splitting R&D: keep EIS for Singapore SBIE-eligible activities, move balance to Canada/Australia for QRTC treatment.
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-calculator"/></svg> PTE vs SUTE Comparison</div>
+      <div class="calc-box">
+        <div class="calc-title">S$200K Chargeable Income &mdash; Year 1</div>
+        <table class="calc-table">
+          <tr><th>Item</th><th>PTE</th><th>SUTE (Year 1-3)</th></tr>
+          <tr><td>First S$10K @ 75% exempt</td><td>S$2.5K taxable</td><td>&mdash;</td></tr>
+          <tr><td>First S$100K @ 75% exempt</td><td>&mdash;</td><td>S$25K taxable</td></tr>
+          <tr><td>Next S$190K @ 50% exempt</td><td>S$95K taxable</td><td>&mdash;</td></tr>
+          <tr><td>Next S$100K @ 50% exempt</td><td>&mdash;</td><td>S$50K taxable</td></tr>
+          <tr><td>Remaining</td><td>S$0</td><td>S$0</td></tr>
+          <tr><td>Total Taxable</td><td>S$97.5K</td><td>S$75K</td></tr>
+          <tr><td>Tax @ 17%</td><td>S$16,575</td><td>S$12,750</td></tr>
+          <tr class="total"><td>Effective Rate</td><td>8.29%</td><td>6.38%</td></tr>
+        </table>
+      </div>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>SUTE saves S$3,825/year</strong> vs PTE in years 1-3. After year 3, company reverts to PTE rates. Both are for groups below Pillar 2 threshold.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- ===================== SLIDE 34: Section Divider VI (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="33">
+<div class="inner">
+  <div class="section-number">VI</div>
+  <div class="section-title">Transfer Pricing, PE Risk<br>&amp; Anti-Avoidance</div>
+  <div class="section-tags">
+    <span class="tag">TP Documentation</span>
+    <span class="tag">PE Thresholds</span>
+    <span class="tag">GAAR</span>
+    <span class="tag">DPT</span>
+    <span class="tag">Brazil OECD Shift</span>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 35: Transfer Pricing (DEEPENED) ===================== -->
+<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="34">
+<div class="inner">
+  <div class="label">Transfer Pricing</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-search"/></svg></div><h2 class="h2">Transfer Pricing Documentation Requirements</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-search"/></svg> Documentation Requirements</div>
+      <ul class="checklist">
+        <li><strong>All 7 jurisdictions</strong> require arm's length pricing</li>
+        <li><strong>Master File:</strong> group-wide overview (all except US)</li>
+        <li><strong>Local File:</strong> entity-level analysis (US uses &sect;482 docs)</li>
+        <li><strong>Brazil shift:</strong> OECD standard from 2024 (Lei 14.596/2023) replacing PRL/PIC/CPL</li>
+      </ul>
+      <div class="h3" style="margin-top:8px;"><svg class="si"><use href="#i-alert"/></svg> Penalty Severity</div>
+      <div class="hbar">
+        <div class="hbar-row"><div class="hbar-label">Mexico</div><div class="hbar-track"><div class="hbar-fill high" style="width:100%"></div></div><div class="hbar-val">50-75%</div></div>
+        <div class="hbar-row"><div class="hbar-label">Australia</div><div class="hbar-track"><div class="hbar-fill accent" style="width:67%"></div></div><div class="hbar-val">25-50%</div></div>
+        <div class="hbar-row"><div class="hbar-label">US</div><div class="hbar-track"><div class="hbar-fill accent" style="width:53%"></div></div><div class="hbar-val">20-40%</div></div>
+        <div class="hbar-row"><div class="hbar-label">Canada</div><div class="hbar-track"><div class="hbar-fill" style="width:13%"></div></div><div class="hbar-val">10%</div></div>
+        <div class="hbar-row"><div class="hbar-label">Singapore</div><div class="hbar-track"><div class="hbar-fill" style="width:7%"></div></div><div class="hbar-val">5%+S$10K</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-search"/></svg> TP Methods</div>
+      <div class="flow" style="margin:6px 0 10px;">
+        <div class="flow-node"><strong>CUP</strong>Comparable<br>Uncontrolled Price</div>
+        <div class="flow-arrow">|</div>
+        <div class="flow-node"><strong>TNMM/CPM</strong>Most commonly<br>used in practice</div>
+        <div class="flow-arrow">|</div>
+        <div class="flow-node"><strong>Profit Split</strong>Integrated ops<br>or unique IP</div>
+        <div class="flow-arrow">|</div>
+        <div class="flow-node"><strong>Cost+/Resale</strong>Manufacturing<br>or distribution</div>
+      </div>
+      <div class="key-point">
+        <strong>Australia DPT:</strong> Diverted Profits Tax imposes a <span class="num">40%</span> penalty rate on MNEs with &gt;A$1B global + &gt;A$25M AU revenue that artificially shift profits offshore. Applies on top of Part IVA GAAR. Effective deterrent &mdash; 10pp above standard CIT rate.
+      </div>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>Brazil OECD shift:</strong> Lei 14.596/2023 is the most significant TP change in Brazilian history. Companies must rebuild TP documentation from scratch using OECD-compliant methodologies. Transitional period through 2024.
+      </div>
+    </div>
+  </div>
+  <table class="dtable" style="margin-top:8px;">
+    <tr><th>Country</th><th>Master File</th><th>Local File</th><th>CbCR Threshold</th><th class="right">Penalty Range</th></tr>
+    <tr><td>US</td><td>No</td><td>&sect;482 docs</td><td class="num">$850M</td><td class="right num">20-40%</td></tr>
+    <tr><td>Canada</td><td>Yes</td><td>Yes</td><td class="num">C$750M</td><td class="right num">10%</td></tr>
+    <tr><td>Singapore</td><td>Yes</td><td>Yes</td><td class="num">S$1.125B</td><td class="right num">5%+S$10K</td></tr>
+    <tr><td>Indonesia</td><td>Yes</td><td>Yes</td><td class="num">IDR 11T</td><td class="right num">2%/mo</td></tr>
+    <tr><td>Australia</td><td>Yes</td><td>Yes</td><td class="num">A$1B</td><td class="right num">25-50%</td></tr>
+    <tr><td>Mexico</td><td>Yes</td><td>Yes</td><td class="num">MXN 12B</td><td class="right num">50-75%</td></tr>
+    <tr><td>Brazil</td><td>Yes</td><td>Yes (OECD 2024)</td><td class="num">R$2.26B</td><td class="right num">0.2%/mo</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== SLIDE 36: PE Risk (EXISTING) ===================== -->
+<div class="slide" data-s="35">
+<div class="inner">
+  <div class="label">PE Risk</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-map-pin"/></svg></div><h2 class="h2">Permanent Establishment: When Does a Tax Obligation Arise?</h2></div>
+  <div class="key-point" style="margin-bottom:14px;">
+    <strong>PE = Permanent Establishment</strong> &mdash; a sufficient physical or commercial presence that triggers local tax obligations. Accidentally creating a PE means filing local tax returns and paying CIT without advance planning.
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-clock"/></svg> Construction PE Thresholds</div>
+      <div class="hbar">
+        <div class="hbar-row"><div class="hbar-label">ID / BR / MX</div><div class="hbar-track"><div class="hbar-fill high" style="width:50%"></div></div><div class="hbar-val">6 months</div></div>
+        <div class="hbar-row"><div class="hbar-label">US/CA/AU/SG</div><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><div class="hbar-val">12 months</div></div>
+      </div>
+      <div class="h3" style="margin-top:12px;"><svg class="si"><use href="#i-clock"/></svg> Service PE Thresholds</div>
+      <div class="hbar">
+        <div class="hbar-row"><div class="hbar-label">Indonesia</div><div class="hbar-track"><div class="hbar-fill high" style="width:33%"></div></div><div class="hbar-val">60 days</div></div>
+        <div class="hbar-row"><div class="hbar-label">BR/MX/CA/AU/SG</div><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><div class="hbar-val">183 days</div></div>
+        <div class="hbar-row"><div class="hbar-label">United States</div><div class="hbar-track"><div class="hbar-fill alt" style="width:100%"></div></div><div class="hbar-val">No rule*</div></div>
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">* US uses "fixed place of business" test instead of day-count.</p>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-alert"/></svg> Key PE Risks</div>
+      <ul class="points">
+        <li><strong>Agent PE:</strong> a dependent agent who habitually concludes contracts creates PE in <strong>all 7 jurisdictions</strong></li>
+        <li><strong>Indonesia-specific:</strong> 18 categories of PE (broadest definition); DGT Form required for treaty relief (12-month validity)</li>
+        <li><strong>Digital PE:</strong> no formal digital PE in any of the 7, but Indonesia applies VAT on digital services and Australia uses MAAL</li>
+      </ul>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>Highest risk:</strong> Indonesia's 60-day service PE threshold means even brief consulting engagements create full PE. Structure as short rotations with different personnel.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 37: Construction PE Thresholds (NEW) ===================== -->
+<div class="slide" data-s="36">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">PE Risk Deep-Dive</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-map-pin"/></svg></div><h2 class="h2">Construction PE Threshold Arbitrage</h2></div>
+  <div class="calc-box">
+    <div class="calc-title">PE Threshold Comparison Across 7 Jurisdictions</div>
+    <table class="calc-table">
+      <tr><th>Country</th><th>Construction PE</th><th>Service PE</th><th>Agent PE</th><th>Digital PE</th></tr>
+      <tr><td>United States</td><td>12 months</td><td>No specific rule</td><td>Yes (common law)</td><td>No formal rule</td></tr>
+      <tr><td>Canada</td><td>12 months</td><td>183 days</td><td>Yes (ITA &sect;253)</td><td>No (DST separate)</td></tr>
+      <tr><td>Indonesia</td><td>6 months</td><td>60 days</td><td>Yes (18 categories)</td><td>No (VAT only)</td></tr>
+      <tr><td>Brazil</td><td>6 months</td><td>183 days</td><td>Yes (RIR Art. 399)</td><td>No formal rule</td></tr>
+      <tr><td>Mexico</td><td>6 months</td><td>183 days</td><td>Yes (LISR Art. 168)</td><td>No formal rule</td></tr>
+      <tr><td>Australia</td><td>12 months</td><td>183 days</td><td>Yes (ITAA 1936 &sect;6)</td><td>No (MAAL/DPT)</td></tr>
+      <tr><td>Singapore</td><td>12 months</td><td>183 days</td><td>Yes (ITA &sect;12)</td><td>No formal rule</td></tr>
+    </table>
+  </div>
+  <div class="two-col" style="margin-top:12px;">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-alert"/></svg> High-Risk Scenarios</div>
+      <ul class="points">
+        <li><strong>Indonesia 60-day service PE:</strong> 2 months of on-site consulting creates full PE &mdash; must structure as short rotations with different personnel</li>
+        <li><strong>6-month construction in ID/BR/MX:</strong> phase projects to stay under threshold or use local subcontractors</li>
+        <li><strong>Agent PE trap:</strong> local sales reps who negotiate and close deals create PE even without an office</li>
+      </ul>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-lightbulb"/></svg> Mitigation Strategies</div>
+      <ul class="points">
+        <li><strong>Commissionnaire structures:</strong> agent acts in own name but for principal's account &mdash; reduces agent PE risk (but post-BEPS Art. 12 narrows this)</li>
+        <li><strong>Personnel rotation:</strong> track individual days carefully in Indonesia; use different team members for sequential visits</li>
+        <li><strong>Contract structuring:</strong> split large projects into sub-threshold phases with genuine commercial rationale</li>
+      </ul>
+    </div>
+  </div>
+  <table class="dtable" style="margin-top:8px;">
+    <tr><th>Country</th><th class="right">Construction PE</th><th class="right">Service PE</th><th>Agent PE</th></tr>
+    <tr><td>US</td><td class="right num">12 months</td><td class="right">No specific rule</td><td>Yes</td></tr>
+    <tr><td>Canada</td><td class="right num">12 months</td><td class="right num">183 days</td><td>Yes</td></tr>
+    <tr><td>Australia</td><td class="right num">12 months</td><td class="right num">183 days</td><td>Yes</td></tr>
+    <tr><td>Singapore</td><td class="right num">12 months</td><td class="right num">183 days</td><td>Yes</td></tr>
+    <tr class="highlight"><td>Indonesia</td><td class="right num">6 months</td><td class="right num">60 days</td><td>Yes (18 cat.)</td></tr>
+    <tr><td>Brazil</td><td class="right num">6 months</td><td class="right num">183 days</td><td>Yes</td></tr>
+    <tr><td>Mexico</td><td class="right num">6 months</td><td class="right num">183 days</td><td>Yes</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== SLIDE 38: GAAR (EXISTING) ===================== -->
+<div class="slide" data-s="37">
+<div class="inner">
+  <div class="label">Anti-Avoidance</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-alert"/></svg></div><h2 class="h2">GAAR, Anti-Treaty Shopping &amp; Substance</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-alert"/></svg> Domestic GAARs</div>
+      <table class="dtable">
+        <tr><th>Country</th><th>Test</th><th>Statute</th></tr>
+        <tr><td>US</td><td>Economic substance</td><td>IRC &sect;7701(o)</td></tr>
+        <tr><td>Canada</td><td>Misuse / abuse</td><td>ITA &sect;245</td></tr>
+        <tr><td>Australia</td><td>Dominant purpose</td><td>Part IVA</td></tr>
+        <tr><td>Indonesia</td><td>Substance over form</td><td>Pasal 18(3)</td></tr>
+        <tr><td>Brazil</td><td>Business purpose</td><td>RIR general</td></tr>
+        <tr><td>Mexico</td><td>Business reason (2020+)</td><td>CFF Art. 5-A</td></tr>
+        <tr><td>Singapore</td><td>Arrangement disregarded</td><td>ITA &sect;33</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-shield"/></svg> Treaty Anti-Abuse</div>
+      <div class="scenario-compare" style="margin-bottom:8px;">
+        <div class="scenario-panel better" style="border-left-color:var(--accent);">
+          <div class="scenario-header" style="color:var(--accent);">LOB (Limitation on Benefits)</div>
+          <div class="scenario-body">
+            <p>Requires <strong>genuine resident status</strong> with substantial activities.</p>
+            <p style="margin-top:4px;font-size:10px;color:var(--muted);"><strong>Used in:</strong> US (all treaties), SG, CA, MX, ID</p>
+          </div>
+        </div>
+        <div class="scenario-vs">&amp;</div>
+        <div class="scenario-panel better" style="border-left-color:var(--blue);">
+          <div class="scenario-header" style="color:var(--blue);">PPT (Principal Purpose Test)</div>
+          <div class="scenario-body">
+            <p>Denies benefits if <strong>main purpose</strong> was obtaining the benefit.</p>
+            <p style="margin-top:4px;font-size:10px;color:var(--muted);"><strong>Used in:</strong> CA, AU, SG, MX (via MLI)</p>
+            <p style="font-size:10px;color:var(--red);"><strong>US has NOT signed MLI</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="key-point">
+        <strong>Substance requirements:</strong> Every holding company, IP entity, or financing vehicle must have genuine management, decision-making, staff, and office space. Shell entities face GAAR challenge, treaty denial, and Pillar 2 SBIE denial.
+      </div>
+    </div>
+  </div>
+  <table class="dtable" style="margin-top:8px;">
+    <tr><th>Country</th><th>GAAR Test</th><th>LOB</th><th>PPT (MLI)</th></tr>
+    <tr><td>US</td><td>Economic substance (&sect;7701(o))</td><td class="num">Yes (all treaties)</td><td>No (not MLI signatory)</td></tr>
+    <tr><td>Canada</td><td>Misuse/abuse (ITA &sect;245)</td><td class="num">Yes</td><td class="num">Yes</td></tr>
+    <tr><td>Australia</td><td>Dominant purpose (Part IVA)</td><td>&mdash;</td><td class="num">Yes</td></tr>
+    <tr><td>Singapore</td><td>Avoid tax (ITA &sect;33)</td><td class="num">Yes</td><td class="num">Yes</td></tr>
+    <tr><td>Indonesia</td><td>Substance over form (Pasal 18(3))</td><td class="num">Yes</td><td>&mdash;</td></tr>
+    <tr><td>Mexico</td><td>Business reason (CFF Art. 5-A)</td><td class="num">Yes</td><td class="num">Yes</td></tr>
+    <tr><td>Brazil</td><td>Business purpose (RIR)</td><td>&mdash;</td><td>&mdash;</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== SLIDE 39: Section Divider VII (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="38">
+<div class="inner">
+  <div class="section-number">VII</div>
+  <div class="section-title">Investment Corridor Analysis<br>&amp; Case Studies</div>
+  <div class="section-tags">
+    <span class="tag">SG &rarr; ID</span>
+    <span class="tag">SG &rarr; AU</span>
+    <span class="tag">US &rarr; CA</span>
+    <span class="tag">MX Maquila</span>
+    <span class="tag">Loss Utilization</span>
+  </div>
+</div>
+</div>
+<!-- ===================== SLIDE 40: SG -> ID Corridor (NEW) ===================== -->
+<div class="slide" data-s="39">
+<div class="inner">
+  <div class="label">Corridor Analysis</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">SG &rarr; ID Corridor: Full ETR Walk-Through</h2></div>
+  <div class="flow-diagram">
+    <div class="flow-box">SG Parent<div class="flow-detail">17% CIT | 0% WHT out<br>FSIE exempt</div></div>
+    <div class="flow-arrow">&larr; Dividends</div>
+    <div class="flow-box">ID Subsidiary<div class="flow-detail">22% CIT | 10% WHT<br>(SG-ID DTA)</div></div>
+  </div>
+  <div class="two-col" style="margin-top:12px;">
+    <div>
+      <div class="calc-box">
+        <div class="calc-title">ETR Walk-Through: $10M Pre-Tax Profit</div>
+        <table class="calc-table">
+          <tr><th>Step</th><th>Amount</th><th>Rate</th></tr>
+          <tr><td>1. ID CIT @ 22%</td><td>($2,200,000)</td><td>22.0%</td></tr>
+          <tr><td>2. After-tax profit</td><td>$7,800,000</td><td></td></tr>
+          <tr><td>3. WHT on dividends @ 10%</td><td>($780,000)</td><td>7.8%</td></tr>
+          <tr><td>4. Cash received in SG</td><td>$7,020,000</td><td></td></tr>
+          <tr><td>5. SG FSIE exemption</td><td>$0 tax</td><td>0%</td></tr>
+          <tr class="total"><td>Total Tax / Combined ETR</td><td>$2,980,000</td><td>29.8%</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-lightbulb"/></svg> Optimization Levers</div>
+      <ul class="points">
+        <li><strong>Tax Holiday:</strong> if ID sub qualifies for 100% CIT holiday, ETR drops to <span class="num">10%</span> (WHT only, reduced from 20% to 10% by treaty)</li>
+        <li><strong>Listed company discount:</strong> 19% CIT (vs 22%) saves 3pp = <span class="num">27.5%</span> combined ETR</li>
+        <li><strong>Reinvestment exemption:</strong> dividends reinvested in Indonesia within 3 years may be exempt from WHT (PP 9/2021)</li>
+        <li><strong>Intercompany interest:</strong> SG parent lends at arm's length; 22% deduction in ID vs 17% income in SG = 5pp arbitrage</li>
+        <li><strong>R&D in ID:</strong> 300% super deduction further reduces ID taxable income</li>
+      </ul>
+      <div class="key-point">
+        <strong>Optimized corridor ETR:</strong> With Tax Holiday + reinvestment exemption, effective rate can reach <span class="num">0%</span> during holiday period.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 41: SG -> AU Corridor (NEW) ===================== -->
+<div class="slide" data-s="40">
+<div class="inner">
+  <div class="label">Corridor Analysis</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">SG &rarr; AU Corridor: Franking vs Unfranked</h2></div>
+  <div class="scenario-compare">
+    <div class="scenario-panel better">
+      <div class="scenario-header">Franked Dividend Route</div>
+      <div class="scenario-body">
+        <p>AU Sub pre-tax: <span class="num">A$10M</span></p>
+        <p>CIT @ 30%: (A$3M)</p>
+        <p>After-tax: A$7M</p>
+        <p>Franking credit: A$3M</p>
+        <p>WHT: <span class="num">0%</span></p>
+        <p>Cash to SG: <span class="num">A$7M</span></p>
+        <p>SG FSIE: exempt</p>
+        <p style="margin-top:6px;font-weight:700;">Combined ETR: <span class="num">30%</span></p>
+      </div>
+    </div>
+    <div class="scenario-vs">VS</div>
+    <div class="scenario-panel worse">
+      <div class="scenario-header">Unfranked Dividend Route</div>
+      <div class="scenario-body">
+        <p>AU Sub pre-tax: <span class="num">A$10M</span></p>
+        <p>CIT @ 30%: (A$3M)</p>
+        <p>After-tax: A$7M</p>
+        <p>No franking credit</p>
+        <p>WHT @ 15% (SG-AU DTA): <span class="num">(A$1.05M)</span></p>
+        <p>Cash to SG: <span class="num">A$5.95M</span></p>
+        <p>SG FSIE: exempt</p>
+        <p style="margin-top:6px;font-weight:700;">Combined ETR: <span class="num">40.5%</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="three-col" style="margin-top:12px;">
+    <div class="card" style="border-left-color:var(--accent);">
+      <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:4px;">FRANKING IMPACT</div>
+      <p style="font-size:11px;color:var(--dark);line-height:1.5;"><strong>10.5pp ETR difference.</strong> Always maintain sufficient franking account balance before declaring dividends.</p>
+    </div>
+    <div class="card" style="border-left-color:var(--blue);">
+      <div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:4px;">CONDUIT FOREIGN INCOME</div>
+      <p style="font-size:11px;color:var(--dark);line-height:1.5;"><strong>Div. 802:</strong> foreign income through AU sub distributed at <span class="num">0% WHT</span> as "conduit foreign income."</p>
+    </div>
+    <div class="card" style="border-left-color:#16a34a;">
+      <div style="font-size:11px;font-weight:700;color:#16a34a;margin-bottom:4px;">BRE ROUTE</div>
+      <p style="font-size:11px;color:var(--dark);line-height:1.5;">25% CIT + franked = no WHT, yielding <span class="num">25% combined ETR</span>.</p>
+    </div>
+  </div>
+  <div class="key-point" style="margin-top:10px;">
+    <strong>R&D in AU:</strong> 43.5% refundable offset is QRTC-safe under Pillar 2 &mdash; genuine R&D substance in AU is attractive for SG-parented groups.
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 42: US -> CA Corridor (NEW) ===================== -->
+<div class="slide" data-s="41">
+<div class="inner">
+  <div class="label">Corridor Analysis</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">US &rarr; CA Corridor &amp; GILTI HTE</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="calc-box">
+        <div class="calc-title">CA Subsidiary (Ontario) &rarr; US Parent</div>
+        <table class="calc-table">
+          <tr><th>Step</th><th>Amount</th><th>Rate</th></tr>
+          <tr><td>CA Pre-tax Income</td><td>C$10M</td><td></td></tr>
+          <tr><td>CA CIT (15% fed + 11.5% ON)</td><td>(C$2.65M)</td><td>26.5%</td></tr>
+          <tr><td>After-tax profit</td><td>C$7.35M</td><td></td></tr>
+          <tr><td>WHT on dividends (US-CA DTA 5%)</td><td>(C$367.5K)</td><td>3.7%</td></tr>
+          <tr><td>Cash to US parent</td><td>C$6.98M</td><td></td></tr>
+          <tr class="total"><td>Combined Pre-Credit ETR</td><td>C$3.02M</td><td>30.2%</td></tr>
+        </table>
+      </div>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>US &sect;245A DRD:</strong> 100% dividends-received deduction for dividends from &ge;10%-owned foreign corporations &mdash; eliminates US tax on CA dividends. US only pays residual GILTI on CFC inclusions.
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-shield"/></svg> GILTI High-Tax Exclusion</div>
+      <ul class="points">
+        <li><strong>CA CIT rate (26.5%)</strong> exceeds GILTI HTE threshold of <span class="num">18.9%</span> (90% of 21%)</li>
+        <li><strong>Result:</strong> CA subsidiary income is excluded from GILTI inclusion when HTE election is made</li>
+        <li><strong>HTE election:</strong> annual, must be consistent for all CFCs in the group; election is per-entity, per-tested-unit</li>
+        <li><strong>Without HTE:</strong> US parent would include CA income in GILTI at 10.5% effective rate &mdash; with 80% FTC limitation, creating double taxation</li>
+        <li><strong>With HTE:</strong> zero additional US tax on CA income &mdash; total ETR is simply the 26.5% CA rate + 3.7% WHT</li>
+      </ul>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>SR&ED bonus:</strong> CA CCPC subsidiary can claim 35% refundable ITC on R&D. This is a cash credit &mdash; not a rate reduction &mdash; so it reduces the CA ETR without affecting GILTI HTE qualification.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 43: Mexico Maquiladora (NEW) ===================== -->
+<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="42">
+<div class="inner">
+  <div class="label">Corridor Analysis</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-calculator"/></svg></div><h2 class="h2">Mexico Maquiladora &amp; Border Zone Stacking</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-calculator"/></svg> IMMEX Safe Harbor Calculation</div>
+      <div class="calc-box">
+        <div class="calc-title">Maquiladora with $50M Assets, $30M Total Costs</div>
+        <table class="calc-table">
+          <tr><th>Item</th><th>Amount</th></tr>
+          <tr><td>Option A: 6.9% of assets</td><td>$3,450,000</td></tr>
+          <tr><td>Option B: 6.5% of costs</td><td>$1,950,000</td></tr>
+          <tr><td>Taxable income (higher of A/B)</td><td>$3,450,000</td></tr>
+          <tr><td>CIT @ 30%</td><td>($1,035,000)</td></tr>
+          <tr><td>Effective rate on $50M assets</td><td>2.07%</td></tr>
+          <tr class="total"><td>Effective rate on $30M costs</td><td>3.45%</td></tr>
+        </table>
+      </div>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>IMMEX effective rate:</strong> ~2-3.5% on operating base. Import duty-free on temporary imports for export manufacturing. Must export &ge;90% of production.
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-award"/></svg> Border Zone Stacking</div>
+      <ul class="points">
+        <li><strong>Northern/Southern Border Zone incentive:</strong>
+          <ul class="sub-points">
+            <li>ISR: 1/3 credit on CIT = effective <span class="num">~20%</span> (vs 30% standard)</li>
+            <li>IVA: <span class="num">8%</span> (vs 16% standard)</li>
+          </ul>
+        </li>
+        <li><strong>Stacking with IMMEX:</strong> border zone ISR credit applies on top of IMMEX safe harbor
+          <ul class="sub-points">
+            <li>IMMEX taxable base ($3.45M) &times; 20% effective = <span class="num">$690K</span> total tax</li>
+            <li>Effective rate on $30M costs: <span class="num">~2.3%</span></li>
+          </ul>
+        </li>
+        <li><strong>EFIDT R&D credit:</strong> additional 30% incremental credit on R&D (LISR Art. 202); stackable with border zone + IMMEX</li>
+        <li><strong>Requirements:</strong> must be located in qualifying border municipality; genuine operations and substance required</li>
+      </ul>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>US nearshoring play:</strong> MX maquiladora + border zone delivers one of the lowest manufacturing ETRs globally (~2-3%) with duty-free access to the US market under USMCA.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 44: Multi-Jurisdiction Loss Utilization (NEW) ===================== -->
+<div class="slide" data-s="43">
+<div class="inner">
+  <div class="label">Advanced Strategy</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-battery"/></svg></div><h2 class="h2">Multi-Jurisdiction Loss Utilization Cycle</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-git-branch"/></svg> Branch-to-Subsidiary Conversion Strategy</div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">Year 1&ndash;2: Branch Phase</div><div class="timeline-desc">Operate as branch of SG/US/CA parent. Startup losses offset parent's home-country taxable income in real-time.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">Year 3: Breakeven Analysis</div><div class="timeline-desc">Model projected profitability. If profitable from Year 4+, prepare for incorporation as local subsidiary.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">Year 4+: Subsidiary Phase</div><div class="timeline-desc">Convert branch to subsidiary. Access local incentives (Tax Holiday, SBD, BRE, PTE). Reinvest profits locally without branch tax.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot future"></div><div class="timeline-content"><div class="timeline-year">Ongoing: Optimize Repatriation</div><div class="timeline-desc">Use treaty WHT rates, franking credits, JCP, or FSIE exemption for tax-efficient profit extraction.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-lightbulb"/></svg> Key NOL Rules by Country</div>
+      <ul class="points">
+        <li><strong>SG:</strong> indefinite carry-forward, 1-yr carry-back (S$100K cap), 100% utilization</li>
+        <li><strong>AU:</strong> indefinite carry-forward, 1-yr carry-back (&lt;$5B), 100% utilization</li>
+        <li><strong>US:</strong> indefinite carry-forward, no carry-back, <span class="num">80% cap</span> (always pay on 20%)</li>
+        <li><strong>CA:</strong> 20-yr carry-forward, <strong>3-yr carry-back</strong> (immediate refund), 100%</li>
+        <li><strong>MX:</strong> 10-yr carry-forward (inflation-adjusted), no carry-back</li>
+        <li><strong>ID:</strong> <span class="num">5-yr carry-forward only</span> (shortest); extendable to 10yr under Tax Allowance</li>
+        <li><strong>BR:</strong> indefinite carry-forward, <span class="num">30% annual cap</span> (R$100M loss takes ~12 years)</li>
+      </ul>
+      <div class="key-point" style="margin-top:8px;">
+        <strong>Indonesia risk:</strong> 5-year NOL window means startup losses can permanently expire. Always consider branch phase for ID operations to preserve loss value.
+      </div>
+      <div class="hbar" style="margin-top:8px;">
+        <div class="hbar-row"><div class="hbar-label">SG</div><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><div class="hbar-val">Indefinite</div></div>
+        <div class="hbar-row"><div class="hbar-label">AU</div><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><div class="hbar-val">Indefinite</div></div>
+        <div class="hbar-row"><div class="hbar-label">US</div><div class="hbar-track"><div class="hbar-fill alt" style="width:80%"></div></div><div class="hbar-val">&infin; (80%)</div></div>
+        <div class="hbar-row"><div class="hbar-label">BR</div><div class="hbar-track"><div class="hbar-fill alt" style="width:80%"></div></div><div class="hbar-val">&infin; (30%)</div></div>
+        <div class="hbar-row"><div class="hbar-label">CA</div><div class="hbar-track"><div class="hbar-fill" style="width:66%"></div></div><div class="hbar-val">20 yr</div></div>
+        <div class="hbar-row"><div class="hbar-label">MX</div><div class="hbar-track"><div class="hbar-fill" style="width:33%"></div></div><div class="hbar-val">10 yr</div></div>
+        <div class="hbar-row"><div class="hbar-label">ID</div><div class="hbar-track"><div class="hbar-fill accent" style="width:16%"></div></div><div class="hbar-val">5 yr</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- ===================== SLIDE 45: Section Divider VIII (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="44">
+<div class="inner">
+  <div class="section-number">VIII</div>
+  <div class="section-title">Investor Framework,<br>Screening &amp; Exit Planning</div>
+  <div class="section-tags">
+    <span class="tag">FDI Screening</span>
+    <span class="tag">Non-Resident CGT</span>
+    <span class="tag">Scorecard</span>
+    <span class="tag">Exit Strategy</span>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 46: Foreign Investment Screening (EXISTING) ===================== -->
+<div class="slide" data-s="45">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">Market Entry</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-lock"/></svg></div><h2 class="h2">Foreign Investment Screening &amp; Restrictions</h2></div>
+  <div class="h3"><svg class="si"><use href="#i-trophy"/></svg> FDI Openness Ranking</div>
+  <div style="margin-bottom:14px;">
+    <div class="score-row"><div class="score-label">Singapore</div><div class="score-track"><div class="score-fill" style="width:90%;background:var(--accent);"><span>9/10</span></div></div><div class="score-delta">1-3 day reg</div></div>
+    <div class="score-row"><div class="score-label">Canada</div><div class="score-track"><div class="score-fill" style="width:80%;background:var(--fg);"><span>8/10</span></div></div><div class="score-delta">ICA review</div></div>
+    <div class="score-row"><div class="score-label">US</div><div class="score-track"><div class="score-fill" style="width:70%;background:var(--fg);"><span>7/10</span></div></div><div class="score-delta">CFIUS 90d</div></div>
+    <div class="score-row"><div class="score-label">Australia</div><div class="score-track"><div class="score-fill" style="width:70%;background:var(--fg);"><span>7/10</span></div></div><div class="score-delta">FIRB review</div></div>
+    <div class="score-row"><div class="score-label">Mexico</div><div class="score-track"><div class="score-fill" style="width:60%;background:var(--amber);"><span>6/10</span></div></div><div class="score-delta">Sector caps</div></div>
+    <div class="score-row"><div class="score-label">Indonesia</div><div class="score-track"><div class="score-fill" style="width:50%;background:var(--medium);"><span>5/10</span></div></div><div class="score-delta">OSS req'd</div></div>
+    <div class="score-row"><div class="score-label">Brazil</div><div class="score-track"><div class="score-fill" style="width:50%;background:var(--medium);"><span>5/10</span></div></div><div class="score-delta">BCB reg req'd</div></div>
+  </div>
+  <table class="dtable">
+    <tr><th>Country</th><th>Screening Body</th><th>Review Threshold</th><th>Key Restrictions</th></tr>
+    <tr><td>Singapore</td><td>ACRA / MAS</td><td class="num">Minimal</td><td>1-3 day registration; near-full openness</td></tr>
+    <tr><td>Canada</td><td>Investment Canada Act</td><td class="num">C$1.326B (WTO)</td><td>C$512M (SOEs); any amount for nat'l security</td></tr>
+    <tr><td>US</td><td>CFIUS / FIRRMA</td><td class="num">$0 (nat'l sec)</td><td>45+45 day review; critical tech scrutiny</td></tr>
+    <tr><td>Australia</td><td>FIRB</td><td class="num">A$310M</td><td>A$0 for national security &amp; all residential</td></tr>
+    <tr><td>Mexico</td><td>CNIE / LIE</td><td class="num">Varies</td><td>Petroleum/electricity restricted; 10-49% sector caps</td></tr>
+    <tr><td>Indonesia</td><td>BKPM / OSS</td><td class="num">All FDI</td><td>Positive Investment List; no freehold land</td></tr>
+    <tr><td>Brazil</td><td>Central Bank</td><td class="num">All FDI</td><td>Media 30%, airlines 20% voting, rural land caps</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== SLIDE 47: Non-Resident CGT (EXISTING) ===================== -->
+<div class="slide" style="background: linear-gradient(135deg, #fefffe 0%, #f5f3ff 50%, #ffffff 100%);" data-s="46">
+<div class="inner">
+  <div class="label">Exit Taxation</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-bar-chart"/></svg></div><h2 class="h2">Non-Resident Capital Gains Tax on Share Disposal</h2></div>
+  <div class="hbar" style="margin-bottom:14px;">
+    <div class="hbar-row"><div class="hbar-label">Singapore</div><div class="hbar-track"><div class="hbar-fill" style="width:0%;min-width:2px"></div></div><div class="hbar-val">0%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Indonesia</div><div class="hbar-track"><div class="hbar-fill" style="width:2%"></div><div class="hbar-fill alt" style="width:20%;position:absolute;top:0;opacity:0.4"></div></div><div class="hbar-val">0.1-5%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Mexico</div><div class="hbar-track"><div class="hbar-fill accent" style="width:40%"></div></div><div class="hbar-val">10%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Australia</div><div class="hbar-track"><div class="hbar-fill" style="width:0%;min-width:2px"></div><div class="hbar-fill alt" style="width:50%;position:absolute;top:0;opacity:0.4"></div></div><div class="hbar-val">0-12.5%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Brazil</div><div class="hbar-track"><div class="hbar-fill accent" style="width:60%"></div><div class="hbar-fill high" style="width:100%;position:absolute;top:0;opacity:0.3"></div></div><div class="hbar-val">15-25%</div></div>
+    <div class="hbar-row"><div class="hbar-label">US (FIRPTA)</div><div class="hbar-track"><div class="hbar-fill" style="width:0%;min-width:2px"></div><div class="hbar-fill high" style="width:84%;position:absolute;top:0;opacity:0.4"></div></div><div class="hbar-val">0-21%</div></div>
+    <div class="hbar-row"><div class="hbar-label">Canada (TCP)</div><div class="hbar-track"><div class="hbar-fill high" style="width:100%"></div></div><div class="hbar-val">25%</div></div>
+  </div>
+  <table class="dtable">
+    <tr><th>Country</th><th class="right">Rate</th><th>Condition</th><th>Statute</th></tr>
+    <tr class="highlight"><td>Singapore</td><td class="right num">0%</td><td>No CGT at all &mdash; cleanest exit</td><td>ITA</td></tr>
+    <tr><td>Indonesia</td><td class="right num">0.1% / 5%</td><td>Listed (final) / Unlisted (final)</td><td>PPh 26, PP 17/2009</td></tr>
+    <tr><td>Mexico</td><td class="right num">10%</td><td>Gross gains; optional 35% on net gains</td><td>LISR Art. 161</td></tr>
+    <tr><td>Australia</td><td class="right num">0% / 12.5%</td><td>Non-TAP: 0%; TAP &gt;A$750K: 12.5%</td><td>Div. 855</td></tr>
+    <tr><td>Brazil</td><td class="right num">15% / 25%</td><td>General 15%; tax haven seller: 25%</td><td>Lei 10.833 Art. 26</td></tr>
+    <tr><td>US</td><td class="right num">0% / 21%</td><td>Non-USRPI: 0%; USRPI: 21% + 15% WHT</td><td>IRC &sect;897, &sect;1445</td></tr>
+    <tr><td>Canada</td><td class="right num">25%</td><td>WHT on Taxable Canadian Property gains</td><td>ITA &sect;116</td></tr>
+  </table>
+  <div class="key-point" style="margin-top:10px;">
+    <strong>Exit planning:</strong> Structure disposals through Singapore (0% CGT). For US real property: use REIT for FIRPTA exceptions. For CA/AU: ensure shares are not "real property rich."
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 48: Investor Scorecard (DEEPENED) ===================== -->
+<div class="slide" data-s="47">
+<div class="inner">
+  <div class="label">Decision Matrix</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-trophy"/></svg></div><h2 class="h2">International Investor Scorecard</h2></div>
+  <div class="two-col">
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-trophy"/></svg> Overall Rankings (Post-Pillar 2 Adjusted)</div>
+      <table class="dtable" style="margin-bottom:8px;">
+        <tr><th>Rank</th><th>Country</th><th class="right">Score</th><th class="right">Was</th><th class="right">&Delta;</th><th>Key Driver</th></tr>
+        <tr class="highlight"><td>1</td><td>Singapore</td><td class="right num">8.8</td><td class="right">9.3</td><td class="right" style="color:var(--red);">-0.5</td><td>DMTT reduces incentive advantage</td></tr>
+        <tr><td>2</td><td>Australia</td><td class="right num">7.4</td><td class="right">7.2</td><td class="right" style="color:#16a34a;">+0.2</td><td>QRTC gains value; franking intact</td></tr>
+        <tr><td>3</td><td>Canada</td><td class="right num">7.0</td><td class="right">6.7</td><td class="right" style="color:#16a34a;">+0.3</td><td>SR&ED QRTC gains; EIFEL complexity</td></tr>
+        <tr><td>4</td><td>Mexico</td><td class="right num">6.5</td><td class="right">6.6</td><td class="right" style="color:var(--red);">-0.1</td><td>Border zone survives (&gt;15%)</td></tr>
+        <tr><td>5</td><td>US</td><td class="right num">6.1</td><td class="right">6.2</td><td class="right" style="color:var(--red);">-0.1</td><td>FDII/GILTI phase-down post-2025</td></tr>
+        <tr><td>6</td><td>Brazil</td><td class="right num">5.5</td><td class="right">5.6</td><td class="right" style="color:var(--red);">-0.1</td><td>CBS/IBS transition uncertainty</td></tr>
+        <tr><td>7</td><td>Indonesia</td><td class="right num">5.0</td><td class="right">5.4</td><td class="right" style="color:var(--red);">-0.4</td><td>Tax Holiday topped up to 15%</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="h3"><svg class="si"><use href="#i-target"/></svg> Scoring Dimensions (9 Factors)</div>
+      <ul class="checklist">
+        <li><strong>Investment openness</strong> &mdash; ease of foreign ownership, screening</li>
+        <li><strong>Dividend tax efficiency</strong> &mdash; WHT, imputation, exemptions</li>
+        <li><strong>Capital gains tax</strong> &mdash; CGT on non-resident share disposals</li>
+        <li><strong>Branch tax cost</strong> &mdash; CIT + branch profits tax combined</li>
+        <li><strong>FX / repatriation ease</strong> &mdash; currency controls, registration</li>
+        <li><strong>CFC regime severity</strong> &mdash; parent country taxation of foreign profits</li>
+        <li><strong>Treaty network breadth</strong> &mdash; number and quality of DTAs</li>
+        <li><strong>PE risk</strong> &mdash; how easily you create taxable presence</li>
+        <li><strong>Pillar 2 impact</strong> <span class="tag-inline dark">NEW</span> &mdash; how much local incentives are eroded by GloBE top-up</li>
+      </ul>
+      <div class="key-point">
+        <strong>Post-2025:</strong> Singapore still dominates for holding/IP but with narrower advantage. Australia and Canada gain relative attractiveness for R&D-heavy operations. Indonesia loses most for large MNEs.
+      </div>
+      <div style="margin-top:10px;">
+        <div class="score-row"><div class="score-label">Singapore</div><div class="score-track"><div class="score-fill" style="width:88%;background:var(--fg);"><span>8.8</span></div></div><div class="score-delta">was 9.3</div></div>
+        <div class="score-row"><div class="score-label">Australia</div><div class="score-track"><div class="score-fill" style="width:74%;background:var(--fg);"><span>7.4</span></div></div><div class="score-delta">was 7.2</div></div>
+        <div class="score-row"><div class="score-label">Canada</div><div class="score-track"><div class="score-fill" style="width:70%;background:var(--fg);"><span>7.0</span></div></div><div class="score-delta">was 6.7</div></div>
+        <div class="score-row"><div class="score-label">Mexico</div><div class="score-track"><div class="score-fill" style="width:65%;background:var(--accent);"><span>6.5</span></div></div><div class="score-delta">was 6.6</div></div>
+        <div class="score-row"><div class="score-label">US</div><div class="score-track"><div class="score-fill" style="width:61%;background:var(--accent);"><span>6.1</span></div></div><div class="score-delta">was 6.2</div></div>
+        <div class="score-row"><div class="score-label">Brazil</div><div class="score-track"><div class="score-fill" style="width:55%;background:var(--medium);"><span>5.5</span></div></div><div class="score-delta">was 5.6</div></div>
+        <div class="score-row"><div class="score-label">Indonesia</div><div class="score-track"><div class="score-fill" style="width:50%;background:var(--medium);"><span>5.0</span></div></div><div class="score-delta">was 5.4</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 49: 4 Key Questions (EXISTING) ===================== -->
+<div class="slide" data-s="48">
+<div class="inner">
+  <div class="label">Decision Framework</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-compass"/></svg></div><h2 class="h2">Choosing Your Structure: 4 Key Questions</h2></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div class="card">
+      <div class="h3"><svg class="si"><use href="#i-globe"/></svg> Q1: Where Is Your Parent Company?</div>
+      <table class="dtable" style="margin:0;">
+        <tr><th>Parent</th><th>Strategy</th></tr>
+        <tr><td>Singapore</td><td>Maximum flexibility, any structure works</td></tr>
+        <tr><td>CA / AU</td><td>Focus on active business income in subs</td></tr>
+        <tr><td>US</td><td>Push CFC ETR above <span class="num">18.9%</span> for GILTI HTE</td></tr>
+        <tr><td>Brazil</td><td>No CFC escape; optimize FTC + JCP</td></tr>
+        <tr><td>MX / ID</td><td>Moderate CFC; manage passive income</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="h3"><svg class="si"><use href="#i-briefcase"/></svg> Q2: What Activity Are You Doing?</div>
+      <table class="dtable" style="margin:0;">
+        <tr><th>Activity</th><th>Best Jurisdictions</th></tr>
+        <tr><td>Manufacturing</td><td>Mexico (IMMEX), Indonesia (Tax Holiday), Canada</td></tr>
+        <tr><td>R&D / IP</td><td>Singapore (EIS), Canada (SR&ED), Australia</td></tr>
+        <tr><td>Trading / Treasury</td><td>Singapore (GTP 5-10%)</td></tr>
+        <tr><td>Financial Services</td><td>Singapore (FSI 5-13.5%)</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="h3"><svg class="si"><use href="#i-clock"/></svg> Q3: Profitability Timeline?</div>
+      <div class="flow" style="margin:8px 0;">
+        <div class="flow-node"><strong>Losses First</strong>Use a branch to<br>offset HQ profits</div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-node"><strong>Profitable</strong>Subsidiary for<br>local incentives</div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-node"><strong>Long-Term</strong>ID Tax Holiday<br>up to 20yr @ 0%</div>
+      </div>
+      <div class="key-point" style="margin-top:6px;">
+        <strong>Cyclical?</strong> Canada offers 3-year loss carry-back for immediate refund.
+      </div>
+    </div>
+    <div class="card">
+      <div class="h3"><svg class="si"><use href="#i-dollar"/></svg> Q4: Exit Strategy?</div>
+      <table class="dtable" style="margin:0;">
+        <tr><th>Exit Type</th><th>Best Route</th></tr>
+        <tr class="highlight"><td>Share sale</td><td>Singapore (0% CGT) or Australia (0% non-TAP)</td></tr>
+        <tr><td>IPO</td><td>Indonesia (reduced 19% CIT for listed cos)</td></tr>
+        <tr><td>Ongoing dividends</td><td>Australia (franked 0% WHT) or Brazil (JCP)</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 50: Section Divider IX (NEW) ===================== -->
+<div class="slide section-divider" style="overflow:hidden;" data-s="49">
+<div class="inner">
+  <div class="section-number">IX</div>
+  <div class="section-title">Execution, Compliance<br>&amp; Statutory Authority</div>
+  <div class="section-tags">
+    <span class="tag">Checklist</span>
+    <span class="tag">Legislation Index</span>
+    <span class="tag">Pillar 2 Compliance</span>
+    <span class="tag">EIFEL</span>
+  </div>
+</div>
+</div>
+<!-- ===================== SLIDE 51: Checklist (DEEPENED) ===================== -->
+<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="50">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">Implementation</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-check-square"/></svg></div><h2 class="h2">Cross-Border Tax Planning Checklist</h2></div>
+  <div class="three-col">
+    <div class="card">
+      <div class="h3"><svg class="si"><use href="#i-lock"/></svg> Pre-Entry</div>
+      <ul class="checklist">
+        <li>Assess parent country CFC exposure</li>
+        <li>Select holding jurisdiction (CFC + treaty)</li>
+        <li>Run branch vs subsidiary ETR analysis</li>
+        <li>Design capitalization within thin cap / EIFEL limits</li>
+        <li>Apply for incentives (Tax Holiday, Pioneer, SR&ED, PTE)</li>
+        <li>Establish transfer pricing policy + documentation</li>
+        <li>Map treaty network for all planned corridors</li>
+        <li>Assess Pillar 2 in-scope status (&gt;&euro;750M)</li>
+        <li>Model DMTT / IIR impact on concessionary rates</li>
+        <li>Check FIRB/CFIUS/BKPM/ICA screening</li>
+        <li>Review land &amp; real property ownership restrictions</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="h3"><svg class="si"><use href="#i-briefcase"/></svg> Operational</div>
+      <ul class="checklist">
+        <li>Maintain Master File + Local File + CbCR</li>
+        <li>Monitor thin cap DER / EBITDA ratios quarterly</li>
+        <li>Track EIFEL restricted interest carry-forwards (CA)</li>
+        <li>Track NOL carry-forwards within expiry limits</li>
+        <li>Optimize R&D location (QRTC vs rate reduction)</li>
+        <li>File DGT Forms (ID) / W-8BEN-E (US) on time</li>
+        <li>Maintain economic substance for all entities</li>
+        <li>Monitor PE exposure for cross-border services</li>
+        <li>Review GAAR compliance on intercompany transactions</li>
+        <li>Manage VAT/GST registration &amp; input credits</li>
+        <li>Track Pillar 2 GloBE returns (GIR filing)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="h3"><svg class="si"><use href="#i-dollar"/></svg> Repatriation &amp; Exit</div>
+      <ul class="checklist">
+        <li>Use JCP (not dividends) for Brazil repatriation</li>
+        <li>Frank all Australian dividends for 0% WHT</li>
+        <li>Claim FSIE exemption in Singapore (ITA &sect;13(8))</li>
+        <li>Time ID dividends for reinvestment exemption</li>
+        <li>Sell shares (not assets) for CGT benefits</li>
+        <li>Obtain S.116 clearance for Canada TCP</li>
+        <li>Use Singapore 0% CGT for share disposals</li>
+        <li>Evaluate Pillar 2 impact before restructuring concessions</li>
+        <li>Register with BCB (Brazil) / BI (Indonesia) for FX</li>
+        <li>Maximize FTC before year-end in no-carry jurisdictions</li>
+        <li>Review RIC (Refundable Investment Credits) timing</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 52: Legislation Index (EXISTING) ===================== -->
+<div class="slide" data-s="51">
+<div class="inner" style="justify-content:flex-start;padding-top:36px;">
+  <div class="label">Statutory Authority</div>
+  <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-book"/></svg></div><h2 class="h2">Primary Legislation Index</h2></div>
+  <div class="two-col">
+    <div>
+      <ul class="points">
+        <li><strong>United States</strong> &mdash; Internal Revenue Code (IRC), TCJA 2017, IRA 2022
+          <ul class="sub-points">
+            <li>&sect;11 (CIT), &sect;41 (R&D), &sect;55 (CAMT), &sect;59A (BEAT), &sect;163(j) (interest), &sect;168(k) (bonus dep.), &sect;179, &sect;243 (DRD), &sect;245A (foreign DRD), &sect;250 (FDII/GILTI ded.), &sect;274 (meals), &sect;382 (NOL), &sect;482 (TP), &sect;871/881 (WHT), &sect;884 (branch tax), &sect;897 (FIRPTA), &sect;901-909 (FTC), &sect;951A (GILTI)</li>
+          </ul>
+        </li>
+        <li><strong>Canada</strong> &mdash; Income Tax Act (ITA), Excise Tax Act
+          <ul class="sub-points">
+            <li>&sect;18.2 (EIFEL), &sect;91-95 (FAPI), &sect;111 (NOL), &sect;112 (dividends), &sect;113 (exempt surplus), &sect;116 (TCP), &sect;125 (SBD), &sect;126 (FTC), &sect;127.44 (SR&ED), &sect;127.49 (clean tech), &sect;212 (WHT), &sect;219 (branch tax), &sect;245 (GAAR)</li>
+          </ul>
+        </li>
+        <li><strong>Indonesia</strong> &mdash; UU 7/2021 (HPP), UU 36/2008 (PPh), UU 42/2009 (PPN)
+          <ul class="sub-points">
+            <li>Pasal 17, 18(3), 24, 26, 31E; PP 55/2022 (MSME); PMK 130/2020 (Tax Holiday); PMK 169/2015 (thin cap); PMK 107 (CFC); PP 78/2019 (Tax Allowance); Perpres 10/2021</li>
+          </ul>
+        </li>
+        <li><strong>Brazil</strong> &mdash; RIR/2018 (Decreto 9.580), Lei 9.249/1995, Lei 12.973/2014
+          <ul class="sub-points">
+            <li>Art. 9-10 (JCP/Dividends), Arts. 76-92 (CFC), LC 123/2006 (Simples), Lei 12.249 Arts. 24-26 (thin cap), Lei 11.196/2005 (Lei do Bem), Lei 14.596/2023 (new TP), EC 132/2023 (CBS/IBS reform)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="points">
+        <li><strong>Mexico</strong> &mdash; Ley del ISR (LISR), CFF, Ley del IVA, LIE
+          <ul class="sub-points">
+            <li>Art. 5 (FTC), Art. 9 (CIT), Art. 57 (NOL), Art. 113-E (RESICO), Art. 161 (non-res CGT), Art. 164 (div WHT), Art. 176-178 (REFIPRE), Art. 182 (IMMEX), Art. 202 (EFIDT), CFF Art. 5-A (GAAR), LIE Arts. 5-9</li>
+          </ul>
+        </li>
+        <li><strong>Australia</strong> &mdash; ITAA 1997, ITAA 1936, FBT Act 1986, GST Act 1999, FATA 1975
+          <ul class="sub-points">
+            <li>Div. 30 (donations), Div. 36/160 (losses), Div. 40 (dep.), Div. 152 (small biz CGT), Div. 202 (franking), Div. 355 (R&D), Div. 770 (FITO), Div. 802 (conduit foreign income), Div. 820 (thin cap/EBITDA), Div. 855 (non-res CGT); Part X (CFC), Part IVA (GAAR), DPT Act 2017</li>
+          </ul>
+        </li>
+        <li><strong>Singapore</strong> &mdash; Income Tax Act 1947 (ITA), GST Act 1993, CPF Act 1953
+          <ul class="sub-points">
+            <li>&sect;10(1) (territorial), &sect;13(1) (exemptions), &sect;13(8) (FSIE), &sect;14C (EIS R&D), &sect;19A (CA), &sect;19B (IP WDA), &sect;33 (GAAR), &sect;34D (TP), &sect;37B (donations), &sect;43A (PTE), &sect;43B (SUTE), &sect;43C (concessionary), &sect;44 (one-tier), &sect;50A (FTC pooling); DMTT Act 2024</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="key-point" style="margin-top:12px;">
+    <strong>Disclaimer:</strong> All data reflects 2024/2025 tax year rates. Tax laws change frequently &mdash; always verify current rates with official sources and consult qualified tax professionals.
+  </div>
+</div>
+</div>
+
+<!-- ===================== SLIDE 53: Closing (MODIFIED) ===================== -->
+<div class="slide" data-s="52" style="background:var(--fg);color:var(--bg);">
+<div class="inner" style="align-items:center;text-align:center;">
+  <div style="margin-bottom:16px;"><svg class="si" style="width:32px;height:32px;color:var(--muted);"><use href="#i-star"/></svg></div>
+  <div class="label" style="color:var(--muted);">Kolosal Tax 301</div>
+  <h1 class="title" style="color:var(--bg);font-size:44px;">Advanced International Tax Planning<br>&amp; Cross-Border Structuring</h1>
+  <div class="divider" style="background:var(--muted);margin:24px auto;"></div>
+  <p style="font-size:14px;color:var(--muted);max-width:580px;line-height:1.7;">7 jurisdictions &middot; 9 sections &mdash; CIT architecture, CFC regimes, GILTI/BEAT/FDII calculations, FTC basket mechanics, franking credits, FSIE, Pillar 2 restructuring, EIFEL, multi-tier debt structures, R&D hub arbitrage, maquiladora economics, corridor ETR walk-throughs, and investment scorecards.</p>
+  <div style="margin-top:32px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+    <span class="tag" style="border-color:var(--muted);color:var(--muted);">US</span>
+    <span class="tag" style="border-color:var(--muted);color:var(--muted);">Canada</span>
+    <span class="tag" style="border-color:var(--muted);color:var(--muted);">Indonesia</span>
+    <span class="tag" style="border-color:var(--muted);color:var(--muted);">Brazil</span>
+    <span class="tag" style="border-color:var(--muted);color:var(--muted);">Mexico</span>
+    <span class="tag" style="border-color:var(--muted);color:var(--muted);">Australia</span>
+    <span class="tag" style="border-color:var(--muted);color:var(--muted);">Singapore</span>
+  </div>
+  <p style="margin-top:40px;font-size:10px;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">Kolosal &mdash; 2024/2025 &middot; For informational purposes only. Consult qualified tax professionals.</p>
+</div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <button class="nav-btn" id="prev" onclick="go(-1)" disabled>
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Back
+  </button>
+  <span class="counter" id="counter">01 / 53</span>
+  <button class="nav-btn" id="next" onclick="go(1)">
+    Next <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</nav>
+
+<script>
+const S=document.querySelectorAll('.slide'), N=S.length;
+let c=0;
+function show(d){
+  S.forEach(s=>s.classList.remove('active'));
+  S[c].classList.add('active');
+  S[c].scrollTop=0;
+  document.getElementById('prev').disabled=c===0;
+  document.getElementById('next').disabled=c===N-1;
+  document.getElementById('counter').textContent=String(c+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');
+  document.getElementById('progress').style.width=((c+1)/N*100)+'%';
+}
+function go(d){const n=c+d;if(n<0||n>=N)return;c=n;show(d);}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(1);}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(-1);}
+});
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX;});
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-tx;if(Math.abs(d)>50)go(d>0?-1:1);});
+
+// Animate elements when slide becomes active
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((m) => {
+    if (m.target.classList && m.target.classList.contains('active')) {
+      // Reset animations for items in this slide
+      const items = m.target.querySelectorAll('.anim-item');
+      items.forEach(el => {
+        el.style.animation = 'none';
+        el.offsetHeight; // trigger reflow
+        el.style.animation = '';
+      });
+    }
+  });
+});
+S.forEach(s => observer.observe(s, { attributes: true, attributeFilter: ['class'] }));
+
+show(0);
+</script>
+</body>
+</html>

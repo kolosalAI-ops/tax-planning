@@ -1,0 +1,244 @@
+{
+  "country": "United States",
+  "country_code": "US",
+  "currency": "USD",
+  "tax_year": "2024/2025",
+  "corporate_tax": {
+    "federal_rate": 21.0,
+    "rate_type": "flat",
+    "alternative_minimum_tax": {
+      "rate": 15.0,
+      "threshold": 1000000000,
+      "description": "Corporate AMT on AFSI >= $1B"
+    },
+    "state_rates": {
+      "no_tax_states": ["Nevada", "South Dakota", "Wyoming"],
+      "gross_receipts_states": ["Ohio", "Texas", "Washington"],
+      "rates_by_state": {
+        "Alabama": 6.5, "Alaska_max": 9.4, "Arizona": 4.9, "Arkansas_max": 5.3,
+        "California": 8.84, "Colorado": 4.4, "Connecticut": 7.5, "Delaware": 8.7,
+        "Florida": 5.5, "Georgia": 5.75, "Hawaii_max": 6.4, "Idaho": 5.8,
+        "Illinois": 9.5, "Indiana": 4.9, "Iowa_max": 8.4, "Kansas": 7.0,
+        "Kentucky": 5.0, "Louisiana_max": 7.5, "Maine_max": 8.93, "Maryland": 8.25,
+        "Massachusetts": 8.0, "Michigan": 6.0, "Minnesota": 9.8, "Mississippi": 5.0,
+        "Missouri": 4.0, "Montana": 6.75, "Nebraska_max": 7.25, "New_Hampshire": 7.5,
+        "New_Jersey_max": 11.5, "New_Mexico_max": 5.9, "New_York_max": 7.25,
+        "North_Carolina": 2.5, "North_Dakota_max": 4.31, "Oklahoma": 4.0,
+        "Oregon_max": 7.6, "Pennsylvania": 8.99, "Rhode_Island": 7.0,
+        "South_Carolina": 5.0, "Tennessee": 6.5, "Utah": 4.65,
+        "Vermont_max": 8.5, "Virginia": 6.0, "West_Virginia": 6.5,
+        "Wisconsin": 7.9, "DC": 8.25
+      }
+    },
+    "combined_effective_rates": {
+      "federal_only": 21.0,
+      "federal_plus_lowest_state": 23.0,
+      "federal_plus_median_state": 25.7,
+      "federal_plus_highest_state": 30.4,
+      "federal_plus_california": 27.9,
+      "federal_plus_new_york": 26.7
+    }
+  },
+  "pass_through_tax": {
+    "type": "individual_rates",
+    "brackets_single_2024": [
+      {"min": 0, "max": 11600, "rate": 10.0},
+      {"min": 11601, "max": 47150, "rate": 12.0},
+      {"min": 47151, "max": 100525, "rate": 22.0},
+      {"min": 100526, "max": 191950, "rate": 24.0},
+      {"min": 191951, "max": 243725, "rate": 32.0},
+      {"min": 243726, "max": 609350, "rate": 35.0},
+      {"min": 609351, "max": null, "rate": 37.0}
+    ],
+    "qbi_deduction_rate": 20.0,
+    "niit_rate": 3.8
+  },
+  "vat_equivalent": {
+    "type": "sales_tax",
+    "federal_rate": null,
+    "state_range": {"min": 0, "max": 10.25},
+    "note": "No federal VAT/GST; state sales taxes vary"
+  },
+  "payroll_taxes": {
+    "social_security": {"rate": 6.2, "wage_base": 168600},
+    "medicare": {"rate": 1.45, "wage_base": null},
+    "futa": {"rate": 0.6, "wage_base": 7000},
+    "total_employer_approximate": 7.65
+  },
+  "withholding_taxes_nonresident": {
+    "dividends": {"default": 30.0, "treaty_range": "5-15%"},
+    "interest": {"default": 30.0, "treaty_range": "0-15%"},
+    "royalties": {"default": 30.0, "treaty_range": "0-15%"}
+  },
+  "deductions": {
+    "depreciation": {
+      "section_179_limit": 1220000,
+      "section_179_phaseout": 3050000,
+      "bonus_depreciation_2024": 60.0,
+      "macrs_classes": [
+        {"years": 3, "method": "200% DB", "example": "Tractor units"},
+        {"years": 5, "method": "200% DB", "example": "Computers, vehicles"},
+        {"years": 7, "method": "200% DB", "example": "Furniture, fixtures"},
+        {"years": 10, "method": "200% DB", "example": "Water transport"},
+        {"years": 15, "method": "150% DB", "example": "Land improvements, QIP"},
+        {"years": 20, "method": "150% DB", "example": "Farm buildings"},
+        {"years": 27.5, "method": "SL", "example": "Residential rental"},
+        {"years": 39, "method": "SL", "example": "Nonresidential real property"}
+      ]
+    },
+    "nol": {
+      "carry_forward": "indefinite",
+      "carry_back": false,
+      "limitation_pct": 80.0
+    },
+    "interest_limitation": {
+      "pct_of_ati": 30.0,
+      "exemption_threshold": 29000000
+    },
+    "rnd": {
+      "regular_credit_rate": 20.0,
+      "asc_rate": 14.0,
+      "amortization_domestic_years": 5,
+      "amortization_foreign_years": 15
+    },
+    "charitable": {
+      "cash_limit_pct": 10.0,
+      "food_limit_pct": 15.0,
+      "carry_forward_years": 5
+    },
+    "meals_deduction_pct": 50.0,
+    "entertainment_deduction_pct": 0.0,
+    "home_office_simplified_rate": 5.0,
+    "home_office_simplified_max": 1500
+  },
+  "international_investors": {
+    "screening": {
+      "body": "CFIUS",
+      "threshold": "case-by-case",
+      "mandatory_filing_sectors": ["critical_technology", "critical_infrastructure", "sensitive_personal_data"],
+      "review_timeline_days": 45,
+      "investigation_timeline_days": 45,
+      "legal_basis": "DPA Title VII; FIRRMA 2018; 31 CFR Parts 800-802"
+    },
+    "nonresident_taxation": {
+      "cgt_shares_default_pct": 0,
+      "cgt_usrpi_pct": 21.0,
+      "firpta_withholding_pct": 15.0,
+      "dividend_wht_default_pct": 30.0,
+      "dividend_wht_common_treaty_pct": 15.0,
+      "branch_profits_tax_pct": 30.0,
+      "exit_tax": false
+    },
+    "repatriation": {
+      "fx_controls": "none",
+      "dividend_restrictions": "none",
+      "central_bank_registration": false,
+      "ofac_compliance": true
+    },
+    "branch_vs_subsidiary": {
+      "branch_tax_rate_pct": 21.0,
+      "branch_profits_tax_pct": 30.0,
+      "subsidiary_tax_rate_pct": 21.0,
+      "subsidiary_dividend_wht_pct": 30.0
+    },
+    "foreign_tax_credit": {
+      "method": "credit",
+      "limitation": "per_category_basket",
+      "carry_forward_years": 10,
+      "carry_back_years": 1
+    },
+    "cfc_rules": {
+      "has_cfc": true,
+      "regime_name": "Subpart F + GILTI",
+      "minimum_effective_rate_pct": 10.5,
+      "active_income_exemption": true,
+      "ownership_threshold_pct": 10.0
+    },
+    "treaty_network": {
+      "total_comprehensive_treaties": 60,
+      "has_lob": true,
+      "has_ppt": false
+    },
+    "pe_rules": {
+      "construction_pe_months": 12,
+      "service_pe_months": null,
+      "digital_pe": false,
+      "dependent_agent_pe": true
+    }
+  },
+  "income_by_source": {
+    "service_income": {
+      "domestic_rate_pct": 21.0,
+      "fdii_effective_rate_pct": 13.125,
+      "fdii_deduction_pct": 37.5,
+      "legal_basis": "IRC §11, §250, §482"
+    },
+    "royalty_income": {
+      "domestic_rate_pct": 21.0,
+      "patent_box": false,
+      "ip_amortization_years": 15,
+      "legal_basis": "IRC §197, §250"
+    },
+    "rental_income": {
+      "rate_pct": 21.0,
+      "reit_distribution_requirement_pct": 90.0,
+      "like_kind_exchange": true,
+      "legal_basis": "IRC §856-860, §1031"
+    },
+    "capital_gains": {
+      "corporate_rate_pct": 21.0,
+      "preferential_rate": false,
+      "qsbs_exclusion_pct": 100.0,
+      "qsbs_holding_years": 5,
+      "section_1231_treatment": true,
+      "legal_basis": "IRC §1201, §1202, §1231, §1245, §1250"
+    },
+    "dividend_income": {
+      "drd_below_20_pct": 50.0,
+      "drd_20_to_80_pct": 65.0,
+      "drd_80_plus_pct": 100.0,
+      "section_245a_exemption": true,
+      "legal_basis": "IRC §243, §245A"
+    },
+    "interest_income": {
+      "rate_pct": 21.0,
+      "municipal_bond_exempt": true,
+      "legal_basis": "IRC §103, §1271-1275"
+    }
+  },
+  "sector_specific_taxes": {
+    "digital_services_tax": {
+      "has_dst": false,
+      "note": "No federal DST; opposed unilateral DSTs"
+    },
+    "natural_resources": {
+      "percentage_depletion_oil_gas_pct": 15.0,
+      "idc_immediate_deduction": true,
+      "state_severance_taxes": true,
+      "legal_basis": "IRC §613, §263(c)"
+    },
+    "insurance_premium_tax": {
+      "federal_direct_premium_pct": 4.0,
+      "federal_reinsurance_pct": 1.0,
+      "state_range_pct": {"min": 1.5, "max": 4.0},
+      "legal_basis": "IRC §4371-4374"
+    },
+    "financial_transaction_tax": {
+      "has_ftt": false,
+      "sec_fee_per_million_usd": 8.0,
+      "legal_basis": "Securities Exchange Act §31"
+    },
+    "gaming_tax": {
+      "federal_excise_authorized_pct": 0.25,
+      "federal_excise_unauthorized_pct": 2.0,
+      "state_range_pct": {"min": 6.75, "max": 54.0},
+      "legal_basis": "IRC §4401, §4411"
+    },
+    "agricultural_income": {
+      "taxed_as": "ordinary_business_income",
+      "farm_nol_carryback_years": 2,
+      "cash_method_available": true,
+      "legal_basis": "IRC §447, §451(f), §172(b)(1)(B)"
+    }
+  }
+}

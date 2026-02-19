@@ -1,0 +1,288 @@
+{
+  "country": "Canada",
+  "country_code": "CA",
+  "currency": "CAD",
+  "tax_year": "2024/2025",
+  "corporate_tax": {
+    "federal_general_rate": 15.0,
+    "federal_small_business_rate": 9.0,
+    "rate_type": "two_tier",
+    "federal_rate_buildup": {
+      "base_rate": 38.0,
+      "abatement": -10.0,
+      "general_rate_reduction": -13.0,
+      "net_general": 15.0,
+      "small_business_deduction": -19.0,
+      "net_small_business": 9.0
+    },
+    "small_business_deduction": {
+      "business_limit": 500000,
+      "taxable_capital_phaseout_start": 10000000,
+      "taxable_capital_phaseout_end": 50000000,
+      "passive_income_phaseout_start": 50000,
+      "passive_income_phaseout_end": 150000,
+      "ccpc_required": true
+    },
+    "investment_income_rate": 38.67,
+    "provincial_rates": {
+      "general": {
+        "Alberta": 8.0, "British_Columbia": 12.0, "Manitoba": 12.0,
+        "New_Brunswick": 14.0, "Newfoundland_Labrador": 15.0,
+        "Northwest_Territories": 11.5, "Nova_Scotia": 14.0, "Nunavut": 12.0,
+        "Ontario": 11.5, "Prince_Edward_Island": 16.0,
+        "Quebec": 11.5, "Saskatchewan": 12.0, "Yukon": 12.0
+      },
+      "small_business": {
+        "Alberta": 2.0, "British_Columbia": 2.0, "Manitoba": 0.0,
+        "New_Brunswick": 2.5, "Newfoundland_Labrador": 3.0,
+        "Northwest_Territories": 2.0, "Nova_Scotia": 2.5, "Nunavut": 3.0,
+        "Ontario": 3.2, "Prince_Edward_Island": 1.0,
+        "Quebec": 3.2, "Saskatchewan": 1.0, "Yukon": 0.0
+      }
+    },
+    "combined_rates": {
+      "general": {
+        "Alberta": 23.0, "British_Columbia": 27.0, "Manitoba": 27.0,
+        "New_Brunswick": 29.0, "Newfoundland_Labrador": 30.0,
+        "Northwest_Territories": 26.5, "Nova_Scotia": 29.0, "Nunavut": 27.0,
+        "Ontario": 26.5, "Prince_Edward_Island": 31.0,
+        "Quebec": 26.5, "Saskatchewan": 27.0, "Yukon": 27.0
+      },
+      "small_business": {
+        "Alberta": 11.0, "British_Columbia": 11.0, "Manitoba": 9.0,
+        "New_Brunswick": 11.5, "Newfoundland_Labrador": 12.0,
+        "Northwest_Territories": 11.0, "Nova_Scotia": 11.5, "Nunavut": 12.0,
+        "Ontario": 12.2, "Prince_Edward_Island": 10.0,
+        "Quebec": 12.2, "Saskatchewan": 10.0, "Yukon": 9.0
+      }
+    }
+  },
+  "gst_hst": {
+    "federal_gst": 5.0,
+    "rates_by_province": {
+      "Alberta": {"rate": 5.0, "type": "GST"},
+      "British_Columbia": {"rate": 12.0, "type": "GST+PST", "gst": 5.0, "pst": 7.0},
+      "Manitoba": {"rate": 12.0, "type": "GST+RST", "gst": 5.0, "rst": 7.0},
+      "New_Brunswick": {"rate": 15.0, "type": "HST"},
+      "Newfoundland_Labrador": {"rate": 15.0, "type": "HST"},
+      "Northwest_Territories": {"rate": 5.0, "type": "GST"},
+      "Nova_Scotia": {"rate": 15.0, "type": "HST"},
+      "Nunavut": {"rate": 5.0, "type": "GST"},
+      "Ontario": {"rate": 13.0, "type": "HST"},
+      "Prince_Edward_Island": {"rate": 15.0, "type": "HST"},
+      "Quebec": {"rate": 14.975, "type": "GST+QST", "gst": 5.0, "qst": 9.975},
+      "Saskatchewan": {"rate": 11.0, "type": "GST+PST", "gst": 5.0, "pst": 6.0},
+      "Yukon": {"rate": 5.0, "type": "GST"}
+    },
+    "registration_threshold": 30000
+  },
+  "payroll_taxes": {
+    "cpp_2024": {
+      "rate_employee": 5.95,
+      "rate_employer": 5.95,
+      "max_pensionable_earnings": 68500,
+      "basic_exemption": 3500,
+      "max_contribution": 3867.50
+    },
+    "ei_2024": {
+      "rate_employee": 1.66,
+      "rate_employer": 2.324,
+      "max_insurable_earnings": 63200
+    }
+  },
+  "withholding_taxes_nonresident": {
+    "dividends": {"default": 25.0, "us_treaty_10pct_ownership": 5.0, "us_treaty_other": 15.0},
+    "interest": {"default": 25.0, "us_treaty": 0.0},
+    "royalties": {"default": 25.0, "us_treaty": "0-10%"}
+  },
+  "carbon_tax": {
+    "rate_per_tonne_2024": 80.0,
+    "rate_per_tonne_2025": 95.0,
+    "rate_per_tonne_2030": 170.0
+  },
+  "deductions": {
+    "cca": {
+      "major_classes": [
+        {"class": 1, "rate": 4.0, "method": "DB", "description": "Buildings after 1987"},
+        {"class": 8, "rate": 20.0, "method": "DB", "description": "Furniture, equipment"},
+        {"class": 10, "rate": 30.0, "method": "DB", "description": "Motor vehicles"},
+        {"class": 12, "rate": 100.0, "method": "DB", "description": "Software, tools <$500"},
+        {"class": 14.1, "rate": 5.0, "method": "DB", "description": "Goodwill, intangibles"},
+        {"class": 43.2, "rate": 50.0, "method": "DB", "description": "Clean energy (solar, wind)"},
+        {"class": 45, "rate": 45.0, "method": "DB", "description": "Computer equipment (general)"},
+        {"class": 50, "rate": 55.0, "method": "DB", "description": "Computer equipment (post-2011)"},
+        {"class": 53, "rate": 50.0, "method": "DB", "description": "M&P equipment (post-2015)"},
+        {"class": 54, "rate": 30.0, "method": "DB", "description": "Zero-emission vehicles"}
+      ],
+      "immediate_expensing_ccpc": {
+        "limit": 1500000,
+        "available_until": "2025-01-01"
+      }
+    },
+    "sred": {
+      "ccpc_enhanced_rate": 35.0,
+      "ccpc_expenditure_limit": 3000000,
+      "other_corp_rate": 15.0,
+      "refundable_ccpc": true,
+      "carry_forward_years": 20,
+      "carry_back_years": 3
+    },
+    "losses": {
+      "non_capital_carry_forward": 20,
+      "non_capital_carry_back": 3,
+      "net_capital_carry_forward": "indefinite",
+      "net_capital_carry_back": 3,
+      "capital_gains_inclusion_rate": 50.0,
+      "capital_gains_inclusion_above_250k": 66.67
+    },
+    "interest_limitation_eifel": {
+      "pct_of_ebitda": 30.0,
+      "carry_forward_denied": 20,
+      "carry_forward_capacity": 3,
+      "de_minimis": 250000
+    },
+    "charitable": {
+      "max_pct_of_income": 75.0,
+      "carry_forward_years": 5
+    },
+    "meals_entertainment": {
+      "general": 50.0,
+      "truck_driver": 80.0,
+      "company_events": 100.0
+    }
+  },
+  "international_investors": {
+    "screening": {
+      "body": "Investment Canada Act",
+      "wto_threshold_cad": 1326000000,
+      "soe_threshold_cad": 512000000,
+      "national_security_threshold": "none",
+      "review_timeline_days": 75,
+      "legal_basis": "ICA R.S.C. 1985, c. 28 (1st Supp.); §14-14.11, §25.1"
+    },
+    "nonresident_taxation": {
+      "cgt_tcp_wht_pct": 25.0,
+      "dividend_wht_default_pct": 25.0,
+      "dividend_wht_us_treaty_pct": 5.0,
+      "branch_tax_default_pct": 25.0,
+      "branch_tax_treaty_pct": 5.0,
+      "exit_tax": false
+    },
+    "repatriation": {
+      "fx_controls": "none",
+      "dividend_restrictions": "none",
+      "central_bank_registration": false,
+      "interest_wht_arms_length_pct": 0.0
+    },
+    "branch_vs_subsidiary": {
+      "branch_tax_rate_pct": 15.0,
+      "branch_profits_tax_pct": 25.0,
+      "subsidiary_tax_rate_pct": 15.0,
+      "subsidiary_dividend_wht_pct": 25.0
+    },
+    "foreign_tax_credit": {
+      "method": "credit",
+      "limitation": "per_country",
+      "business_carry_forward_years": 10,
+      "business_carry_back_years": 3,
+      "non_business_carry_forward_years": 0
+    },
+    "cfc_rules": {
+      "has_cfc": true,
+      "regime_name": "FAPI",
+      "ownership_threshold_pct": 10.0,
+      "control_threshold_pct": 50.0,
+      "active_income_exemption": true
+    },
+    "treaty_network": {
+      "total_comprehensive_treaties": 90,
+      "has_lob": true,
+      "has_ppt": true
+    },
+    "pe_rules": {
+      "construction_pe_months": 12,
+      "service_pe_days": 183,
+      "digital_pe": false,
+      "dependent_agent_pe": true
+    }
+  },
+  "income_by_source": {
+    "service_income": {
+      "active_business_rate_federal_pct": 15.0,
+      "sbd_rate_federal_pct": 9.0,
+      "nonresident_wht_pct": 25.0,
+      "legal_basis": "ITA §125, §212(1)(a), §247"
+    },
+    "royalty_income": {
+      "rate_pct": "standard CIT",
+      "cca_class_14_1_rate_pct": 5.0,
+      "patent_box": false,
+      "legal_basis": "ITA §20(1)(a), Reg. 1100, Class 14.1"
+    },
+    "rental_income": {
+      "rate_pct": "standard CIT",
+      "cca_rental_loss_restriction": true,
+      "legal_basis": "ITA §9, §12(1)(j), Reg. §1100(11)"
+    },
+    "capital_gains": {
+      "inclusion_rate_first_250k_pct": 50.0,
+      "inclusion_rate_above_250k_pct": 66.67,
+      "lcge_qsbc_cad": 1016836,
+      "reserve_max_years": 5,
+      "legal_basis": "ITA §38, §110.6, §40"
+    },
+    "dividend_income": {
+      "intercorporate_deduction": true,
+      "part_iv_refundable_tax_pct": 38.33,
+      "foreign_affiliate_exempt_surplus": true,
+      "legal_basis": "ITA §112(1), §186, §113"
+    },
+    "interest_income": {
+      "rate_pct": "standard CIT",
+      "accrual_required": true,
+      "thin_cap_der": "1.5:1",
+      "legal_basis": "ITA §12(1)(c), §12(4), §18(4)"
+    }
+  },
+  "sector_specific_taxes": {
+    "digital_services_tax": {
+      "has_dst": true,
+      "rate_pct": 3.0,
+      "global_revenue_threshold_eur": 750000000,
+      "canadian_revenue_threshold_cad": 20000000,
+      "effective_date": "2024 (retroactive to 2022)",
+      "legal_basis": "Digital Services Tax Act 2024"
+    },
+    "natural_resources": {
+      "federal_mining_tax": false,
+      "provincial_mining_tax_range_pct": {"min": 2.0, "max": 13.0},
+      "alberta_oil_royalty_range_pct": {"min": 1.0, "max": 40.0},
+      "cee_deduction_pct": 100.0,
+      "cde_deduction_pct": 30.0,
+      "legal_basis": "ITA §66.1, §66.2, §66.4"
+    },
+    "insurance_premium_tax": {
+      "has_ipt": true,
+      "provincial_range_pct": {"min": 2.0, "max": 4.4},
+      "nonresident_insurer_wht_pct": 25.0,
+      "legal_basis": "ITA §211.1, §212(1)(d.1)"
+    },
+    "financial_transaction_tax": {
+      "has_ftt": false,
+      "land_transfer_tax": true,
+      "ontario_ltt_range_pct": {"min": 0.5, "max": 2.5}
+    },
+    "gaming_tax": {
+      "provincial_jurisdiction": true,
+      "prizes_taxable": false,
+      "note": "Provincial Crown corporations operate/regulate gaming"
+    },
+    "agricultural_income": {
+      "cash_method_available": true,
+      "restricted_farm_loss_base_cad": 2500,
+      "farm_property_lcge_cad": 1016836,
+      "intergenerational_rollover": true,
+      "legal_basis": "ITA §28, §31, §73(3), §110.6"
+    }
+  }
+}

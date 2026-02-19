@@ -1,0 +1,305 @@
+{
+  "country": "Australia",
+  "country_code": "AU",
+  "currency": "AUD",
+  "tax_year": "2024-25",
+  "corporate_tax": {
+    "general_rate": 30.0,
+    "base_rate_entity_rate": 25.0,
+    "rate_type": "two_tier",
+    "base_rate_entity": {
+      "turnover_threshold": 50000000,
+      "passive_income_test": 80.0,
+      "effective_since": "2021-22"
+    },
+    "historical_rates": [
+      {"year": "Pre-2015", "general": 30.0, "small": 30.0},
+      {"year": "2015-16", "general": 30.0, "small": 28.5},
+      {"year": "2016-17", "general": 30.0, "small": 27.5},
+      {"year": "2017-2021", "general": 30.0, "small": 27.5},
+      {"year": "2021-22+", "general": 30.0, "small": 25.0}
+    ],
+    "imputation": {
+      "max_franking_rate_general": 30.0,
+      "max_franking_rate_base": 25.0,
+      "credit_per_dollar_30pct": 0.4286,
+      "credit_per_dollar_25pct": 0.3333,
+      "refundable": true
+    }
+  },
+  "cgt_concessions_small_business": {
+    "fifteen_year_exemption": {"benefit": "100% exempt", "holding_period": 15},
+    "fifty_pct_reduction": {"benefit": "50% reduction"},
+    "retirement_exemption": {"lifetime_limit": 500000},
+    "rollover": {"deferral_years": 2},
+    "eligibility": {
+      "net_asset_value_test": 6000000,
+      "turnover_test": 2000000
+    }
+  },
+  "gst": {
+    "standard_rate": 10.0,
+    "gst_free": ["basic_food", "health", "education", "exports", "water_sewerage", "childcare"],
+    "input_taxed": ["financial_supplies", "residential_rent", "precious_metals"],
+    "registration_threshold": 75000,
+    "non_profit_threshold": 150000
+  },
+  "fbt": {
+    "rate": 47.0,
+    "type_1_grossup": 2.0802,
+    "type_2_grossup": 1.8868,
+    "car_statutory_rate": 20.0,
+    "minor_benefit_threshold": 300
+  },
+  "superannuation": {
+    "sg_rate_2024_25": 11.5,
+    "sg_rate_2025_26": 12.0,
+    "max_contribution_base_quarterly": 65070,
+    "concessional_cap": 30000,
+    "deductible": true,
+    "historical_rates": [
+      {"year": "2021-22", "rate": 10.0},
+      {"year": "2022-23", "rate": 10.5},
+      {"year": "2023-24", "rate": 11.0},
+      {"year": "2024-25", "rate": 11.5},
+      {"year": "2025-26+", "rate": 12.0}
+    ]
+  },
+  "payroll_tax_state": {
+    "nsw": {"rate": 5.45, "threshold": 1200000},
+    "vic": {"rate": 4.85, "threshold": 900000, "mental_health_surcharge_above_10m": 0.5},
+    "qld": {"rate_under_6.5m": 4.75, "rate_over_6.5m": 4.95, "threshold": 1300000},
+    "wa": {"rate_metro": 5.5, "rate_regional": 3.625, "threshold": 1000000},
+    "sa": {"rate": 4.95, "threshold": 1500000},
+    "tas": {"rate_range": "4-6.1%", "threshold": 1250000},
+    "act": {"rate": 6.85, "threshold": 2000000},
+    "nt": {"rate": 5.5, "threshold": 1500000}
+  },
+  "withholding_taxes_nonresident": {
+    "dividends_unfranked": {"default": 30.0, "us_treaty": 15.0},
+    "dividends_franked": 0.0,
+    "interest": {"default": 10.0, "us_treaty": 10.0},
+    "royalties": {"default": 30.0, "us_treaty": 5.0},
+    "mit_income": {"treaty": 15.0, "non_treaty": 30.0}
+  },
+  "diverted_profits_tax": {
+    "rate": 40.0,
+    "threshold_global_income": 1000000000
+  },
+  "rnd_tax_incentive": {
+    "small_company": {
+      "turnover_threshold": 20000000,
+      "offset_premium": 18.5,
+      "effective_rate_25pct_entity": 43.5,
+      "effective_rate_30pct_entity": 48.5,
+      "refundable": true,
+      "refund_cap": 4000000
+    },
+    "large_company": {
+      "base_premium": 8.5,
+      "effective_rate_30pct_entity": 38.5,
+      "intensity_premium": 16.5,
+      "intensity_threshold_pct": 2.0,
+      "intensity_effective_rate": 46.5,
+      "refundable": false,
+      "annual_cap": 150000000
+    }
+  },
+  "deductions": {
+    "decline_in_value": {
+      "methods": ["diminishing_value", "prime_cost"],
+      "key_assets": [
+        {"asset": "Commercial buildings (Div 43)", "life": 40, "rate": 2.5, "method": "SL"},
+        {"asset": "Motor vehicles", "life": 8, "dv_rate": 25.0, "pc_rate": 12.5},
+        {"asset": "Computers", "life": 4, "dv_rate": 50.0, "pc_rate": 25.0},
+        {"asset": "Office furniture", "life": 10, "dv_rate": 20.0, "pc_rate": 10.0},
+        {"asset": "General plant", "life": "10-15", "dv_rate": "13-20%", "pc_rate": "7-10%"},
+        {"asset": "Software (in-house)", "life": 5, "dv_rate": 40.0, "pc_rate": 20.0}
+      ],
+      "car_limit_2024_25": 69674,
+      "fuel_efficient_limit": 89332
+    },
+    "small_business": {
+      "instant_write_off_threshold": 20000,
+      "pool_first_year_rate": 15.0,
+      "pool_subsequent_rate": 30.0,
+      "turnover_threshold": 10000000
+    },
+    "losses": {
+      "revenue_carry_forward": "indefinite",
+      "revenue_carry_back": 1,
+      "carry_back_turnover_limit": 5000000000,
+      "capital_carry_forward": "indefinite",
+      "capital_carry_back": false,
+      "continuity_of_ownership_test": true,
+      "business_continuity_test": true
+    },
+    "thin_capitalisation": {
+      "safe_harbour_pct": 60.0,
+      "financial_entity_ratio": "6:1",
+      "de_minimis": 2000000,
+      "new_fixed_ratio_test_pct_ebitda": 30.0,
+      "carry_forward_denied_years": 15
+    },
+    "blackhole_expenditure": {
+      "startup_costs_rate_per_year": 20.0,
+      "equity_raising_rate_per_year": 20.0,
+      "restructure_rate_per_year": 20.0,
+      "cessation_costs": "immediate"
+    },
+    "charitable": {
+      "minimum_gift": 2,
+      "max_deduction": "no_cap",
+      "carry_forward_years": 5,
+      "dgr_required": true
+    },
+    "motor_vehicle": {
+      "cents_per_km_rate": 0.85,
+      "cents_per_km_max_km": 5000
+    }
+  },
+  "international_investors": {
+    "screening": {
+      "body": "FIRB",
+      "business_threshold_agreement_aud": 310000000,
+      "business_threshold_other_aud": 289000000,
+      "agricultural_land_aud": 15000000,
+      "residential_land_aud": 0,
+      "sensitive_sectors_aud": 0,
+      "legal_basis": "FATA 1975 §47, §55-56A"
+    },
+    "nonresident_taxation": {
+      "cgt_tap_only": true,
+      "cgt_withholding_pct": 12.5,
+      "cgt_withholding_threshold_aud": 750000,
+      "dividend_wht_unfranked_pct": 30.0,
+      "dividend_wht_franked_pct": 0.0,
+      "mit_wht_treaty_pct": 15.0,
+      "branch_profits_tax_pct": 0.0,
+      "exit_tax": false
+    },
+    "repatriation": {
+      "fx_controls": "none",
+      "dividend_restrictions": "none",
+      "central_bank_registration": false
+    },
+    "branch_vs_subsidiary": {
+      "branch_tax_rate_pct": 30.0,
+      "branch_profits_tax_pct": 0.0,
+      "subsidiary_tax_rate_pct": 30.0,
+      "subsidiary_dividend_wht_unfranked_pct": 30.0,
+      "subsidiary_dividend_wht_franked_pct": 0.0
+    },
+    "foreign_tax_credit": {
+      "method": "credit",
+      "limitation": "one_basket",
+      "carry_forward_years": 0,
+      "carry_back_years": 0
+    },
+    "cfc_rules": {
+      "has_cfc": true,
+      "regime_name": "Part X CFC",
+      "ownership_threshold_pct": 50.0,
+      "active_income_exemption": true,
+      "active_income_threshold_pct": 95.0
+    },
+    "treaty_network": {
+      "total_comprehensive_treaties": 45,
+      "has_lob": false,
+      "has_ppt": true
+    },
+    "pe_rules": {
+      "construction_pe_months": 12,
+      "service_pe_days": 183,
+      "digital_pe": false,
+      "dependent_agent_pe": true,
+      "dpt_rate_pct": 40.0
+    }
+  },
+  "income_by_source": {
+    "service_income": {
+      "standard_rate_pct": 30.0,
+      "base_rate_entity_pct": 25.0,
+      "gst_pct": 10.0,
+      "dpt_penalty_rate_pct": 40.0,
+      "legal_basis": "ITAA 1997 §4-15, Division 177DA ITAA 1936, Division 177J"
+    },
+    "royalty_income": {
+      "rate_pct": 30.0,
+      "patent_box": false,
+      "rnd_offset_small_pct": 48.5,
+      "rnd_offset_large_pct": 38.5,
+      "legal_basis": "ITAA 1997 Division 40, Division 355"
+    },
+    "rental_income": {
+      "rate_pct": 30.0,
+      "div_43_commercial_pct": 2.5,
+      "div_43_industrial_pct": 4.0,
+      "mit_wht_pct": 15.0,
+      "legal_basis": "ITAA 1997 Division 43, Subdivision 12-H"
+    },
+    "capital_gains": {
+      "corporate_rate_pct": 30.0,
+      "individual_50pct_discount": true,
+      "small_business_concessions": true,
+      "sbe_net_asset_threshold_aud": 6000000,
+      "legal_basis": "ITAA 1997 Part 3-1, Division 115, Division 152"
+    },
+    "dividend_income": {
+      "franked_additional_tax": false,
+      "unfranked_rate_pct": 30.0,
+      "conduit_foreign_income_exempt": true,
+      "legal_basis": "ITAA 1997 Division 207, Division 802"
+    },
+    "interest_income": {
+      "rate_pct": 30.0,
+      "tofa_threshold_aud": 100000000,
+      "thin_cap_safe_harbour_debt_pct": 60.0,
+      "legal_basis": "ITAA 1997 Division 230, Division 820"
+    }
+  },
+  "sector_specific_taxes": {
+    "digital_services_tax": {
+      "has_dst": false,
+      "gst_on_digital_pct": 10.0,
+      "sge_threshold_aud": 1000000000,
+      "note": "No DST; MAAL + DPT target digital profit-shifting",
+      "legal_basis": "GST Act Division 83, TAA §3CA"
+    },
+    "natural_resources": {
+      "prrt_rate_pct": 40.0,
+      "wa_iron_ore_royalty_pct": 7.5,
+      "qld_coal_royalty_range_pct": {"min": 7.0, "max": 15.0},
+      "exploration_immediate_deduction": true,
+      "legal_basis": "PRRT Act 1987, Division 40 ITAA 1997"
+    },
+    "insurance_premium_tax": {
+      "has_ipt": true,
+      "nsw_general_pct": 5.0,
+      "vic_general_pct": 10.0,
+      "qld_general_pct": 7.5,
+      "wa_general_pct": 10.0,
+      "sa_general_pct": 11.0,
+      "legal_basis": "State Duties Acts"
+    },
+    "financial_transaction_tax": {
+      "has_ftt": false,
+      "bank_levy_pct": 0.06,
+      "bank_levy_threshold_aud": 250000000000,
+      "foreign_buyer_surcharge_range_pct": {"min": 7.0, "max": 8.0},
+      "legal_basis": "Major Bank Levy Act 2017, State Duties Acts"
+    },
+    "gaming_tax": {
+      "poc_tax_pct": 15.0,
+      "vic_egm_max_pct": 57.12,
+      "nsw_hotel_max_pct": 50.0,
+      "legal_basis": "State gaming legislation, Interactive Gambling Act 2001"
+    },
+    "agricultural_income": {
+      "fmd_max_aud": 800000,
+      "primary_producer_averaging_years": 5,
+      "water_fencing_immediate_deduction": true,
+      "legal_basis": "ITAA 1997 Division 392, Division 393, §40-545/555"
+    }
+  }
+}

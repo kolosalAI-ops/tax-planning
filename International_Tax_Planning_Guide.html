@@ -1,0 +1,5478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+@page {
+    size: A4;
+    margin: 1.8cm 1.5cm 1.8cm 1.5cm;
+}
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 9pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 100%;
+    padding: 0 10px;
+}
+h1 {
+    font-size: 22pt;
+    color: #0d2137;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 8px;
+    margin-top: 0;
+}
+h2 {
+    font-size: 15pt;
+    color: #1a73e8;
+    border-bottom: 1.5px solid #d0d7de;
+    padding-bottom: 5px;
+    margin-top: 32px;
+    page-break-before: always;
+}
+h3 {
+    font-size: 11pt;
+    color: #2c5282;
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+h4 {
+    font-size: 10pt;
+    color: #4a5568;
+    margin-top: 14px;
+}
+p {
+    margin: 6px 0;
+    text-align: justify;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px 0;
+    font-size: 7.5pt;
+}
+th {
+    background-color: #1a73e8;
+    color: white;
+    padding: 6px 5px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 7.5pt;
+    border: 1px solid #1565c0;
+}
+td {
+    padding: 4px 5px;
+    border: 1px solid #d0d7de;
+    vertical-align: top;
+}
+tr:nth-child(even) td {
+    background-color: #f6f8fa;
+}
+strong {
+    color: #1a1a1a;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 14px auto;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+}
+blockquote {
+    border-left: 4px solid #1a73e8;
+    margin: 10px 0;
+    padding: 8px 14px;
+    background-color: #f0f4f8;
+    color: #2d3748;
+    font-size: 8.5pt;
+}
+code {
+    background-color: #f1f3f5;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 8pt;
+    font-family: 'SF Mono', 'Menlo', monospace;
+}
+hr {
+    border: none;
+    border-top: 2px solid #e1e4e8;
+    margin: 20px 0;
+}
+em {
+    color: #555;
+}
+ul, ol {
+    margin: 6px 0;
+    padding-left: 20px;
+}
+li {
+    margin: 3px 0;
+}
+</style>
+</head>
+<body>
+<h1 id="international-tax-planning-optimization-guide">International Tax Planning &amp; Optimization Guide</h1>
+<p><strong>7-Country Comparative Study: US, Canada, Indonesia, Brazil, Mexico, Australia, Singapore</strong>
+<strong>Tax Year: 2024/2025</strong></p>
+<hr />
+<h2 id="how-to-use-this-guide">How to Use This Guide</h2>
+<p>This guide provides a complete cross-referenced analysis of corporate taxation across seven major jurisdictions. It is designed for CFOs, tax directors, and international business strategists evaluating:</p>
+<ul>
+<li><strong>Where to establish operations</strong> (corporate tax competitiveness)</li>
+<li><strong>How to structure investments</strong> (holding company jurisdiction, branch vs. subsidiary)</li>
+<li><strong>What incentives are available</strong> (R&amp;D credits, tax holidays, special regimes)</li>
+<li><strong>How to repatriate profits efficiently</strong> (withholding taxes, FX controls, treaty networks)</li>
+</ul>
+<p>Each section builds on the previous one, progressing from foundational tax rates through deductions, cross-border considerations, and ending with strategic decision frameworks.</p>
+<hr />
+<h2 id="part-1-corporate-tax-landscape">Part 1: Corporate Tax Landscape</h2>
+<h3 id="11-headline-corporate-tax-rates">1.1 Headline Corporate Tax Rates</h3>
+<p>The starting point for any tax planning exercise is understanding headline corporate income tax (CIT) rates. These rates set the baseline before incentives, deductions, and treaty benefits apply.</p>
+<p><img alt="Corporate Tax Rates Comparison" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/01_corporate_tax_rates.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Standard Rate</th>
+<th>SME / Reduced Rate</th>
+<th>Key Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td><strong>17%</strong> flat</td>
+<td>Effective <strong>4.25%</strong> on first S$10K</td>
+<td>PTE (ITA S43A), SUTE (ITA S43B)</td>
+</tr>
+<tr>
+<td><strong>United States</strong></td>
+<td><strong>21%</strong> flat</td>
+<td>N/A (flat for all C-corps)</td>
+<td>IRC S11(b), TCJA 2017</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td><strong>15%</strong> federal</td>
+<td><strong>9%</strong> on first C$500K (CCPC)</td>
+<td>ITA S125(1), SBD</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td><strong>22%</strong></td>
+<td><strong>0.5%</strong> final on gross &lt;=IDR 4.8B</td>
+<td>UU 7/2021, PP 55/2022</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td><strong>30%</strong></td>
+<td><strong>25%</strong> (base rate entity &lt;A$50M)</td>
+<td>ITAA 1997 S23-10</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td><strong>30%</strong> flat</td>
+<td>Border zone ~20% effective</td>
+<td>LISR Art. 9, Decreto Fronteriza</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td><strong>34%</strong> combined</td>
+<td>Simples Nacional 4-33%</td>
+<td>25% IRPJ + 9% CSLL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key takeaway:</strong> Singapore (17%) and the US (21%) offer the lowest standard rates. Brazil (34%) and Mexico/Australia (30%) are the highest. However, effective rates diverge significantly once incentives are applied -- Singapore can reach 0% under Pioneer Status, and Indonesia offers 0% for up to 20 years through Tax Holidays.</p>
+<h3 id="12-effective-rate-range-lowest-achievable-to-headline">1.2 Effective Rate Range (Lowest Achievable to Headline)</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Lowest Achievable</th>
+<th>Headline</th>
+<th>Key Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td><strong>0%</strong> (Pioneer)</td>
+<td>17%</td>
+<td>Pioneer Status (ITA S13(1)), SUTE (S43B)</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td><strong>0%</strong> (Tax Holiday)</td>
+<td>22%</td>
+<td>PMK 130/2020 (5-20 year CIT exemption)</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td><strong>9%</strong> federal (CCPC SBD)</td>
+<td>15% federal</td>
+<td>ITA S125(1)</td>
+</tr>
+<tr>
+<td><strong>United States</strong></td>
+<td><strong>21%</strong> (flat)</td>
+<td>21%</td>
+<td>No reduced rate; FDII at 13.125% for exports</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td><strong>25%</strong> (base rate entity)</td>
+<td>30%</td>
+<td>ITAA 1997 S23-10</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td><strong>~20%</strong> (border zone)</td>
+<td>30%</td>
+<td>Northern Border Zone ISR credit</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td><strong>~4%</strong> (Simples lowest)</td>
+<td>34%</td>
+<td>LC 123/2006 Simples Nacional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-federal-stateprovincial-combined-rates">1.3 Federal + State/Provincial Combined Rates</h3>
+<p>In countries with sub-national taxation, the combined rate matters more than the headline federal rate.</p>
+<p><img alt="Combined Federal + State Rates" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/02_combined_federal_state_rates.png" /></p>
+<p>Notable examples:
+- <strong>US:</strong> 21% federal + 0-11.5% state = 21-30.4% combined (California: 27.9%, New York: 26.7%)
+- <strong>Canada:</strong> 15% federal + 8-16% provincial = 23-31% combined (Alberta: 23%, Ontario: 26.5%)
+- <strong>Australia:</strong> 30% general + 0-6.85% state payroll = varies by state</p>
+<hr />
+<h2 id="part-2-indirect-taxes-vat-gst-sales-tax">Part 2: Indirect Taxes (VAT / GST / Sales Tax)</h2>
+<p>Indirect taxes affect total cost of doing business and cash flow management.</p>
+<p><img alt="VAT/GST Rates Comparison" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/03_vat_gst_rates.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Tax Type</th>
+<th>Standard Rate</th>
+<th>Zero/Reduced Rates</th>
+<th>Registration Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>US</strong></td>
+<td>State Sales Tax</td>
+<td>0-10.25%</td>
+<td>Varies by state</td>
+<td>State nexus rules</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>GST/HST</td>
+<td>5% GST / 13-15% HST</td>
+<td>0% on basic groceries, rx drugs, exports</td>
+<td>C$30,000/4 quarters</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>PPN (VAT)</td>
+<td>11% (12% from 2025)</td>
+<td>0% on exports</td>
+<td>IDR 4.8B/year</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>PIS/COFINS + ICMS + ISS</td>
+<td>9.25% (non-cum.) + 7-25% ICMS</td>
+<td>0% on exports</td>
+<td>Depends on regime</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>IVA</td>
+<td>16%</td>
+<td>8% border zones; 0% food, medicine</td>
+<td>All entities</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>GST</td>
+<td>10%</td>
+<td>0% basic food, health, education</td>
+<td>A$75,000</td>
+</tr>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>GST</td>
+<td>9% (from Jan 2024)</td>
+<td>0% exports, international services</td>
+<td>S$1,000,000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Upcoming reforms:</strong>
+- <strong>Indonesia</strong>: PPN increase to 12% (January 2025)
+- <strong>Brazil</strong>: CBS + IBS replacing PIS/COFINS/ICMS/ISS (transition 2026-2033)</p>
+<hr />
+<h2 id="part-3-employer-payroll-social-contributions">Part 3: Employer Payroll &amp; Social Contributions</h2>
+<p>Payroll costs are often the second-largest expense after salaries. The range across jurisdictions is dramatic.</p>
+<p><img alt="Employer Payroll Burden" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/04_employer_payroll_burden.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Approx. Employer Rate</th>
+<th>Key Components</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>United States</strong></td>
+<td>~7.65%</td>
+<td>FICA: SS 6.2% + Medicare 1.45%; FUTA: 0.6%</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>~7.7-11%</td>
+<td>CPP: 5.95%; EI: 2.324%; provincial varies</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>~11-15%</td>
+<td>BPJS health 4%; BPJS TK pension 3.7%; JKK/JKM</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>~11.5-16.5%</td>
+<td>Super: 11.5% (12% from 2025-26); state payroll tax</td>
+</tr>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>~17.25%</td>
+<td>CPF 17% (citizens/PRs only); SDL 0.25%</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>~26-35%</td>
+<td>IMSS ~25%; Infonavit 5%; state payroll 2-3%</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>~35.8%</td>
+<td>INSS 20%; FGTS 8%; Terceiros ~5.8%; RAT 1-3%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical insight:</strong> Singapore's 17% CPF applies <strong>only to citizens and permanent residents</strong>. For foreign workers, employer contributions are effectively <strong>0% CPF</strong> (only SDL 0.25% + Foreign Worker Levy). This makes Singapore's effective payroll cost highly dependent on workforce composition.</p>
+<h3 id="australia-superannuation-rate-trajectory">Australia Superannuation Rate Trajectory</h3>
+<p><img alt="Australia Super Rates" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/17_australia_super_rates.png" /></p>
+<hr />
+<h2 id="part-4-depreciation-capital-allowances">Part 4: Depreciation &amp; Capital Allowances</h2>
+<p>How quickly a business can write off capital investments directly affects after-tax cash flow and investment decisions.</p>
+<p><img alt="Depreciation Comparison" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/05_depreciation_comparison.png" /></p>
+<h3 id="key-asset-recovery-periods">Key Asset Recovery Periods</h3>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>US</th>
+<th>Canada</th>
+<th>Indonesia</th>
+<th>Brazil</th>
+<th>Mexico</th>
+<th>Australia</th>
+<th>Singapore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Buildings</strong></td>
+<td>39yr SL</td>
+<td>4% DB</td>
+<td>20yr SL (5%)</td>
+<td>25yr SL (4%)</td>
+<td>20yr SL (5%)</td>
+<td>40yr SL (2.5%)</td>
+<td>IA 25% + 3%/yr</td>
+</tr>
+<tr>
+<td><strong>Machinery</strong></td>
+<td>7yr MACRS</td>
+<td>30% DB</td>
+<td>8yr SL (12.5%)</td>
+<td>10yr SL (10%)</td>
+<td>10yr SL (10%)</td>
+<td>10-15yr</td>
+<td>3yr SL (33%)</td>
+</tr>
+<tr>
+<td><strong>Vehicles</strong></td>
+<td>5yr MACRS</td>
+<td>30% DB</td>
+<td>8yr SL (12.5%)</td>
+<td>5yr SL (20%)</td>
+<td>4yr SL (25%)</td>
+<td>8yr DV (25%)</td>
+<td>3yr SL (33%)</td>
+</tr>
+<tr>
+<td><strong>Computers</strong></td>
+<td>5yr MACRS</td>
+<td>55% DB</td>
+<td>4yr SL (25%)</td>
+<td>5yr SL (20%)</td>
+<td>3.3yr SL (30%)</td>
+<td>4yr DV (50%)</td>
+<td><strong>1yr (100%)</strong></td>
+</tr>
+<tr>
+<td><strong>Software</strong></td>
+<td>3yr SL</td>
+<td>100%</td>
+<td>4yr SL (25%)</td>
+<td>5yr SL (20%)</td>
+<td>N/A</td>
+<td>5yr DV (40%)</td>
+<td><strong>1yr (100%)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="immediate-expensing-accelerated-write-off">Immediate Expensing / Accelerated Write-Off</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Mechanism</th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>Section 19A one-year write-off</td>
+<td><strong>100% in year 1</strong> (no cap)</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>Section 179 expensing</td>
+<td>$1,220,000 (2024)</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>Bonus depreciation</td>
+<td>60% in 2024 (phasing down)</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>Immediate expensing for CCPCs</td>
+<td>C$1,500,000/yr</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>Accelerated depreciation (priority sectors)</td>
+<td>2x rate</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Shift-based (2x for 3 shifts)</td>
+<td>No dollar cap</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>Instant asset write-off (SBE)</td>
+<td>A$20,000 per asset</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key insight:</strong> Singapore and Canada offer the most generous immediate write-off provisions. Singapore allows 100% write-off of any qualifying plant and machinery in year 1 under ITA S19A with no dollar limit.</p>
+<hr />
+<h2 id="part-5-net-operating-loss-nol-rules">Part 5: Net Operating Loss (NOL) Rules</h2>
+<p>The ability to carry losses forward (or back) determines how quickly a company can recover from loss-making periods.</p>
+<p><img alt="NOL Rules Comparison" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/06_nol_rules.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>US</th>
+<th>Canada</th>
+<th>Indonesia</th>
+<th>Brazil</th>
+<th>Mexico</th>
+<th>Australia</th>
+<th>Singapore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Carry-Forward</strong></td>
+<td>Indefinite</td>
+<td>20 years</td>
+<td><strong>5 years</strong></td>
+<td>Indefinite</td>
+<td>10 years</td>
+<td>Indefinite</td>
+<td>Indefinite</td>
+</tr>
+<tr>
+<td><strong>Carry-Back</strong></td>
+<td>None</td>
+<td>3 years</td>
+<td>None</td>
+<td>None</td>
+<td>None</td>
+<td>1 year</td>
+<td>1 year (S$100K cap)</td>
+</tr>
+<tr>
+<td><strong>Annual Limit</strong></td>
+<td><strong>80%</strong> of TI</td>
+<td>100%</td>
+<td>100%</td>
+<td><strong>30%</strong> of TI</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical observations:</strong>
+- <strong>Brazil's 30% annual cap</strong> is the most restrictive -- large accumulated losses take many years to absorb
+- <strong>Indonesia's 5-year expiry</strong> can result in permanent loss of deductions during prolonged downturns
+- <strong>US 80% limit</strong> means profitable corporations always pay some tax even with prior losses
+- <strong>Singapore, Australia, Canada</strong> offer the most flexible NOL regimes</p>
+<hr />
+<h2 id="part-6-rd-tax-incentives">Part 6: R&amp;D Tax Incentives</h2>
+<p>R&amp;D incentives can dramatically reduce effective tax rates for technology and innovation-intensive companies.</p>
+<p><img alt="R&amp;D Tax Incentives" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/07_rnd_incentives.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Type</th>
+<th>Benefit Rate</th>
+<th>Annual Cap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>Super deduction (EIS)</td>
+<td><strong>400%</strong> deduction (300% extra)</td>
+<td>S$400K/activity</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>Tax credit (SR&amp;ED ITC)</td>
+<td><strong>35%</strong> (CCPC, first C$3M); 15% (others)</td>
+<td>C$3M expenditure limit</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>Super deduction</td>
+<td><strong>300%</strong> deduction (200% extra)</td>
+<td>Approved activities only</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>Tax offset</td>
+<td>+<strong>18.5%</strong> (&lt;$20M, refundable); +8.5% (&gt;=$20M)</td>
+<td>A$150M notional deductions</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>Tax credit</td>
+<td><strong>20%</strong> regular; 14% simplified</td>
+<td>No cap; 20yr carry-forward</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Super deduction (Lei do Bem)</td>
+<td><strong>160-180%</strong> deduction</td>
+<td>Must be profitable</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>Tax credit (EFIDT)</td>
+<td><strong>30%</strong> of incremental R&amp;D</td>
+<td>MXN 50M/yr</td>
+</tr>
+</tbody>
+</table>
+<h3 id="effective-rd-benefit-on-1m-spend">Effective R&amp;D Benefit on $1M Spend</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Tax Saving</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>$440,000</td>
+<td>22% x $2M extra deduction</td>
+</tr>
+<tr>
+<td><strong>Canada (CCPC)</strong></td>
+<td>$350,000</td>
+<td>35% refundable credit</td>
+</tr>
+<tr>
+<td><strong>Singapore (EIS)</strong></td>
+<td>$272,000</td>
+<td>17% x $3M extra deduction</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>$200,000</td>
+<td>20% tax credit</td>
+</tr>
+<tr>
+<td><strong>Australia (&lt;$20M)</strong></td>
+<td>$185,000</td>
+<td>43.5% refundable offset</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>$204-272K</td>
+<td>34% x 60-80% extra deduction</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>$90,000</td>
+<td>30% of incremental</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key insights:</strong>
+- <strong>Singapore's EIS</strong> (400% deduction from YA 2024) is the most generous percentage deduction globally
+- <strong>Canada's SR&amp;ED</strong> is uniquely valuable for small CCPCs because the 35% credit is <strong>refundable</strong> -- the government pays cash even with no tax liability
+- <strong>The US</strong> shifted R&amp;D costs to <strong>5-year mandatory amortization</strong> (IRC S174) starting 2022, increasing after-tax R&amp;D cost</p>
+<hr />
+<h2 id="part-7-interest-deduction-limitations">Part 7: Interest Deduction Limitations</h2>
+<p>Interest limitation rules affect how companies can use debt to fund operations and reduce tax.</p>
+<p><img alt="Interest Limitation Rules" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/08_interest_limitation.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Primary Rule</th>
+<th>Ratio/Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td><strong>None</strong> (arm's length only)</td>
+<td>No fixed DER or EBITDA ratio</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>DER-based</td>
+<td><strong>4:1</strong> debt-to-equity</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>DER-based</td>
+<td><strong>2:1</strong> (related parties); <strong>0.3:1</strong> (tax haven)</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>DER + EBITDA</td>
+<td><strong>3:1</strong> DER + <strong>30%</strong> EBITDA</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>EBITDA-based</td>
+<td><strong>30%</strong> of adjusted taxable income</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>EBITDA-based (EIFEL)</td>
+<td><strong>30%</strong> of tax EBITDA</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>Transitioning to EBITDA</td>
+<td><strong>30%</strong> of tax EBITDA (from July 2024)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key insight:</strong> Singapore is uniquely permissive -- no thin capitalization rules and no EBITDA-based interest limitation. Interest deductions are only scrutinized under arm's length transfer pricing principles.</p>
+<hr />
+<h2 id="part-8-withholding-taxes-on-cross-border-payments">Part 8: Withholding Taxes on Cross-Border Payments</h2>
+<p>Withholding taxes are the most direct cost of repatriating profits from a subsidiary to its parent.</p>
+<p><img alt="Withholding Tax Rates" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/09_withholding_taxes.png" /></p>
+<h3 id="default-domestic-wht-rates-non-treaty">Default Domestic WHT Rates (Non-Treaty)</h3>
+<table>
+<thead>
+<tr>
+<th>Payment Type</th>
+<th>US</th>
+<th>Canada</th>
+<th>Indonesia</th>
+<th>Brazil</th>
+<th>Mexico</th>
+<th>Australia</th>
+<th>Singapore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dividends</strong></td>
+<td>30%</td>
+<td>25%</td>
+<td>20%</td>
+<td><strong>0%</strong></td>
+<td>10%</td>
+<td>30%</td>
+<td><strong>0%</strong></td>
+</tr>
+<tr>
+<td><strong>Interest</strong></td>
+<td>30%</td>
+<td>25%</td>
+<td>20%</td>
+<td>15%</td>
+<td>35%</td>
+<td>10%</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>Royalties</strong></td>
+<td>30%</td>
+<td>25%</td>
+<td>20%</td>
+<td>15%</td>
+<td>25%</td>
+<td>30%</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dividend WHT highlights:</strong>
+- <strong>Singapore (0%)</strong> and <strong>Brazil (0%)</strong> impose no WHT on dividends
+- <strong>Australia</strong> effectively eliminates double taxation through the franking credit imputation system
+- Treaty rates can significantly reduce the above defaults (e.g., US-Canada: 5% dividends)</p>
+<hr />
+<h2 id="part-9-comprehensive-deduction-incentive-overview">Part 9: Comprehensive Deduction &amp; Incentive Overview</h2>
+<h3 id="91-deduction-categories-heatmap">9.1 Deduction Categories Heatmap</h3>
+<p><img alt="Deduction Categories Heatmap" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/10_deduction_categories_heatmap.png" /></p>
+<h3 id="92-sme-special-regimes">9.2 SME &amp; Special Regimes</h3>
+<p><img alt="SME Regimes Comparison" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/12_sme_regimes.png" /></p>
+<h3 id="93-brazil-simples-nacional-detail">9.3 Brazil Simples Nacional Detail</h3>
+<p><img alt="Brazil Simples Nacional" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/11_brazil_simples_nacional.png" /></p>
+<h3 id="94-overall-tax-burden-radar">9.4 Overall Tax Burden Radar</h3>
+<p><img alt="Tax Burden Radar Chart" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/13_tax_burden_radar.png" /></p>
+<hr />
+<h2 id="part-10-country-specific-incentive-deep-dives">Part 10: Country-Specific Incentive Deep Dives</h2>
+<h3 id="101-canada-provincial-rate-variation">10.1 Canada Provincial Rate Variation</h3>
+<p><img alt="Canada Provincial Rates" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/14_canada_provincial_rates.png" /></p>
+<p>Alberta offers the lowest combined rate at 23% (8% provincial), while PEI is the highest at 31%.</p>
+<h3 id="102-indonesia-tax-holiday-program">10.2 Indonesia Tax Holiday Program</h3>
+<p><img alt="Indonesia Tax Holiday" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/15_indonesia_tax_holiday.png" /></p>
+<p>Indonesia's Tax Holiday (PMK 130/2020) offers <strong>100% CIT exemption</strong> for pioneer industries:</p>
+<table>
+<thead>
+<tr>
+<th>Investment Amount (IDR)</th>
+<th>Holiday Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100B - 500B</td>
+<td>5 years</td>
+</tr>
+<tr>
+<td>500B - 1T</td>
+<td>7 years</td>
+</tr>
+<tr>
+<td>1T - 5T</td>
+<td>10 years</td>
+</tr>
+<tr>
+<td>5T - 15T</td>
+<td>15 years</td>
+</tr>
+<tr>
+<td>&gt;15T</td>
+<td>20 years</td>
+</tr>
+</tbody>
+</table>
+<p>Plus 2 additional years at 50% reduction after the holiday period.</p>
+<h3 id="103-mexico-resico-simplified-trust-regime">10.3 Mexico RESICO (Simplified Trust Regime)</h3>
+<p><img alt="Mexico RESICO" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/16_mexico_resico.png" /></p>
+<p>RESICO offers 1-2.5% rates for individuals with revenue up to MXN 3.5M. Combined with border zone incentives (~20% effective CIT + 8% IVA), Mexico provides compelling rates for specific structures.</p>
+<h3 id="104-singapore-comprehensive-incentive-suite">10.4 Singapore Comprehensive Incentive Suite</h3>
+<p><img alt="Singapore Tax Incentives" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/19_singapore_tax_incentives.png" /></p>
+<p>Singapore offers the broadest suite of concessionary tax regimes:</p>
+<table>
+<thead>
+<tr>
+<th>Incentive</th>
+<th>Rate</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pioneer Status (PS)</td>
+<td>0-5%</td>
+<td>5-15 years</td>
+</tr>
+<tr>
+<td>Development &amp; Expansion (DEI)</td>
+<td>5-10%</td>
+<td>5-10 years</td>
+</tr>
+<tr>
+<td>Global Trader Programme (GTP)</td>
+<td>5-10%</td>
+<td>Varies</td>
+</tr>
+<tr>
+<td>Financial Sector (FSI)</td>
+<td>5-13.5%</td>
+<td>Varies</td>
+</tr>
+<tr>
+<td>IP Development (IDI)</td>
+<td>5-10%</td>
+<td>Varies</td>
+</tr>
+<tr>
+<td>Enterprise Innovation (EIS)</td>
+<td>400% R&amp;D deduction</td>
+<td>Ongoing</td>
+</tr>
+<tr>
+<td>Startup Exemption (SUTE)</td>
+<td>75% exempt on first S$100K</td>
+<td>First 3 YAs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-11-non-deductible-expenses">Part 11: Non-Deductible Expenses</h2>
+<p>Understanding what <strong>cannot</strong> be deducted is as important as knowing what can.</p>
+<table>
+<thead>
+<tr>
+<th>Expense Type</th>
+<th>US</th>
+<th>Canada</th>
+<th>Indonesia</th>
+<th>Brazil</th>
+<th>Mexico</th>
+<th>Australia</th>
+<th>Singapore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entertainment</strong></td>
+<td>100% ND</td>
+<td>50% ded.</td>
+<td>50% ded.</td>
+<td>Partially ND</td>
+<td>91.25% ded.</td>
+<td>ND</td>
+<td><strong>100% ded.</strong></td>
+</tr>
+<tr>
+<td><strong>Meals (business)</strong></td>
+<td>50% ded.</td>
+<td>50% ded.</td>
+<td>Generally ND</td>
+<td>ND</td>
+<td>91.25% ded.</td>
+<td>ND</td>
+<td><strong>100% ded.</strong></td>
+</tr>
+<tr>
+<td><strong>Fines &amp; Penalties</strong></td>
+<td>ND</td>
+<td>ND</td>
+<td>ND</td>
+<td>ND</td>
+<td>ND</td>
+<td>ND</td>
+<td>ND</td>
+</tr>
+<tr>
+<td><strong>Charitable (excess)</strong></td>
+<td>ND (&gt;10% TI)</td>
+<td>ND (&gt;75% NI)</td>
+<td>ND (&gt;5% NI)</td>
+<td>ND (&gt;2% OP)</td>
+<td>ND (&gt;7% TI)</td>
+<td>No cap</td>
+<td>ND (beyond IPC)</td>
+</tr>
+</tbody>
+</table>
+<p><em>ND = Non-Deductible, ded. = deductible</em></p>
+<p><strong>Key insight:</strong> Singapore is the most permissive on entertainment and meal deductions -- 100% deductible for business purposes with no restriction. This contrasts sharply with the US (100% ND for entertainment post-2022).</p>
+<hr />
+<h2 id="part-12-charitable-deductions">Part 12: Charitable Deductions</h2>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Deduction Limit</th>
+<th>Multiplier</th>
+<th>Carry-Forward</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>No cap</td>
+<td><strong>2.5x</strong> (through 2026)</td>
+<td>5 years</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td><strong>No cap</strong></td>
+<td>1x</td>
+<td>5 years</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>75% of net income</td>
+<td>1x</td>
+<td>5 years</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>10% of taxable income</td>
+<td>1x</td>
+<td>5 years</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>7% of prior year TI</td>
+<td>1x</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>5% of net income (zakat)</td>
+<td>1x</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>2% of operating profit</td>
+<td>1x</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>Singapore's 250% multiplier means every S$1 donated to an approved IPC generates <strong>S$2.50</strong> in deductions.</p>
+<hr />
+<h2 id="part-13-transfer-pricing">Part 13: Transfer Pricing</h2>
+<h3 id="framework-comparison">Framework Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Standard</th>
+<th>CbCR Threshold</th>
+<th>Penalty (no documentation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>US</strong></td>
+<td>Arm's length + best method</td>
+<td>$850M</td>
+<td>20-40% of underpayment</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>Arm's length</td>
+<td>C$750M</td>
+<td>10% of adjustment</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>Arm's length</td>
+<td>IDR 11T</td>
+<td>Deemed income approach</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Arm's length (OECD-aligned 2024)</td>
+<td>R$2.26B</td>
+<td>0.2%/month of revenue (up to 10%)</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>Arm's length</td>
+<td>MXN 12B</td>
+<td>55-75% of shortfall</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>Arm's length</td>
+<td>A$1B (SGE)</td>
+<td>25-50% of shortfall</td>
+</tr>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>Arm's length</td>
+<td>S$1.125B</td>
+<td>5% surcharge + S$10K fine</td>
+</tr>
+</tbody>
+</table>
+<p>All seven jurisdictions follow the arm's length standard. Brazil's 2024 adoption of OECD-aligned rules (Lei 14.596/2023) was a major alignment shift.</p>
+<hr />
+<h2 id="part-14-beps-pillar-2-international-tax">Part 14: BEPS Pillar 2 &amp; International Tax</h2>
+<h3 id="141-global-minimum-tax-15-status">14.1 Global Minimum Tax (15%) Status</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Status</th>
+<th>Domestic Top-Up Tax</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>Implementing</td>
+<td>Yes (from 2025)</td>
+<td>Income Tax (Amendment) Act 2024</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>Implementing</td>
+<td>Yes (from 2025)</td>
+<td>IIR from Jan 2024</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>Implementing</td>
+<td>QDMTT planned</td>
+<td>Global Minimum Tax Act (Bill C-69)</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>Partial</td>
+<td>No</td>
+<td>GILTI at 10.5% serves similar purpose</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>Monitoring</td>
+<td>Under consideration</td>
+<td>No legislation yet</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Monitoring</td>
+<td>Under consideration</td>
+<td>No legislation yet</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>Monitoring</td>
+<td>Under consideration</td>
+<td>No legislation yet</td>
+</tr>
+</tbody>
+</table>
+<h3 id="142-territorial-vs-worldwide-taxation">14.2 Territorial vs. Worldwide Taxation</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>US</th>
+<th>Canada</th>
+<th>Indonesia</th>
+<th>Brazil</th>
+<th>Mexico</th>
+<th>Australia</th>
+<th>Singapore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>System</strong></td>
+<td>Worldwide</td>
+<td>Worldwide</td>
+<td>Worldwide</td>
+<td>Worldwide</td>
+<td>Worldwide</td>
+<td>Worldwide</td>
+<td><strong>Territorial</strong></td>
+</tr>
+<tr>
+<td><strong>CFC Rules</strong></td>
+<td>Yes (Subpart F + GILTI)</td>
+<td>Yes (FAPI)</td>
+<td>Yes (limited)</td>
+<td>Yes (universal)</td>
+<td>Yes (REFIPRE)</td>
+<td>Yes (Part X)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td><strong>Tax Treaties</strong></td>
+<td>66+</td>
+<td><strong>94+</strong></td>
+<td>71+</td>
+<td>35+</td>
+<td>60+</td>
+<td>45+</td>
+<td><strong>90+</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Singapore's territorial system</strong> is a major differentiator -- foreign-sourced income is taxed only when remitted, with extensive exemptions for foreign dividends, branch profits, and service income under ITA S13(8)-(13).</p>
+<hr />
+<h2 id="part-15-international-investor-analysis">Part 15: International Investor Analysis</h2>
+<h3 id="151-foreign-investment-screening">15.1 Foreign Investment Screening</h3>
+<p><img alt="Foreign Investment Screening" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/20_foreign_investment_screening.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Screening Body</th>
+<th>General Threshold</th>
+<th>Approval Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>ACRA/MAS</td>
+<td>Minimal restrictions</td>
+<td><strong>1-3 days</strong></td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>BKPM/OSS-RBA</td>
+<td>All foreign investment</td>
+<td>~3 hours (OSS)</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>Investment Canada Act</td>
+<td>CAD 1.326B (WTO investors)</td>
+<td>~75 days</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>CFIUS</td>
+<td>Case-by-case (mandatory for critical sectors)</td>
+<td>45 + 45 days</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>FIRB</td>
+<td>AUD 310M (agreement countries)</td>
+<td>30-90 days</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>CNIE</td>
+<td>Varies by sector</td>
+<td>~45 days</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Central Bank (RDE-IED)</td>
+<td>Registration required for all FDI</td>
+<td>~30 days</td>
+</tr>
+</tbody>
+</table>
+<h3 id="152-non-resident-tax-rates">15.2 Non-Resident Tax Rates</h3>
+<p><img alt="Non-Resident Tax Rates" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/21_nonresident_tax_rates.png" /></p>
+<h4 id="capital-gains-on-share-disposal">Capital Gains on Share Disposal</h4>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Listed Shares</th>
+<th>Non-Listed Shares</th>
+<th>Real Property</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td><strong>0%</strong></td>
+<td><strong>0%</strong></td>
+<td><strong>0%</strong> (SSD may apply)</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>0.1% final</td>
+<td>5% final (non-res)</td>
+<td>2.5% final</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>10% on gains</td>
+<td>10% on gains</td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>0% (non-USRPI)</td>
+<td>0% (non-USRPI)</td>
+<td>21% (FIRPTA)</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>25% WHT (TCP)</td>
+<td>25% WHT (TCP)</td>
+<td>25% WHT (TCP)</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>0% (non-TAP)</td>
+<td>0% (non-TAP)</td>
+<td>12.5% WHT</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>15%</td>
+<td>15% (25% tax haven)</td>
+<td>34% (corp)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dividend-interest-treatment">Dividend &amp; Interest Treatment</h4>
+<p><img alt="Dividend &amp; Interest Treatment" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/25_dividend_interest_treatment.png" /></p>
+<h4 id="capital-gains-comparison">Capital Gains Comparison</h4>
+<p><img alt="Capital Gains Comparison" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/24_capital_gains_comparison.png" /></p>
+<h3 id="153-repatriation-ease">15.3 Repatriation Ease</h3>
+<p><img alt="Repatriation Ease Radar" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/22_repatriation_ease_radar.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Country</th>
+<th>Score</th>
+<th>Key Factors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Singapore</strong></td>
+<td>10/10</td>
+<td>0% dividend WHT, 0% branch tax, no FX controls</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Australia</strong></td>
+<td>9/10</td>
+<td>0% on franked dividends, no FX controls</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>US</strong></td>
+<td>8/10</td>
+<td>No FX controls, but 30% dividend WHT (treaty-reducible)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Canada</strong></td>
+<td>8/10</td>
+<td>No FX controls, but 25% dividend WHT (treaty-reducible)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Mexico</strong></td>
+<td>7/10</td>
+<td>No FX controls; 10% dividend WHT</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Brazil</strong></td>
+<td>6/10</td>
+<td>0% dividend WHT but FX controls + BCB registration</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Indonesia</strong></td>
+<td>5/10</td>
+<td>20% WHT, BI reporting, export proceeds restrictions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="154-branch-vs-subsidiary">15.4 Branch vs. Subsidiary</h3>
+<p>The choice between branch and subsidiary affects total tax cost, loss utilization, and access to incentives.</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Recommendation</th>
+<th>Countries Where Branch May Work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>General rule</strong></td>
+<td><strong>Subsidiary preferred</strong> in all 7 countries</td>
+<td>--</td>
+</tr>
+<tr>
+<td><strong>Loss-making phase</strong></td>
+<td>Branch (to offset HO profits)</td>
+<td>US, Canada</td>
+</tr>
+<tr>
+<td><strong>No branch profits tax</strong></td>
+<td>Branch viable</td>
+<td>Brazil, Australia, Singapore</td>
+</tr>
+<tr>
+<td><strong>Temporary project</strong></td>
+<td>Branch (avoid incorporation costs)</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<h4 id="combined-tax-rates-branch-vs-subsidiary">Combined Tax Rates (Branch vs. Subsidiary)</h4>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Branch Combined</th>
+<th>Subsidiary Combined</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td><strong>17%</strong></td>
+<td><strong>17%</strong></td>
+<td>Either works; sub preferred for PTE/SUTE</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td><strong>34%</strong></td>
+<td><strong>34%</strong></td>
+<td>Either works; 0% WHT either way</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td><strong>30%</strong></td>
+<td><strong>30%</strong> (franked)</td>
+<td>Sub preferred for franking benefits</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>36.25% (ON)</td>
+<td>36.25% (ON)</td>
+<td>Sub preferred for SBD eligibility</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>44.7%</td>
+<td>44.7%</td>
+<td>Sub preferred (treaty WHT reduction)</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>37.6%</td>
+<td>37.6%</td>
+<td>Sub preferred (treaty + incentives)</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>37%</td>
+<td>37%</td>
+<td>Sub preferred (IMMEX eligible)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-16-cfc-rules-impact">Part 16: CFC Rules Impact</h2>
+<p>CFC (Controlled Foreign Corporation) rules determine whether a parent country taxes its residents on undistributed foreign subsidiary profits.</p>
+<table>
+<thead>
+<tr>
+<th>Severity Rank</th>
+<th>Country</th>
+<th>Regime</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (most aggressive)</td>
+<td><strong>Brazil</strong></td>
+<td>Universal CFC</td>
+<td>Taxes ALL foreign subsidiary profits; no active income exemption</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>US</strong></td>
+<td>Subpart F + GILTI</td>
+<td>Captures essentially all CFC income; 10.5% minimum effective</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Canada</strong></td>
+<td>FAPI</td>
+<td>Passive/services income; active business exempt</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Australia</strong></td>
+<td>Part X</td>
+<td>Tainted (passive) income; 95% active income safe harbor</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Mexico</strong></td>
+<td>REFIPRE</td>
+<td>Passive income in low-tax jurisdictions (&lt;22.5%)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Indonesia</strong></td>
+<td>Deemed Dividend</td>
+<td>Passive income; limited enforcement</td>
+</tr>
+<tr>
+<td>7 (none)</td>
+<td><strong>Singapore</strong></td>
+<td><strong>None</strong></td>
+<td>No CFC rules; territorial system</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-17-key-investment-corridors">Part 17: Key Investment Corridors</h2>
+<h3 id="171-singapore-parent-indonesian-subsidiary">17.1 Singapore Parent -&gt; Indonesian Subsidiary</h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Rate</th>
+<th>Amount (on IDR 10B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Indonesia CIT</td>
+<td>22%</td>
+<td>IDR 2.2B</td>
+</tr>
+<tr>
+<td>Dividend WHT (treaty)</td>
+<td>10%</td>
+<td>IDR 780M (treaty: 390M)</td>
+</tr>
+<tr>
+<td>Singapore CIT on dividend</td>
+<td>0% (FSIE exempt)</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>Total effective rate</strong></td>
+<td><strong>29.8%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="172-us-parent-canadian-subsidiary">17.2 US Parent -&gt; Canadian Subsidiary</h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Rate</th>
+<th>Amount (on USD 10M)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canada CIT (federal + ON)</td>
+<td>26.5%</td>
+<td>CAD 2.65M</td>
+</tr>
+<tr>
+<td>Dividend WHT (treaty)</td>
+<td>5% (&gt;=10% ownership)</td>
+<td>CAD 367.5K</td>
+</tr>
+<tr>
+<td>US FTC on Canadian taxes</td>
+<td>Credit offset</td>
+<td>--</td>
+</tr>
+<tr>
+<td><strong>Total effective rate</strong></td>
+<td><strong>~30.2%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="173-singapore-parent-australian-subsidiary">17.3 Singapore Parent -&gt; Australian Subsidiary</h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Rate</th>
+<th>Amount (on AUD 10M)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Australia CIT</td>
+<td>30%</td>
+<td>AUD 3M</td>
+</tr>
+<tr>
+<td>Franked dividend WHT</td>
+<td>0%</td>
+<td>AUD 0</td>
+</tr>
+<tr>
+<td>Singapore CIT</td>
+<td>0% (FSIE exempt)</td>
+<td>AUD 0</td>
+</tr>
+<tr>
+<td><strong>Total effective rate</strong></td>
+<td><strong>30%</strong></td>
+<td>Franking eliminates double tax</td>
+</tr>
+</tbody>
+</table>
+<h3 id="174-canada-parent-brazilian-subsidiary">17.4 Canada Parent -&gt; Brazilian Subsidiary</h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Rate</th>
+<th>Amount (on BRL 10M)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brazil CIT (IRPJ + CSLL)</td>
+<td>34%</td>
+<td>BRL 3.4M</td>
+</tr>
+<tr>
+<td>Dividend WHT</td>
+<td>0%</td>
+<td>BRL 0</td>
+</tr>
+<tr>
+<td>Canada CIT on dividend</td>
+<td>0% (exempt surplus)</td>
+<td>BRL 0</td>
+</tr>
+<tr>
+<td><strong>Total effective rate</strong></td>
+<td><strong>34%</strong></td>
+<td>Brazil's high CIT is the full cost</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-18-sector-specific-taxation">Part 18: Sector-Specific Taxation</h2>
+<p><img alt="Sector-Specific Taxes Heatmap" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/26_sector_specific_taxes.png" /></p>
+<h3 id="digital-services-taxation">Digital Services Taxation</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>DST?</th>
+<th>Rate</th>
+<th>Digital VAT/GST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Canada</strong></td>
+<td><strong>Yes</strong></td>
+<td>3%</td>
+<td>GST/HST</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>No</td>
+<td>--</td>
+<td>State sales tax</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>No (VAT-based)</td>
+<td>--</td>
+<td>11% PMSE VAT</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>No</td>
+<td>--</td>
+<td>ISS 2-5%</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>No (ISR retention)</td>
+<td>--</td>
+<td>16% IVA</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>No (MAAL/DPT)</td>
+<td>--</td>
+<td>10% GST</td>
+</tr>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>No (OVR GST)</td>
+<td>--</td>
+<td>9% GST OVR</td>
+</tr>
+</tbody>
+</table>
+<h3 id="natural-resource-taxes">Natural Resource Taxes</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Key Mechanism</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Australia</strong></td>
+<td>PRRT</td>
+<td><strong>40%</strong> (highest)</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>PNBP Royalties</td>
+<td>Coal 3-7%, Gold 3.75%</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>Provincial royalties</td>
+<td>AB: 1-40% oil &amp; gas</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>Ley Federal de Derechos</td>
+<td>7.5% EBITDA mining</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>CFEM</td>
+<td>Iron ore 3.5%</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>% Depletion</td>
+<td>5-22%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-19-income-source-taxation">Part 19: Income Source Taxation</h2>
+<h3 id="capital-gains-corporate-taxpayer">Capital Gains -- Corporate Taxpayer</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Listed Shares</th>
+<th>Non-Listed Shares</th>
+<th>Real Property</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td><strong>0%</strong> (no CGT)</td>
+<td><strong>0%</strong></td>
+<td><strong>0%</strong> (SSD applies)</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>0.1% final</td>
+<td>22%</td>
+<td>2.5% final</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>10%</td>
+<td>30%</td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>15%</td>
+<td>15%</td>
+<td>34% (corp)</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>21% (full rate)</td>
+<td>21%</td>
+<td>21%</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>30% (full rate)</td>
+<td>30%</td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>50% inclusion</td>
+<td>50% inclusion</td>
+<td>50% inclusion</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inter-corporate-dividends">Inter-Corporate Dividends</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Domestic Dividends</th>
+<th>Foreign Dividends</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>Exempt (one-tier)</td>
+<td>FSIE exempt</td>
+<td>ITA S13(1)(za)</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Exempt</td>
+<td>CFC: 34%</td>
+<td>Lei 9.249 Art. 10</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>Exempt (UU HPP)</td>
+<td>Exempt if reinvested</td>
+<td>Pasal 4(3)(f)</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>DRD 50/65/100%</td>
+<td>S245A exempt (&gt;=10%)</td>
+<td>IRC S243, S245A</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>S112 deduction</td>
+<td>Exempt surplus: 0%</td>
+<td>ITA S112(1)</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>Franking credit</td>
+<td>FTC (Div 770)</td>
+<td>Div 207</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-20-investor-decision-matrix">Part 20: Investor Decision Matrix</h2>
+<h3 id="201-scored-assessment-1-10-higher-more-favorable">20.1 Scored Assessment (1-10, higher = more favorable)</h3>
+<p><img alt="Investor Decision Matrix" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/23_investor_decision_matrix.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>US</th>
+<th>Indonesia</th>
+<th>Canada</th>
+<th>Brazil</th>
+<th>Mexico</th>
+<th>Australia</th>
+<th>Singapore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Investment Openness</strong></td>
+<td>7</td>
+<td>5</td>
+<td>8</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td><strong>9</strong></td>
+</tr>
+<tr>
+<td><strong>Dividend Tax Efficiency</strong></td>
+<td>4</td>
+<td>5</td>
+<td>4</td>
+<td><strong>10</strong></td>
+<td>7</td>
+<td>7</td>
+<td><strong>10</strong></td>
+</tr>
+<tr>
+<td><strong>Capital Gains Tax</strong></td>
+<td>7</td>
+<td>7</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>7</td>
+<td><strong>10</strong></td>
+</tr>
+<tr>
+<td><strong>Branch Tax Cost</strong></td>
+<td>4</td>
+<td>5</td>
+<td>5</td>
+<td><strong>10</strong></td>
+<td>7</td>
+<td><strong>10</strong></td>
+<td><strong>10</strong></td>
+</tr>
+<tr>
+<td><strong>FX / Repatriation Ease</strong></td>
+<td><strong>10</strong></td>
+<td>5</td>
+<td><strong>10</strong></td>
+<td>5</td>
+<td>9</td>
+<td><strong>10</strong></td>
+<td><strong>10</strong></td>
+</tr>
+<tr>
+<td><strong>CFC Regime (low severity)</strong></td>
+<td>3</td>
+<td>6</td>
+<td>5</td>
+<td>2</td>
+<td>6</td>
+<td>5</td>
+<td><strong>10</strong></td>
+</tr>
+<tr>
+<td><strong>Treaty Network</strong></td>
+<td>8</td>
+<td>7</td>
+<td><strong>9</strong></td>
+<td>3</td>
+<td>7</td>
+<td>5</td>
+<td><strong>9</strong></td>
+</tr>
+<tr>
+<td><strong>PE Risk (low risk)</strong></td>
+<td>7</td>
+<td>5</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>7</td>
+<td>7</td>
+</tr>
+<tr>
+<td><strong>Regulatory Simplicity</strong></td>
+<td>6</td>
+<td>4</td>
+<td>7</td>
+<td>3</td>
+<td>5</td>
+<td>7</td>
+<td><strong>9</strong></td>
+</tr>
+<tr>
+<td><strong>Overall Score</strong></td>
+<td><strong>6.2</strong></td>
+<td><strong>5.4</strong></td>
+<td><strong>6.7</strong></td>
+<td><strong>5.6</strong></td>
+<td><strong>6.6</strong></td>
+<td><strong>7.2</strong></td>
+<td><strong>9.3</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="202-investor-friendliness-ranking">20.2 Investor-Friendliness Ranking</h3>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Country</th>
+<th>Score</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Singapore</strong></td>
+<td>9.3</td>
+<td>Holding companies, regional HQ, IP holding, trading hubs</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Australia</strong></td>
+<td>7.2</td>
+<td>Franked dividend structures, mining/resources, R&amp;D-intensive</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Canada</strong></td>
+<td>6.7</td>
+<td>SR&amp;ED businesses, resource sector, US-adjacent operations</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Mexico</strong></td>
+<td>6.6</td>
+<td>Manufacturing (IMMEX/maquiladora), border zone incentives</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>US</strong></td>
+<td>6.2</td>
+<td>Large market access, FDII incentive, technology sector</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Brazil</strong></td>
+<td>5.6</td>
+<td>0% dividend WHT; but universal CFC + complexity offsets gains</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Indonesia</strong></td>
+<td>5.4</td>
+<td>Tax holidays (pioneer), ASEAN market access, natural resources</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-21-strategic-recommendations">Part 21: Strategic Recommendations</h2>
+<h3 id="211-comprehensive-summary-table">21.1 Comprehensive Summary Table</h3>
+<p><img alt="Comprehensive Summary Table" src="file:///Users/evintleovonzko/Documents/Works/Kolosal/tax-planning/charts/18_comprehensive_summary_table.png" /></p>
+<h3 id="212-summary-scorecard">21.2 Summary Scorecard</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>US</th>
+<th>Canada</th>
+<th>Indonesia</th>
+<th>Brazil</th>
+<th>Mexico</th>
+<th>Australia</th>
+<th>Singapore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CIT Competitiveness</strong></td>
+<td>3/5</td>
+<td>4/5</td>
+<td>4/5</td>
+<td>2/5</td>
+<td>2/5</td>
+<td>3/5</td>
+<td><strong>5/5</strong></td>
+</tr>
+<tr>
+<td><strong>R&amp;D Incentives</strong></td>
+<td>3/5</td>
+<td><strong>5/5</strong></td>
+<td>4/5</td>
+<td>3/5</td>
+<td>2/5</td>
+<td>4/5</td>
+<td><strong>5/5</strong></td>
+</tr>
+<tr>
+<td><strong>Payroll Cost</strong></td>
+<td><strong>5/5</strong></td>
+<td>4/5</td>
+<td>4/5</td>
+<td>2/5</td>
+<td>2/5</td>
+<td>3/5</td>
+<td>4/5</td>
+</tr>
+<tr>
+<td><strong>Dividend Repatriation</strong></td>
+<td>2/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td><strong>5/5</strong></td>
+<td>3/5</td>
+<td>4/5</td>
+<td><strong>5/5</strong></td>
+</tr>
+<tr>
+<td><strong>NOL Flexibility</strong></td>
+<td>3/5</td>
+<td>4/5</td>
+<td>2/5</td>
+<td>2/5</td>
+<td>3/5</td>
+<td><strong>5/5</strong></td>
+<td><strong>5/5</strong></td>
+</tr>
+<tr>
+<td><strong>Interest Deductibility</strong></td>
+<td>3/5</td>
+<td>3/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td><strong>5/5</strong></td>
+</tr>
+<tr>
+<td><strong>Ease of Compliance</strong></td>
+<td>4/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>2/5</td>
+<td>3/5</td>
+<td>4/5</td>
+<td><strong>5/5</strong></td>
+</tr>
+<tr>
+<td><strong>Treaty Network</strong></td>
+<td>4/5</td>
+<td><strong>5/5</strong></td>
+<td>4/5</td>
+<td>2/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td><strong>5/5</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="213-holding-company-jurisdiction-assessment">21.3 Holding Company Jurisdiction Assessment</h3>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Best</th>
+<th>Worst</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dividend Repatriation</strong></td>
+<td>Singapore (0%) / Brazil (0%)</td>
+<td>US (30%) / Mexico (10%)</td>
+<td>WHT on outbound dividends</td>
+</tr>
+<tr>
+<td><strong>Treaty Network</strong></td>
+<td>Canada (94+) / Singapore (90+)</td>
+<td>Brazil (35+)</td>
+<td>Treaty coverage breadth</td>
+</tr>
+<tr>
+<td><strong>Interest Deductibility</strong></td>
+<td>Singapore (no thin cap)</td>
+<td>Brazil (2:1 DER)</td>
+<td>Flexibility for leveraged structures</td>
+</tr>
+<tr>
+<td><strong>R&amp;D Hub</strong></td>
+<td>Singapore (400% EIS) / Canada (35% ITC)</td>
+<td>Mexico (limited)</td>
+<td>Cash value of incentives</td>
+</tr>
+<tr>
+<td><strong>Payroll Efficiency</strong></td>
+<td>US (~7.65%) / Singapore (0% foreigners)</td>
+<td>Brazil (~35.8%)</td>
+<td>Total employer burden</td>
+</tr>
+</tbody>
+</table>
+<h3 id="214-risk-factors-by-jurisdiction">21.4 Risk Factors by Jurisdiction</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Key Tax Risk</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>US</strong></td>
+<td>CAMT 15% for large corps; 5-year R&amp;D amortization</td>
+<td>Monitor legislation; stay below $1B AFSI</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>EIFEL 30% EBITDA limit on leveraged structures</td>
+<td>Equity financing; group ratio election</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>Short 5-year NOL; frequent regulatory changes</td>
+<td>Accelerate profit recovery; maintain documentation</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>30% NOL cap; complex multi-layer system</td>
+<td>Regime selection (Lucro Presumido); use JCP</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>High payroll (~30%); limited R&amp;D incentives</td>
+<td>RESICO for qualifying entities; border zone</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>New 30% EBITDA thin cap from 2024</td>
+<td>Structure as base rate entity (&lt;$50M)</td>
+</tr>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>Pillar 2 DMTT from 2025 erodes sub-15% rates</td>
+<td>Recalibrated EDB incentives; RIC introduced</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-22-permanent-establishment-risk">Part 22: Permanent Establishment Risk</h2>
+<table>
+<thead>
+<tr>
+<th>PE Type</th>
+<th>US</th>
+<th>Indonesia</th>
+<th>Canada</th>
+<th>Brazil</th>
+<th>Mexico</th>
+<th>Australia</th>
+<th>Singapore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Construction PE</strong></td>
+<td>12 months</td>
+<td><strong>6 months</strong></td>
+<td>12 months</td>
+<td><strong>6 months</strong></td>
+<td><strong>6 months</strong></td>
+<td>12 months</td>
+<td>12 months</td>
+</tr>
+<tr>
+<td><strong>Service PE</strong></td>
+<td>N/A</td>
+<td><strong>60 days</strong></td>
+<td>183 days</td>
+<td>183 days</td>
+<td>183 days</td>
+<td>183 days</td>
+<td>183 days</td>
+</tr>
+<tr>
+<td><strong>Digital PE</strong></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No (DPT 40%)</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Risk ranking:</strong>
+- <strong>High:</strong> Indonesia (60-day service PE, aggressive enforcement)
+- <strong>Medium:</strong> Brazil, Mexico (6-month construction PE)
+- <strong>Lower:</strong> US, Canada, Australia, Singapore (clearer safe harbors)</p>
+<hr />
+<h2 id="part-23-country-deep-dive-united-states">Part 23: Country Deep Dive — United States</h2>
+<blockquote>
+<p><strong>Governing Law</strong>: Internal Revenue Code (IRC), TCJA 2017, IRA 2022 | <strong>Tax Authority</strong>: IRS | <strong>Currency</strong>: USD</p>
+</blockquote>
+<h3 id="231-corporate-income-tax-framework">23.1 Corporate Income Tax Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Federal CIT rate</td>
+<td><strong>21%</strong> flat</td>
+<td>IRC §11(b)</td>
+</tr>
+<tr>
+<td>CAMT (large corps)</td>
+<td><strong>15%</strong> on AFSI ≥ $1B (3yr avg)</td>
+<td>IRC §55 (IRA 2022)</td>
+</tr>
+<tr>
+<td>State CIT range</td>
+<td>0% (NV, WY, SD) to 11.5% (NJ)</td>
+<td>State statutes</td>
+</tr>
+<tr>
+<td>Combined range</td>
+<td>21% (no state) to 30.4% (NJ)</td>
+<td>Federal + state</td>
+</tr>
+<tr>
+<td>GILTI rate</td>
+<td>10.5% effective (50% §250 deduction)</td>
+<td>IRC §951A, §250(a)(1)(B)</td>
+</tr>
+<tr>
+<td>FDII rate</td>
+<td>13.125% effective (37.5% §250 deduction)</td>
+<td>IRC §250(a)(1)(A)</td>
+</tr>
+<tr>
+<td>BEAT rate</td>
+<td>10% (12.5% banks/dealers)</td>
+<td>IRC §59A</td>
+</tr>
+<tr>
+<td>BEAT threshold</td>
+<td>Gross receipts ≥ $500M (3yr) + base erosion &gt;3%</td>
+<td>IRC §59A(e)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pass-Through Taxation</strong>: S-corps and partnerships taxed at individual rates (10-37%). QBI deduction under IRC §199A provides 20% deduction on qualified business income (sunsets after 2025).</p>
+<h3 id="232-key-deductions-allowances">23.2 Key Deductions &amp; Allowances</h3>
+<p><strong>Depreciation (MACRS — IRC §168)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Property Class</th>
+<th>Period</th>
+<th>Method</th>
+<th>Example Assets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3-year</td>
+<td>3 yr</td>
+<td>200% DB</td>
+<td>Tractor units, racehorses</td>
+</tr>
+<tr>
+<td>5-year</td>
+<td>5 yr</td>
+<td>200% DB</td>
+<td>Autos, computers, office equipment</td>
+</tr>
+<tr>
+<td>7-year</td>
+<td>7 yr</td>
+<td>200% DB</td>
+<td>Furniture, fixtures, agricultural machinery</td>
+</tr>
+<tr>
+<td>15-year</td>
+<td>15 yr</td>
+<td>150% DB</td>
+<td>Land improvements, QIP</td>
+</tr>
+<tr>
+<td>27.5-year</td>
+<td>27.5 yr</td>
+<td>SL</td>
+<td>Residential rental</td>
+</tr>
+<tr>
+<td>39-year</td>
+<td>39 yr</td>
+<td>SL</td>
+<td>Nonresidential real property</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Accelerated Mechanism</th>
+<th>2024 Value</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Section 179 expensing</td>
+<td><strong>$1,220,000</strong> (phase-out at $3.05M)</td>
+<td>IRC §179</td>
+</tr>
+<tr>
+<td>Bonus depreciation</td>
+<td><strong>60%</strong> (phasing: 40% in 2025, 20% in 2026, 0% from 2027)</td>
+<td>IRC §168(k)</td>
+</tr>
+<tr>
+<td>Luxury auto limit (Yr 1 w/ bonus)</td>
+<td>$20,400</td>
+<td>IRC §280F(a)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Net Operating Losses (IRC §172)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carry-forward</td>
+<td><strong>Indefinite</strong> (IRC §172(b)(1)(A))</td>
+</tr>
+<tr>
+<td>Carry-back</td>
+<td><strong>None</strong> (post-2020 losses)</td>
+</tr>
+<tr>
+<td>Annual limit</td>
+<td><strong>80%</strong> of taxable income (IRC §172(a)(2))</td>
+</tr>
+<tr>
+<td>Farm NOL carry-back</td>
+<td>2 years (IRC §172(b)(1)(B))</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Business Interest Limitation (IRC §163(j))</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit</td>
+<td><strong>30%</strong> of ATI (≈ EBIT from 2022+)</td>
+</tr>
+<tr>
+<td>Carry-forward</td>
+<td>Indefinite</td>
+</tr>
+<tr>
+<td>Exemption</td>
+<td>Avg. gross receipts ≤ $29M (2024, indexed)</td>
+</tr>
+<tr>
+<td>Exempt industries</td>
+<td>Electing real property, farming, regulated utilities</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R&amp;D (IRC §41 + §174)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regular credit</td>
+<td><strong>20%</strong> of QREs exceeding base amount</td>
+</tr>
+<tr>
+<td>Alt. Simplified Credit</td>
+<td><strong>14%</strong> of QREs exceeding 50% of prior 3yr avg</td>
+</tr>
+<tr>
+<td>Payroll tax offset</td>
+<td>Up to $500K/yr (small business)</td>
+</tr>
+<tr>
+<td><strong>Amortization (post-2022)</strong></td>
+<td>Domestic: <strong>5 years</strong>; Foreign: <strong>15 years</strong> (IRC §174)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other Key Deductions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Rule</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Charitable contributions</td>
+<td><strong>10%</strong> of taxable income</td>
+<td>IRC §170(b)(2)(A)</td>
+</tr>
+<tr>
+<td>Business meals</td>
+<td><strong>50%</strong> deductible</td>
+<td>IRC §274(k), §274(n)(1)</td>
+</tr>
+<tr>
+<td>Entertainment</td>
+<td><strong>0%</strong> (non-deductible)</td>
+<td>IRC §274(a)(1)</td>
+</tr>
+<tr>
+<td>Executive comp (public co.)</td>
+<td>$1M cap per covered employee</td>
+<td>IRC §162(m)</td>
+</tr>
+<tr>
+<td>Energy ITC (Solar)</td>
+<td><strong>30%</strong> through 2032</td>
+<td>IRA 2022</td>
+</tr>
+<tr>
+<td>Carbon capture (45Q)</td>
+<td><strong>$85/ton</strong> (direct) / <strong>$180/ton</strong> (DAC)</td>
+<td>IRC §45Q</td>
+</tr>
+</tbody>
+</table>
+<h3 id="233-international-investor-framework">23.3 International Investor Framework</h3>
+<p><strong>CFIUS Screening (FIRRMA 2018, 50 USC §4565)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Filing Type</th>
+<th>Trigger</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mandatory declaration</td>
+<td>≥25% in TID US business w/ foreign gov't</td>
+<td>30-day assessment</td>
+</tr>
+<tr>
+<td>Voluntary notice</td>
+<td>Any covered transaction</td>
+<td>45-day review + 45-day investigation</td>
+</tr>
+<tr>
+<td>Presidential block</td>
+<td>National security threat</td>
+<td>15-day decision</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sector Restrictions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Sector</th>
+<th>Cap</th>
+<th>Governing Law</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Airlines</td>
+<td><strong>25%</strong> voting</td>
+<td>49 USC §40102(a)(2)</td>
+</tr>
+<tr>
+<td>Broadcasting</td>
+<td><strong>25%</strong> voting</td>
+<td>47 USC §310(b)</td>
+</tr>
+<tr>
+<td>Shipping (Jones Act)</td>
+<td><strong>75%</strong> US-citizen owned</td>
+<td>46 USC §55102</td>
+</tr>
+<tr>
+<td>Nuclear energy</td>
+<td>No foreign control</td>
+<td>42 USC §2133(d)</td>
+</tr>
+<tr>
+<td>Defense</td>
+<td>FOCI mitigation required</td>
+<td>NISPOM 32 CFR Part 117</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Non-Resident Taxation</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Rate</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FIRPTA (USRPHC shares)</td>
+<td><strong>21%</strong> on net gain; <strong>15%</strong> withholding</td>
+<td>IRC §897, §1445</td>
+</tr>
+<tr>
+<td>Non-USRPHC shares</td>
+<td><strong>0%</strong> (not taxable)</td>
+<td>IRC §871(a)(2)</td>
+</tr>
+<tr>
+<td>Dividend WHT</td>
+<td><strong>30%</strong> (treaty: 5-15%)</td>
+<td>IRC §1441, §1442</td>
+</tr>
+<tr>
+<td>Branch profits tax</td>
+<td><strong>30%</strong> on DEA (treaty: 5%)</td>
+<td>IRC §884</td>
+</tr>
+<tr>
+<td>Interest WHT</td>
+<td><strong>30%</strong> (portfolio interest: 0%)</td>
+<td>IRC §871(h), §881(c)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CFC Rules: Subpart F (IRC §951-964) + GILTI (IRC §951A)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Subpart F</th>
+<th>GILTI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFC definition</td>
+<td>&gt;50% US shareholders (each ≥10%)</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>Income captured</td>
+<td>Passive (FPHCI), base company sales/services</td>
+<td>All tested income minus 10% QBAI</td>
+</tr>
+<tr>
+<td>Effective US rate</td>
+<td>Up to 21%</td>
+<td>10.5% (13.125% after 2025)</td>
+</tr>
+<tr>
+<td>FTC</td>
+<td>100% of foreign taxes</td>
+<td>80% of foreign taxes</td>
+</tr>
+<tr>
+<td>High-tax exclusion</td>
+<td>Effective rate ≥ 18.9% → exclude</td>
+<td>Same (Treas. Reg. §1.951A-2(c)(7))</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Treaty WHT Rates (From US)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Partner</th>
+<th>Dividends (Direct/Portfolio)</th>
+<th>Interest</th>
+<th>Royalties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canada</td>
+<td>5% / 15%</td>
+<td>0%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>0% (≥80%) / 15%</td>
+<td>0%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Japan</td>
+<td>5% / 10%</td>
+<td>10%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Germany</td>
+<td>5% / 15%</td>
+<td>0%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Australia</td>
+<td>5% / 15%</td>
+<td>10%</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>Singapore</td>
+<td>5% / 15%</td>
+<td>12%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Mexico</td>
+<td>5% / 10%</td>
+<td>15%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>China</td>
+<td>10% / 10%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-24-country-deep-dive-singapore">Part 24: Country Deep Dive — Singapore</h2>
+<blockquote>
+<p><strong>Governing Law</strong>: Income Tax Act 1947 (ITA, Cap. 134) | <strong>Tax Authority</strong>: IRAS | <strong>Currency</strong>: SGD</p>
+</blockquote>
+<h3 id="241-corporate-income-tax-framework">24.1 Corporate Income Tax Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard CIT</td>
+<td><strong>17%</strong></td>
+<td>ITA §43(1)(a)</td>
+</tr>
+<tr>
+<td>System</td>
+<td><strong>Territorial</strong> (foreign-source income taxed only when remitted, with broad exemptions)</td>
+<td>ITA §10(1)</td>
+</tr>
+<tr>
+<td>Capital gains tax</td>
+<td><strong>0%</strong> (no CGT regime)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>PTE (all companies)</td>
+<td>75% exempt on first S$10K + 50% on next S$190K</td>
+<td>ITA §43A</td>
+</tr>
+<tr>
+<td>SUTE (first 3 YAs)</td>
+<td>75% exempt on first S$100K + 50% on next S$100K</td>
+<td>ITA §43B</td>
+</tr>
+<tr>
+<td>Effective rate (S$200K profit)</td>
+<td><strong>~8.3%</strong> (with PTE)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Concessionary Tax Regimes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Incentive</th>
+<th>Rate</th>
+<th>Duration</th>
+<th>Administering Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pioneer Status (PS)</td>
+<td><strong>0-5%</strong></td>
+<td>5-15 years</td>
+<td>EDB</td>
+</tr>
+<tr>
+<td>Development &amp; Expansion (DEI)</td>
+<td><strong>5-10%</strong></td>
+<td>5-10 years</td>
+<td>EDB</td>
+</tr>
+<tr>
+<td>Global Trader Programme (GTP)</td>
+<td><strong>5-10%</strong></td>
+<td>Varies</td>
+<td>IE Singapore</td>
+</tr>
+<tr>
+<td>Financial Sector (FSI)</td>
+<td><strong>5-13.5%</strong></td>
+<td>Varies</td>
+<td>MAS</td>
+</tr>
+<tr>
+<td>IP Development (IDI)</td>
+<td><strong>5-10%</strong></td>
+<td>Varies</td>
+<td>EDB</td>
+</tr>
+<tr>
+<td>Enterprise Innovation (EIS)</td>
+<td><strong>400%</strong> R&amp;D deduction</td>
+<td>Ongoing</td>
+<td>EDB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="242-key-deductions-allowances">24.2 Key Deductions &amp; Allowances</h3>
+<p><strong>Capital Allowances (ITA §19, §19A)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Rate</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Section 19A write-off</td>
+<td><strong>100%</strong> in year 1</td>
+<td>No dollar cap; all qualifying P&amp;M</td>
+</tr>
+<tr>
+<td>3-year write-off</td>
+<td>33%/33%/34%</td>
+<td>Alternative option</td>
+</tr>
+<tr>
+<td>Section 19B IP WDA</td>
+<td>Over 5/10/15 years</td>
+<td>Writing-down allowance for IP</td>
+</tr>
+<tr>
+<td>Renovation (S14Q)</td>
+<td><strong>S$300,000</strong> cap per 3-year period</td>
+<td>Interior renovation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOL Rules (ITA §37)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carry-forward</td>
+<td><strong>Indefinite</strong></td>
+</tr>
+<tr>
+<td>Carry-back</td>
+<td>1 year, <strong>S$100,000</strong> cap</td>
+</tr>
+<tr>
+<td>Annual limit</td>
+<td><strong>100%</strong> of taxable income</td>
+</tr>
+<tr>
+<td>Shareholding test</td>
+<td>&gt;50% same shareholders</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R&amp;D Incentives</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scheme</th>
+<th>Benefit</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Section 14C (R&amp;D deduction)</td>
+<td><strong>100%</strong> deduction</td>
+<td>ITA §14C</td>
+</tr>
+<tr>
+<td>EIS (from YA2024)</td>
+<td><strong>400%</strong> deduction (300% additional)</td>
+<td>EDB scheme</td>
+</tr>
+<tr>
+<td>EIS cap</td>
+<td><strong>S$400,000</strong> per qualifying activity</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interest &amp; Thin Capitalization</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interest deduction</td>
+<td>Fully deductible if for income production</td>
+</tr>
+<tr>
+<td>Thin cap rules</td>
+<td><strong>None</strong></td>
+</tr>
+<tr>
+<td>EBITDA limitation</td>
+<td><strong>None</strong></td>
+</tr>
+<tr>
+<td>Arm's length requirement</td>
+<td>Transfer pricing only (ITA §34D)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other Deductions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Donations (IPCs)</td>
+<td><strong>2.5x multiplier</strong> through 2026; no cap</td>
+</tr>
+<tr>
+<td>Business entertainment</td>
+<td><strong>100%</strong> deductible</td>
+</tr>
+<tr>
+<td>Business meals</td>
+<td><strong>100%</strong> deductible</td>
+</tr>
+</tbody>
+</table>
+<h3 id="243-international-investor-framework">24.3 International Investor Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foreign ownership restrictions</td>
+<td><strong>Virtually none</strong> (exceptions: media, banking, residential property)</td>
+</tr>
+<tr>
+<td>Registration</td>
+<td>ACRA; <strong>1-3 days</strong></td>
+</tr>
+<tr>
+<td>Dividend WHT</td>
+<td><strong>0%</strong> (one-tier system, ITA §13(1)(za))</td>
+</tr>
+<tr>
+<td>Capital gains tax</td>
+<td><strong>0%</strong> on all assets</td>
+</tr>
+<tr>
+<td>Branch profits tax</td>
+<td><strong>0%</strong></td>
+</tr>
+<tr>
+<td>CFC rules</td>
+<td><strong>None</strong></td>
+</tr>
+<tr>
+<td>FX controls</td>
+<td><strong>None</strong></td>
+</tr>
+<tr>
+<td>Tax treaties</td>
+<td><strong>90+</strong> comprehensive DTAs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>FSIE (Foreign-Sourced Income Exemption — ITA §13(8)-(13))</strong></p>
+<p>Foreign-source dividends, branch profits, and service income are exempt from Singapore tax when remitted if:
+1. Income was subject to tax in the source country (headline rate ≥ 15%)
+2. The exemption is "beneficial to the taxpayer"</p>
+<p><strong>BEPS Pillar 2 Impact</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Implementation</td>
+<td>DMTT from <strong>January 1, 2025</strong></td>
+</tr>
+<tr>
+<td>Mechanism</td>
+<td>Domestic top-up tax (QDMTT)</td>
+</tr>
+<tr>
+<td>Impact</td>
+<td>Concessionary rates below 15% will be topped up</td>
+</tr>
+<tr>
+<td>Mitigation</td>
+<td>Refundable Investment Credit (RIC) introduced</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Treaty WHT Rates (From Singapore)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Partner</th>
+<th>Dividends</th>
+<th>Interest</th>
+<th>Royalties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Indonesia</td>
+<td>10%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Australia</td>
+<td>15%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>China</td>
+<td>5%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>India</td>
+<td>10%</td>
+<td>15%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Japan</td>
+<td>5%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>0%</td>
+<td>0%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Germany</td>
+<td>5%</td>
+<td>0%</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-25-country-deep-dive-indonesia">Part 25: Country Deep Dive — Indonesia</h2>
+<blockquote>
+<p><strong>Governing Law</strong>: UU 7/2021 (HPP), UU 36/2008 (PPh) | <strong>Tax Authority</strong>: DJP/DGT | <strong>Currency</strong>: IDR</p>
+</blockquote>
+<h3 id="251-corporate-income-tax-framework">25.1 Corporate Income Tax Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard CIT</td>
+<td><strong>22%</strong></td>
+<td>UU 7/2021 Pasal 17</td>
+</tr>
+<tr>
+<td>Listed company discount</td>
+<td><strong>19%</strong> (3% reduction for ≥40% public float)</td>
+<td>PP 30/2020</td>
+</tr>
+<tr>
+<td>MSME rate</td>
+<td><strong>0.5%</strong> final on gross revenue ≤IDR 4.8B</td>
+<td>PP 55/2022</td>
+</tr>
+<tr>
+<td>Tax Holiday (pioneer)</td>
+<td><strong>100%</strong> CIT exemption for 5-20 years</td>
+<td>PMK 130/2020</td>
+</tr>
+<tr>
+<td>Tax Allowance</td>
+<td><strong>30%</strong> investment deduction over 6 years (5% p.a.)</td>
+<td>PP 78/2019</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tax Holiday Tiers (PMK 130/2020)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Investment (IDR)</th>
+<th>Duration</th>
+<th>Post-Holiday</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100B - 500B</td>
+<td>5 years</td>
+<td>+2 years at 50% reduction</td>
+</tr>
+<tr>
+<td>500B - 1T</td>
+<td>7 years</td>
+<td>+2 years at 50%</td>
+</tr>
+<tr>
+<td>1T - 5T</td>
+<td>10 years</td>
+<td>+2 years at 50%</td>
+</tr>
+<tr>
+<td>5T - 15T</td>
+<td>15 years</td>
+<td>+2 years at 50%</td>
+</tr>
+<tr>
+<td>&gt;15T</td>
+<td>20 years</td>
+<td>+2 years at 50%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="252-key-deductions-allowances">25.2 Key Deductions &amp; Allowances</h3>
+<p><strong>Depreciation (UU 36/2008 Pasal 11)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>SL Rate</th>
+<th>DV Rate</th>
+<th>Useful Life</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group 1</td>
+<td>25%</td>
+<td>50%</td>
+<td>4 years</td>
+</tr>
+<tr>
+<td>Group 2</td>
+<td>12.5%</td>
+<td>25%</td>
+<td>8 years</td>
+</tr>
+<tr>
+<td>Group 3</td>
+<td>6.25%</td>
+<td>12.5%</td>
+<td>16 years</td>
+</tr>
+<tr>
+<td>Group 4</td>
+<td>5%</td>
+<td>10%</td>
+<td>20 years</td>
+</tr>
+<tr>
+<td>Buildings (permanent)</td>
+<td>5%</td>
+<td>N/A</td>
+<td>20 years</td>
+</tr>
+<tr>
+<td>Buildings (non-permanent)</td>
+<td>10%</td>
+<td>N/A</td>
+<td>10 years</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOL (UU 36/2008 Pasal 6)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carry-forward</td>
+<td><strong>5 years</strong> (extendable to 10 for specific sectors/regions)</td>
+</tr>
+<tr>
+<td>Carry-back</td>
+<td><strong>Not allowed</strong></td>
+</tr>
+<tr>
+<td>Annual limit</td>
+<td><strong>100%</strong> of taxable income</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R&amp;D Super Deduction (PMK 153/2020)</strong>: <strong>300%</strong> (200% additional) for approved R&amp;D activities in priority sectors.</p>
+<p><strong>Interest Limitation (PMK 169/2015)</strong>: DER <strong>4:1</strong> (debt-to-equity) for related-party debt.</p>
+<h3 id="253-wht-regime">25.3 WHT Regime</h3>
+<table>
+<thead>
+<tr>
+<th>Payment</th>
+<th>Domestic (PPh 23)</th>
+<th>International (PPh 26)</th>
+<th>Treaty (typical)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dividends</td>
+<td>0% (if reinvested, UU HPP)</td>
+<td>20%</td>
+<td>10-15%</td>
+</tr>
+<tr>
+<td>Interest</td>
+<td>15%</td>
+<td>20%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Royalties</td>
+<td>15%</td>
+<td>20%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Services</td>
+<td>2%</td>
+<td>20%</td>
+<td>0-10%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Treaty Rates (From Indonesia)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Partner</th>
+<th>Dividends</th>
+<th>Interest</th>
+<th>Royalties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singapore</td>
+<td>10%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Japan</td>
+<td>10%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Netherlands</td>
+<td>10%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>US</td>
+<td>10%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Australia</td>
+<td>15%</td>
+<td>10%</td>
+<td>10-15%</td>
+</tr>
+<tr>
+<td>Hong Kong</td>
+<td>5%</td>
+<td>10%</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="254-international-investor-framework">25.4 International Investor Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Investment system</td>
+<td>Positive Investment List (Perpres 10/2021); OSS-RBA ~3 hours</td>
+</tr>
+<tr>
+<td>Foreign ownership</td>
+<td>Up to <strong>100%</strong> in most sectors (post-2021 reform)</td>
+</tr>
+<tr>
+<td>CFC rules</td>
+<td>Deemed Dividend for ≥50% ownership (PMK 107/2017)</td>
+</tr>
+<tr>
+<td>FTC</td>
+<td>Per-country; <strong>no carry-forward</strong> (UU 36/2008 Pasal 24)</td>
+</tr>
+<tr>
+<td>PE risk</td>
+<td><strong>High</strong>: 18 PE categories; 60-day service PE; aggressive enforcement</td>
+</tr>
+<tr>
+<td>Treaties</td>
+<td><strong>71+</strong> comprehensive DTAs</td>
+</tr>
+<tr>
+<td>DGT Form</td>
+<td>Required for treaty benefits; 12-month validity (PER-25/PJ/2018)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-26-country-deep-dive-canada">Part 26: Country Deep Dive — Canada</h2>
+<blockquote>
+<p><strong>Governing Law</strong>: Income Tax Act (ITA), R.S.C. 1985 | <strong>Tax Authority</strong>: CRA | <strong>Currency</strong>: CAD</p>
+</blockquote>
+<h3 id="261-corporate-income-tax-framework">26.1 Corporate Income Tax Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Federal CIT</td>
+<td><strong>15%</strong></td>
+<td>ITA §123(1)</td>
+</tr>
+<tr>
+<td>SBD (CCPC, first C$500K)</td>
+<td><strong>9%</strong></td>
+<td>ITA §125(1)</td>
+</tr>
+<tr>
+<td>M&amp;P deduction</td>
+<td><strong>13%</strong> federal</td>
+<td>ITA §125.1</td>
+</tr>
+<tr>
+<td>Provincial CIT</td>
+<td><strong>8-16%</strong></td>
+<td>Provincial statutes</td>
+</tr>
+<tr>
+<td>Combined (Alberta)</td>
+<td><strong>23%</strong> (lowest)</td>
+<td></td>
+</tr>
+<tr>
+<td>Combined (Ontario)</td>
+<td><strong>26.5%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Combined (PEI)</td>
+<td><strong>31%</strong> (highest)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>GST/HST</strong>: 5% GST (ETA §165(1)); HST 13-15% in participating provinces. Registration: C$30,000/4 quarters.</p>
+<h3 id="262-key-deductions-allowances">26.2 Key Deductions &amp; Allowances</h3>
+<p><strong>Capital Cost Allowance (CCA)</strong></p>
+<table>
+<thead>
+<tr>
+<th>CCA Class</th>
+<th>Rate</th>
+<th>Method</th>
+<th>Assets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class 1</td>
+<td><strong>4%</strong></td>
+<td>DV</td>
+<td>Buildings</td>
+</tr>
+<tr>
+<td>Class 8</td>
+<td><strong>20%</strong></td>
+<td>DV</td>
+<td>Equipment, furniture</td>
+</tr>
+<tr>
+<td>Class 10</td>
+<td><strong>30%</strong></td>
+<td>DV</td>
+<td>Vehicles</td>
+</tr>
+<tr>
+<td>Class 12</td>
+<td><strong>100%</strong></td>
+<td>SL</td>
+<td>Software, tools &lt;$500</td>
+</tr>
+<tr>
+<td>Class 43.1</td>
+<td><strong>30%</strong></td>
+<td>DV</td>
+<td>Clean energy equipment</td>
+</tr>
+<tr>
+<td>Class 43.2</td>
+<td><strong>50%</strong></td>
+<td>DV</td>
+<td>Enhanced clean energy</td>
+</tr>
+<tr>
+<td>Class 50</td>
+<td><strong>55%</strong></td>
+<td>DV</td>
+<td>Computers</td>
+</tr>
+<tr>
+<td>Class 53</td>
+<td><strong>50%</strong></td>
+<td>DV</td>
+<td>Manufacturing equipment</td>
+</tr>
+<tr>
+<td>CCPC immediate expensing</td>
+<td><strong>C$1,500,000/yr</strong></td>
+<td></td>
+<td>Eligible depreciable property</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Accelerated Investment Incentive Program (AIIP)</strong>: Enhanced first-year deduction (1.5x normal CCA rate in year of acquisition) for most CCA classes.</p>
+<p><strong>NOL (ITA §111)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carry-forward</td>
+<td><strong>20 years</strong></td>
+</tr>
+<tr>
+<td>Carry-back</td>
+<td><strong>3 years</strong></td>
+</tr>
+<tr>
+<td>Annual limit</td>
+<td><strong>100%</strong> of taxable income</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SR&amp;ED (ITA §127(5)-(26))</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>CCPC</th>
+<th>Other Corporations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ITC rate</td>
+<td><strong>35%</strong> (refundable)</td>
+<td><strong>15%</strong> (non-refundable)</td>
+</tr>
+<tr>
+<td>Expenditure limit</td>
+<td>First C$3M of qualifying expenditures</td>
+<td>No limit</td>
+</tr>
+<tr>
+<td>Carry-forward</td>
+<td>20 years</td>
+<td>20 years</td>
+</tr>
+<tr>
+<td>Carry-back</td>
+<td>3 years</td>
+<td>3 years</td>
+</tr>
+<tr>
+<td>Eligible expenditures</td>
+<td>Wages, materials, overhead, contracts</td>
+<td>Same</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interest Limitation (EIFEL — ITA §18.2)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit</td>
+<td><strong>30%</strong> of tax EBITDA</td>
+</tr>
+<tr>
+<td>Effective</td>
+<td>June 2023 (transitional)</td>
+</tr>
+<tr>
+<td>Carry-forward</td>
+<td>Denied interest: indefinite; unused capacity: 3 years</td>
+</tr>
+<tr>
+<td>Group ratio election</td>
+<td>Available</td>
+</tr>
+<tr>
+<td>Exemption</td>
+<td>CCPC groups with net interest ≤ C$250,000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="263-wht-regime-part-xiii-ita-212">26.3 WHT Regime (Part XIII — ITA §212)</h3>
+<table>
+<thead>
+<tr>
+<th>Payment</th>
+<th>Default</th>
+<th>US Treaty</th>
+<th>UK Treaty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dividends (≥10% ownership)</td>
+<td>25%</td>
+<td><strong>5%</strong></td>
+<td><strong>5%</strong></td>
+</tr>
+<tr>
+<td>Dividends (portfolio)</td>
+<td>25%</td>
+<td><strong>15%</strong></td>
+<td><strong>15%</strong></td>
+</tr>
+<tr>
+<td>Interest (arm's length)</td>
+<td><strong>0%</strong></td>
+<td>0%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Royalties</td>
+<td>25%</td>
+<td><strong>0-10%</strong></td>
+<td><strong>0-10%</strong></td>
+</tr>
+<tr>
+<td>Branch tax</td>
+<td>25%</td>
+<td><strong>5%</strong></td>
+<td><strong>5%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="264-international-investor-framework">26.4 International Investor Framework</h3>
+<p><strong>Investment Canada Act (ICA)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Net benefit review</td>
+<td>C$1.326B (WTO investors); C$512M (non-WTO)</td>
+</tr>
+<tr>
+<td>National security review</td>
+<td>Any amount (no threshold)</td>
+</tr>
+<tr>
+<td>Cultural sector</td>
+<td>Lower thresholds; Heritage Canada review</td>
+</tr>
+<tr>
+<td>Restricted sectors</td>
+<td>Telecom (Telecommunications Act §16); airlines (CTA §55); banking (Bank Act §372-374); uranium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CFC Rules: FAPI (ITA §91-95)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFC definition</td>
+<td>Canadian taxpayer holds ≥10% equity in FA; control ≥50%</td>
+</tr>
+<tr>
+<td>FAPI income</td>
+<td>Passive income (interest, dividends, rents, royalties, capital gains)</td>
+</tr>
+<tr>
+<td>Active business income</td>
+<td><strong>Exempt</strong> from FAPI</td>
+</tr>
+<tr>
+<td>Exempt surplus</td>
+<td>Active business income in <strong>treaty country</strong> → 0% Canadian tax on dividends</td>
+</tr>
+<tr>
+<td>Taxable surplus</td>
+<td>Active income in non-treaty country → grossed-up and taxed with underlying FTC</td>
+</tr>
+<tr>
+<td>Capital gains inclusion</td>
+<td>Changing to <strong>66.67%</strong> (from 50%) for amounts over C$250K (June 25, 2024)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>FTC (ITA §126)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Carry-Forward</th>
+<th>Carry-Back</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Business income</td>
+<td>10 years</td>
+<td>3 years</td>
+</tr>
+<tr>
+<td>Non-business income</td>
+<td><strong>None</strong> (use it or lose it)</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-27-country-deep-dive-brazil">Part 27: Country Deep Dive — Brazil</h2>
+<blockquote>
+<p><strong>Governing Law</strong>: RIR/2018 (Decreto 9.580), Lei 9.249/1995 | <strong>Tax Authority</strong>: RFB | <strong>Currency</strong>: BRL</p>
+</blockquote>
+<h3 id="271-corporate-income-tax-framework">27.1 Corporate Income Tax Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Tax</th>
+<th>Rate</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IRPJ (standard)</td>
+<td><strong>15%</strong></td>
+<td>RIR Art. 225</td>
+</tr>
+<tr>
+<td>IRPJ surtax</td>
+<td><strong>10%</strong> on profit &gt; R$240K/yr (R$20K/month)</td>
+<td>RIR Art. 228</td>
+</tr>
+<tr>
+<td>CSLL</td>
+<td><strong>9%</strong></td>
+<td>Lei 7.689/1988</td>
+</tr>
+<tr>
+<td><strong>Combined effective</strong></td>
+<td><strong>34%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tax Regimes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Regime</th>
+<th>Eligibility</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lucro Real</td>
+<td>Revenue &gt;R$78M or mandatory sectors</td>
+<td>Tax on actual net profit</td>
+</tr>
+<tr>
+<td>Lucro Presumido</td>
+<td>Revenue ≤R$78M</td>
+<td>Presumed profit: 8% (general), 32% (services) × tax rates</td>
+</tr>
+<tr>
+<td>Simples Nacional</td>
+<td>Revenue ≤R$4.8M (LC 123/2006)</td>
+<td>Single simplified tax (4-33% on gross revenue)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indirect Taxes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tax</th>
+<th>Rate</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIS/COFINS (non-cumulative)</td>
+<td><strong>9.25%</strong> (1.65% + 7.6%)</td>
+<td>Lucro Real entities</td>
+</tr>
+<tr>
+<td>PIS/COFINS (cumulative)</td>
+<td><strong>3.65%</strong> (0.65% + 3%)</td>
+<td>Lucro Presumido entities</td>
+</tr>
+<tr>
+<td>ICMS (state VAT)</td>
+<td><strong>7-25%</strong> (typical 17-18%)</td>
+<td>Goods circulation</td>
+</tr>
+<tr>
+<td>ISS (municipal)</td>
+<td><strong>2-5%</strong></td>
+<td>Services</td>
+</tr>
+<tr>
+<td>IPI (federal excise)</td>
+<td>Varies by product</td>
+<td>Manufactured goods</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Upcoming Reform</strong>: CBS + IBS replacing PIS/COFINS/ICMS/ISS (transition 2026-2033).</p>
+<h3 id="272-key-deductions-allowances">27.2 Key Deductions &amp; Allowances</h3>
+<p><strong>Depreciation (straight-line only)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Rate</th>
+<th>Useful Life</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buildings</td>
+<td><strong>4%</strong></td>
+<td>25 years</td>
+</tr>
+<tr>
+<td>Machinery</td>
+<td><strong>10%</strong></td>
+<td>10 years</td>
+</tr>
+<tr>
+<td>Vehicles</td>
+<td><strong>20%</strong></td>
+<td>5 years</td>
+</tr>
+<tr>
+<td>Computers</td>
+<td><strong>20%</strong></td>
+<td>5 years</td>
+</tr>
+<tr>
+<td>Shift acceleration</td>
+<td>1.5x (2 shifts), 2x (3 shifts)</td>
+<td>No dollar cap</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOL</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carry-forward</td>
+<td><strong>Indefinite</strong></td>
+</tr>
+<tr>
+<td>Carry-back</td>
+<td><strong>None</strong></td>
+</tr>
+<tr>
+<td>Annual cap</td>
+<td><strong>30%</strong> of taxable income (most restrictive globally)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interest on Net Equity (JCP — Lei 9.249/1995 Art. 9)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rate</td>
+<td>TJLP (currently ~12.5% p.a.) applied to net equity</td>
+</tr>
+<tr>
+<td>Tax benefit (payer)</td>
+<td>Deductible → saves <strong>34%</strong></td>
+</tr>
+<tr>
+<td>WHT (recipient)</td>
+<td><strong>15%</strong> (25% if tax haven)</td>
+</tr>
+<tr>
+<td><strong>Net benefit</strong></td>
+<td>34% - 15% = <strong>19%</strong> tax savings</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R&amp;D (Lei do Bem — Lei 11.196/2005)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Super deduction</td>
+<td><strong>160%</strong> base (60% additional)</td>
+</tr>
+<tr>
+<td>Enhanced</td>
+<td><strong>180%</strong> if patents obtained (80% additional)</td>
+</tr>
+<tr>
+<td>Requirement</td>
+<td>Entity must be on <strong>Lucro Real</strong> and <strong>profitable</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Thin Capitalization (Lei 12.249/2010)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Related-party debt</td>
+<td><strong>2:1</strong> DER</td>
+</tr>
+<tr>
+<td>Tax haven entities</td>
+<td><strong>0.3:1</strong> DER</td>
+</tr>
+<tr>
+<td>Excess interest</td>
+<td><strong>Non-deductible</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="273-international-investor-framework">27.3 International Investor Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foreign ownership</td>
+<td>Generally unrestricted; exceptions: media (30% cap, CF Art. 222), healthcare, border zones</td>
+</tr>
+<tr>
+<td>FDI registration</td>
+<td>BCB RDE-IED required for all FDI</td>
+</tr>
+<tr>
+<td>Dividend WHT</td>
+<td><strong>0%</strong> (Lei 9.249/1995 Art. 10) — unique global advantage</td>
+</tr>
+<tr>
+<td>Interest WHT</td>
+<td><strong>15%</strong> (25% tax haven)</td>
+</tr>
+<tr>
+<td>CIDE (technology)</td>
+<td><strong>10%</strong> on royalty/technology remittances (Lei 10.168/2000)</td>
+</tr>
+<tr>
+<td>CFC regime</td>
+<td><strong>Universal</strong> — ALL foreign subsidiary profits taxed (Lei 12.973/2014 Arts. 76-92)</td>
+</tr>
+<tr>
+<td>Active income exemption</td>
+<td><strong>None</strong> — most aggressive CFC regime globally</td>
+</tr>
+<tr>
+<td>Transfer pricing</td>
+<td><strong>OECD-aligned</strong> from Jan 2024 (Lei 14.596/2023)</td>
+</tr>
+<tr>
+<td>Treaties</td>
+<td><strong>35+</strong> (limited network; notably missing: US, UK, Germany, Australia)</td>
+</tr>
+<tr>
+<td>FX controls</td>
+<td>BCB registration; IOF on FX transactions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>JCP Optimization Strategy</strong>: Use Interest on Net Equity instead of dividends:
+- Dividend: 0% WHT but no deduction for payer → 34% CIT paid
+- JCP: 15% WHT but <strong>34% deduction</strong> for payer → net 15% cost vs 34%
+- <strong>Savings</strong>: 19 percentage points on repatriated profits</p>
+<hr />
+<h2 id="part-28-country-deep-dive-mexico">Part 28: Country Deep Dive — Mexico</h2>
+<blockquote>
+<p><strong>Governing Law</strong>: LISR, CFF, LIE | <strong>Tax Authority</strong>: SAT | <strong>Currency</strong>: MXN</p>
+</blockquote>
+<h3 id="281-corporate-income-tax-framework">28.1 Corporate Income Tax Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard CIT</td>
+<td><strong>30%</strong> flat</td>
+<td>LISR Art. 9</td>
+</tr>
+<tr>
+<td>Northern Border Zone</td>
+<td>~<strong>20%</strong> effective (ISR credit)</td>
+<td>Decreto Fronteriza</td>
+</tr>
+<tr>
+<td>RESICO (individuals)</td>
+<td><strong>1-2.5%</strong> on revenue ≤MXN 3.5M</td>
+<td>LISR Art. 113-E</td>
+</tr>
+<tr>
+<td>PTU (employee profit share)</td>
+<td><strong>10%</strong> of taxable profit</td>
+<td>LFT Arts. 117-131</td>
+</tr>
+<tr>
+<td>PTU cap per employee</td>
+<td>Greater of: 3 months' salary OR avg PTU of last 3 years</td>
+<td>LFT Art. 127 fr. VIII</td>
+</tr>
+</tbody>
+</table>
+<p><strong>IVA</strong>: 16% standard (LIVA Art. 1); 8% border zone; 0% on food, medicine, exports.</p>
+<p><strong>Payroll Burden</strong>: IMSS ~25% + INFONAVIT 5% + state payroll 2-3% + SAR 2% = <strong>~26-35% total</strong>.</p>
+<h3 id="282-key-deductions-allowances">28.2 Key Deductions &amp; Allowances</h3>
+<p><strong>Depreciation (LISR Art. 31-38) — Straight-line only</strong></p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Max Rate</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buildings (commercial)</td>
+<td><strong>5%</strong></td>
+<td>LISR Art. 33</td>
+</tr>
+<tr>
+<td>Machinery (general)</td>
+<td><strong>10%</strong></td>
+<td>LISR Art. 34</td>
+</tr>
+<tr>
+<td>Automotive machinery</td>
+<td><strong>25%</strong></td>
+<td>LISR Art. 34</td>
+</tr>
+<tr>
+<td>Vehicles</td>
+<td><strong>25%</strong></td>
+<td>LISR Art. 34</td>
+</tr>
+<tr>
+<td>Computers</td>
+<td><strong>30%</strong></td>
+<td>LISR Art. 34</td>
+</tr>
+<tr>
+<td>Mining equipment</td>
+<td><strong>100%</strong></td>
+<td>LISR Art. 34</td>
+</tr>
+<tr>
+<td>Pollution control</td>
+<td><strong>100%</strong></td>
+<td>LISR Art. 34</td>
+</tr>
+<tr>
+<td>Renewable energy</td>
+<td><strong>100%</strong></td>
+<td>LISR Art. 34</td>
+</tr>
+<tr>
+<td>Auto cap (general)</td>
+<td><strong>MXN 175,000</strong></td>
+<td>LISR Art. 36 fr. II</td>
+</tr>
+<tr>
+<td>Auto cap (electric/hybrid)</td>
+<td><strong>MXN 250,000</strong></td>
+<td>LISR Art. 36 fr. III</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOL (LISR Art. 57)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carry-forward</td>
+<td><strong>10 years</strong></td>
+</tr>
+<tr>
+<td>Carry-back</td>
+<td><strong>None</strong></td>
+</tr>
+<tr>
+<td>Annual limit</td>
+<td><strong>100%</strong> of taxable income</td>
+</tr>
+<tr>
+<td>Inflation adjustment</td>
+<td>INPC factors applied annually</td>
+</tr>
+<tr>
+<td>Merger/spin-off</td>
+<td>NOT transferable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interest Limitation</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Value</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EBITDA limit</td>
+<td><strong>30%</strong> of adjusted taxable profit</td>
+<td>LISR Art. 28 fr. XXVII</td>
+</tr>
+<tr>
+<td>Thin cap (related party)</td>
+<td><strong>3:1</strong> DER</td>
+<td>LISR Art. 28 fr. XXXII</td>
+</tr>
+<tr>
+<td>Excess carry-forward</td>
+<td>10 years</td>
+<td>LISR Art. 28 fr. XXVII</td>
+</tr>
+<tr>
+<td>Exemption</td>
+<td>Net interest ≤ MXN 20M</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>R&amp;D (LISR Art. 202)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EFIDT credit</td>
+<td><strong>30%</strong> of incremental R&amp;D expenditures</td>
+</tr>
+<tr>
+<td>Maximum credit</td>
+<td><strong>MXN 50 million/yr</strong></td>
+</tr>
+<tr>
+<td>Incremental basis</td>
+<td>Over average of prior 3 years</td>
+</tr>
+<tr>
+<td>Carry-forward</td>
+<td>10 years</td>
+</tr>
+<tr>
+<td>Certification</td>
+<td>CONACYT/CONAHCYT required</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other Key Rules</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Deductibility</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Business meals</td>
+<td><strong>91.5%</strong></td>
+<td>LISR Art. 28 fr. XX</td>
+</tr>
+<tr>
+<td>Entertainment</td>
+<td><strong>0%</strong></td>
+<td>LISR Art. 28 fr. XXI</td>
+</tr>
+<tr>
+<td>Charitable donations</td>
+<td><strong>7%</strong> of prior year TI</td>
+<td>LISR Art. 25 fr. X</td>
+</tr>
+<tr>
+<td>PTU paid</td>
+<td><strong>100%</strong> deductible</td>
+<td>LISR Art. 9 párrafo 3</td>
+</tr>
+<tr>
+<td>CFDI required</td>
+<td>All deductions must have valid digital invoice</td>
+<td>LISR Art. 27 fr. III</td>
+</tr>
+<tr>
+<td>Payments &gt;MXN 2,000</td>
+<td>Must be via electronic/bank transfer</td>
+<td>LISR Art. 27 fr. III</td>
+</tr>
+</tbody>
+</table>
+<h3 id="283-international-investor-framework">28.3 International Investor Framework</h3>
+<p><strong>LIE (Foreign Investment Law) Restrictions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Examples</th>
+<th>Cap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>State-reserved</td>
+<td>Petroleum (exploration), postal, electricity (public)</td>
+<td><strong>0%</strong> foreign</td>
+</tr>
+<tr>
+<td>Mexican-only</td>
+<td>Domestic land transport, gasoline retail</td>
+<td><strong>0%</strong> foreign</td>
+</tr>
+<tr>
+<td>Capped sectors</td>
+<td>Airlines (25%), telecom (49% w/o CNIE approval)</td>
+<td>Varies</td>
+</tr>
+<tr>
+<td>Restricted zone</td>
+<td>50km border, 100km coast — fideicomiso trust required</td>
+<td>Trust structure</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Non-Resident Taxation</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Rate</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CGT on shares</td>
+<td><strong>10%</strong> on gains</td>
+<td>LISR Art. 161</td>
+</tr>
+<tr>
+<td>Dividend WHT</td>
+<td><strong>10%</strong> additional tax</td>
+<td>LISR Art. 164</td>
+</tr>
+<tr>
+<td>Interest WHT</td>
+<td><strong>4.9-35%</strong> depending on beneficiary</td>
+<td>LISR Art. 166</td>
+</tr>
+<tr>
+<td>Royalty WHT</td>
+<td><strong>25%</strong></td>
+<td>LISR Art. 167</td>
+</tr>
+<tr>
+<td>CUFIN system</td>
+<td>Tracks taxed profits available for distribution</td>
+<td>LISR Art. 77</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REFIPRE CFC Rules (LISR Arts. 176-178)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trigger</td>
+<td>Passive income in jurisdictions with effective rate &lt;<strong>22.5%</strong> (75% of 30%)</td>
+</tr>
+<tr>
+<td>Income types</td>
+<td>Passive: interest, dividends, royalties, capital gains, rents</td>
+</tr>
+<tr>
+<td>Active income exemption</td>
+<td>Yes (&gt;75% active income → exempt)</td>
+</tr>
+<tr>
+<td>Ownership threshold</td>
+<td>≥50% direct or indirect</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maquiladora / IMMEX Safe Harbor (LISR Arts. 181-182)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum return</td>
+<td><strong>6.9%</strong> of productive assets OR <strong>6.5%</strong> of total costs</td>
+</tr>
+<tr>
+<td>PE protection</td>
+<td>IMMEX operations do not constitute PE of foreign principal</td>
+</tr>
+<tr>
+<td>S. de R.L. de C.V.</td>
+<td>Check-the-box planning for US-Mexico structures</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Treaty Rates (From Mexico)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Partner</th>
+<th>Dividends</th>
+<th>Interest</th>
+<th>Royalties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US</td>
+<td>5% / 10%</td>
+<td>15%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Canada</td>
+<td>5% / 15%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Spain</td>
+<td>5% / 15%</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Singapore</td>
+<td>0% / 5%</td>
+<td>5%</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>0% / 15%</td>
+<td>5-15%</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-29-country-deep-dive-australia">Part 29: Country Deep Dive — Australia</h2>
+<blockquote>
+<p><strong>Governing Law</strong>: ITAA 1997, ITAA 1936 | <strong>Tax Authority</strong>: ATO | <strong>Currency</strong>: AUD</p>
+</blockquote>
+<h3 id="291-corporate-income-tax-framework">29.1 Corporate Income Tax Framework</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard CIT</td>
+<td><strong>30%</strong></td>
+<td>ITAA 1997 §23-5</td>
+</tr>
+<tr>
+<td>Base rate entity</td>
+<td><strong>25%</strong> (turnover &lt;A$50M, ≤80% passive income)</td>
+<td>ITAA 1997 §23-10</td>
+</tr>
+<tr>
+<td>Imputation system</td>
+<td>Franking credits eliminate double tax on dividends</td>
+<td>Division 202</td>
+</tr>
+<tr>
+<td>R&amp;D incentive (&lt;$20M)</td>
+<td><strong>43.5%</strong> refundable tax offset</td>
+<td>Division 355</td>
+</tr>
+<tr>
+<td>R&amp;D incentive (≥$20M)</td>
+<td><strong>38.5%</strong> non-refundable offset</td>
+<td>Division 355</td>
+</tr>
+<tr>
+<td>R&amp;D cap</td>
+<td>A$150M notional deductions</td>
+<td></td>
+</tr>
+<tr>
+<td>DPT</td>
+<td><strong>40%</strong> penalty rate</td>
+<td>Division 177H</td>
+</tr>
+<tr>
+<td>PRRT</td>
+<td><strong>40%</strong> on petroleum profits</td>
+<td>PRRT Act 1987</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GST</strong>: 10% (GST Act §9-70); threshold A$75,000. Zero-rated: basic food, health, education, exports.</p>
+<p><strong>Superannuation</strong>: 11.5% employer (12% from July 2025, SGAA 1992 §19).</p>
+<p><strong>FBT</strong>: 47% on grossed-up value (FBTAA 1986).</p>
+<p><strong>State Payroll Taxes</strong>: 4.75% (QLD) to 6.85% (VIC), various thresholds.</p>
+<h3 id="292-key-deductions-allowances">29.2 Key Deductions &amp; Allowances</h3>
+<p><strong>Division 40 Capital Allowances</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diminishing value</td>
+<td>Base value × (200% ÷ effective life)</td>
+</tr>
+<tr>
+<td>Prime cost</td>
+<td>Cost × (100% ÷ effective life)</td>
+</tr>
+<tr>
+<td>Car limit (2024-25)</td>
+<td><strong>A$69,674</strong></td>
+</tr>
+<tr>
+<td>SBE instant write-off</td>
+<td><strong>A$20,000</strong> per asset (Division 328)</td>
+</tr>
+<tr>
+<td>SBE simplified pool</td>
+<td>15% first year, 30% thereafter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Losses (Division 36)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carry-forward</td>
+<td><strong>Indefinite</strong></td>
+</tr>
+<tr>
+<td>Carry-back</td>
+<td><strong>1 year</strong> (Division 160, refundable tax offset)</td>
+</tr>
+<tr>
+<td>Annual limit</td>
+<td><strong>100%</strong> of taxable income</td>
+</tr>
+<tr>
+<td>Continuity of ownership test</td>
+<td>Same persons hold ≥50% voting/dividend/capital rights</td>
+</tr>
+<tr>
+<td>Same business test</td>
+<td>Alternative if COT fails</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Thin Capitalization (Division 820) — Transitioning</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Pre-July 2024</th>
+<th>From July 2024</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Safe harbor</td>
+<td>60% total assets (debt deductions)</td>
+<td><strong>30% tax EBITDA</strong> (new primary test)</td>
+</tr>
+<tr>
+<td>Fixed ratio test</td>
+<td>N/A</td>
+<td>30% EBITDA</td>
+</tr>
+<tr>
+<td>Group ratio test</td>
+<td>N/A</td>
+<td>Available</td>
+</tr>
+<tr>
+<td>Third-party debt test</td>
+<td>Available</td>
+<td>Available</td>
+</tr>
+<tr>
+<td>Arm's length debt test</td>
+<td>Available</td>
+<td>Replaced</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Section 40-880 (Blackhole Expenditure)</strong>: Business capital expenditure not otherwise deductible → <strong>20%/yr over 5 years</strong>.</p>
+<h3 id="293-wht-regime">29.3 WHT Regime</h3>
+<table>
+<thead>
+<tr>
+<th>Payment</th>
+<th>Default</th>
+<th>Treaty (typical)</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dividends (franked)</td>
+<td><strong>0%</strong></td>
+<td>0%</td>
+<td>ITAA 1936 §128B(3)(ga)</td>
+</tr>
+<tr>
+<td>Dividends (unfranked)</td>
+<td><strong>30%</strong></td>
+<td>5-15%</td>
+<td>ITAA 1936 §128B</td>
+</tr>
+<tr>
+<td>Interest</td>
+<td><strong>10%</strong></td>
+<td>0-10%</td>
+<td>ITAA 1936 §128B</td>
+</tr>
+<tr>
+<td>Royalties</td>
+<td><strong>30%</strong></td>
+<td>5-10%</td>
+<td>ITAA 1936 §128B</td>
+</tr>
+<tr>
+<td>MIT distributions</td>
+<td><strong>15%</strong></td>
+<td>10-15%</td>
+<td>Division 275</td>
+</tr>
+<tr>
+<td>Branch profits</td>
+<td><strong>0%</strong></td>
+<td>0%</td>
+<td>No BPT in Australia</td>
+</tr>
+</tbody>
+</table>
+<h3 id="294-international-investor-framework">29.4 International Investor Framework</h3>
+<p><strong>FIRB Screening (FATA 1975)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Investor Type</th>
+<th>Threshold</th>
+<th>Approval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agreement countries</td>
+<td>A$310M (business)</td>
+<td>FIRB</td>
+</tr>
+<tr>
+<td>Non-agreement countries</td>
+<td>A$289M</td>
+<td>FIRB</td>
+</tr>
+<tr>
+<td>Sensitive sectors</td>
+<td>A$0 (all reviewed)</td>
+<td>FIRB</td>
+</tr>
+<tr>
+<td>Residential real estate</td>
+<td>A$0 (all reviewed)</td>
+<td>FIRB</td>
+</tr>
+<tr>
+<td>Agricultural land</td>
+<td>A$15M (cumulative)</td>
+<td>FIRB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Imputation System (Division 202)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Franking account</td>
+<td>Company maintains account of tax paid</td>
+</tr>
+<tr>
+<td>Franked dividends to non-residents</td>
+<td><strong>0% WHT</strong></td>
+</tr>
+<tr>
+<td>Unfranked dividends</td>
+<td>30% WHT (treaty-reducible)</td>
+</tr>
+<tr>
+<td>45-day holding rule</td>
+<td>Shareholder must hold shares "at risk" for 45+ days</td>
+</tr>
+<tr>
+<td>Benchmark rule</td>
+<td>All dividends in a franking period must be franked to the same extent</td>
+</tr>
+<tr>
+<td>Conduit foreign income (Div 802)</td>
+<td>Foreign-source income distributed to non-residents → <strong>0% WHT</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CFC Rules — Part X (ITAA 1936 §§317-459A)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFC threshold</td>
+<td>≥50% control by Australian entities</td>
+</tr>
+<tr>
+<td>Attribution</td>
+<td>Tainted (passive) income attributed to Australian shareholders</td>
+</tr>
+<tr>
+<td>Active income exemption</td>
+<td><strong>95%</strong> active income test → no attribution</td>
+</tr>
+<tr>
+<td>De minimis</td>
+<td>Tainted income &lt; lesser of A$250K or 5% gross turnover → exempt</td>
+</tr>
+<tr>
+<td>Non-portfolio dividend</td>
+<td>NANE (exempt) for ≥10% holdings (ITAA 1997 §768-5)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CGT for Non-Residents (Division 855)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Taxable?</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAP (Taxable Australian Property)</td>
+<td>Yes</td>
+<td>Full rate</td>
+</tr>
+<tr>
+<td>Non-TAP shares</td>
+<td><strong>0%</strong></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CGT withholding</td>
+<td><strong>12.5%</strong> on TAP dispositions &gt;A$750K</td>
+<td>ITAA 1997 Sch 1 §14-200</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Anti-Avoidance</strong></p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Rate/Mechanism</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DPT</td>
+<td><strong>40%</strong> (global revenue ≥A$1B)</td>
+<td>ITAA 1936 Division 177H</td>
+</tr>
+<tr>
+<td>MAAL</td>
+<td>Denies deductions for diverted Australian income</td>
+<td>ITAA 1936 Division 177DA</td>
+</tr>
+<tr>
+<td>Part IVA GAAR</td>
+<td>General anti-avoidance rule</td>
+<td>ITAA 1936 Part IVA</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-30-step-by-step-tax-optimization-analysis">Part 30: Step-by-Step Tax Optimization Analysis</h2>
+<h3 id="301-holding-company-jurisdiction-selection">30.1 Holding Company Jurisdiction Selection</h3>
+<p><strong>Step 1 — Assess Parent Country CFC Exposure</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parent Country</th>
+<th>CFC Impact</th>
+<th>Recommended Holding Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong> (no CFC)</td>
+<td>Maximum flexibility; no foreign income attribution</td>
+<td>Singapore itself; or any low-tax jurisdiction</td>
+</tr>
+<tr>
+<td><strong>Canada</strong> (FAPI)</td>
+<td>Active business income exempt; passive taxed</td>
+<td>Treaty country for exempt surplus (ITA §113(1)(a))</td>
+</tr>
+<tr>
+<td><strong>Australia</strong> (Part X)</td>
+<td>95% active income safe harbor</td>
+<td>Operating subs with genuine business substance</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong> (REFIPRE)</td>
+<td>Only passive income in &lt;22.5% jurisdictions</td>
+<td>Ensure operating entities have &gt;75% active income</td>
+</tr>
+<tr>
+<td><strong>US</strong> (Subpart F + GILTI)</td>
+<td>Most income captured; 10.5% minimum</td>
+<td>High-tax exclusion if foreign rate ≥18.9%</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong> (Deemed Dividend)</td>
+<td>≥50% holdings; limited enforcement</td>
+<td>DTA country for favorable timing</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong> (Universal CFC)</td>
+<td>ALL foreign income taxed regardless</td>
+<td>No deferral strategy works; focus on FTC optimization</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2 — Evaluate Repatriation Costs ($10M Pre-Tax Profit)</strong></p>
+<table>
+<thead>
+<tr>
+<th>From → To</th>
+<th>Local CIT</th>
+<th>WHT (Treaty)</th>
+<th>Parent Tax</th>
+<th>Total Effective</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Indonesia → Singapore</td>
+<td>22% ($2.2M)</td>
+<td>10% ($780K)</td>
+<td>0% (FSIE)</td>
+<td><strong>29.8%</strong></td>
+</tr>
+<tr>
+<td>Australia → Singapore</td>
+<td>30% ($3M)</td>
+<td>0% (franked)</td>
+<td>0% (FSIE)</td>
+<td><strong>30%</strong></td>
+</tr>
+<tr>
+<td>Canada → US</td>
+<td>26.5% ($2.65M)</td>
+<td>5% ($367K)</td>
+<td>FTC offset</td>
+<td><strong>~30.2%</strong></td>
+</tr>
+<tr>
+<td>Brazil → Canada</td>
+<td>34% ($3.4M)</td>
+<td>0%</td>
+<td>0% (exempt surplus)</td>
+<td><strong>34%</strong></td>
+</tr>
+<tr>
+<td>Mexico → Singapore</td>
+<td>30% ($3M)</td>
+<td>0% (treaty)</td>
+<td>0% (FSIE)</td>
+<td><strong>30%</strong></td>
+</tr>
+<tr>
+<td>US → Canada</td>
+<td>21% ($2.1M)</td>
+<td>5% ($395K)</td>
+<td>FTC offset</td>
+<td><strong>~24.9%</strong></td>
+</tr>
+<tr>
+<td>Indonesia → Australia</td>
+<td>22% ($2.2M)</td>
+<td>15% ($1.17M)</td>
+<td>NANE (≥10%)</td>
+<td><strong>33.7%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="302-rd-hub-placement-5m-annual-spend">30.2 R&amp;D Hub Placement ($5M Annual Spend)</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Mechanism</th>
+<th>Tax Saving</th>
+<th>Net R&amp;D Cost</th>
+<th>Ranking</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong> (EIS 400%)</td>
+<td>17% × $15M extra deduction</td>
+<td><strong>$2,550,000</strong></td>
+<td>$2,450,000</td>
+<td>1st</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong> (300%)</td>
+<td>22% × $10M extra deduction</td>
+<td><strong>$2,200,000</strong></td>
+<td>$2,800,000</td>
+<td>2nd</td>
+</tr>
+<tr>
+<td><strong>Australia</strong> (&lt;$20M)</td>
+<td>43.5% refundable offset</td>
+<td><strong>$2,175,000</strong></td>
+<td>$2,825,000</td>
+<td>3rd</td>
+</tr>
+<tr>
+<td><strong>Canada</strong> (SR&amp;ED CCPC)</td>
+<td>35% refundable credit</td>
+<td><strong>$1,750,000</strong></td>
+<td>$3,250,000</td>
+<td>4th</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong> (Lei do Bem 180%)</td>
+<td>34% × $4M extra deduction</td>
+<td><strong>$1,360,000</strong></td>
+<td>$3,640,000</td>
+<td>5th</td>
+</tr>
+<tr>
+<td><strong>US</strong> (20% credit)</td>
+<td>$1M credit, but 5yr amortization</td>
+<td><strong>$1,000,000</strong></td>
+<td>$4,000,000</td>
+<td>6th</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong> (30% incr.)</td>
+<td>30% of incremental, MXN 50M cap</td>
+<td><strong>~$900,000</strong></td>
+<td>$4,100,000</td>
+<td>7th</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pillar 2 Impact</strong>: For MNE groups &gt;€750M revenue, Singapore's concessionary rates will be topped up to 15%. Canada and Australia's refundable credits are better preserved under Pillar 2 as they are treated as qualified refundable tax credits (QRTCs).</p>
+<h3 id="303-profit-repatriation-strategy-to-singapore-parent">30.3 Profit Repatriation Strategy (To Singapore Parent)</h3>
+<p><strong>Optimal Method by Country</strong></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Best Method</th>
+<th>WHT</th>
+<th>CIT Already Paid</th>
+<th>Total Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>JCP (interest)</td>
+<td>15%</td>
+<td>34% savings on deduction → net benefit</td>
+<td><strong>~15%</strong> on repatriated amount</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Dividend</td>
+<td>0%</td>
+<td>34% CIT (no deduction)</td>
+<td><strong>34%</strong></td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>Franked dividend</td>
+<td>0%</td>
+<td>30% CIT (via franking)</td>
+<td><strong>30%</strong></td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>Dividend (SG-MX treaty)</td>
+<td>0%</td>
+<td>30% CIT</td>
+<td><strong>30%</strong></td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>Dividend (treaty)</td>
+<td>10%</td>
+<td>22% CIT</td>
+<td><strong>29.8%</strong></td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>Dividend (treaty)</td>
+<td>5%</td>
+<td>21% CIT</td>
+<td><strong>24.95%</strong></td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>Dividend (treaty)</td>
+<td>5%</td>
+<td>26.5% CIT (ON)</td>
+<td><strong>30.2%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="304-loss-utilization-strategy">30.4 Loss Utilization Strategy</h3>
+<p><strong>Priority Actions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Country</th>
+<th>Action</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (urgent)</td>
+<td><strong>Indonesia</strong></td>
+<td>Accelerate profit recovery</td>
+<td>5-year NOL expiry = permanent loss risk</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Brazil</strong></td>
+<td>Plan for 30% annual cap</td>
+<td>Large losses take decades to absorb</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>US</strong></td>
+<td>Monitor 80% limit</td>
+<td>Always pay some tax even with NOL</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Mexico</strong></td>
+<td>Use within 10-year window</td>
+<td>INPC adjustment helps preserve value</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Canada</strong></td>
+<td>Utilize 3-year carry-back</td>
+<td>Immediate cash refund from prior years</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Australia</strong></td>
+<td>Utilize 1-year carry-back</td>
+<td>Division 160 refundable offset</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Singapore</strong></td>
+<td>Low urgency</td>
+<td>Indefinite carry-forward, 100% utilization</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Branch Strategy for Loss-Making Phase</strong></p>
+<p>Operate as a <strong>branch</strong> (not subsidiary) during expected loss-making years in US and Canada. This allows losses to offset head office profits in the parent jurisdiction. Convert to subsidiary once profitable to access incentives (SBD in Canada, PTE/SUTE in Singapore, Tax Holiday in Indonesia).</p>
+<h3 id="305-thin-capitalization-debt-push-down">30.5 Thin Capitalization &amp; Debt Push-Down</h3>
+<p><strong>Maximum Intercompany Debt by Country</strong></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Rule</th>
+<th>Maximum Debt on $100M Assets/EBITDA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>No limit (arm's length only)</td>
+<td>$100M+ (limited only by arm's length)</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>4:1 DER</td>
+<td>$80M debt / $20M equity</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>3:1 DER + 30% EBITDA</td>
+<td>$75M debt / $25M equity (lower of two tests)</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>30% ATI</td>
+<td>Interest deduction ≤ $30M on $100M EBITDA</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>30% tax EBITDA (EIFEL)</td>
+<td>Interest deduction ≤ $30M on $100M EBITDA</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>30% EBITDA (from July 2024)</td>
+<td>Interest deduction ≤ $30M on $100M EBITDA</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>2:1 DER (related)</td>
+<td>$67M debt / $33M equity</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Optimization</strong>: Push intercompany debt into <strong>Singapore</strong> operations (no thin cap) and high-CIT jurisdictions (Brazil 34%, Mexico 30%, Australia 30%) to maximize interest deductions. Ensure interest rates are arm's length and withholding tax is minimized through treaty selection.</p>
+<h3 id="306-beps-pillar-2-impact-assessment">30.6 BEPS Pillar 2 Impact Assessment</h3>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Status</th>
+<th>Key Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>DMTT from 2025</td>
+<td>Concessionary rates (0-13.5%) → topped up to 15%</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>IIR from Jan 2024</td>
+<td>Minimal (30% rate already above 15%)</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>QDMTT planned</td>
+<td>Minimal (rates above 15%)</td>
+</tr>
+<tr>
+<td><strong>US</strong></td>
+<td>GILTI at 10.5% (partial)</td>
+<td>Not fully aligned; no QDMTT</td>
+</tr>
+<tr>
+<td><strong>Indonesia</strong></td>
+<td>Monitoring</td>
+<td>Tax Holiday entities → top-up risk</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Monitoring</td>
+<td>No immediate impact (34% rate)</td>
+</tr>
+<tr>
+<td><strong>Mexico</strong></td>
+<td>Monitoring</td>
+<td>No immediate impact (30% rate)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restructuring Considerations</strong>:
+- Shift from <strong>rate reductions</strong> to <strong>refundable credits/grants</strong> (better preserved under Pillar 2)
+- Singapore's RIC (Refundable Investment Credit) designed as Pillar 2-compatible replacement
+- Canada's SR&amp;ED and Australia's R&amp;D offset are <strong>QRTCs</strong> → excluded from Pillar 2 top-up calculation
+- Indonesia Tax Holiday entities in MNE groups &gt;€750M may face top-up taxes</p>
+<h3 id="307-entity-structure-decision-framework">30.7 Entity Structure Decision Framework</h3>
+<pre><code>1. What is the parent country?
+   ├── Singapore → Maximum flexibility (no CFC, territorial)
+   ├── Canada/Australia → Active business focus (FAPI/Part X exempt active income)
+   ├── US → GILTI planning critical; high-tax exclusion at 18.9%
+   ├── Brazil → No deferral possible; focus on FTC optimization
+   └── Mexico/Indonesia → Moderate CFC risk; structure around thresholds
+
+2. What is the operational activity?
+   ├── Manufacturing → Mexico (IMMEX), Indonesia (Tax Holiday), Canada (M&amp;P)
+   ├── R&amp;D/IP → Singapore (EIS 400%), Canada (SR&amp;ED 35%), Australia (43.5%)
+   ├── Trading → Singapore (GTP 5-10%), Hong Kong
+   ├── Financial services → Singapore (FSI 5-13.5%)
+   └── Natural resources → Australia (PRRT), Canada (provincial royalties), Indonesia
+
+3. Expected profitability timeline?
+   ├── Loss-making years expected → Branch (to offset HO profits in US/Canada)
+   ├── Immediately profitable → Subsidiary (access incentives)
+   └── Long-term investment → Indonesia Tax Holiday (up to 20 years)
+
+4. Exit strategy?
+   ├── Share sale → Singapore (0% CGT), Australia (0% if non-TAP)
+   ├── Asset sale → Standard CIT applies everywhere
+   └── IPO → Consider listed company benefits (Indonesia 19%)
+</code></pre>
+<h3 id="308-complete-optimization-checklist">30.8 Complete Optimization Checklist</h3>
+<p><strong>Phase 1: Pre-Entry</strong>
+- [ ] Select holding company jurisdiction based on CFC rules analysis
+- [ ] Choose entity type (branch for losses, subsidiary for incentives)
+- [ ] Design capitalization structure within thin cap limits
+- [ ] Apply for available incentives (Tax Holiday, Pioneer Status, SR&amp;ED pre-registration)
+- [ ] Establish transfer pricing policy and documentation framework
+- [ ] Verify treaty network coverage for planned corridors</p>
+<p><strong>Phase 2: Operational</strong>
+- [ ] File incentive applications (EDB Singapore, BKPM Indonesia, CONACYT Mexico)
+- [ ] Implement TP documentation (Master File, Local File, CbCR where applicable)
+- [ ] Optimize R&amp;D location based on effective subsidy rates
+- [ ] Manage NOL carry-forwards within country-specific time limits
+- [ ] Monitor thin cap ratios quarterly
+- [ ] Maintain substance requirements for all incentive entities</p>
+<p><strong>Phase 3: Repatriation</strong>
+- [ ] Use JCP instead of dividends for Brazil repatriation (19% savings)
+- [ ] Frank all Australian dividends to achieve 0% WHT
+- [ ] Time Indonesian dividends to qualify for reinvestment exemption
+- [ ] Claim FSIE in Singapore for all eligible foreign-source income
+- [ ] Apply treaty rates (file DGT Forms for Indonesia; W-8BEN-E for US)
+- [ ] Monitor CUFIN account for Mexico dividend tracking</p>
+<p><strong>Phase 4: Exit / Restructuring</strong>
+- [ ] Sell shares (not assets) where possible for CGT benefits
+- [ ] Use Singapore's 0% CGT for share disposals
+- [ ] Obtain Section 116 clearance for Canadian TCP dispositions
+- [ ] Consider FIRPTA implications for US real property interests
+- [ ] Evaluate Pillar 2 impact before restructuring concessionary regimes
+- [ ] Verify treaty LOB/PPT compliance for exit transactions</p>
+<hr />
+<h2 id="appendix-a-legislation-reference-index">Appendix A: Legislation Reference Index</h2>
+<h3 id="united-states">United States</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IRC</td>
+<td>Internal Revenue Code (26 U.S.C.)</td>
+</tr>
+<tr>
+<td>TCJA</td>
+<td>Tax Cuts and Jobs Act (P.L. 115-97, 2017)</td>
+</tr>
+<tr>
+<td>IRA</td>
+<td>Inflation Reduction Act (P.L. 117-169, 2022)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="canada">Canada</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ITA</td>
+<td>Income Tax Act, R.S.C. 1985, c. 1 (5th Supp.)</td>
+</tr>
+<tr>
+<td>ETA</td>
+<td>Excise Tax Act, R.S.C. 1985, c. E-15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="indonesia">Indonesia</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UU</td>
+<td>Undang-Undang (Law)</td>
+</tr>
+<tr>
+<td>PP</td>
+<td>Peraturan Pemerintah (Government Regulation)</td>
+</tr>
+<tr>
+<td>PMK</td>
+<td>Peraturan Menteri Keuangan (Minister of Finance Regulation)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="brazil">Brazil</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lei</td>
+<td>Federal Law (Lei Ordinaria)</td>
+</tr>
+<tr>
+<td>LC</td>
+<td>Lei Complementar (Complementary Law)</td>
+</tr>
+<tr>
+<td>RIR</td>
+<td>Regulamento do Imposto de Renda (Income Tax Regulation)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mexico">Mexico</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LISR</td>
+<td>Ley del Impuesto Sobre la Renta (Income Tax Law)</td>
+</tr>
+<tr>
+<td>CFF</td>
+<td>Codigo Fiscal de la Federacion (Federal Tax Code)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="australia">Australia</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ITAA 1997</td>
+<td>Income Tax Assessment Act 1997</td>
+</tr>
+<tr>
+<td>ITAA 1936</td>
+<td>Income Tax Assessment Act 1936</td>
+</tr>
+<tr>
+<td>GST Act</td>
+<td>A New Tax System (Goods and Services Tax) Act 1999</td>
+</tr>
+</tbody>
+</table>
+<h3 id="singapore">Singapore</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ITA</td>
+<td>Income Tax Act 1947 (Cap. 134)</td>
+</tr>
+<tr>
+<td>GST Act</td>
+<td>Goods and Services Tax Act 1993 (Cap. 117A)</td>
+</tr>
+<tr>
+<td>CPF Act</td>
+<td>Central Provident Fund Act 1953 (Cap. 36)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix-b-chart-index">Appendix B: Chart Index</h2>
+<p>All charts are located in the <code>charts/</code> directory:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Chart</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>Corporate Tax Rates</td>
+<td>Standard vs. SME rates across 7 countries</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Combined Federal+State Rates</td>
+<td>US state and Canada provincial variations</td>
+</tr>
+<tr>
+<td>03</td>
+<td>VAT/GST Rates</td>
+<td>Indirect tax comparison</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Employer Payroll Burden</td>
+<td>Social contribution comparison</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Depreciation Comparison</td>
+<td>Asset recovery periods by type</td>
+</tr>
+<tr>
+<td>06</td>
+<td>NOL Rules</td>
+<td>Carry-forward, carry-back, annual limits</td>
+</tr>
+<tr>
+<td>07</td>
+<td>R&amp;D Incentives</td>
+<td>Credit/deduction rates comparison</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Interest Limitation</td>
+<td>EBITDA vs. DER rules</td>
+</tr>
+<tr>
+<td>09</td>
+<td>Withholding Taxes</td>
+<td>Cross-border payment WHT rates</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Deduction Categories Heatmap</td>
+<td>Overall deduction availability</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Brazil Simples Nacional</td>
+<td>Annex rate progression</td>
+</tr>
+<tr>
+<td>12</td>
+<td>SME Regimes</td>
+<td>Small business tax concessions</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Tax Burden Radar</td>
+<td>Multi-dimensional burden comparison</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Canada Provincial Rates</td>
+<td>Province-by-province CIT rates</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Indonesia Tax Holiday</td>
+<td>Investment-based holiday tiers</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Mexico RESICO</td>
+<td>Simplified trust regime brackets</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Australia Super Rates</td>
+<td>Superannuation guarantee trajectory</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Comprehensive Summary Table</td>
+<td>All-in-one comparison matrix</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Singapore Tax Incentives</td>
+<td>Full incentive suite overview</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Foreign Investment Screening</td>
+<td>Screening framework comparison</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Non-Resident Tax Rates</td>
+<td>CGT, dividend, branch tax rates</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Repatriation Ease Radar</td>
+<td>Profit repatriation friendliness</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Investor Decision Matrix</td>
+<td>Scored multi-dimensional assessment</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Capital Gains Comparison</td>
+<td>Corporate CGT across asset types</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Dividend &amp; Interest Treatment</td>
+<td>Inter-corporate and cross-border</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Sector-Specific Taxes</td>
+<td>Digital, resources, financial, gaming</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>This analysis is for informational and planning purposes only. It does not constitute tax advice. Consult qualified tax professionals in each jurisdiction for specific guidance. All citations reference legislation current as of the stated tax year (2024/2025).</em></p>
+</body>
+</html>

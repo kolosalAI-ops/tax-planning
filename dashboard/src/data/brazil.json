@@ -1,0 +1,329 @@
+{
+  "country": "Brazil",
+  "country_code": "BR",
+  "currency": "BRL",
+  "tax_year": "2024/2025",
+  "corporate_tax": {
+    "regimes": ["Lucro Real", "Lucro Presumido", "Simples Nacional", "Lucro Arbitrado"],
+    "lucro_real": {
+      "irpj": {
+        "standard_rate": 15.0,
+        "surtax_rate": 10.0,
+        "surtax_monthly_threshold": 20000,
+        "surtax_annual_threshold": 240000,
+        "effective_high_income": 25.0
+      },
+      "csll": {
+        "general": 9.0,
+        "financial_institutions": 15.0
+      },
+      "combined_effective": {
+        "below_240k": 24.0,
+        "above_240k": 34.0,
+        "financial_above": 40.0
+      },
+      "pis_cofins_noncumulative": {
+        "pis": 1.65,
+        "cofins": 7.6,
+        "combined": 9.25,
+        "input_credits": true,
+        "effective_after_credits": {"min": 3.0, "max": 6.0}
+      }
+    },
+    "lucro_presumido": {
+      "revenue_limit": 78000000,
+      "presumed_margins_irpj": {
+        "commerce_goods": 8.0,
+        "transportation": 8.0,
+        "hospital_services": 8.0,
+        "industrial": 8.0,
+        "general_services": 32.0,
+        "professional_services": 32.0,
+        "financial_intermediation": 16.0,
+        "fuel_gas": 1.6,
+        "real_estate": 8.0
+      },
+      "presumed_margins_csll": {
+        "commercial_industrial": 12.0,
+        "general_services": 32.0,
+        "financial": 12.0,
+        "hospital_services": 12.0
+      },
+      "pis_cofins_cumulative": {
+        "pis": 0.65,
+        "cofins": 3.0,
+        "combined": 3.65,
+        "input_credits": false
+      },
+      "effective_rates_on_revenue": {
+        "commerce_8pct_margin": 5.93,
+        "services_32pct_margin": 11.33
+      }
+    },
+    "simples_nacional": {
+      "eligibility": {
+        "microempresa_max": 360000,
+        "epp_max": 4800000
+      },
+      "annex_1_commerce": [
+        {"min": 0, "max": 180000, "nominal_rate": 4.0, "deduction": 0},
+        {"min": 180001, "max": 360000, "nominal_rate": 7.3, "deduction": 5940},
+        {"min": 360001, "max": 720000, "nominal_rate": 9.5, "deduction": 13860},
+        {"min": 720001, "max": 1800000, "nominal_rate": 10.7, "deduction": 22500},
+        {"min": 1800001, "max": 3600000, "nominal_rate": 14.3, "deduction": 87300},
+        {"min": 3600001, "max": 4800000, "nominal_rate": 19.0, "deduction": 378000}
+      ],
+      "annex_2_industry": [
+        {"min": 0, "max": 180000, "nominal_rate": 4.5, "deduction": 0},
+        {"min": 180001, "max": 360000, "nominal_rate": 7.8, "deduction": 5940},
+        {"min": 360001, "max": 720000, "nominal_rate": 10.0, "deduction": 13860},
+        {"min": 720001, "max": 1800000, "nominal_rate": 11.2, "deduction": 22500},
+        {"min": 1800001, "max": 3600000, "nominal_rate": 14.7, "deduction": 85500},
+        {"min": 3600001, "max": 4800000, "nominal_rate": 30.0, "deduction": 720000}
+      ],
+      "annex_3_services_i": [
+        {"min": 0, "max": 180000, "nominal_rate": 6.0, "deduction": 0},
+        {"min": 180001, "max": 360000, "nominal_rate": 11.2, "deduction": 9360},
+        {"min": 360001, "max": 720000, "nominal_rate": 13.5, "deduction": 17640},
+        {"min": 720001, "max": 1800000, "nominal_rate": 16.0, "deduction": 35640},
+        {"min": 1800001, "max": 3600000, "nominal_rate": 21.0, "deduction": 125640},
+        {"min": 3600001, "max": 4800000, "nominal_rate": 33.0, "deduction": 648000}
+      ],
+      "annex_5_services_tech": [
+        {"min": 0, "max": 180000, "nominal_rate": 15.5, "deduction": 0},
+        {"min": 180001, "max": 360000, "nominal_rate": 18.0, "deduction": 4500},
+        {"min": 360001, "max": 720000, "nominal_rate": 19.5, "deduction": 9900},
+        {"min": 720001, "max": 1800000, "nominal_rate": 20.5, "deduction": 17100},
+        {"min": 1800001, "max": 3600000, "nominal_rate": 23.0, "deduction": 62100},
+        {"min": 3600001, "max": 4800000, "nominal_rate": 30.5, "deduction": 540000}
+      ]
+    }
+  },
+  "icms_state_tax": {
+    "sao_paulo": 18.0, "rio_de_janeiro": 20.0, "minas_gerais": 18.0,
+    "rio_grande_do_sul": 17.0, "parana": 19.0,
+    "most_other_states": {"min": 17.0, "max": 20.0},
+    "interstate_south_southeast_to_north": 7.0,
+    "interstate_other": 12.0,
+    "imported_goods_interstate": 4.0
+  },
+  "iss_municipal_tax": {
+    "min": 2.0, "max": 5.0,
+    "common_major_cities": 5.0
+  },
+  "employer_social_security": {
+    "inss_employer": 20.0,
+    "rat_occupational_risk": {"min": 1.0, "max": 3.0},
+    "terceiros_sistema_s": 5.8,
+    "fgts": 8.0,
+    "total_approximate": {"min": 34.8, "max": 36.8}
+  },
+  "withholding_taxes_nonresident": {
+    "dividends": 0.0,
+    "interest": {"general": 15.0, "tax_haven": 25.0},
+    "royalties": {"general": 15.0, "tax_haven": 25.0},
+    "technical_services": {"general": 15.0, "tax_haven": 25.0}
+  },
+  "deductions": {
+    "depreciation": {
+      "rates": {
+        "buildings": {"rate": 4.0, "life": 25},
+        "installations": {"rate": 10.0, "life": 10},
+        "machinery_equipment": {"rate": 10.0, "life": 10},
+        "furniture_fixtures": {"rate": 10.0, "life": 10},
+        "vehicles_passenger": {"rate": 20.0, "life": 5},
+        "computers": {"rate": 20.0, "life": 5},
+        "software": {"rate": 20.0, "life": 5},
+        "heavy_machinery": {"rate": 25.0, "life": 4}
+      },
+      "accelerated_shifts": {
+        "one_shift": 1.0,
+        "two_shifts": 1.5,
+        "three_shifts": 2.0,
+        "rnd_equipment": 2.0
+      }
+    },
+    "nol": {
+      "carry_forward": "indefinite",
+      "carry_back": false,
+      "annual_limitation_pct": 30.0
+    },
+    "jcp_interest_on_equity": {
+      "deductible": true,
+      "rate_limit": "TJLP (~6-7%)",
+      "wht_on_payment": 15.0,
+      "net_benefit_pct": 19.0
+    },
+    "rnd_lei_do_bem": {
+      "base_deduction": 100.0,
+      "additional_deduction": 60.0,
+      "additional_if_headcount_increase": 80.0,
+      "additional_if_patent": 80.0,
+      "accelerated_depreciation_rnd": 100.0
+    },
+    "thin_capitalization": {
+      "related_party_ratio": "2:1",
+      "tax_haven_ratio": "0.3:1",
+      "foreign_lender_ratio": "2:1"
+    },
+    "charitable": {
+      "oscip_limit_pct_operating_profit": 2.0,
+      "cultural_lei_rouanet_limit_pct_irpj": 4.0,
+      "children_eca_limit_pct_irpj": 1.0,
+      "sports_limit_pct_irpj": 1.0,
+      "elderly_limit_pct_irpj": 1.0,
+      "pat_food_program_limit_pct_irpj": 4.0
+    }
+  },
+  "tax_reform_2024": {
+    "cbs_replaces": "PIS/COFINS",
+    "ibs_replaces": "ICMS/ISS",
+    "estimated_combined_rate": 26.5,
+    "transition_period": "2026-2032",
+    "full_implementation": 2033
+  },
+  "international_investors": {
+    "screening": {
+      "body": "Central Bank (RDE-IED)",
+      "threshold": "registration_required",
+      "sector_restrictions": true,
+      "media_foreign_cap_pct": 30.0,
+      "legal_basis": "CF/1988 Art. 222; Lei 5.709/1971; BCB Resolution 278/2022"
+    },
+    "nonresident_taxation": {
+      "cgt_shares_nonlisted_pct": 15.0,
+      "cgt_shares_tax_haven_pct": 25.0,
+      "dividend_wht_pct": 0.0,
+      "jcp_wht_pct": 15.0,
+      "branch_profits_tax_pct": 0.0,
+      "exit_tax": false
+    },
+    "repatriation": {
+      "fx_controls": "moderate",
+      "central_bank_registration": true,
+      "dividend_restrictions": "none",
+      "iof_on_fx": true,
+      "cide_on_royalties_pct": 10.0
+    },
+    "branch_vs_subsidiary": {
+      "branch_tax_rate_pct": 34.0,
+      "branch_profits_tax_pct": 0.0,
+      "subsidiary_tax_rate_pct": 34.0,
+      "subsidiary_dividend_wht_pct": 0.0
+    },
+    "foreign_tax_credit": {
+      "method": "credit",
+      "limitation": "per_country",
+      "carry_forward_years": 0,
+      "carry_back_years": 0,
+      "reciprocity_required": true
+    },
+    "cfc_rules": {
+      "has_cfc": true,
+      "regime_name": "Universal CFC (all profits taxed)",
+      "ownership_threshold_pct": 50.0,
+      "active_income_exemption": false,
+      "consolidation_allowed": true
+    },
+    "treaty_network": {
+      "total_comprehensive_treaties": 35,
+      "has_lob": false,
+      "has_ppt": false,
+      "notable_missing": ["United States", "United Kingdom", "Germany"]
+    },
+    "pe_rules": {
+      "construction_pe_months": 6,
+      "service_pe_days": 183,
+      "digital_pe": false,
+      "dependent_agent_pe": true
+    }
+  },
+  "income_by_source": {
+    "service_income": {
+      "lucro_real_combined_pct": 34.0,
+      "iss_range_pct": {"min": 2.0, "max": 5.0},
+      "cide_remittance_pct": 10.0,
+      "lucro_presumido_margin_pct": 32.0,
+      "legal_basis": "LC 116/2003, Lei 10.168/2000, Lei 14.596/2023"
+    },
+    "royalty_income": {
+      "domestic_rate_pct": 34.0,
+      "irrf_nonresident_pct": 15.0,
+      "irrf_tax_haven_pct": 25.0,
+      "cide_pct": 10.0,
+      "deductibility_limit_pct_range": {"min": 1.0, "max": 5.0},
+      "patent_box": false,
+      "legal_basis": "Lei 9.249/1995 Art. 28, Lei 10.168/2000, Portaria MF 436/1958"
+    },
+    "rental_income": {
+      "lucro_real_pct": 34.0,
+      "presumido_margin_pct": 32.0,
+      "fii_individual_exempt": true,
+      "legal_basis": "Lei 6.099/1974, Lei 11.033/2004"
+    },
+    "capital_gains": {
+      "corporate_lucro_real_pct": 34.0,
+      "listed_swing_trade_pct": 15.0,
+      "listed_day_trade_pct": 20.0,
+      "nonlisted_shares_pct": 15.0,
+      "real_property_individual_range_pct": {"min": 15.0, "max": 22.5},
+      "goodwill_amortization_months": 60,
+      "legal_basis": "Lei 11.033/2004, Lei 13.259/2016, Lei 12.973/2014"
+    },
+    "dividend_income": {
+      "domestic_exempt": true,
+      "jcp_irrf_pct": 15.0,
+      "foreign_dividends_cfc_pct": 34.0,
+      "legal_basis": "Lei 9.249/1995 Art. 9-10"
+    },
+    "interest_income": {
+      "corporate_rate_pct": 34.0,
+      "fixed_income_irrf_range_pct": {"min": 15.0, "max": 22.5},
+      "iof_short_term_max_pct": 96.0,
+      "legal_basis": "Lei 11.033/2004, Decreto 6.306/2007"
+    }
+  },
+  "sector_specific_taxes": {
+    "digital_services_tax": {
+      "has_dst": false,
+      "iss_applies": true,
+      "note": "No specific DST; ISS 2-5% applies to digital services"
+    },
+    "natural_resources": {
+      "cfem_iron_ore_pct": 3.5,
+      "cfem_gold_pct": 1.5,
+      "cfem_bauxite_pct": 3.0,
+      "oil_royalties_range_pct": {"min": 5.0, "max": 15.0},
+      "legal_basis": "Lei 13.540/2017, Lei 9.478/1997, Lei 12.351/2010"
+    },
+    "insurance_premium_tax": {
+      "has_ipt": true,
+      "iof_life_pct": 0.38,
+      "iof_health_pct": 2.38,
+      "iof_property_pct": 7.38,
+      "iof_crop_pct": 0.0,
+      "legal_basis": "Decreto 6.306/2007"
+    },
+    "financial_transaction_tax": {
+      "has_ftt": true,
+      "iof_credit_daily_pct": 0.0041,
+      "iof_credit_surcharge_pct": 0.38,
+      "iof_fx_range_pct": {"min": 0.0, "max": 6.38},
+      "legal_basis": "Decreto 6.306/2007"
+    },
+    "gaming_tax": {
+      "sports_betting_ggr_pct": 12.0,
+      "irrf_prizes_pct": 15.0,
+      "lottery_social_security_pct": 13.8,
+      "casino_legal": false,
+      "legal_basis": "Lei 14.790/2023, Decreto-Lei 9.215/1946"
+    },
+    "agricultural_income": {
+      "funrural_company_pct": 1.2,
+      "funrural_individual_pct": 1.3,
+      "itr_range_pct": {"min": 0.03, "max": 20.0},
+      "presumido_margin_pct": 8.0,
+      "legal_basis": "Lei 13.606/2018, Lei 9.393/1996"
+    }
+  }
+}

@@ -1,0 +1,357 @@
+{
+  "country": "Singapore",
+  "country_code": "SG",
+  "currency": "SGD",
+  "tax_year": "YA 2025 (basis year 2024)",
+  "corporate_tax": {
+    "headline_rate": 17.0,
+    "rate_type": "flat",
+    "partial_tax_exemption": {
+      "first_10k": {"exemption_pct": 75.0, "effective_rate": 4.25},
+      "next_190k": {"exemption_pct": 50.0, "effective_rate": 8.5},
+      "above_200k": {"rate": 17.0}
+    },
+    "startup_tax_exemption": {
+      "eligibility": "First 3 consecutive YAs, new company with <=20 shareholders (at least 1 individual holding >=10%)",
+      "first_100k": {"exemption_pct": 75.0, "effective_rate": 4.25},
+      "next_100k": {"exemption_pct": 50.0, "effective_rate": 8.5},
+      "above_200k": {"rate": 17.0},
+      "max_exemption_per_ya": 125000
+    },
+    "corporate_income_tax_rebate": {
+      "ya_2024": {"rebate_pct": 50.0, "cap": 40000},
+      "ya_2025": {"rebate_pct": 50.0, "cap": 40000}
+    },
+    "minimum_effective_tax_rate": {
+      "beps_pillar_2": true,
+      "rate": 15.0,
+      "threshold_global_revenue": 750000000,
+      "effective_date": "1 Jan 2025",
+      "domestic_top_up_tax": true
+    },
+    "concessionary_rates": {
+      "pioneer_status": {"rate_range": "0-5%", "duration_years": "5-15"},
+      "development_expansion_incentive": {"rate_range": "5-10%", "duration_years": "5-10"},
+      "global_trader_programme": {"rate_range": "5-10%"},
+      "financial_sector_incentive": {"rate_range": "5-13.5%"},
+      "ip_development_incentive": {"rate_range": "5-10%"},
+      "headquarters_programme": {"rate": 15.0}
+    },
+    "capital_gains_tax": false,
+    "territorial_system": true,
+    "foreign_sourced_income_exemption": {
+      "conditions": ["Income subject to tax in source jurisdiction", "Headline rate >= 15%", "Beneficial to taxpayer"],
+      "applicable_to": ["dividends", "branch_profits", "service_income"]
+    }
+  },
+  "gst": {
+    "standard_rate": 9.0,
+    "effective_date": "1 Jan 2024",
+    "previous_rate": 8.0,
+    "registration_threshold": 1000000,
+    "voluntary_registration": true,
+    "exempt_supplies": ["financial_services", "sale_and_lease_of_residential_property", "investment_precious_metals"],
+    "zero_rated": ["exports", "international_services"],
+    "reverse_charge": {
+      "applicable": true,
+      "for_imported_services": true,
+      "threshold": 1000000
+    },
+    "overseas_vendor_registration": {
+      "threshold": 100000,
+      "for_b2c_digital_services": true
+    }
+  },
+  "employer_contributions": {
+    "cpf_employer_rate_age_55_below": 17.0,
+    "cpf_employer_rate_age_55_60": 14.5,
+    "cpf_employer_rate_age_60_65": 11.5,
+    "cpf_employer_rate_age_65_70": 9.0,
+    "cpf_employer_rate_above_70": 7.5,
+    "cpf_ordinary_wage_ceiling_monthly": 6800,
+    "cpf_additional_wage_ceiling_annual": 102000,
+    "skills_development_levy": {
+      "rate_pct": 0.25,
+      "minimum_monthly": 2.0,
+      "cap_pct_of_remuneration": 0.25
+    },
+    "foreign_worker_levy": {
+      "s_pass_range": "450-650 per month",
+      "work_permit_range": "300-950 per month",
+      "varies_by_sector_and_quota": true
+    },
+    "total_employer_approximate_pct": 17.25
+  },
+  "withholding_taxes_nonresident": {
+    "dividends": {"default": 0.0, "note": "No WHT on dividends (one-tier system)"},
+    "interest": {"default": 15.0, "treaty_range": "5-15%"},
+    "royalties": {"default": 10.0, "treaty_range": "5-10%"},
+    "technical_fees": {"default": 17.0, "reduced": 10.0},
+    "management_fees": {"default": 17.0},
+    "rent_on_movable_property": {"default": 15.0},
+    "director_fees_nonresident": {"default": 22.0}
+  },
+  "stamp_duty": {
+    "share_transfer": 0.2,
+    "max_share_duty": 500,
+    "property_buyer_rates": {
+      "first_180k": 1.0,
+      "next_180k": 2.0,
+      "next_640k": 3.0,
+      "next_500k": 4.0,
+      "next_500k_tier5": 5.0,
+      "above_3m": 6.0
+    },
+    "additional_buyer_stamp_duty_foreigners_pct": 60.0
+  },
+  "deductions": {
+    "capital_allowances": {
+      "methods": ["straight_line"],
+      "section_19": {
+        "description": "Mandatory 3-year write-off for plant and machinery",
+        "annual_rate_pct": 33.33,
+        "years": 3
+      },
+      "section_19a": {
+        "description": "Election for 1-year accelerated write-off or prescribed working life",
+        "one_year_option": true,
+        "prescribed_life_years": "6-16 depending on asset"
+      },
+      "section_19a_buildings": {
+        "description": "Industrial buildings allowance",
+        "initial_allowance_pct": 25.0,
+        "annual_allowance_pct": 3.0,
+        "qualifying_buildings": ["factory", "warehouse", "dock"]
+      },
+      "key_assets": [
+        {"asset": "Plant and machinery (standard)", "years": 3, "rate_pct": 33.33},
+        {"asset": "Plant and machinery (accelerated)", "years": 1, "rate_pct": 100.0},
+        {"asset": "Computers", "years": 1, "rate_pct": 100.0},
+        {"asset": "Motor vehicles", "years": 3, "rate_pct": 33.33, "cap": 35000, "note": "S-plated cars not claimable; Q-plated cap S$35K"},
+        {"asset": "Software", "years": 1, "rate_pct": 100.0},
+        {"asset": "Furniture & fittings", "years": 3, "rate_pct": 33.33},
+        {"asset": "Renovation & refurbishment", "years": 3, "rate_pct": 33.33, "cap_per_3yr": 300000}
+      ]
+    },
+    "nol": {
+      "carry_forward": "indefinite",
+      "carry_back": 1,
+      "carry_back_cap": 100000,
+      "group_relief": true,
+      "group_relief_cap": "per transferor company",
+      "shareholder_test": true,
+      "same_business_test": false
+    },
+    "interest_limitation": {
+      "transfer_pricing_based": true,
+      "no_specific_thin_cap_rule": true,
+      "arms_length_principle": true,
+      "note": "No fixed DER or EBITDA ratio; interest must be on arm's length terms"
+    },
+    "rnd": {
+      "enhanced_deduction_pct": 250,
+      "conditions": "R&D performed in Singapore, projects approved by IRAS",
+      "ip_registration_enhanced_pct": 200,
+      "base_deduction_overseas_rd_pct": 100,
+      "enhanced_overseas_rd_pct": 100,
+      "writing_down_ip_years": 5,
+      "writing_down_ip_alternative_years": 10,
+      "innovation_allowance": {
+        "description": "Enterprise Innovation Scheme (EIS) from YA 2024",
+        "qualifying_activities": ["R&D", "IP_registration", "training", "innovation_projects"],
+        "enhanced_deduction_pct": 400,
+        "cap_per_activity": 400000,
+        "cash_payout_option": true,
+        "cash_payout_rate_pct": 20,
+        "cash_payout_cap": 100000
+      }
+    },
+    "charitable": {
+      "deduction_multiplier": 2.5,
+      "effective_through": "31 Dec 2026",
+      "carry_forward_years": 5,
+      "qualifying_institutions": "Approved IPCs (Institutions of a Public Character)"
+    },
+    "meals_deduction_pct": 100.0,
+    "entertainment_deduction_pct": 100.0,
+    "entertainment_note": "Fully deductible if incurred for business purposes; no separate restriction",
+    "home_office_deduction": false,
+    "medical_expenses": {
+      "general_cap_pct_of_remuneration": 2.0,
+      "with_portable_medical_scheme_cap_pct": 2.0,
+      "uncapped_if": "Transferable Medical Insurance Scheme (TMIS)"
+    },
+    "donations_to_government": "100% deductible",
+    "start_up_expenses": {
+      "section_14u": true,
+      "cap": 15000,
+      "categories": ["company_incorporation", "accounting", "tax_advisory", "secretarial"]
+    }
+  },
+  "transfer_pricing": {
+    "arms_length_required": true,
+    "documentation_required": true,
+    "contemporaneous_documentation": true,
+    "cbcr_threshold": 1125000000,
+    "apa_available": true,
+    "penalties": {
+      "surcharge_pct": 5.0,
+      "non_compliance_fine_max": 10000
+    }
+  },
+  "double_tax_agreements": {
+    "number_of_treaties": 90,
+    "key_treaties": ["US", "UK", "China", "India", "Japan", "Australia", "Germany", "Indonesia", "Malaysia", "Thailand"]
+  },
+  "international_investors": {
+    "screening": {
+      "body": "ACRA (general); MAS (financial sector)",
+      "general_restrictions": "minimal",
+      "financial_sector_approval": true,
+      "residential_property_restrictions": true,
+      "absd_foreign_buyer_pct": 60.0,
+      "legal_basis": "Companies Act Cap. 50; Banking Act Cap. 19 §53; Residential Property Act Cap. 274"
+    },
+    "nonresident_taxation": {
+      "capital_gains_tax": false,
+      "dividend_wht_pct": 0.0,
+      "branch_profits_tax_pct": 0.0,
+      "stamp_duty_shares_pct": 0.2,
+      "exit_tax": false
+    },
+    "repatriation": {
+      "fx_controls": "none",
+      "dividend_restrictions": "none",
+      "central_bank_registration": false,
+      "interest_wht_default_pct": 15.0,
+      "royalty_wht_default_pct": 10.0,
+      "technical_fee_wht_pct": 17.0
+    },
+    "branch_vs_subsidiary": {
+      "branch_tax_rate_pct": 17.0,
+      "branch_profits_tax_pct": 0.0,
+      "subsidiary_tax_rate_pct": 17.0,
+      "subsidiary_dividend_wht_pct": 0.0,
+      "subsidiary_pte_eligible": true,
+      "branch_pte_eligible": false
+    },
+    "foreign_tax_credit": {
+      "method": "credit_with_pooling",
+      "limitation": "per_country_pooled",
+      "carry_forward_years": 0,
+      "carry_back_years": 0,
+      "unilateral_credit": true
+    },
+    "cfc_rules": {
+      "has_cfc": false,
+      "territorial_system": true,
+      "fsie_exemption": true,
+      "fsie_headline_rate_threshold_pct": 15.0
+    },
+    "treaty_network": {
+      "total_comprehensive_treaties": 90,
+      "limited_treaties": 9,
+      "has_lob": true,
+      "has_ppt": true,
+      "notable_missing": ["United States (comprehensive)"]
+    },
+    "pe_rules": {
+      "construction_pe_months": 12,
+      "service_pe_days": 183,
+      "digital_pe": false,
+      "dependent_agent_pe": true
+    }
+  },
+  "income_by_source": {
+    "service_income": {
+      "domestic_rate_pct": 17.0,
+      "gst_pct": 9.0,
+      "wht_management_fees_pct": 17.0,
+      "wht_technical_individual_pct": 15.0,
+      "wht_director_fees_pct": 22.0,
+      "fsie_exempt": true,
+      "legal_basis": "ITA §10(1)(a), §13(8), §45"
+    },
+    "royalty_income": {
+      "domestic_rate_pct": 17.0,
+      "ip_wda_years": [5, 10, 15],
+      "idi_concessionary_pct": [5, 10],
+      "patent_box": false,
+      "rnd_enhanced_deduction_pct": 250.0,
+      "legal_basis": "ITA §19B, §14C, EDB incentives"
+    },
+    "rental_income": {
+      "rate_pct": 17.0,
+      "property_tax_residential_range_pct": {"min": 0, "max": 36},
+      "property_tax_nonresidential_range_pct": {"min": 10, "max": 25},
+      "sreit_wht_pct": 10.0,
+      "legal_basis": "ITA §10(1)(f), Property Tax Act, §43(2A)"
+    },
+    "capital_gains": {
+      "has_cgt": false,
+      "stamp_duty_shares_pct": 0.2,
+      "ssd_residential_max_pct": 12.0,
+      "absd_foreigner_pct": 20.0,
+      "safe_harbour_holding_pct": 20.0,
+      "safe_harbour_holding_months": 24,
+      "legal_basis": "ITA §10(1), Stamp Duties Act, IRAS e-Tax Guide"
+    },
+    "dividend_income": {
+      "one_tier_exempt": true,
+      "dividend_wht_pct": 0.0,
+      "fsie_conditions_apply": true,
+      "legal_basis": "ITA §13(1)(za), §13(8)"
+    },
+    "interest_income": {
+      "rate_pct": 17.0,
+      "qds_concessionary_pct": 10.0,
+      "fsie_exempt": true,
+      "thin_cap_rules": false,
+      "legal_basis": "ITA §10(1)(d), §43N, §13(8)"
+    }
+  },
+  "sector_specific_taxes": {
+    "digital_services_tax": {
+      "has_dst": false,
+      "gst_ovr_pct": 9.0,
+      "ovr_global_threshold_sgd": 1000000,
+      "ovr_sg_threshold_sgd": 100000,
+      "legal_basis": "GST Act §33C, OVR regime"
+    },
+    "natural_resources": {
+      "has_mining_tax": false,
+      "gtp_concessionary_pct": [5, 10],
+      "ais_shipping_pct": 0.0,
+      "note": "No natural resources; petroleum/commodity trading hub incentives",
+      "legal_basis": "EDB GTP/AIS incentives"
+    },
+    "insurance_premium_tax": {
+      "has_ipt": false,
+      "ibd_concessionary_pct": 10.0,
+      "note": "No IPT; concessionary rates for offshore insurance/reinsurance",
+      "legal_basis": "ITA §26, EDB IBD scheme"
+    },
+    "financial_transaction_tax": {
+      "has_ftt": false,
+      "stamp_duty_shares_pct": 0.2,
+      "bsd_max_pct": 6.0,
+      "absd_foreigner_pct": 20.0,
+      "fsi_concessionary_range_pct": {"min": 5.0, "max": 13.5},
+      "legal_basis": "Stamp Duties Act, EDB FSI scheme"
+    },
+    "gaming_tax": {
+      "casino_premium_ggr_pct": 8.0,
+      "casino_mass_ggr_pct": 22.0,
+      "betting_duty_pct": 30.0,
+      "entry_levy_per_visit_sgd": 150,
+      "entry_levy_annual_sgd": 3000,
+      "legal_basis": "Casino Control Act §146, Betting Act §11"
+    },
+    "agricultural_income": {
+      "has_agri_regime": false,
+      "standard_cit_pct": 17.0,
+      "note": "Minimal agriculture; no specific tax regime or incentives",
+      "legal_basis": "Standard ITA provisions"
+    }
+  }
+}
