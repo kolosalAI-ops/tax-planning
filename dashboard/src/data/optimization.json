@@ -1,0 +1,142 @@
+{
+  "b2b_startup": {
+    "scenario": {
+      "annual_revenue": 500000,
+      "profit_margin_pct": 15.0,
+      "rnd_spend_pct": 15.0,
+      "ip_royalty_pct": 10.0,
+      "headcount": 10,
+      "avg_salary": 50000,
+      "exit_multiple": 8.0,
+      "years_to_exit": 5
+    },
+    "top_structures": [
+      { "incorp": "US", "ops": "US", "ipHold": "US", "investor": "US", "effectiveRate": 7.80, "totalAnnualTax": 39000, "netToInvestor": 22275 },
+      { "incorp": "US", "ops": "US", "ipHold": "US", "investor": "CA", "effectiveRate": 8.02, "totalAnnualTax": 40114, "netToInvestor": 21161 },
+      { "incorp": "US", "ops": "US", "ipHold": "US", "investor": "MX", "effectiveRate": 8.02, "totalAnnualTax": 40114, "netToInvestor": 21161 },
+      { "incorp": "CA", "ops": "CA", "ipHold": "CA", "investor": "CA", "effectiveRate": 8.27, "totalAnnualTax": 41350, "netToInvestor": 22500 },
+      { "incorp": "US", "ops": "US", "ipHold": "US", "investor": "SG", "effectiveRate": 8.47, "totalAnnualTax": 42341, "netToInvestor": 18934 },
+      { "incorp": "US", "ops": "US", "ipHold": "US", "investor": "ID", "effectiveRate": 8.47, "totalAnnualTax": 42341, "netToInvestor": 18934 },
+      { "incorp": "US", "ops": "US", "ipHold": "US", "investor": "BR", "effectiveRate": 8.47, "totalAnnualTax": 42341, "netToInvestor": 18934 },
+      { "incorp": "US", "ops": "US", "ipHold": "US", "investor": "AU", "effectiveRate": 8.47, "totalAnnualTax": 42341, "netToInvestor": 18934 },
+      { "incorp": "CA", "ops": "CA", "ipHold": "CA", "investor": "US", "effectiveRate": 8.49, "totalAnnualTax": 42475, "netToInvestor": 21375 },
+      { "incorp": "ID", "ops": "ID", "ipHold": "ID", "investor": "ID", "effectiveRate": 11.33, "totalAnnualTax": 56650, "netToInvestor": 22005 }
+    ],
+    "single_entity_ranking": [
+      { "country": "US", "effectiveRate": 7.80, "smeRate": 21.0, "payrollRate": 7.65, "regime": "IRC §11 (21% flat), §1202 (QSBS)" },
+      { "country": "CA", "effectiveRate": 8.27, "smeRate": 11.0, "payrollRate": 8.27, "regime": "ITA §125 (SBD 9%), CPP/EI" },
+      { "country": "ID", "effectiveRate": 11.33, "smeRate": 0.5, "payrollRate": 11.0, "regime": "PP 55/2022 (MSME 0.5%)" },
+      { "country": "AU", "effectiveRate": 16.50, "smeRate": 25.0, "payrollRate": 16.5, "regime": "ITAA 1997 §23-10 (BRE 25%)" },
+      { "country": "SG", "effectiveRate": 17.25, "smeRate": 4.25, "payrollRate": 17.25, "regime": "ITA §43B (SUTE 4.25%)" },
+      { "country": "MX", "effectiveRate": 30.45, "smeRate": 20.0, "payrollRate": 30.0, "regime": "LISR Art. 9 (30%)" },
+      { "country": "BR", "effectiveRate": 35.92, "smeRate": 4.0, "payrollRate": 35.8, "regime": "LC 123/2006 (Simples)" }
+    ],
+    "best_per_investor": {
+      "US": { "structure": "US/US/US/US", "effectiveRate": 7.80 },
+      "CA": { "structure": "US/US/US/CA", "effectiveRate": 8.02 },
+      "MX": { "structure": "US/US/US/MX", "effectiveRate": 8.02 },
+      "SG": { "structure": "US/US/US/SG", "effectiveRate": 8.47 },
+      "ID": { "structure": "US/US/US/ID", "effectiveRate": 8.47 },
+      "BR": { "structure": "US/US/US/BR", "effectiveRate": 8.47 },
+      "AU": { "structure": "US/US/US/AU", "effectiveRate": 8.47 }
+    },
+    "revenue_sensitivity": [
+      { "revenue": 50000, "label": "$50K", "US": 76.65, "SG": 172.50, "ID": 110.33, "CA": 82.70, "BR": 358.12, "MX": 300.45, "AU": 165.00, "best": "US" },
+      { "revenue": 100000, "label": "$100K", "US": 38.40, "SG": 86.25, "ID": 55.33, "CA": 41.35, "BR": 179.12, "MX": 150.45, "AU": 82.50, "best": "US" },
+      { "revenue": 250000, "label": "$250K", "US": 15.45, "SG": 34.50, "ID": 22.33, "CA": 16.54, "BR": 71.72, "MX": 60.45, "AU": 33.00, "best": "US" },
+      { "revenue": 500000, "label": "$500K", "US": 7.80, "SG": 17.25, "ID": 11.33, "CA": 8.27, "BR": 35.92, "MX": 30.45, "AU": 16.50, "best": "US" },
+      { "revenue": 1000000, "label": "$1M", "US": 3.98, "SG": 8.62, "ID": 5.83, "CA": 4.13, "BR": 18.92, "MX": 15.45, "AU": 8.25, "best": "US" },
+      { "revenue": 2000000, "label": "$2M", "US": 2.06, "SG": 4.31, "ID": 3.08, "CA": 2.07, "BR": 9.97, "MX": 7.95, "AU": 4.12, "best": "US" },
+      { "revenue": 5000000, "label": "$5M", "US": 0.92, "SG": 1.73, "ID": 1.43, "CA": 0.83, "BR": 4.60, "MX": 3.45, "AU": 1.65, "best": "CA" }
+    ]
+  },
+  "product_principal": {
+    "scenario": {
+      "global_revenue": 5000000,
+      "operating_margin_pct": 35.0,
+      "rnd_pct": 20.0,
+      "lrd_routine_return_pct": 8.0
+    },
+    "rankings": [
+      { "principal": "SG", "name": "Singapore", "effectiveRate": 8.18, "totalTax": 408896, "afterTaxProfit": 1504040, "principalCit": 0, "lrdCit": 59293, "royaltyWht": 25625, "payrollTax": 323978, "divWht": 0, "keyAdvantage": "Pioneer 5%, 0% div WHT, no CFC, 400% R&D EIS", "legalCitation": "ITA §13(8), EDB Pioneer, ITA §14C" },
+      { "principal": "BR", "name": "Brazil", "effectiveRate": 12.95, "totalTax": 647340, "afterTaxProfit": 1250938, "principalCit": 232302, "lrdCit": 61061, "royaltyWht": 30000, "payrollTax": 323978, "divWht": 0, "keyAdvantage": "0% div WHT outbound, JCP deduction", "legalCitation": "Lei 9.249/1995, Lei 12.973/2014" },
+      { "principal": "MX", "name": "Mexico", "effectiveRate": 13.71, "totalTax": 685430, "afterTaxProfit": 1337540, "principalCit": 144660, "lrdCit": 61789, "royaltyWht": 21250, "payrollTax": 323978, "divWht": 133754, "keyAdvantage": "Border zone 20%, 30% R&D credit", "legalCitation": "LISR Art. 9, Decreto Fronteriza" },
+      { "principal": "ID", "name": "Indonesia", "effectiveRate": 14.08, "totalTax": 703768, "afterTaxProfit": 1203232, "principalCit": 0, "lrdCit": 57733, "royaltyWht": 21250, "payrollTax": 323978, "divWht": 300808, "keyAdvantage": "Tax Holiday, 300% R&D super deduction", "legalCitation": "PMK 130/2020, PP 45/2019" },
+      { "principal": "CA", "name": "Canada", "effectiveRate": 16.11, "totalTax": 805722, "afterTaxProfit": 1142295, "principalCit": 49260, "lrdCit": 55640, "royaltyWht": 12500, "payrollTax": 323978, "divWht": 364345, "keyAdvantage": "SR&ED 35% refundable ITC", "legalCitation": "ITA §127, §125" },
+      { "principal": "AU", "name": "Australia", "effectiveRate": 16.93, "totalTax": 846676, "afterTaxProfit": 1056468, "principalCit": 0, "lrdCit": 53677, "royaltyWht": 16250, "payrollTax": 323978, "divWht": 452772, "keyAdvantage": "48.5% R&D offset, franking", "legalCitation": "ITAA 1997 Div. 355, Div. 207" },
+      { "principal": "US", "name": "United States", "effectiveRate": 17.82, "totalTax": 891141, "afterTaxProfit": 1133915, "principalCit": 53725, "lrdCit": 38389, "royaltyWht": 11875, "payrollTax": 323978, "divWht": 463174, "keyAdvantage": "FDII 13.125%, QSBS exit, VC access", "legalCitation": "IRC §250, §1202, §41" }
+    ],
+    "architectures": [
+      {
+        "id": "sg-principal",
+        "name": "Singapore Principal",
+        "description": "Optimal for most B2B: SG owns IP with Pioneer Status, contracts LRDs globally",
+        "principal": "SG",
+        "effectiveRate": 8.18,
+        "lrds": [
+          { "country": "US", "role": "Sales", "regime": "FDII on re-exports (IRC §250)" },
+          { "country": "ID", "role": "Dev Center", "regime": "MSME 0.5% (PP 55/2022)" },
+          { "country": "CA", "role": "R&D Unit", "regime": "SR&ED 35% ITC (ITA §127)" },
+          { "country": "AU", "role": "Sales", "regime": "Franking (ITAA Div. 207)" },
+          { "country": "MX", "role": "Operations", "regime": "Border zone 20% (Decreto)" }
+        ],
+        "legalBasis": ["ITA §13(8)", "EDB Pioneer Certificate", "ITA §14C (EIS)"]
+      },
+      {
+        "id": "us-principal",
+        "name": "US Principal",
+        "description": "Best for US-centric B2B: FDII on foreign income + QSBS exit for founders",
+        "principal": "US",
+        "effectiveRate": 17.82,
+        "lrds": [
+          { "country": "SG", "role": "Regional HQ", "regime": "Territorial (ITA §10(25))" },
+          { "country": "ID", "role": "Dev Center", "regime": "MSME 0.5% (PP 55/2022)" },
+          { "country": "CA", "role": "R&D Unit", "regime": "SR&ED 35% ITC (ITA §127)" },
+          { "country": "MX", "role": "Near-shore Ops", "regime": "Border zone 20%" }
+        ],
+        "legalBasis": ["IRC §250 (FDII)", "IRC §1202 (QSBS)", "IRC §41 (R&D Credit)"]
+      },
+      {
+        "id": "dual-principal",
+        "name": "Dual SG Hold + US Principal",
+        "description": "SG holding for 0% div/CGT, US principal for FDII, cost-sharing on IP",
+        "principal": "SG",
+        "effectiveRate": 10.0,
+        "lrds": [
+          { "country": "US", "role": "Principal (FDII)", "regime": "IRC §250 + §482 CSA" },
+          { "country": "ID", "role": "Dev Center", "regime": "MSME 0.5%" },
+          { "country": "CA", "role": "R&D Unit", "regime": "SR&ED 35%" }
+        ],
+        "legalBasis": ["ITA §13(8)", "IRC §250", "IRC §482 (cost-sharing)"]
+      }
+    ]
+  },
+  "investment_corridors": {
+    "top_corridors": [
+      { "from": "Any", "to": "SG", "effectiveRate": 17.0, "net": 83000 },
+      { "from": "CA", "to": "US", "effectiveRate": 24.9, "net": 75050 },
+      { "from": "MX", "to": "US", "effectiveRate": 24.9, "net": 75050 },
+      { "from": "SG", "to": "ID", "effectiveRate": 29.8, "net": 70200 },
+      { "from": "MX", "to": "ID", "effectiveRate": 29.8, "net": 70200 },
+      { "from": "Any", "to": "AU", "effectiveRate": 30.0, "net": 70000 },
+      { "from": "SG", "to": "MX", "effectiveRate": 30.0, "net": 70000 },
+      { "from": "Any", "to": "BR", "effectiveRate": 34.0, "net": 66000 }
+    ]
+  },
+  "country_scores": [
+    { "code": "US", "name": "United States", "incorporationScore": 89.5, "operationsScore": 77.7, "ipHoldingScore": 83.5, "investorFriendliness": 100.0 },
+    { "code": "SG", "name": "Singapore", "incorporationScore": 100.0, "operationsScore": 100.0, "ipHoldingScore": 100.0, "investorFriendliness": 100.0 },
+    { "code": "ID", "name": "Indonesia", "incorporationScore": 84.0, "operationsScore": 100.0, "ipHoldingScore": 75.3, "investorFriendliness": 91.3 },
+    { "code": "CA", "name": "Canada", "incorporationScore": 61.8, "operationsScore": 93.9, "ipHoldingScore": 52.8, "investorFriendliness": 79.5 },
+    { "code": "BR", "name": "Brazil", "incorporationScore": 68.5, "operationsScore": 98.0, "ipHoldingScore": 62.9, "investorFriendliness": 97.4 },
+    { "code": "MX", "name": "Mexico", "incorporationScore": 76.0, "operationsScore": 73.5, "ipHoldingScore": 45.0, "investorFriendliness": 100.0 },
+    { "code": "AU", "name": "Australia", "incorporationScore": 62.0, "operationsScore": 83.2, "ipHoldingScore": 58.8, "investorFriendliness": 88.0 }
+  ],
+  "metadata": {
+    "generated": "2025-02-21",
+    "structures_evaluated": 2401,
+    "principal_locations_evaluated": 7,
+    "countries": ["US", "SG", "ID", "CA", "BR", "MX", "AU"],
+    "effective_rate_range": { "min": 7.80, "max": 81.94 }
+  }
+}

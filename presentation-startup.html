@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kolosal Tax: B2B Principal Product Startup &mdash; Cross-Border Tax Architecture</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #0f172a;
+    --card-hover: #f8fafc;
+    --border: #e2e8f0;
+    --muted: #64748b;
+    --light: #f1f5f9;
+    --medium: #cbd5e1;
+    --dark: #1e293b;
+    --accent: #0f766e;
+    --accent-light: #ccfbf1;
+    --accent-mid: #14b8a6;
+    --blue: #1d4ed8;
+    --blue-light: #dbeafe;
+    --amber: #b45309;
+    --amber-light: #fef3c7;
+    --red: #b91c1c;
+    --red-light: #fee2e2;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; margin: 0; padding: 0; }
+  body { font-family: var(--sans); background: var(--fg); color: var(--fg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  /* 16:9 Slide Stage — centers a fixed-ratio frame */
+  .slide-stage {
+    position: relative;
+    width: 100vw; height: 100vh;
+    overflow: hidden;
+  }
+
+  /* 16:9 Slide Container */
+  .slide {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg); display: flex; flex-direction: column;
+    align-items: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(30px); overflow-y: auto; overflow-x: hidden;
+  }
+  .slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); z-index: 10; }
+
+  .inner {
+    max-width: 1280px; width: 100%; margin: 0 auto;
+    padding: 36px 72px 64px; flex: 1;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  /* Content-heavy slides: align top with compact padding */
+  .inner.content {
+    justify-content: flex-start;
+    padding-top: 28px;
+  }
+  /* Section / centered slides */
+  .inner.centered {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Nav */
+  .nav {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 48px;
+    background: var(--bg); border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    gap: 24px;
+    padding: 0 28px; z-index: 100;
+  }
+  .nav-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 16px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--fg);
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .nav-btn:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+  .nav-btn:disabled:hover { background: var(--bg); color: var(--fg); border-color: var(--border); }
+  .nav-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .counter { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); transition: width 0.35s ease; z-index: 101; }
+
+  /* Typography */
+  .label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .title { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; color: var(--fg); margin-bottom: 12px; }
+  .subtitle { font-size: 14px; font-weight: 400; line-height: 1.6; color: var(--muted); max-width: 620px; }
+  .h2 { font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--fg); margin-bottom: 16px; }
+  .h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 10px; padding-bottom: 4px; border-bottom: 2px solid var(--accent); }
+  .mono { font-family: var(--mono); }
+  .bold { font-weight: 700; }
+  .divider { width: 48px; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); margin: 16px 0; border-radius: 2px; }
+
+  /* Styles replaced by enhanced version below */
+
+  /* Key Point */
+  .key-point {
+    border-left: 3px solid var(--accent); padding: 10px 14px; margin: 12px 0 0;
+    background: var(--accent-light); font-size: 11px; line-height: 1.55; color: var(--dark); border-radius: 0 8px 8px 0;
+  }
+  .key-point strong { color: var(--accent); }
+
+  /* Layout */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  /* Cards */
+  .card { border: 1px solid var(--border); padding: 16px; border-radius: 10px; border-left: 3px solid var(--accent); box-shadow: 0 1px 3px rgba(15,23,42,0.04); }
+
+  /* Metrics */
+  .metrics { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 18px; border-radius: 10px; overflow: hidden; }
+  .metric { background: var(--bg); padding: 12px; text-align: center; flex: 1; position: relative; }
+  .metric::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+  .metric-val { font-size: 22px; font-weight: 700; font-family: var(--mono); letter-spacing: -0.02em; color: var(--fg); }
+  .metric-lbl { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 3px; font-weight: 600; }
+
+  /* Tags */
+  .tag { display: inline-block; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 7px; border: 1px solid var(--border); color: var(--muted); margin: 0 3px 3px 0; border-radius: 4px; }
+  .tag.filled { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+  /* Title slide */
+  .title-slide .title { font-size: 42px; font-weight: 800; letter-spacing: -0.035em; margin-bottom: 14px; }
+  .title-meta { display: flex; gap: 28px; margin-top: 24px; }
+  .title-meta-item { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 0; border-top: 2px solid var(--accent); }
+  .title-meta-item strong { color: var(--fg); display: block; margin-top: 3px; font-size: 12px; text-transform: none; letter-spacing: 0; }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 0; padding: 0; }
+  .checklist li {
+    padding: 4px 0 4px 22px; position: relative;
+    font-size: 11px; line-height: 1.5; color: var(--dark);
+    border-bottom: 1px solid var(--light);
+  }
+  .checklist li::before { content: '\2610'; position: absolute; left: 0; top: 3px; font-size: 12px; color: var(--accent); }
+  .checklist li:last-child { border-bottom: none; }
+
+  /* Icon system */
+  .icon-svg { position: absolute; width: 0; height: 0; overflow: hidden; }
+  svg.si { stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: middle; }
+
+  .slide-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .slide-header .icon-box {
+    width: 36px; height: 36px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border: none; border-radius: 8px; background: var(--accent-light);
+  }
+  .slide-header .icon-box svg { width: 18px; height: 18px; color: var(--accent); }
+  .slide-header .h2 { margin-bottom: 0; }
+  .h3 svg.si { width: 11px; height: 11px; vertical-align: -1px; margin-right: 3px; }
+  .metric-icon { display: block; text-align: center; margin-bottom: 3px; }
+  .metric-icon svg.si { width: 16px; height: 16px; color: var(--muted); }
+  .title-meta-item svg.si { width: 11px; height: 11px; color: var(--muted); margin-right: 2px; vertical-align: -1px; }
+
+  /* ===== CHART COMPONENTS ===== */
+  /* Horizontal Bar Chart */
+  .hbar { width: 100%; margin: 4px 0; }
+  .hbar-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+  .hbar-label { width: 76px; font-size: 10px; font-weight: 600; text-align: right; flex-shrink: 0; color: var(--dark); }
+  .hbar-track { flex: 1; height: 20px; background: var(--light); border-radius: 4px; overflow: hidden; position: relative; }
+  .hbar-fill { height: 100%; background: var(--accent); border-radius: 4px; min-width: 2px; transition: width 0.5s ease; }
+  .hbar-fill.alt { background: var(--medium); }
+  .hbar-fill.accent { background: var(--amber); }
+  .hbar-fill.high { background: var(--red); }
+  .hbar-val { width: 52px; font-family: var(--mono); font-size: 10px; font-weight: 700; flex-shrink: 0; color: var(--fg); }
+
+  /* Grouped bar (two bars per row) */
+  .hbar-group { display: flex; flex-direction: column; gap: 1px; flex: 1; }
+  .hbar-group .hbar-track { height: 12px; }
+
+  /* Data Table */
+  .dtable { width: 100%; border-collapse: collapse; font-size: 11px; margin: 6px 0; }
+  .dtable th { text-align: left; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bg); padding: 7px 8px; background: var(--fg); font-weight: 700; }
+  .dtable th:first-child { border-radius: 6px 0 0 0; }
+  .dtable th:last-child { border-radius: 0 6px 0 0; }
+  .dtable td { padding: 6px 8px; border-bottom: 1px solid var(--light); color: var(--dark); vertical-align: top; }
+  .dtable tr:nth-child(even) td { background: var(--light); }
+  .dtable tr:last-child td { border-bottom: 2px solid var(--fg); }
+  .dtable .num { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+  .dtable .right { text-align: right; }
+  .dtable .highlight { background: var(--accent-light) !important; font-weight: 700; }
+  .dtable .result td { background: var(--accent-light) !important; font-weight: 700; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 20px; border-left: 3px solid var(--accent); margin: 8px 0; }
+  .tl-item { position: relative; padding: 6px 0 6px 14px; font-size: 11px; line-height: 1.5; color: var(--dark); }
+  .tl-item::before { content: ''; position: absolute; left: -26px; top: 11px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg); }
+  .tl-year { font-family: var(--mono); font-weight: 700; color: var(--accent); margin-right: 6px; }
+
+  /* VS Compare */
+  .vs-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; }
+  .vs-box { border: 1px solid var(--border); padding: 14px; border-radius: 10px; box-shadow: 0 1px 3px rgba(15,23,42,0.04); }
+  .vs-box.win { border-color: var(--accent); border-width: 2px; background: var(--accent-light); }
+  .vs-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+  .vs-divider { display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--medium); }
+
+  /* Flow Diagram */
+  .flow { display: flex; align-items: center; gap: 6px; justify-content: center; margin: 10px 0; flex-wrap: wrap; }
+  .flow-node { border: 2px solid var(--accent); padding: 10px 14px; text-align: center; font-size: 10px; line-height: 1.4; border-radius: 8px; background: var(--bg); min-width: 120px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+  .flow-node strong { display: block; font-size: 11px; color: var(--accent); }
+  .flow-arrow { font-size: 18px; color: var(--accent-mid); flex-shrink: 0; }
+  .flow-arrow-down { text-align: center; font-size: 18px; color: var(--accent-mid); padding: 2px 0; }
+
+  /* Section Slide */
+  .section-slide { background: var(--fg) !important; color: var(--bg) !important; }
+  .section-slide .label { color: var(--accent-mid) !important; }
+  .section-slide .title { color: var(--bg) !important; }
+  .section-slide .divider { background: linear-gradient(90deg, var(--accent-mid), var(--accent)) !important; }
+  .section-slide .tag { border-color: var(--accent-mid); color: var(--accent-mid); }
+
+  /* Scorecard bar (with label inside) */
+  .score-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+  .score-label { width: 76px; font-size: 10px; font-weight: 600; text-align: right; flex-shrink: 0; }
+  .score-track { flex: 1; height: 24px; background: var(--light); border-radius: 4px; position: relative; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; background: var(--accent); }
+  .score-fill span { font-family: var(--mono); font-size: 10px; font-weight: 700; color: var(--bg); }
+  .score-delta { width: 60px; font-size: 9px; color: var(--muted); flex-shrink: 0; }
+
+  .slide::-webkit-scrollbar { width: 3px; }
+  .slide::-webkit-scrollbar-track { background: var(--light); }
+  .slide::-webkit-scrollbar-thumb { background: var(--medium); }
+
+  /* Content auto-scaling for dense slides */
+  .slide .inner.compact { padding: 24px 72px 56px; }
+  .slide .inner.compact .points li { font-size: 11px; padding: 7px 14px 7px 36px; }
+  .slide .inner.compact .dtable { font-size: 10px; }
+  .slide .inner.compact .dtable th { font-size: 8px; padding: 5px 6px; }
+  .slide .inner.compact .dtable td { padding: 4px 6px; }
+  .slide .inner.compact .key-point { font-size: 10px; padding: 8px 12px; margin-top: 8px; }
+  .slide .inner.compact .card { padding: 10px 12px; }
+  .slide .inner.compact .h3 { font-size: 9px; margin-bottom: 6px; }
+
+  /* Ensure tables don't overflow */
+  .dtable { width: 100%; table-layout: auto; word-wrap: break-word; }
+  .flow { max-width: 100%; }
+
+  @media (max-width: 768px) {
+    .inner { padding: 20px 16px 56px; max-width: 100%; }
+    .title-slide .title { font-size: 28px; }
+    .h2 { font-size: 20px; }
+    .two-col, .three-col { grid-template-columns: 1fr; }
+    .metrics { flex-wrap: wrap; }
+    .vs-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== PRINT / PDF EXPORT ===== */
+  @page { size: 16in 9in; margin: 0; }
+  @media print {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    html, body {
+      width: 16in; height: 9in; overflow: visible;
+      margin: 0; padding: 0; background: #fff;
+      display: block;
+    }
+    .slide-stage { width: 100%; height: auto; overflow: visible; }
+    .slide {
+      position: relative !important; opacity: 1 !important; pointer-events: auto !important;
+      transform: none !important; transition: none !important;
+      width: 16in !important; height: 9in !important;
+      max-height: 9in; overflow: hidden;
+      page-break-after: always; break-after: page; break-inside: avoid;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .slide:last-of-type { page-break-after: auto; break-after: auto; }
+    .inner {
+      padding: 32px 64px 32px; justify-content: flex-start;
+      flex: 1; overflow: hidden; max-width: 1280px; width: 100%;
+    }
+    .title-slide .inner { justify-content: center; }
+    .nav, .progress { display: none !important; }
+
+    /* Typography for print */
+    .title { font-size: 32px; margin-bottom: 10px; }
+    .title-slide .title { font-size: 40px; }
+    .h2 { font-size: 22px; margin-bottom: 12px; }
+    .h3 { font-size: 10px; margin-bottom: 8px; padding-bottom: 3px; }
+    .label { font-size: 9px; margin-bottom: 8px; }
+    .subtitle { font-size: 13px; max-width: 800px; }
+    .divider { margin: 10px 0; height: 2px; }
+
+    /* Content density for print fit */
+    .points li { font-size: 11px; padding: 5px 10px 5px 32px; line-height: 1.4; }
+    .points li::before { top: 8px; width: 18px; height: 18px; font-size: 9px; left: 8px; }
+    .sub-points li { font-size: 9px; padding: 2px 8px; }
+    .key-point { font-size: 10px; padding: 8px 12px; margin: 8px 0 0; line-height: 1.4; }
+    .key-point::before { display: none; }
+
+    /* Metrics */
+    .metrics { margin-bottom: 12px; }
+    .metric { padding: 10px 8px; }
+    .metric-val { font-size: 18px; }
+    .metric-lbl { font-size: 7px; margin-top: 2px; }
+    .metric::after { height: 2px; }
+
+    /* Cards & layout */
+    .card { padding: 10px 12px; border-radius: 6px; box-shadow: none; }
+    .card::after { display: none; }
+    .card:hover { transform: none; box-shadow: none; }
+    .tag { font-size: 8px; padding: 2px 5px; margin: 0 3px 3px 0; }
+    .checklist li { font-size: 11px; padding: 4px 0 4px 20px; }
+    .two-col { gap: 16px; }
+    .three-col { gap: 12px; }
+
+    /* Title meta */
+    .title-meta { margin-top: 16px; gap: 24px; }
+    .title-meta-item { font-size: 9px; }
+    .title-meta-item strong { font-size: 11px; }
+
+    /* Slide header */
+    .slide-header .icon-box { width: 30px; height: 30px; border-radius: 6px; }
+    .slide-header .icon-box svg { width: 15px; height: 15px; }
+    .slide-header { gap: 8px; margin-bottom: 10px; }
+
+    /* Tables */
+    .dtable { font-size: 10px; }
+    .dtable th { font-size: 8px; padding: 5px 6px; }
+    .dtable td { padding: 4px 6px; }
+
+    /* Charts */
+    .hbar-row { padding: 2px 0; }
+    .hbar-track { height: 16px; }
+    .hbar-label { font-size: 9px; width: 70px; }
+    .hbar-val { font-size: 9px; width: 48px; }
+    .score-row { padding: 2px 0; }
+    .score-track { height: 18px; }
+    .score-label { font-size: 9px; width: 70px; }
+    .score-fill span { font-size: 9px; }
+
+    /* Timeline */
+    .tl-item { font-size: 10px; padding: 4px 0 4px 12px; }
+    .tl-year { font-size: 10px; }
+    .timeline { margin: 4px 0; }
+
+    /* VS / Flow */
+    .vs-box { padding: 10px; }
+    .vs-box:hover { transform: none; box-shadow: none; }
+    .flow-node { padding: 8px 10px; font-size: 9px; min-width: 100px; }
+    .flow-node strong { font-size: 10px; }
+    .flow-node:hover { transform: none; box-shadow: none; }
+    .flow { gap: 4px; }
+    .flow-arrow { font-size: 14px; }
+
+    /* Section slides */
+    .section-slide .title { font-size: 36px !important; }
+    .section-slide .inner { justify-content: center; }
+  }
+
+  /* ===== ENHANCED VISUAL STYLES ===== */
+
+  /* Slide entrance animations */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(15,118,110,0.1); }
+    50% { box-shadow: 0 0 20px 4px rgba(15,118,110,0.08); }
+  }
+
+  .slide.active .anim-item { animation: fadeInUp 0.5s ease both; }
+  .slide.active .anim-item:nth-child(1) { animation-delay: 0.05s; }
+  .slide.active .anim-item:nth-child(2) { animation-delay: 0.1s; }
+  .slide.active .anim-item:nth-child(3) { animation-delay: 0.15s; }
+  .slide.active .anim-item:nth-child(4) { animation-delay: 0.2s; }
+  .slide.active .anim-item:nth-child(5) { animation-delay: 0.25s; }
+  .slide.active .anim-item:nth-child(6) { animation-delay: 0.3s; }
+  .slide.active .anim-item:nth-child(7) { animation-delay: 0.35s; }
+  .slide.active .anim-item:nth-child(8) { animation-delay: 0.4s; }
+  .slide.active .anim-item:nth-child(9) { animation-delay: 0.45s; }
+  .slide.active .anim-item:nth-child(10) { animation-delay: 0.5s; }
+  .slide.active .anim-item:nth-child(11) { animation-delay: 0.55s; }
+  .slide.active .anim-item:nth-child(12) { animation-delay: 0.6s; }
+
+  /* Transformed bullet points → info cards */
+  .points {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: 1fr; gap: 6px;
+  }
+  .points.grid-2 { grid-template-columns: 1fr 1fr; }
+  .points.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .points li {
+    position: relative;
+    padding: 10px 14px 10px 40px;
+    font-size: 12px; line-height: 1.55; color: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+  }
+  .points li:hover {
+    background: var(--card-hover);
+    transform: translateX(3px);
+    box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+    border-left-color: var(--accent-mid);
+  }
+  .points li:last-child { border-bottom: 1px solid var(--border); }
+  .points li::before {
+    content: counter(point-counter);
+    counter-increment: point-counter;
+    position: absolute; left: 10px; top: 10px;
+    width: 22px; height: 22px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-mid));
+    color: white;
+    border-radius: 6px;
+    font-size: 10px; font-weight: 700; font-family: var(--mono);
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1;
+    text-align: center;
+    padding-top: 1px;
+  }
+  .points { counter-reset: point-counter; }
+  .points li strong { color: var(--fg); font-weight: 700; }
+  .points li .num {
+    font-family: var(--mono); font-weight: 700; color: var(--accent);
+    background: var(--accent-light); padding: 1px 6px; font-size: 11px; margin: 0 2px; border-radius: 3px;
+  }
+  .points li .tag-inline {
+    display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 2px 6px; border: 1px solid var(--border);
+    color: var(--muted); vertical-align: middle; margin-left: 6px; border-radius: 3px;
+  }
+  .points li .tag-inline.dark {
+    background: var(--accent); color: var(--bg); border-color: var(--accent);
+  }
+
+  /* Sub-points as inline pills */
+  .sub-points { list-style: none; margin: 6px 0 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+  .sub-points li {
+    position: relative; padding: 3px 10px;
+    font-size: 10px; line-height: 1.5; color: var(--muted);
+    border-bottom: none;
+    background: var(--light);
+    border-radius: 20px;
+    border: none;
+    border-left: none;
+    transition: all 0.15s;
+  }
+  .sub-points li:hover { background: var(--accent-light); color: var(--accent); transform: none; box-shadow: none; }
+  .sub-points li:last-child { border-bottom: none; }
+  .sub-points li::before { display: none; }
+  .sub-points li strong { color: var(--accent); }
+
+  /* Enhanced cards with hover */
+  .card {
+    border: 1px solid var(--border); padding: 16px; border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    box-shadow: 0 1px 3px rgba(15,23,42,0.04);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+    border-left-color: var(--accent-mid);
+  }
+  .card::after {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at top right, var(--accent-light) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .card:hover::after { opacity: 1; }
+  .card .h3 { margin-bottom: 12px; }
+
+  /* Enhanced key-point blocks */
+  .key-point {
+    border-left: 3px solid var(--accent); padding: 12px 16px; margin: 12px 0 0;
+    background: linear-gradient(135deg, var(--accent-light), rgba(204,251,241,0.3));
+    font-size: 11px; line-height: 1.55; color: var(--dark);
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .key-point::before {
+    content: '\2192';
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    font-size: 16px; color: var(--accent); opacity: 0.3;
+  }
+  .key-point strong { color: var(--accent); }
+
+  /* Glassmorphism metric cards */
+  .metric {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 14px; text-align: center; flex: 1; position: relative;
+    transition: transform 0.2s;
+  }
+  .metric:hover { transform: scale(1.02); }
+  .metric::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); }
+  .metric-val { font-size: 22px; font-weight: 700; font-family: var(--mono); letter-spacing: -0.02em; color: var(--fg); }
+  .metric-lbl { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 3px; font-weight: 600; }
+
+  /* Checklist enhanced */
+  .checklist li {
+    position: relative;
+    transition: all 0.15s ease;
+    border-radius: 6px;
+    margin-bottom: 2px;
+  }
+  .checklist li:hover {
+    background: var(--accent-light);
+    padding-left: 28px;
+  }
+
+  /* Enhanced slide transitions — only override transition timing, not layout */
+  .slide {
+    transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Section divider enhancements */
+  .section-divider, .section-slide {
+    position: relative;
+  }
+  .section-divider::before, .section-slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(15,118,110,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(20,184,166,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Dot pattern decoration */
+  .dot-pattern {
+    position: absolute;
+    width: 120px; height: 120px;
+    background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+    background-size: 12px 12px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Score bars enhanced */
+  .score-fill {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .score-row:hover .score-fill {
+    filter: brightness(1.1);
+  }
+
+  /* Horizontal bar enhanced */
+  .hbar-fill {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hbar-row:hover .hbar-fill {
+    filter: brightness(1.1);
+  }
+
+  /* Tag enhancements */
+  .tag {
+    transition: all 0.15s ease;
+  }
+  .tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(15,23,42,0.08);
+  }
+
+  /* Flow node enhancements */
+  .flow-node {
+    transition: all 0.2s ease;
+  }
+  .flow-node:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15,23,42,0.08);
+  }
+
+  /* VS grid enhancement */
+  .vs-box {
+    transition: all 0.2s ease;
+  }
+  .vs-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15,23,42,0.06);
+  }
+
+  /* Data table row hover */
+  .dtable tr {
+    transition: background 0.15s;
+  }
+  .dtable tr:hover {
+    background: var(--accent-light) !important;
+  }
+  .dtable tr.highlight:hover {
+    background: var(--accent-light) !important;
+  }
+
+</style>
+</head>
+<body>
+<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-zap" viewbox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></symbol>
+<symbol id="i-building" viewbox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"></path><path d="M2 22h20"></path><rect height="1" rx=".5" width="1.5" x="9" y="8"></rect><rect height="1" rx=".5" width="1.5" x="13.5" y="8"></rect><rect height="1" rx=".5" width="1.5" x="9" y="12"></rect><rect height="1" rx=".5" width="1.5" x="13.5" y="12"></rect><rect height="1" rx=".5" width="1.5" x="9" y="16"></rect><rect height="1" rx=".5" width="1.5" x="13.5" y="16"></rect></symbol>
+<symbol id="i-percent" viewbox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></symbol>
+<symbol id="i-users" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></symbol>
+<symbol id="i-globe" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></symbol>
+<symbol id="i-shield" viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></symbol>
+<symbol id="i-layers" viewbox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></symbol>
+<symbol id="i-git-branch" viewbox="0 0 24 24"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></symbol>
+<symbol id="i-file-text" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line></symbol>
+<symbol id="i-dollar" viewbox="0 0 24 24"><line x1="12" x2="12" y1="1" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></symbol>
+<symbol id="i-refresh" viewbox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></symbol>
+<symbol id="i-trending-down" viewbox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></symbol>
+<symbol id="i-flask" viewbox="0 0 24 24"><path d="M9 3h6"></path><path d="M10 3v6l-5 8a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-8V3"></path></symbol>
+<symbol id="i-award" viewbox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></symbol>
+<symbol id="i-target" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></symbol>
+<symbol id="i-search" viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></symbol>
+<symbol id="i-map-pin" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></symbol>
+<symbol id="i-lock" viewbox="0 0 24 24"><rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></symbol>
+<symbol id="i-bar-chart" viewbox="0 0 24 24"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></symbol>
+<symbol id="i-clock" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></symbol>
+<symbol id="i-briefcase" viewbox="0 0 24 24"><rect height="14" rx="2" ry="2" width="20" x="2" y="7"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></symbol>
+<symbol id="i-pie-chart" viewbox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></symbol>
+<symbol id="i-grid" viewbox="0 0 24 24"><rect height="7" width="7" x="3" y="3"></rect><rect height="7" width="7" x="14" y="3"></rect><rect height="7" width="7" x="14" y="14"></rect><rect height="7" width="7" x="3" y="14"></rect></symbol>
+<symbol id="i-trophy" viewbox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></symbol>
+<symbol id="i-compass" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></symbol>
+<symbol id="i-alert" viewbox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" x2="12" y1="9" y2="13"></line><line x1="12" x2="12.01" y1="17" y2="17"></line></symbol>
+<symbol id="i-check-square" viewbox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></symbol>
+<symbol id="i-book" viewbox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></symbol>
+<symbol id="i-star" viewbox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></symbol>
+<symbol id="i-info" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></symbol>
+<symbol id="i-arrow-right" viewbox="0 0 24 24"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></symbol>
+<symbol id="i-link" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></symbol>
+<symbol id="i-code" viewbox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></symbol>
+<symbol id="i-cloud" viewbox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></symbol>
+<symbol id="i-package" viewbox="0 0 24 24"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></symbol>
+<symbol id="i-terminal" viewbox="0 0 24 24"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></symbol>
+<symbol id="i-database" viewbox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></symbol>
+<symbol id="i-server" viewbox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></symbol>
+<symbol id="i-trending-up" viewbox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></symbol>
+</svg>
+<div class="progress" id="progress"></div>
+<div class="slide-stage">
+<div class="slide title-slide active" data-s="0">
+<div class="inner">
+<div class="label">Kolosal Tax &mdash; Startup Series</div>
+<h1 class="title">B2B Principal Product Startup<br/>&mdash; Cross-Border Tax Architecture</h1>
+<p class="subtitle">IP-centric structuring, principal model design, SaaS revenue characterization, R&amp;D credit optimization, ESOP planning, and VC fund tax architecture for B2B software product companies across 7 jurisdictions.</p>
+<div class="divider"></div>
+<div class="title-meta">
+<div class="title-meta-item"><svg class="si"><use href="#i-globe"></use></svg> Jurisdictions<strong>US &middot; CA &middot; ID &middot; BR &middot; MX &middot; AU &middot; SG</strong></div>
+<div class="title-meta-item"><svg class="si"><use href="#i-clock"></use></svg> Tax Year<strong>2024 / 2025</strong></div>
+<div class="title-meta-item"><svg class="si"><use href="#i-code"></use></svg> Focus<strong>B2B SaaS / Principal Model</strong></div>
+<div class="title-meta-item"><svg class="si"><use href="#i-layers"></use></svg> Slides<strong>61</strong></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="1">
+<div class="inner content">
+<div class="label">Context</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-zap"></use></svg></div><h2 class="h2">Why Tax Architecture Matters for Product Startups</h2></div>
+<div class="metrics">
+<div class="metric"><div class="metric-val">17pp</div><div class="metric-lbl">CIT Spread (SG 17% vs BR 34%)</div></div>
+<div class="metric"><div class="metric-val">$1.3M</div><div class="metric-lbl">AU R&amp;D Cash Refund on $3M Spend</div></div>
+<div class="metric"><div class="metric-val">0%</div><div class="metric-lbl">SG CGT on Exit / Share Sale</div></div>
+<div class="metric"><div class="metric-val">400%</div><div class="metric-lbl">SG EIS R&amp;D Deduction</div></div>
+<div class="metric"><div class="metric-val">$10M</div><div class="metric-lbl">US QSBS Tax-Free Gain</div></div>
+</div>
+<div class="two-col">
+<div>
+<ul class="points">
+<li><strong>B2B SaaS has unique tax levers</strong> that service companies don&rsquo;t: IP ownership location, R&amp;D jurisdiction, SaaS revenue characterization (business profits vs royalties), equity compensation design, and intercompany licensing of cloud-delivered software</li>
+<li><strong>Principal model fit:</strong> B2B SaaS naturally suits centralized IP ownership &mdash; one entity owns the codebase, bears development risk, earns residual profit. Local sales entities operate as limited-risk distributors (LRDs) at cost-plus margins. Unlike physical goods, no inventory, no supply chain, no customs</li>
+<li><strong>Timing is everything:</strong> IP assignment on Day 0 costs $0. Post-Series A, it costs millions. R&amp;D credits require contemporaneous documentation. QSBS requires C-corp from inception. §409A valuations must precede option grants. Every month of delay destroys optionality</li>
+</ul>
+</div>
+<div>
+<ul class="points">
+<li><strong>The compounding effect:</strong> SG HoldCo at <span class="num">4.25%</span> effective (SUTE) with <span class="num">400%</span> R&amp;D deductions, <span class="num">0%</span> CGT, <span class="num">0%</span> dividend WHT vs single US C-corp at <span class="num">21%</span> with 5-year R&amp;D amortization &mdash; the gap compounds into millions over a startup lifecycle. $3.4M/year on $20M ARR = $17M+ over 5 years</li>
+<li><strong>B2B contract value matters:</strong> Enterprise SaaS ($50K&ndash;$500K ACV) means fewer, larger contracts. Each customer jurisdiction&rsquo;s revenue characterization rules (royalty vs service vs business profits) have material WHT impact. One wrongly-structured $200K contract with an Indonesian enterprise could trigger $40K WHT that&rsquo;s unrecoverable</li>
+<li><strong>Investor expectations:</strong> Sophisticated VCs (Sequoia, Accel, GIC) increasingly evaluate tax structure at due diligence. Poor structure = value leak = lower enterprise value at exit. Clean structure = competitive advantage in fundraising</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="2">
+<div class="inner content">
+<div class="label">Structuring Fundamentals</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-package"></use></svg></div><h2 class="h2">Principal Model vs Commissionaire / LRD</h2></div>
+<div class="vs-grid" style="margin-bottom:14px;">
+<div class="vs-box win">
+<div class="vs-label">Principal (IP Owner)</div>
+<div style="font-size:22px;font-weight:700;font-family:var(--mono);color:var(--accent);margin-bottom:6px;">Residual Profit</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">Owns IP, bears development risk, sets pricing, contracts with end customers (or through LRDs). Earns all residual profit after compensating local entities.</div>
+<div style="font-size:10px;color:var(--muted);margin-top:6px;">Typical: SG or US HoldCo for B2B SaaS</div>
+</div>
+<div class="vs-divider">VS</div>
+<div class="vs-box">
+<div class="vs-label">LRD / Commissionaire</div>
+<div style="font-size:22px;font-weight:700;font-family:var(--mono);color:var(--muted);margin-bottom:6px;">Cost + 3&ndash;8%</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">Local sales subsidiary with limited risk. Provides marketing, customer support, lead generation. Compensated at arm&rsquo;s length operating margin.</div>
+<div style="font-size:10px;color:var(--muted);margin-top:6px;">US, AU, CA, BR, MX sales entities</div>
+</div>
+</div>
+<div class="flow">
+<div class="flow-node"><strong>SG HoldCo</strong>IP Owner / Principal<br/>Residual profit</div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-node"><strong>Intercompany License</strong>IP sublicense<br/>+ service fees</div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-node"><strong>US Sales Sub</strong>LRD &mdash; cost + 5%<br/>Marketing &amp; support</div>
+</div>
+<div class="key-point"><strong>Why B2B SaaS fits principal model:</strong> Centralized codebase, cloud delivery (no physical inventory), subscription billing, and R&amp;D concentrated in 1&ndash;2 locations. The principal entity is a natural IP owner, not an artificial construct.</div>
+</div>
+</div>
+
+<div class="slide" data-s="3">
+<div class="inner content">
+<div class="label">Revenue Classification</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-cloud"></use></svg></div><h2 class="h2">SaaS Revenue Characterization Across Jurisdictions</h2></div>
+<table class="dtable">
+<tr><th>Revenue Type</th><th>US</th><th>SG</th><th>AU</th><th>CA</th><th>ID</th><th>BR</th><th>MX</th></tr>
+<tr><td><strong>SaaS Subscription</strong></td><td class="num">Business profits</td><td class="num">Business profits</td><td class="num">Business profits</td><td class="num">Business profits</td><td>Royalty risk</td><td>Royalty risk</td><td class="num">Business profits</td></tr>
+<tr><td><strong>Implementation fees</strong></td><td class="num">Service</td><td class="num">Service</td><td class="num">Service</td><td class="num">Service</td><td>Service (PE risk)</td><td>Service (WHT)</td><td class="num">Service</td></tr>
+<tr><td><strong>API / Platform fees</strong></td><td class="num">Business profits</td><td class="num">Business profits</td><td class="num">Business profits</td><td class="num">Business profits</td><td>Royalty risk</td><td>Royalty risk</td><td class="num">Business profits</td></tr>
+<tr><td><strong>Support / maintenance</strong></td><td class="num">Service</td><td class="num">Service</td><td class="num">Service</td><td class="num">Service</td><td class="num">Service</td><td class="num">Service</td><td class="num">Service</td></tr>
+<tr><td><strong>On-premise license</strong></td><td>Royalty</td><td>Royalty</td><td>Royalty</td><td>Royalty</td><td>Royalty</td><td>Royalty</td><td>Royalty</td></tr>
+<tr><td><strong>Default WHT if royalty</strong></td><td class="right num">30%</td><td class="right num">10%</td><td class="right num">30%</td><td class="right num">25%</td><td class="right num">20%</td><td class="right num">15%</td><td class="right num">25%</td></tr>
+</table>
+<div class="key-point"><strong>Critical risk:</strong> Indonesia (PMK 35/2018) and Brazil (COSIT 191/2017) may treat SaaS as royalty = <span class="num">15&ndash;20%</span> WHT at source. Structure contracts as &ldquo;access to hosted application&rdquo; not &ldquo;license of software&rdquo;. Never provide source code access.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="4">
+<div class="inner content">
+<div class="label">Contract Design</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-file-text"></use></svg></div><h2 class="h2">SaaS Contract Structuring to Minimize WHT</h2></div>
+<div class="two-col">
+<div class="card" style="border-left-color:var(--accent);">
+<div class="h3" style="border:none;padding:0;">Safe Contract Language</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.6;">
+&bull; <strong>&ldquo;Access to hosted application&rdquo;</strong> not &ldquo;license of software&rdquo;<br/>
+&bull; <strong>&ldquo;Subscription to cloud service&rdquo;</strong> not &ldquo;right to use software&rdquo;<br/>
+&bull; <strong>No source code access</strong> clause &mdash; prevents royalty recharacterization<br/>
+&bull; <strong>Data stays on provider&rsquo;s servers</strong> &mdash; no local installation<br/>
+&bull; <strong>Service-level agreements (SLAs)</strong> emphasize availability, not IP access<br/>
+&bull; <strong>Implementation fees</strong> billed separately as &ldquo;professional services&rdquo;
+</div>
+</div>
+<div class="card" style="border-left-color:var(--red);">
+<div class="h3" style="border:none;padding:0;color:var(--red);">Dangerous Contract Language</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.6;">
+&bull; <span style="color:var(--red);">&cross;</span> &ldquo;License to use the software&rdquo; &rarr; royalty WHT in ID/BR<br/>
+&bull; <span style="color:var(--red);">&cross;</span> &ldquo;Right to copy, modify, or distribute&rdquo; &rarr; royalty under most treaties<br/>
+&bull; <span style="color:var(--red);">&cross;</span> &ldquo;Perpetual license&rdquo; or &ldquo;on-premise deployment option&rdquo;<br/>
+&bull; <span style="color:var(--red);">&cross;</span> &ldquo;Access to underlying algorithms/source code&rdquo;<br/>
+&bull; <span style="color:var(--red);">&cross;</span> Mixed contracts bundling SaaS + on-premise without allocation<br/>
+&bull; <span style="color:var(--red);">&cross;</span> &ldquo;Technology transfer&rdquo; or &ldquo;know-how&rdquo; language
+</div>
+</div>
+</div>
+<table class="dtable" style="margin-top:10px;">
+<tr><th>Country</th><th>WHT if &ldquo;Royalty&rdquo;</th><th>WHT if &ldquo;Service&rdquo;</th><th>Key Ruling / Guidance</th></tr>
+<tr><td><strong>Indonesia</strong></td><td class="right" style="color:var(--red);font-weight:700;">20% (PPh 26)</td><td class="right num">0% (if no PE)</td><td>PMK 35/2018; SE-03/PJ/2024 (SaaS guidelines)</td></tr>
+<tr><td><strong>Brazil</strong></td><td class="right" style="color:var(--red);font-weight:700;">15% (IRRF)</td><td class="right" style="color:var(--amber);font-weight:700;">15-25%*</td><td>COSIT 191/2017; CARF rulings split on SaaS</td></tr>
+<tr><td><strong>India</strong></td><td class="right" style="color:var(--red);font-weight:700;">10%</td><td class="right num">0% (post-Ashapura)</td><td>SC: Engineering Analysis Centre (2021) &mdash; SaaS &ne; royalty</td></tr>
+<tr><td><strong>Mexico</strong></td><td class="right" style="color:var(--amber);font-weight:700;">25%</td><td class="right num">0% (treaty)</td><td>LISR Art 167; generally follows OECD commentary</td></tr>
+</table>
+<div style="font-size:9px;color:var(--muted);margin-top:4px;">*Brazil: technical services subject to 15% IRRF + PIS/COFINS-Import (~9.25%). Some SaaS treated as service not royalty.</div>
+<div class="key-point"><strong>Practical step:</strong> Have local tax counsel in each sales jurisdiction review your Master Subscription Agreement. One clause can mean the difference between 0% and 20% WHT. Budget S$3&ndash;5K per jurisdiction for contract review.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="5">
+<div class="inner content">
+<div class="label">Lifecycle Planning</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-trending-up"></use></svg></div><h2 class="h2">Startup Lifecycle Tax Planning</h2></div>
+<div class="timeline">
+<div class="tl-item"><span class="tl-year">Day 0 &mdash; Pre-Revenue</span> <strong>Entity setup</strong> (SG HoldCo or US Delaware C-Corp). <strong>IP assignment</strong> at nominal value. ESOP pool creation. R&amp;D documentation framework. Initial TP policy draft.</div>
+<div class="tl-item"><span class="tl-year">Seed / Series A</span> <strong>Holding structure</strong> finalized. VC fund jurisdiction alignment (Cayman/SG LP). ESOP &sect;409A valuation. Contract R&amp;D agreements with dev centers. R&amp;D credit claims begin.</div>
+<div class="tl-item"><span class="tl-year">Series B &mdash; Growth</span> <strong>Principal structure activated</strong>: SG principal + LRD sales subs. IP migration if needed (CSA or buy-in). Treaty planning for key corridors. Multi-jurisdiction ESOP compliance. TP benchmarking study.</div>
+<div class="tl-item"><span class="tl-year">Series C+ &mdash; Scale</span> <strong>Substance build-out</strong> in all jurisdictions. APA consideration for major intercompany flows. Pillar 2 readiness assessment. Exit structure planning (SG listing for 0% CGT, QSBS for US founders).</div>
+<div class="tl-item"><span class="tl-year">Exit / IPO</span> <strong>QSBS exclusion</strong> ($10M tax-free per US shareholder). SG 0% CGT on share disposal. ESOP exercise/sale optimization. FIRPTA planning for non-US holders of US stock.</div>
+</div>
+<div class="key-point"><strong>Window closes fast:</strong> IP assignment at $0 valuation only works pre-revenue. Post Series A, IP is worth millions &mdash; migration triggers capital gains and exit charges. Structure on Day 0.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="6">
+<div class="inner content">
+<div class="label">Founder Planning</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-users"></use></svg></div><h2 class="h2">Founder Compensation: Salary vs Dividends vs Equity</h2></div>
+<table class="dtable">
+<tr><th>Method</th><th>SG Founder</th><th>US Founder</th><th>AU Founder</th><th>ID Founder</th></tr>
+<tr><td><strong>Salary $150K</strong></td><td>0&ndash;22% PIT + 17% CPF cap</td><td>22&ndash;37% + 7.65% FICA</td><td>32.5&ndash;45% + 2% Medicare</td><td>5&ndash;35% PPh 21</td></tr>
+<tr><td><strong>Dividends</strong></td><td class="num highlight">0% (one-tier)</td><td>0&ndash;20% qualified + 3.8% NIIT</td><td>0% (franked) / 47% (unfranked)</td><td>10% PPh 4(2) final</td></tr>
+<tr><td><strong>Capital gains (exit)</strong></td><td class="num highlight">0% CGT</td><td>0% (QSBS) / 20%+3.8%</td><td>23.5% (50% disc.)</td><td>0.1% final (listed)</td></tr>
+<tr><td><strong>Optimal mix</strong></td><td class="num highlight">Min salary + dividends</td><td>Reasonable salary + QSBS</td><td>Salary (franking) + CGT disc.</td><td>Min salary + div</td></tr>
+</table>
+<div class="two-col" style="margin-top:12px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">SG Founder Playbook</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>Salary:</strong> S$96K/yr (below top bracket). Deductible by company<br/>
+&bull; <strong>Dividends:</strong> Tax-free under one-tier system. No additional tax<br/>
+&bull; <strong>CPF:</strong> Employer 17% capped at S$6K/mo OW. Structure salary to optimize<br/>
+&bull; <strong>Exit:</strong> 0% CGT on share sale. No exit tax. No estate duty<br/>
+&bull; <strong>Net effective on $500K total comp:</strong> ~<span class="num">8&ndash;12%</span>
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">US Founder Playbook</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>Salary:</strong> &ldquo;Reasonable compensation&rdquo; required for C-Corp officer (~$120&ndash;180K)<br/>
+&bull; <strong>QSBS:</strong> Hold C-Corp stock &ge;5 years &rarr; $10M tax-free gain &sect;1202<br/>
+&bull; <strong>Dividends:</strong> Double-taxed (21% corp + 23.8% personal). Avoid pre-exit<br/>
+&bull; <strong>83(b) election:</strong> File within 30 days of restricted stock receipt. Critical<br/>
+&bull; <strong>Net effective at exit:</strong> ~<span class="num">0%</span> on first $10M (QSBS)
+</div>
+</div>
+</div>
+<div class="key-point"><strong>Cross-border founder:</strong> SG-resident founder of US C-Corp: take minimal US salary, avoid US dividend tax. SG taxes only SG-sourced income. On exit, sell US QSBS stock &mdash; no SG CGT, no US tax (QSBS). Effective exit tax: <span class="num">0%</span> on first $10M.</div>
+</div>
+</div>
+
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="7">
+<div class="inner centered">
+<div class="label">II</div>
+<h1 class="title">IP Ownership &amp;<br/>Principal Structuring</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">IP Domicile</span><span class="tag">Cost-Sharing</span><span class="tag">Buy-In</span><span class="tag">Principal Architecture</span><span class="tag">Transfer Pricing</span>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="8">
+<div class="inner content">
+<div class="label">IP Strategy</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-shield"></use></svg></div><h2 class="h2">Where to Domicile Your IP</h2></div>
+<table class="dtable">
+<tr><th>Factor</th><th>SG</th><th>US</th><th>AU</th><th>CA</th><th>ID</th><th>BR</th><th>MX</th></tr>
+<tr><td><strong>IP Box / Patent Box</strong></td><td>No (but 0-5% Pioneer)</td><td>FDII 13.125%</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+<tr><td><strong>R&amp;D Super Deduction</strong></td><td class="num highlight">EIS 400%</td><td>20% credit</td><td class="num">43.5% offset</td><td class="num">35% ITC</td><td class="num">300%</td><td>80% extra</td><td>30% credit</td></tr>
+<tr><td><strong>WHT on Outbound Royalty</strong></td><td class="num">0%*</td><td class="num">0-30%</td><td class="num">30%</td><td class="num">25%</td><td class="num">20%</td><td class="num">15%</td><td class="num">25-35%</td></tr>
+<tr><td><strong>CGT on IP Disposal</strong></td><td class="num highlight">0%</td><td class="num">21%</td><td class="num">25-30%</td><td class="num">~15%</td><td class="num">22%</td><td class="num">34%</td><td class="num">30%</td></tr>
+<tr><td><strong>IP Amortization</strong></td><td>S.19B: 5-yr WDA</td><td>&sect;174: 5yr amort.</td><td>Div 40 effective life</td><td>CCA Class 44</td><td>Group 4: 20yr</td><td>Varies</td><td>15yr SL</td></tr>
+<tr class="highlight"><td><strong>Startup Verdict</strong></td><td class="num"><strong>Best overall</strong></td><td>QSBS play</td><td>R&amp;D cash</td><td>SR&amp;ED cash</td><td>Dev center</td><td>Sales only</td><td>Sales only</td></tr>
+</table>
+<div class="key-point"><strong>SG advantage for IP:</strong> No CGT on IP/share disposal + EIS 400% R&amp;D + 0% outbound royalty WHT (most treaties) + SUTE 4.25% effective rate in early years. *WHT on royalties paid FROM Singapore is 10% default, but 0% on payments TO most treaty countries.</div>
+</div>
+</div>
+
+<div class="slide" data-s="9">
+<div class="inner content">
+<div class="label">IP Migration</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-refresh"></use></svg></div><h2 class="h2">IP Migration: Cost-Sharing vs Buy-In</h2></div>
+<div class="two-col">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Cost-Sharing Arrangement (CSA)</div>
+<ul class="points">
+<li><strong>Mechanism:</strong> Participants share R&amp;D costs proportional to anticipated benefits (by revenue or profit split)</li>
+<li><strong>Advantage:</strong> No upfront lump-sum payment &mdash; ongoing cost allocation. IRS &sect;482 Reg. 1.482-7 governs</li>
+<li><strong>Risk:</strong> Buy-in payment required for pre-existing IP at arm&rsquo;s length value. Platform Contribution Transactions (PCTs)</li>
+<li><strong>Best for:</strong> Post-revenue startups with significant existing IP needing gradual migration</li>
+</ul>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Outright Buy-In</div>
+<ul class="points">
+<li><strong>Mechanism:</strong> Lump-sum purchase of IP rights at fair market value, typically via independent valuation (DCF)</li>
+<li><strong>Advantage:</strong> Clean transfer, clear IP ownership. Buyer gets amortization deduction on purchase price</li>
+<li><strong>Risk:</strong> High valuation = large taxable gain for seller. Exit charges in some jurisdictions (AU Div 855)</li>
+<li><strong>Best for:</strong> Pre-revenue startups (IP value ~ $0), or restructuring into principal model at growth stage</li>
+</ul>
+</div>
+</div>
+<div class="key-point"><strong>Golden rule:</strong> Assign IP to your principal entity on Day 0 at incorporation. Pre-revenue, pre-product IP has negligible FMV. Post-Series A, the same IP may be worth $5&ndash;50M &mdash; making migration prohibitively expensive.</div>
+</div>
+</div>
+
+<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="10">
+<div class="inner content">
+<div class="label">Full Architecture</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-server"></use></svg></div><h2 class="h2">Principal Structure for B2B SaaS</h2></div>
+<div class="flow" style="margin-bottom:12px;">
+<div class="flow-node" style="border-color:var(--accent);border-width:3px;background:var(--accent-light);"><strong>SG HoldCo (Principal)</strong>IP Owner &bull; Bears risk<br/>SUTE 4.25% &bull; EIS 400%<br/>0% CGT &bull; 0% div WHT</div>
+</div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+<div class="flow-arrow-down">&darr;</div>
+</div>
+<div class="flow" style="margin-top:4px;">
+<div class="flow-node"><strong>US Sales Sub</strong>LRD &mdash; TNMM 5% OM<br/>$8M rev &bull; CIT 21%</div>
+<div class="flow-node"><strong>ID Dev Center</strong>Contract R&amp;D<br/>Cost + 12% markup<br/>Tax Holiday 0%</div>
+<div class="flow-node"><strong>AU Sales Sub</strong>LRD &mdash; TNMM 5% OM<br/>$4M rev &bull; R&amp;D offset 43.5%</div>
+<div class="flow-node"><strong>CA Sales Sub</strong>LRD &mdash; TNMM 5% OM<br/>$3M rev &bull; SR&amp;ED 35%</div>
+</div>
+<div class="two-col" style="margin-top:14px;">
+<div class="card" style="padding:10px 14px;">
+<div class="h3" style="border:none;padding:0;font-size:9px;">Intercompany Flows</div>
+<div style="font-size:10px;color:var(--dark);line-height:1.5;">
+&bull; SG &rarr; US/AU/CA: IP sublicense (royalty or service fee)<br/>
+&bull; ID &rarr; SG: Contract R&amp;D services at cost + 12%<br/>
+&bull; US/AU/CA &rarr; SG: Residual profit via dividends (0% WHT from SG)
+</div>
+</div>
+<div class="card" style="padding:10px 14px;">
+<div class="h3" style="border:none;padding:0;font-size:9px;">Profit Allocation ($20M ARR)</div>
+<div style="font-size:10px;color:var(--dark);line-height:1.5;">
+&bull; US LRD: $400K (5% of $8M) &rarr; taxed at 21% = $84K<br/>
+&bull; ID Dev: $480K (12% on $4M cost) &rarr; 0% holiday<br/>
+&bull; AU/CA LRDs: $350K combined &rarr; offset by R&amp;D credits<br/>
+&bull; <strong>SG Principal: residual ~$14.8M</strong> &rarr; SUTE ~4.25%
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="11">
+<div class="inner content">
+<div class="label">Transfer Pricing</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-file-text"></use></svg></div><h2 class="h2">Transfer Pricing for IP-Centric Startups</h2></div>
+<div class="three-col" style="margin-bottom:12px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">TNMM / CPM</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;"><strong>Best for LRDs.</strong> Benchmark operating margin 3&ndash;8% for sales/marketing entities. Most defensible, widely accepted.</div>
+<div style="font-size:10px;color:var(--accent);margin-top:4px;">Used: US, AU, CA, MX, BR subs</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Cost Plus</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;"><strong>Best for contract R&amp;D.</strong> Cost base + 10&ndash;15% markup for development centers. Requires robust cost tracking.</div>
+<div style="font-size:10px;color:var(--accent);margin-top:4px;">Used: ID dev center</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Profit Split</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;"><strong>For highly integrated ops.</strong> Split residual profit by contribution (IP, risk, capital). Complex but accurate for unique IP.</div>
+<div style="font-size:10px;color:var(--accent);margin-top:4px;">Backup: SG principal &harr; US sub</div>
+</div>
+</div>
+<table class="dtable">
+<tr><th>Entity</th><th>TP Method</th><th>Benchmark</th><th>Documentation</th></tr>
+<tr><td>US Sales LRD</td><td>TNMM</td><td class="num">5% OM</td><td>Local File + Master File</td></tr>
+<tr><td>AU Sales LRD</td><td>TNMM</td><td class="num">5% OM</td><td>Local File + CbCR</td></tr>
+<tr><td>ID Dev Center</td><td>Cost Plus</td><td class="num">Cost + 12%</td><td>Local File (TP Doc per PMK 213/2016)</td></tr>
+<tr><td>CA Sales LRD</td><td>TNMM</td><td class="num">5% OM</td><td>T106 + contemporaneous doc</td></tr>
+<tr class="highlight"><td><strong>SG Principal</strong></td><td>Residual</td><td class="num">Residual profit</td><td>Master File + annual TP review</td></tr>
+</table>
+</div>
+</div>
+
+<div class="slide" data-s="12">
+<div class="inner content">
+<div class="label">Worked Example</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-dollar"></use></svg></div><h2 class="h2">ETR Walk-Through: $20M ARR B2B SaaS</h2></div>
+<p style="font-size:10px;color:var(--muted);margin-bottom:6px;">SG Principal, US/AU Sales LRDs, ID Dev Center</p>
+<table class="dtable">
+<tr><th>Entity</th><th class="right">Revenue</th><th class="right">Taxable Income</th><th class="right">CIT Rate</th><th class="right">Tax Payable</th></tr>
+<tr><td>US Sales LRD</td><td class="right num">$8.0M</td><td class="right num">$400K (5% OM)</td><td class="right">21%</td><td class="right num">$84,000</td></tr>
+<tr><td>AU Sales LRD</td><td class="right num">$4.0M</td><td class="right num">$200K (5% OM)</td><td class="right">25%</td><td class="right num">$50,000</td></tr>
+<tr><td>CA Sales LRD</td><td class="right num">$3.0M</td><td class="right num">$150K (5% OM)</td><td class="right">12.2%*</td><td class="right num">$18,300</td></tr>
+<tr><td>ID Dev Center</td><td class="right num">$4.0M cost</td><td class="right num">$480K (12% markup)</td><td class="right">0%**</td><td class="right num">$0</td></tr>
+<tr><td><strong>SG Principal</strong></td><td class="right num">$20.0M</td><td class="right num">$14.77M residual</td><td class="right">4.25%***</td><td class="right num">$627,725</td></tr>
+<tr class="result"><td><strong>Group Total</strong></td><td class="right num"><strong>$20.0M</strong></td><td class="right"></td><td class="right"></td><td class="right num"><strong>$780,025</strong></td></tr>
+<tr class="result"><td><strong>Blended ETR</strong></td><td></td><td></td><td></td><td class="right num"><strong>3.9%</strong></td></tr>
+</table>
+<div style="font-size:9px;color:var(--muted);margin-top:4px;">*CA SBD rate on first C$500K. **ID tax holiday for pioneer industry. ***SG SUTE Year 1&ndash;3.</div>
+<div class="key-point"><strong>Comparison:</strong> Single US C-Corp &rarr; 21% CIT = $4.2M tax. Principal structure &rarr; $780K tax. Annual saving: <span class="num">$3.4M</span>. Over 5-year startup lifecycle: <span class="num">$17M+</span> retained for growth.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="13">
+<div class="inner content">
+<div class="label">Sensitivity</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-pie-chart"></use></svg></div><h2 class="h2">ETR Sensitivity: How Revenue Mix Changes Your Tax Bill</h2></div>
+<p style="font-size:10px;color:var(--muted);margin-bottom:10px;">$20M ARR B2B SaaS &mdash; SG Principal model. How blended ETR shifts with geographic revenue distribution.</p>
+<table class="dtable">
+<tr><th>Scenario</th><th class="right">US %</th><th class="right">APAC %</th><th class="right">LATAM %</th><th class="right">SG Residual</th><th class="right">Blended ETR</th><th class="right">Tax Payable</th></tr>
+<tr><td><strong>US-Heavy</strong></td><td class="right">60%</td><td class="right">25%</td><td class="right">15%</td><td class="right num">$13.2M</td><td class="right num">5.1%</td><td class="right num">$1,020K</td></tr>
+<tr class="highlight"><td><strong>Balanced</strong></td><td class="right">40%</td><td class="right">40%</td><td class="right">20%</td><td class="right num">$14.8M</td><td class="right num">3.9%</td><td class="right num">$780K</td></tr>
+<tr><td><strong>APAC-Heavy</strong></td><td class="right">20%</td><td class="right">60%</td><td class="right">20%</td><td class="right num">$16.0M</td><td class="right num">3.2%</td><td class="right num">$640K</td></tr>
+<tr><td><strong>SG-Only</strong></td><td class="right">0%</td><td class="right">100%</td><td class="right">0%</td><td class="right num">$20.0M</td><td class="right num">4.25%</td><td class="right num">$850K</td></tr>
+<tr><td><strong>No structure (US C-Corp)</strong></td><td class="right" colspan="3">100% single entity</td><td class="right">&mdash;</td><td class="right" style="color:var(--red);font-weight:700;">21%</td><td class="right" style="color:var(--red);font-weight:700;">$4,200K</td></tr>
+</table>
+<div class="two-col" style="margin-top:10px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Key Drivers</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>US revenue is most expensive</strong> &mdash; LRD profit taxed at 21%. More US = higher group ETR<br/>
+&bull; <strong>APAC through SG = cheapest</strong> &mdash; direct revenue to SG principal, no LRD margin. SUTE 4.25%<br/>
+&bull; <strong>LATAM adds complexity</strong> &mdash; BR 34% CIT + high payroll. MX 30%. LRD margin taxed at high rates<br/>
+&bull; <strong>R&amp;D credits are additive</strong> &mdash; AU/CA refundable credits reduce effective tax below statutory rates
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Revenue Routing Rules</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>SG principal contracts directly</strong> with customers where possible (APAC, EU)<br/>
+&bull; <strong>LRD entities</strong> only where local presence required (US, AU, CA, BR)<br/>
+&bull; <strong>Commission model:</strong> LRD earns 3&ndash;8% on local revenue, rest flows to SG<br/>
+&bull; <strong>Avoid routing through high-tax jurisdictions</strong> unnecessarily
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="14">
+<div class="inner centered">
+<div class="label">III</div>
+<h1 class="title">R&amp;D Tax Optimization<br/>for Software Startups</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">R&amp;D Credits</span><span class="tag">Software Eligibility</span><span class="tag">&sect;174 Amortization</span><span class="tag">Contract R&amp;D</span><span class="tag">Hub Location</span>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="15">
+<div class="inner content">
+<div class="label">R&amp;D Credits</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-flask"></use></svg></div><h2 class="h2">R&amp;D Credits: Software Development Eligibility</h2></div>
+<table class="dtable">
+<tr><th>Activity</th><th>US &sect;41</th><th>SG EIS</th><th>AU Div 355</th><th>CA SR&amp;ED</th><th>ID Super Ded.</th></tr>
+<tr><td><strong>New algorithm / architecture</strong></td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td></tr>
+<tr><td><strong>Backend infrastructure</strong></td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td></tr>
+<tr><td><strong>API development</strong></td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td></tr>
+<tr><td><strong>ML/AI model training</strong></td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td></tr>
+<tr><td><strong>UI/UX design</strong></td><td>Rarely</td><td class="num">Yes</td><td>Supporting only</td><td>If systematic</td><td class="num">Yes</td></tr>
+<tr><td><strong>Routine maintenance</strong></td><td style="color:var(--red);">No</td><td style="color:var(--red);">No</td><td style="color:var(--red);">No</td><td style="color:var(--red);">No</td><td style="color:var(--red);">No</td></tr>
+<tr><td><strong>Bug fixes (known solutions)</strong></td><td style="color:var(--red);">No</td><td>Maybe</td><td style="color:var(--red);">No</td><td style="color:var(--red);">No</td><td>Maybe</td></tr>
+<tr><td><strong>Data migration / integration</strong></td><td>Rarely</td><td>Maybe</td><td style="color:var(--red);">No</td><td>If uncertainty</td><td>Maybe</td></tr>
+</table>
+<div class="key-point"><strong>US 4-part test (&sect;41):</strong> (1) Permitted purpose, (2) Technological uncertainty, (3) Process of experimentation, (4) Technological in nature. Architecture decisions and novel algorithms qualify; UI polish and routine coding typically don&rsquo;t.</div>
+</div>
+</div>
+
+<div class="slide" data-s="16">
+<div class="inner content">
+<div class="label">R&amp;D Credits</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-bar-chart"></use></svg></div><h2 class="h2">R&amp;D Credit Comparison: $3M Software R&amp;D Spend</h2></div>
+<div class="hbar">
+<div class="hbar-row"><div class="hbar-label">Australia</div><div class="hbar-track"><div class="hbar-fill" style="width:87%;"></div></div><div class="hbar-val">$1.31M</div></div>
+<div class="hbar-row"><div class="hbar-label">Canada</div><div class="hbar-track"><div class="hbar-fill" style="width:70%;"></div></div><div class="hbar-val">$1.05M</div></div>
+<div class="hbar-row"><div class="hbar-label">Singapore</div><div class="hbar-track"><div class="hbar-fill" style="width:51%;"></div></div><div class="hbar-val">$765K</div></div>
+<div class="hbar-row"><div class="hbar-label">United States</div><div class="hbar-track"><div class="hbar-fill" style="width:40%;"></div></div><div class="hbar-val">$600K</div></div>
+<div class="hbar-row"><div class="hbar-label">Indonesia</div><div class="hbar-track"><div class="hbar-fill" style="width:44%;"></div></div><div class="hbar-val">$660K</div></div>
+<div class="hbar-row"><div class="hbar-label">Mexico</div><div class="hbar-track"><div class="hbar-fill alt" style="width:30%;"></div></div><div class="hbar-val">$450K</div></div>
+<div class="hbar-row"><div class="hbar-label">Brazil</div><div class="hbar-track"><div class="hbar-fill alt" style="width:27%;"></div></div><div class="hbar-val">$408K</div></div>
+</div>
+<table class="dtable" style="margin-top:8px;">
+<tr><th>Jurisdiction</th><th class="right">Benefit</th><th>Mechanism</th><th>Refundable?</th><th>Carry-Fwd</th></tr>
+<tr class="highlight"><td><strong>Australia</strong></td><td class="right num">$1.31M</td><td>43.5% refundable offset (&lt;$20M turnover)</td><td class="num">Yes &mdash; cash</td><td>Indefinite</td></tr>
+<tr class="highlight"><td><strong>Canada</strong></td><td class="right num">$1.05M</td><td>35% refundable ITC (CCPC, first $3M)</td><td class="num">Yes &mdash; cash</td><td>20 years</td></tr>
+<tr><td><strong>Singapore</strong></td><td class="right num">$765K</td><td>EIS 400% deduction &times; 17% CIT</td><td>No</td><td>Indefinite</td></tr>
+<tr><td><strong>US</strong></td><td class="right num">$600K</td><td>20% credit (&sect;41); payroll offset for startups</td><td>Payroll offset*</td><td>20 years</td></tr>
+</table>
+<div style="font-size:9px;color:var(--muted);margin-top:4px;">*US: startups with &lt;$5M revenue can offset up to $500K/year in payroll taxes for first 5 years (&sect;41(h)).</div>
+</div>
+</div>
+
+<div class="slide" data-s="17">
+<div class="inner content">
+<div class="label">US Tax Trap</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-alert"></use></svg></div><h2 class="h2">&sect;174 Amortization Impact on US Startups</h2></div>
+<div class="metrics">
+<div class="metric"><div class="metric-val" style="color:var(--red);">5yr</div><div class="metric-lbl">Domestic R&amp;D Amortization</div></div>
+<div class="metric"><div class="metric-val" style="color:var(--red);">15yr</div><div class="metric-lbl">Foreign R&amp;D Amortization</div></div>
+<div class="metric"><div class="metric-val">$1M</div><div class="metric-lbl">Year 1 Deduction on $5M R&amp;D</div></div>
+</div>
+<table class="dtable">
+<tr><th>Year</th><th class="right">R&amp;D Spend</th><th class="right">&sect;174 Deduction</th><th class="right">Phantom Taxable Income</th></tr>
+<tr><td>Year 1</td><td class="right num">$5,000,000</td><td class="right num">$1,000,000</td><td class="right" style="color:var(--red);font-weight:700;">$4,000,000</td></tr>
+<tr><td>Year 2</td><td class="right num">$5,000,000</td><td class="right num">$2,000,000</td><td class="right" style="color:var(--red);font-weight:700;">$3,000,000</td></tr>
+<tr><td>Year 3</td><td class="right num">$5,000,000</td><td class="right num">$3,000,000</td><td class="right" style="color:var(--red);font-weight:700;">$2,000,000</td></tr>
+</table>
+<div class="key-point"><strong>The problem:</strong> Pre-revenue startup spending $5M on R&amp;D can only deduct $1M in Year 1. The remaining $4M creates phantom taxable income &mdash; you owe tax despite having no revenue. <strong>Planning:</strong> (1) Maximize R&amp;D in non-US entities (ID, SG, AU) where full immediate deduction is available. (2) Use contract R&amp;D model. (3) Stack &sect;41 credits against payroll tax.</div>
+</div>
+</div>
+
+<div class="slide" data-s="18">
+<div class="inner content">
+<div class="label">Location Strategy</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-map-pin"></use></svg></div><h2 class="h2">R&amp;D Hub Location Decision Matrix</h2></div>
+<table class="dtable">
+<tr><th>Factor</th><th>SG</th><th>AU</th><th>CA</th><th>ID</th><th>US</th></tr>
+<tr><td><strong>Credit Rate</strong></td><td class="num">400% ded. = 68%</td><td class="num">43.5% offset</td><td class="num">35% ITC</td><td class="num">300% ded. = 66%</td><td class="num">20% credit</td></tr>
+<tr><td><strong>Refundable (pre-profit)?</strong></td><td>No (need income)</td><td class="num highlight">Yes &mdash; cash</td><td class="num highlight">Yes &mdash; CCPC</td><td>No</td><td>Payroll only</td></tr>
+<tr><td><strong>Talent Pool</strong></td><td>Strong (expensive)</td><td>Strong</td><td>Strong (Waterloo, TO)</td><td>Large (affordable)</td><td>Deepest</td></tr>
+<tr><td><strong>Eng. Cost (Senior)</strong></td><td>S$120&ndash;180K</td><td>A$130&ndash;170K</td><td>C$110&ndash;150K</td><td>IDR 300&ndash;600M</td><td>$150&ndash;250K</td></tr>
+<tr><td><strong>IP Protection</strong></td><td class="num">Strong</td><td class="num">Strong</td><td class="num">Strong</td><td>Moderate</td><td class="num">Strongest</td></tr>
+<tr class="highlight"><td><strong>Optimal Role</strong></td><td>Core research + IP</td><td>Applied R&amp;D (cash)</td><td>Applied R&amp;D (cash)</td><td>Development (cost)</td><td>Customer-facing R&amp;D</td></tr>
+</table>
+<div class="key-point"><strong>Recommended split for B2B SaaS:</strong> Core/strategic R&amp;D in SG (IP owner, EIS 400%). Applied R&amp;D in AU or CA (refundable credits = cash for pre-profit startups). Development/scaling in ID (low cost + tax holiday). US for customer-adjacent product work.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="19">
+<div class="inner content">
+<div class="label">Documentation</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-file-text"></use></svg></div><h2 class="h2">R&amp;D Documentation: What Auditors Actually Look For</h2></div>
+<div class="three-col" style="margin-bottom:12px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Must Have (Day 1)</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>Project descriptions:</strong> What technological uncertainty exists? What are you trying to solve?<br/>
+&bull; <strong>Time tracking:</strong> Engineer hours by project, by qualifying activity category<br/>
+&bull; <strong>Git commit history:</strong> Contemporaneous evidence of experimentation &amp; iteration<br/>
+&bull; <strong>Design documents:</strong> Architecture decisions, alternatives evaluated, experiments run<br/>
+&bull; <strong>Failure logs:</strong> Document what didn&rsquo;t work and why &mdash; this proves experimentation
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Common Rejection Reasons</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <span style="color:var(--red);">&cross;</span> &ldquo;We built a new feature&rdquo; &mdash; no uncertainty described<br/>
+&bull; <span style="color:var(--red);">&cross;</span> Retroactive documentation (reconstructed 2 years later)<br/>
+&bull; <span style="color:var(--red);">&cross;</span> Including routine development, bug fixes, UI polish<br/>
+&bull; <span style="color:var(--red);">&cross;</span> No time allocation &mdash; claiming 100% of all eng time<br/>
+&bull; <span style="color:var(--red);">&cross;</span> Missing nexus between spend and qualifying project
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Jurisdiction-Specific Tips</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>AU:</strong> Register with AusIndustry <em>before</em> year-end. 10-month deadline post-FY<br/>
+&bull; <strong>CA:</strong> T661 form is notoriously complex. Budget $5&ndash;15K for SR&amp;ED consultant<br/>
+&bull; <strong>US:</strong> 4-part test documentation per project. Keep contemporaneously<br/>
+&bull; <strong>SG:</strong> EIS claims via Form C-S. Simpler but must show &ldquo;new knowledge&rdquo;<br/>
+&bull; <strong>ID:</strong> BRIN coordination required. 6&ndash;12 month approval process
+</div>
+</div>
+</div>
+<div class="key-point"><strong>ROI of good documentation:</strong> A $15K annual investment in R&amp;D documentation (consultant + internal process) protects $500K&ndash;$1.3M in annual credits. Audit-proofing ratio: 30&ndash;90x return. Start with a simple Google Sheet tracking engineer time by project category &mdash; upgrade to dedicated tools (Boast.ai, Ardius, neo.tax) as you scale.</div>
+</div>
+</div>
+
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="20">
+<div class="inner centered">
+<div class="label">IV</div>
+<h1 class="title">Startup-Specific<br/>Tax Incentives</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">SG SUTE</span><span class="tag">ID Tax Holiday</span><span class="tag">AU R&amp;D Offset</span><span class="tag">CA SR&amp;ED</span><span class="tag">US QSBS</span><span class="tag">Incentive Stacking</span>
+</div>
+</div>
+</div>
+
+<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="21">
+<div class="inner content">
+<div class="label">Singapore</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-star"></use></svg></div><h2 class="h2">Singapore: The Startup Tax Stack</h2></div>
+<div class="metrics">
+<div class="metric"><div class="metric-val" style="color:var(--accent);">4.25%</div><div class="metric-lbl">Effective CIT (SUTE Yr 1&ndash;3)</div></div>
+<div class="metric"><div class="metric-val">400%</div><div class="metric-lbl">EIS R&amp;D Deduction</div></div>
+<div class="metric"><div class="metric-val">0%</div><div class="metric-lbl">Capital Gains Tax</div></div>
+<div class="metric"><div class="metric-val">0%</div><div class="metric-lbl">Dividend WHT</div></div>
+<div class="metric"><div class="metric-val">90+</div><div class="metric-lbl">Tax Treaties</div></div>
+</div>
+<div class="two-col">
+<div>
+<ul class="points">
+<li><strong>SUTE (Startup Tax Exemption):</strong> 75% exemption on first S$100K + 50% on next S$100K = effective <span class="num">4.25%</span> on S$200K for first 3 years</li>
+<li><strong>PTE scheme:</strong> 75% on first S$10K + 50% on next S$190K = effective <span class="num">8.29%</span> on S$200K (Years 4+)</li>
+<li><strong>EIS 400%:</strong> S$400K deduction per S$100K of qualifying R&amp;D expenditure (until YA 2028). Covers wages, consumables, IP registration</li>
+<li><strong>Pioneer Certificate (EDB):</strong> 0&ndash;5% CIT for qualifying technology companies. Requires application and substance commitment</li>
+</ul>
+</div>
+<div>
+<ul class="points">
+<li><strong>GTP (Global Trader Programme):</strong> 5&ndash;10% on qualifying trading income for companies with trading hub in SG</li>
+<li><strong>0% CGT:</strong> No capital gains tax on disposal of shares or IP. Critical for exit planning</li>
+<li><strong>0% dividend WHT:</strong> One-tier system &mdash; corporate tax is final, no additional tax on distribution</li>
+<li><strong>No CFC rules:</strong> Foreign subsidiary profits are not taxed in Singapore unless remitted (and exemptions apply under &sect;13(8))</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="22">
+<div class="inner content">
+<div class="label">Indonesia</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-award"></use></svg></div><h2 class="h2">Indonesia: Tax Holiday for Tech Startups</h2></div>
+<table class="dtable">
+<tr><th>Investment Tier</th><th class="right">CIT Reduction</th><th class="right">Duration</th><th>Eligible Activities</th></tr>
+<tr><td>&ge; IDR 500B (~$30M)</td><td class="right num">100%</td><td class="right">5&ndash;20 years</td><td>Pioneer industries (software, platforms, data centers)</td></tr>
+<tr><td>IDR 100&ndash;500B</td><td class="right num">100%</td><td class="right">5&ndash;10 years</td><td>Same + KEK (Special Economic Zone)</td></tr>
+<tr><td>&lt; IDR 100B (mini)</td><td class="right num">50%</td><td class="right">5 years</td><td>Broader eligibility via PP 94/2010</td></tr>
+<tr><td>MSME (&lt; IDR 4.8B rev)</td><td class="right num">0.5% final</td><td class="right">3 years*</td><td>All sectors (PP 55/2022, final tax on gross)</td></tr>
+</table>
+<div class="two-col" style="margin-top:12px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Super Deduction R&amp;D</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">Up to <strong>300%</strong> deduction for R&amp;D conducted in Indonesia. Requires coordination with BRIN (National Research Agency). Covers salaries, equipment, materials for qualifying R&amp;D.</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Best Role for ID in SaaS Startup</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;"><strong>Contract R&amp;D / development center.</strong> Low engineer costs (IDR 300&ndash;600M/yr). Tax holiday on markup profit. 300% super deduction if owned R&amp;D. SEA market sales sub.</div>
+</div>
+</div>
+<div style="font-size:9px;color:var(--muted);margin-top:6px;">*MSME 0.5% final tax applies for max 3 years for PT (company), then standard 22% rate.</div>
+</div>
+</div>
+
+<div class="slide" data-s="23">
+<div class="inner content">
+<div class="label">Australia</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-flask"></use></svg></div><h2 class="h2">Australia: R&amp;D Offset + Loss Carry-Back</h2></div>
+<div class="metrics">
+<div class="metric"><div class="metric-val" style="color:var(--accent);">43.5%</div><div class="metric-lbl">Refundable R&amp;D Offset (&lt;$20M)</div></div>
+<div class="metric"><div class="metric-val">$870K</div><div class="metric-lbl">Cash on $2M R&amp;D</div></div>
+<div class="metric"><div class="metric-val">20%</div><div class="metric-lbl">ESIC Investor Offset</div></div>
+</div>
+<div class="two-col">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">R&amp;D Tax Incentive (Div 355)</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>Refundable offset 43.5%</strong> for entities with &lt;$20M aggregated turnover<br/>
+&bull; Non-refundable 38.5% + tax rate for $20M&ndash;$400M turnover<br/>
+&bull; $2M R&amp;D spend &rarr; <span class="num">$870K cash refund</span> (even if pre-revenue!)<br/>
+&bull; Annual R&amp;D expenditure cap: $100M for refundable offset<br/>
+&bull; Must register with AusIndustry <strong>before</strong> lodging tax return
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">ESIC (Early Stage Innovation Co.)</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; Investors get <strong>20% non-refundable tax offset</strong> on investment amount<br/>
+&bull; <strong>10-year CGT exemption</strong> on shares held 12+ months<br/>
+&bull; Company must be &lt;$200K income, &lt;6 years old, &lt;$1M expenses<br/>
+&bull; 100-point innovation test or accelerator test<br/>
+&bull; Powerful for attracting AU angel investors to SaaS startups
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="24">
+<div class="inner content">
+<div class="label">Canada</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-flask"></use></svg></div><h2 class="h2">Canada: SR&amp;ED + SBD Stack</h2></div>
+<div class="metrics">
+<div class="metric"><div class="metric-val" style="color:var(--accent);">35%</div><div class="metric-lbl">Refundable ITC (CCPC)</div></div>
+<div class="metric"><div class="metric-val">9%</div><div class="metric-lbl">SBD Federal Rate</div></div>
+<div class="metric"><div class="metric-val">$1.05M</div><div class="metric-lbl">Cash on $3M SR&amp;ED</div></div>
+</div>
+<ul class="points">
+<li><strong>SR&amp;ED (Scientific Research &amp; Experimental Development):</strong> 35% refundable ITC for CCPCs on first $3M of qualifying expenditures. Reduces to 15% non-refundable above $3M. Qualifying: systematic investigation, technological uncertainty, technological advancement</li>
+<li><strong>SBD (Small Business Deduction):</strong> Federal rate drops from 15% to 9% on first C$500K of business income. Combined federal+provincial as low as 12.2% (Ontario). <strong>Phase-out trap:</strong> starts at $10M taxable capital, eliminated at $15M</li>
+<li><strong>Ontario Innovation Tax Credit:</strong> Additional 8% refundable credit on first $3M of qualifying R&amp;D. Stacks with federal SR&amp;ED. Net cash benefit can exceed 40% of qualifying spend</li>
+<li><strong>Phase-out warning:</strong> SBD passive income grind &mdash; SBD limit reduced by $5 for every $1 of investment income over $50K. VC-backed startups with interest income from cash reserves can lose SBD access</li>
+</ul>
+</div>
+</div>
+
+<div class="slide" data-s="25">
+<div class="inner content">
+<div class="label">United States</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-trophy"></use></svg></div><h2 class="h2">US: QSBS &sect;1202 + R&amp;D Credit</h2></div>
+<div class="two-col">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">QSBS (Qualified Small Business Stock)</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>100% exclusion</strong> on gain from sale of QSBS (up to $10M or 10&times; adjusted basis per shareholder)<br/>
+&bull; Requirements: C-corporation, &lt;$50M gross assets at issuance, held &ge;5 years, business (not finance/consulting/mining)<br/>
+&bull; <strong>SaaS/software qualifies</strong> as technology business<br/>
+&bull; Founder with $100K basis &rarr; up to <span class="num">$10M tax-free</span> on exit<br/>
+&bull; Stacking: each shareholder gets separate $10M/$100M exclusion<br/>
+&bull; <strong>Cannot be LLC/S-Corp</strong> &mdash; must be C-Corp from day of issuance
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">R&amp;D Credit (&sect;41)</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; 20% credit on qualifying R&amp;D expenses above base amount<br/>
+&bull; <strong>Startup payroll offset:</strong> &lt;$5M gross receipts + &lt;5 years &rarr; offset up to $500K/year payroll taxes (&sect;41(h))<br/>
+&bull; Critical for pre-revenue startups with no income tax liability<br/>
+&bull; <strong>&sect;174 trap:</strong> Since 2022, must amortize R&amp;D over 5yr (domestic) / 15yr (foreign). Creates phantom taxable income<br/>
+&bull; Credit carry-forward: 20 years
+</div>
+</div>
+</div>
+<div class="key-point"><strong>US-founded startup strategy:</strong> Delaware C-Corp (QSBS eligibility) + maximize &sect;41 payroll offset + push development R&amp;D to non-US entities (avoid &sect;174 amortization on foreign spend) + SG subsidiary for APAC revenue.</div>
+</div>
+</div>
+
+<div class="slide" data-s="26">
+<div class="inner content">
+<div class="label">Optimization</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-layers"></use></svg></div><h2 class="h2">Incentive Stacking: SG Principal + Multi-Jurisdiction</h2></div>
+<table class="dtable">
+<tr><th>Incentive</th><th>Jurisdiction</th><th class="right">Annual Benefit</th><th>Mechanism</th></tr>
+<tr><td>SUTE / PTE</td><td>SG</td><td class="right num">$190K saved</td><td>Reduced CIT on first S$200K (4.25&ndash;8.29%)</td></tr>
+<tr><td>EIS 400% R&amp;D</td><td>SG</td><td class="right num">$510K saved</td><td>400% deduction on $3M SG R&amp;D &times; 17%</td></tr>
+<tr><td>R&amp;D Offset</td><td>AU</td><td class="right num">$870K cash</td><td>43.5% refundable offset on $2M AU R&amp;D</td></tr>
+<tr><td>SR&amp;ED ITC</td><td>CA</td><td class="right num">$525K cash</td><td>35% refundable on $1.5M CA R&amp;D</td></tr>
+<tr><td>Tax Holiday</td><td>ID</td><td class="right num">$106K saved</td><td>100% CIT reduction on ID dev center profit</td></tr>
+<tr><td>&sect;41 Payroll</td><td>US</td><td class="right num">$250K offset</td><td>R&amp;D credit against FICA for startup</td></tr>
+<tr><td>QSBS (at exit)</td><td>US</td><td class="right num">$10M+ excluded</td><td>100% gain exclusion per founder/investor</td></tr>
+<tr class="result"><td><strong>Annual Total</strong></td><td></td><td class="right num"><strong>$2.45M saved</strong></td><td>On ~$20M ARR B2B SaaS startup</td></tr>
+</table>
+<div class="key-point"><strong>vs. No-planning baseline:</strong> Single US C-Corp, $20M revenue, 21% CIT, no R&amp;D optimization = ~$2.1M tax. With stacking: ~$780K effective tax + $1.4M cash refunds = <span class="num">net tax position near zero</span>. The difference compounds over 5+ years into tens of millions in retained capital.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="27">
+<div class="inner content">
+<div class="label">LATAM Opportunity</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-globe"></use></svg></div><h2 class="h2">Brazil &amp; Mexico: Startup-Specific Tax Plays</h2></div>
+<div class="two-col">
+<div class="card" style="border-left-color:#009b3a;">
+<div class="h3" style="border:none;padding:0;color:#009b3a;">Brazil</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.55;">
+<strong>Lucro Presumido regime:</strong> For startups with &lt;R$78M revenue. Presume 32% of service revenue as taxable base &rarr; effective CIT <span class="num">~10.88%</span> (vs 34% Lucro Real). SaaS likely qualifies as service.<br/><br/>
+<strong>Simples Nacional:</strong> Revenue &lt;R$4.8M. Annex III (services): starts at <span class="num">6%</span> all-in. Annex V (technology): 15.5&ndash;30.5%. Factor &ldquo;r&rdquo; (payroll/revenue) determines annex &mdash; high payroll ratio qualifies for lower Annex III rates.<br/><br/>
+<strong>JCP (Juros sobre Capital Pr&oacute;prio):</strong> Deductible notional interest on equity. TJLP rate &times; equity base. Reduces effective CIT to <span class="num">~24&ndash;28%</span>. Requires shareholders &mdash; works for VC-backed startups.<br/><br/>
+<strong>Lei do Bem R&amp;D:</strong> 60&ndash;100% additional deduction on R&amp;D spend. Must be Lucro Real. <span class="num">$3M R&amp;D &rarr; $408K benefit</span>. Auto-apply &mdash; no pre-approval needed.<br/><br/>
+<strong>Best startup role:</strong> LATAM sales hub. Lucro Presumido for service revenue. Keep IP outside Brazil (WHT on outbound royalties 15% + CIDE 10% = 25% total &mdash; expensive).
+</div>
+</div>
+<div class="card" style="border-left-color:#006847;">
+<div class="h3" style="border:none;padding:0;color:#006847;">Mexico</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.55;">
+<strong>RESICO:</strong> Simplified regime for individuals with &lt;MXN 3.5M revenue. Rates <span class="num">1&ndash;2.5%</span>. For founder sole proprietors only, not companies.<br/><br/>
+<strong>Border zone incentive:</strong> 20% ISR rate (vs 30%) + 8% IVA (vs 16%) for businesses in northern/southern border municipalities. If your MX sales office is in Tijuana, Monterrey border: <span class="num">10pp CIT savings</span>.<br/><br/>
+<strong>R&amp;D credit (LISR Art 202):</strong> 30% tax credit on incremental R&amp;D expenses above base period average. Annual cap MXN 50M. Credit against ISR, non-refundable, 10-year carry-forward.<br/><br/>
+<strong>PTU (Profit-Sharing):</strong> Mandatory 10% of pre-tax profits distributed to employees. Cap at 3 months salary or avg of last 3 years. <strong>Significant cost for profitable startups</strong> &mdash; plan around it.<br/><br/>
+<strong>Best startup role:</strong> LATAM sales sub (LRD). TNMM 5% operating margin limits PTU exposure. Nearshore dev center (engineering talent at $40&ndash;80K/yr). Use border zone if possible.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="28">
+<div class="inner centered">
+<div class="label">V</div>
+<h1 class="title">Equity Compensation<br/>&amp; VC Structuring</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">ESOP</span><span class="tag">ISO vs NSO</span><span class="tag">SG ERIS</span><span class="tag">VC Fund Tax</span><span class="tag">SAFEs</span><span class="tag">Convertibles</span>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="29">
+<div class="inner content">
+<div class="label">Equity Compensation</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-users"></use></svg></div><h2 class="h2">ESOP / Stock Options Across 7 Jurisdictions</h2></div>
+<table class="dtable">
+<tr><th>Factor</th><th>US</th><th>SG</th><th>AU</th><th>CA</th><th>ID</th><th>BR</th><th>MX</th></tr>
+<tr><td><strong>Tax at Grant</strong></td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+<tr><td><strong>Tax at Exercise</strong></td><td>ISO: AMT; NSO: OI</td><td>OI (deferred*)</td><td>Deferred (ESS)</td><td>50% ded.</td><td>OI</td><td>OI</td><td>OI</td></tr>
+<tr><td><strong>Tax at Sale</strong></td><td>ISO: LTCG; NSO: LTCG on gain</td><td class="num">0% CGT</td><td>50% CGT disc.</td><td>50% incl.</td><td>0.1% final</td><td>15% CGT</td><td>10% CGT</td></tr>
+<tr><td><strong>Employer Deduction</strong></td><td>NSO: Yes; ISO: No</td><td>Yes</td><td>Yes</td><td>No (stock opt.)</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong>Social Security</strong></td><td>NSO: Yes; ISO: No</td><td>No CPF on gains</td><td>No Super</td><td>No CPP/EI</td><td>No</td><td>Yes (INSS)</td><td>Yes (IMSS)</td></tr>
+<tr class="highlight"><td><strong>Favorable Regime</strong></td><td>ISO + QSBS</td><td class="num">ERIS + 0% CGT</td><td>ESS deferral</td><td>&sect;7 deferral</td><td>0.1% final CGT</td><td>None</td><td>None</td></tr>
+</table>
+<div class="key-point"><strong>SG advantage for ESOP:</strong> ERIS (Equity Remuneration Incentive Scheme) exempts up to S$2M of gains over 10 years for qualifying startups. Combined with 0% CGT on share sale &mdash; Singapore employees have the best ESOP tax outcome globally.</div>
+</div>
+</div>
+
+<div class="slide" data-s="30">
+<div class="inner content">
+<div class="label">VC Structuring</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-briefcase"></use></svg></div><h2 class="h2">VC Fund Structure &amp; Investor Tax</h2></div>
+<div class="flow" style="margin-bottom:12px;">
+<div class="flow-node"><strong>Cayman LP</strong>Tax-neutral fund<br/>No CIT, no WHT</div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-node" style="border-color:var(--accent);border-width:3px;"><strong>SG HoldCo</strong>Portfolio company<br/>0% CGT on exit</div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-node"><strong>Operating Subs</strong>US, AU, ID, CA, etc.</div>
+</div>
+<div class="two-col">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Fund-Level Considerations</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>Cayman LP:</strong> Standard for global VCs. Tax transparent. No entity-level tax<br/>
+&bull; <strong>US LP:</strong> Carried interest &sect;1061 &mdash; 3-year holding for LTCG treatment. UBTI risk for tax-exempt LPs<br/>
+&bull; <strong>SG LP/VCC:</strong> Variable Capital Company structure. &sect;13R/13X fund tax exemptions. No CGT on disposal<br/>
+&bull; <strong>FIRPTA risk:</strong> If target is US real property interest, non-US LPs face 15% withholding. SaaS companies generally not USRPI
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Optimal for B2B SaaS</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>Cayman fund + SG HoldCo:</strong> Fund invests in SG entity. SG entity holds all operating subs. Exit via share sale = 0% CGT in SG<br/>
+&bull; <strong>US-founded:</strong> Delaware C-Corp for QSBS. Cayman fund invests directly. US LPs get QSBS exclusion<br/>
+&bull; <strong>Key:</strong> Ensure holding structure doesn&rsquo;t create CFC issues for US LP investors (Subpart F / PFIC)
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="31">
+<div class="inner content">
+<div class="label">Early-Stage Instruments</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-file-text"></use></svg></div><h2 class="h2">Convertible Notes, SAFEs &amp; Tax Treatment</h2></div>
+<table class="dtable">
+<tr><th>Instrument</th><th>US Treatment</th><th>SG Treatment</th><th>Key Risk</th></tr>
+<tr><td><strong>SAFE</strong></td><td>Likely equity (Rev. Rul. 2020-&mdash;, no OID)</td><td>Equity (no income until conversion)</td><td>IRS may treat as prepaid forward &mdash; uncertain</td></tr>
+<tr><td><strong>Convertible Note</strong></td><td>Debt until conversion. OID rules apply if discount &gt;de minimis</td><td>Debt. Interest deductible. WHT on cross-border interest</td><td>Interest accrual creates phantom income. WHT on cross-border</td></tr>
+<tr><td><strong>KISS (Keep It Simple Security)</strong></td><td>Similar to SAFE</td><td>Similar to SAFE</td><td>Less established case law</td></tr>
+</table>
+<div class="key-point"><strong>Cross-border trap:</strong> US investor sends SAFE to SG company. If IRS treats SAFE as equity &mdash; no income until conversion. If treated as debt &mdash; SG may need to withhold on imputed interest. Mismatch creates double-taxation risk. <strong>Best practice:</strong> Get tax opinion on classification in both jurisdictions before signing.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="32">
+<div class="inner content">
+<div class="label">Workforce Tax</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-globe"></use></svg></div><h2 class="h2">Remote Team &amp; Employee Mobility Tax Risks</h2></div>
+<table class="dtable">
+<tr><th>Situation</th><th>PE Risk</th><th>Employer Obligation</th><th>Social Security</th><th>Mitigation</th></tr>
+<tr><td><strong>Remote dev in ID (no entity)</strong></td><td style="color:var(--accent);">Low</td><td>None if contractor</td><td>Self-pay BPJS</td><td>Independent contractor agreement</td></tr>
+<tr><td><strong>Sales rep in US (no entity)</strong></td><td style="color:var(--red);font-weight:700;">High</td><td>Payroll, W-2, state registration</td><td>FICA 7.65%</td><td><strong>Establish US LRD immediately</strong></td></tr>
+<tr><td><strong>Engineer relocates SG&rarr;US (6 months)</strong></td><td style="color:var(--amber);">Medium</td><td>US tax filing, possible dual residency</td><td>SG-US no totalization</td><td>Limit to &lt;183 days, track carefully</td></tr>
+<tr><td><strong>AU employee working from SG (3 months)</strong></td><td style="color:var(--accent);">Low</td><td>SG tax if &gt;60 days*</td><td>SG CPF if employed by SG entity</td><td>Short-term exemption &lt;60 days</td></tr>
+<tr><td><strong>EOR/PEO arrangement</strong></td><td style="color:var(--accent);">Low</td><td>EOR handles all</td><td>EOR handles</td><td>No local entity needed. Cost: $300&ndash;600/mo/person</td></tr>
+<tr><td><strong>Digital nomad (no fixed base)</strong></td><td style="color:var(--amber);">Medium</td><td>Varies by country</td><td>Home country</td><td>183-day rule tracking per jurisdiction</td></tr>
+</table>
+<div style="font-size:9px;color:var(--muted);margin-top:4px;">*SG: Non-resident employed &gt;60 days but &lt;183 days taxed at flat 15% or resident rates (whichever higher).</div>
+<div class="two-col" style="margin-top:10px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Social Security Totalization</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+Key agreements for startups with mobile employees:<br/>
+&bull; <strong>US&harr;CA:</strong> Yes &mdash; avoid double contributions<br/>
+&bull; <strong>US&harr;AU:</strong> Yes &mdash; totalization since 2002<br/>
+&bull; <strong>US&harr;SG:</strong> No agreement &mdash; risk of double social security<br/>
+&bull; <strong>SG&harr;AU:</strong> No agreement<br/>
+&bull; <strong>SG&harr;ID:</strong> No agreement &mdash; common corridor, plan carefully
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">EOR vs Entity Decision</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+<strong>Use EOR when:</strong> &lt;5 employees, testing market, no PE-creating activities (sales)<br/>
+<strong>Establish entity when:</strong> &gt;5 employees, sales reps who close deals, need to claim R&amp;D credits, revenue &gt;$1M in jurisdiction<br/>
+<strong>EOR providers:</strong> Deel, Remote, Oyster, Papaya Global<br/>
+<strong>Cost comparison:</strong> EOR $400/mo vs entity $2&ndash;5K/mo (admin + compliance)
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="33">
+<div class="inner centered">
+<div class="label">VI</div>
+<h1 class="title">Digital PE &amp; Cross-Border<br/>SaaS Sales</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">PE Risk</span><span class="tag">SaaS WHT</span><span class="tag">DST</span><span class="tag">VAT/GST</span><span class="tag">Revenue Recognition</span>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="34">
+<div class="inner content">
+<div class="label">PE Risk</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-alert"></use></svg></div><h2 class="h2">Permanent Establishment Risk for SaaS Companies</h2></div>
+<table class="dtable">
+<tr><th>Activity</th><th>Traditional PE</th><th>Service PE</th><th>Agent PE</th><th>Risk Level</th></tr>
+<tr><td><strong>Pure SaaS (cloud delivery)</strong></td><td style="color:var(--accent);">No</td><td style="color:var(--accent);">No</td><td style="color:var(--accent);">No</td><td><span class="tag filled" style="background:var(--accent);">Low</span></td></tr>
+<tr><td><strong>Remote sales team</strong></td><td style="color:var(--accent);">No</td><td style="color:var(--accent);">No</td><td style="color:var(--red);font-weight:700;">Yes*</td><td><span class="tag" style="border-color:var(--amber);color:var(--amber);">Medium</span></td></tr>
+<tr><td><strong>On-site implementation</strong></td><td style="color:var(--amber);">If &gt;threshold</td><td style="color:var(--red);font-weight:700;">Yes</td><td style="color:var(--amber);">Possible</td><td><span class="tag" style="border-color:var(--red);color:var(--red);">High</span></td></tr>
+<tr><td><strong>Local office / co-working</strong></td><td style="color:var(--red);font-weight:700;">Yes</td><td>N/A</td><td>N/A</td><td><span class="tag" style="border-color:var(--red);color:var(--red);">High</span></td></tr>
+<tr><td><strong>Customer success (remote)</strong></td><td style="color:var(--accent);">No</td><td style="color:var(--accent);">No</td><td style="color:var(--accent);">No</td><td><span class="tag filled" style="background:var(--accent);">Low</span></td></tr>
+<tr><td><strong>Servers / data center</strong></td><td style="color:var(--amber);">Maybe</td><td>N/A</td><td>N/A</td><td><span class="tag" style="border-color:var(--amber);color:var(--amber);">Medium</span></td></tr>
+</table>
+<div class="key-point"><strong>*Agent PE is the #1 risk for SaaS startups:</strong> A local sales rep who &ldquo;habitually exercises authority to conclude contracts&rdquo; creates dependent agent PE. Post-BEPS (MLI Art 12), this includes reps who &ldquo;play the principal role leading to conclusion&rdquo; even if contracts are signed elsewhere. <strong>Mitigation:</strong> Establish local LRD entity before hiring sales reps in any market.</div>
+</div>
+</div>
+
+<div class="slide" data-s="35">
+<div class="inner content">
+<div class="label">Indirect Tax</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-percent"></use></svg></div><h2 class="h2">VAT/GST on Cross-Border B2B SaaS</h2></div>
+<table class="dtable">
+<tr><th>Jurisdiction</th><th>B2B SaaS from Foreign Seller</th><th>Reverse Charge?</th><th>Registration Threshold</th></tr>
+<tr><td><strong>Singapore</strong></td><td>GST 9% (OVR regime)</td><td class="num">Yes (B2B)</td><td>S$1M (or S$100K imported services)</td></tr>
+<tr><td><strong>Australia</strong></td><td>GST 10%</td><td class="num">Yes (B2B)</td><td>A$75K turnover</td></tr>
+<tr><td><strong>Canada</strong></td><td>GST/HST 5&ndash;15%</td><td class="num">Yes (registered B2B)</td><td>C$30K (simplified for non-residents)</td></tr>
+<tr><td><strong>Indonesia</strong></td><td>PPN 12% (PMSE regime)</td><td>No &mdash; seller collects</td><td>IDR 600M or 12K transactions/yr</td></tr>
+<tr><td><strong>Brazil</strong></td><td>ISS 2&ndash;5% + PIS/COFINS</td><td>Buyer withholds</td><td>Complex &mdash; municipal registration</td></tr>
+<tr><td><strong>Mexico</strong></td><td>IVA 16%</td><td class="num">Yes (B2B)</td><td>Digital services must register</td></tr>
+<tr><td><strong>US</strong></td><td>No federal VAT</td><td>N/A</td><td>State nexus rules (varies)</td></tr>
+</table>
+<div class="key-point"><strong>B2B advantage:</strong> In most jurisdictions, B2B SaaS is reverse-charged &mdash; the buyer self-assesses VAT/GST and claims input credit, so net cost is zero. The SaaS seller typically has no collection obligation for B2B. <strong>Exception:</strong> Indonesia (PMSE) and some B2C-adjacent scenarios.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="36">
+<div class="inner content">
+<div class="label">Treaty Optimization</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-link"></use></svg></div><h2 class="h2">WHT Corridor Optimization: Key Treaty Rates for SaaS</h2></div>
+<p style="font-size:10px;color:var(--muted);margin-bottom:8px;">Treaty-reduced WHT rates on common B2B SaaS intercompany flows. Rates shown are treaty rates (default domestic rate in parentheses).</p>
+<table class="dtable">
+<tr><th>Flow</th><th>Dividends</th><th>Interest</th><th>Royalties</th><th>Technical Fees</th><th>Overall Rating</th></tr>
+<tr><td><strong>SG &rarr; US</strong></td><td class="num">5%* (30%)</td><td class="num">0% (30%)</td><td class="num">0% (30%)</td><td class="num">0%</td><td><span class="tag filled" style="background:var(--accent);">Excellent</span></td></tr>
+<tr><td><strong>SG &rarr; ID</strong></td><td class="num">10% (20%)</td><td class="num">10% (20%)</td><td class="num">10% (20%)</td><td class="num">0%</td><td><span class="tag" style="border-color:var(--accent);color:var(--accent);">Good</span></td></tr>
+<tr><td><strong>SG &rarr; AU</strong></td><td class="num">15% (30%)</td><td class="num">10% (10%)</td><td class="num">10% (30%)</td><td class="num">0%</td><td><span class="tag" style="border-color:var(--accent);color:var(--accent);">Good</span></td></tr>
+<tr><td><strong>SG &rarr; CA</strong></td><td class="num">15% (25%)</td><td class="num">15% (25%)</td><td class="num">0%** (25%)</td><td class="num">0%</td><td><span class="tag" style="border-color:var(--accent);color:var(--accent);">Good</span></td></tr>
+<tr><td><strong>SG &rarr; BR</strong></td><td class="num">10% (0%***)</td><td class="num">10% (15%)</td><td class="num">10% (15%)</td><td class="num">10%</td><td><span class="tag" style="border-color:var(--amber);color:var(--amber);">Fair</span></td></tr>
+<tr><td><strong>SG &rarr; MX</strong></td><td class="num">0% (10%)</td><td class="num">15% (35%)</td><td class="num">10% (25%)</td><td class="num">0%</td><td><span class="tag" style="border-color:var(--accent);color:var(--accent);">Good</span></td></tr>
+<tr><td><strong>US &rarr; CA</strong></td><td class="num">5%* (25%)</td><td class="num">0% (25%)</td><td class="num">0% (25%)</td><td class="num">0%</td><td><span class="tag filled" style="background:var(--accent);">Excellent</span></td></tr>
+</table>
+<div style="font-size:9px;color:var(--muted);margin-top:4px;">*5% if &ge;10%/25% ownership. **SG-CA treaty: 0% royalty WHT for copyright royalties. ***Brazil: 0% domestic dividend WHT regardless of treaty.</div>
+<div class="key-point"><strong>SG as hub advantage:</strong> SG&rsquo;s 90+ treaty network provides 0% royalty WHT to US and CA &mdash; the two largest SaaS markets. For a SG principal receiving sublicense fees from US/CA LRDs, the intercompany royalty flows are largely WHT-free. This is a structural advantage over HK (no US treaty), NL (substance requirements post-2021), and IE (Pillar 2 concerns).</div>
+</div>
+</div>
+
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="37">
+<div class="inner centered">
+<div class="label">VII</div>
+<h1 class="title">Holding Company &amp;<br/>Entity Design</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">SG HoldCo</span><span class="tag">US Delaware</span><span class="tag">Substance</span><span class="tag">Branch vs Sub</span><span class="tag">Entity Diagram</span>
+</div>
+</div>
+</div>
+
+<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="38">
+<div class="inner content">
+<div class="label">Entity Design</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-building"></use></svg></div><h2 class="h2">Optimal Holding Structure for B2B SaaS</h2></div>
+<div class="three-col">
+<div class="card" style="border-left-color:var(--accent);border-left-width:4px;">
+<div class="h3" style="border:none;padding:0;">SG HoldCo (Recommended)</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; No CFC rules on foreign subs<br/>
+&bull; 0% CGT on share/IP disposal<br/>
+&bull; 0% dividend WHT (one-tier)<br/>
+&bull; SUTE 4.25% + EIS 400% R&amp;D<br/>
+&bull; 90+ tax treaties<br/>
+&bull; Credible IP ownership jurisdiction<br/>
+&bull; <strong>Best for:</strong> Non-US founders, APAC focus
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">US Delaware C-Corp</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; QSBS: $10M+ tax-free gain per holder<br/>
+&bull; VC preference for US investors<br/>
+&bull; 21% CIT (+ state tax)<br/>
+&bull; GILTI on foreign sub profits<br/>
+&bull; &sect;174 amortization trap<br/>
+&bull; <strong>Best for:</strong> US founders, US-first revenue, US VC
+</div>
+</div>
+<div class="card" style="border-left-color:var(--amber);">
+<div class="h3" style="border:none;padding:0;color:var(--amber);">Hybrid: US Parent + SG OpCo</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; US Delaware parent (QSBS)<br/>
+&bull; SG subsidiary for APAC + IP<br/>
+&bull; Manage GILTI via HTE (18.9%)<br/>
+&bull; FDII benefit on US exports<br/>
+&bull; <strong>Best for:</strong> US founders wanting QSBS + international efficiency
+</div>
+</div>
+</div>
+<div class="key-point"><strong>Decision rule:</strong> If US revenue &gt;70% and US VCs &rarr; Delaware C-Corp (QSBS). If APAC-focused or non-US founders &rarr; SG HoldCo. If mixed &rarr; Hybrid (US parent + SG operating sub).</div>
+</div>
+</div>
+
+<div class="slide" data-s="39">
+<div class="inner content">
+<div class="label">Singapore</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-building"></use></svg></div><h2 class="h2">SG HoldCo: Substance Requirements</h2></div>
+<ul class="points">
+<li><strong>Minimum requirements:</strong> At least 1 resident director (Singapore citizen/PR/EP holder), registered office address, company secretary, annual filing with ACRA. Virtual office acceptable initially but physical presence strengthens substance</li>
+<li><strong>Economic substance (post-BEPS):</strong> IRAS expects key decision-making in Singapore &mdash; board meetings, strategic IP decisions, pricing authority. Employ qualified individuals who manage the IP and business operations. Not just a mailbox</li>
+<li><strong>For IP ownership:</strong> Demonstrate DEMPE functions (Development, Enhancement, Maintenance, Protection, Exploitation) are performed or controlled from Singapore. At minimum: CTO or VP Eng based in SG, IP strategy decisions documented in SG board minutes</li>
+<li><strong>Cost &amp; timeline:</strong> Incorporation: S$300&ndash;500 + 1&ndash;2 days. Corporate secretary: S$300&ndash;600/yr. Virtual office: S$200&ndash;500/mo. Bank account: 2&ndash;4 weeks (DBS/OCBC). Annual filing: S$1&ndash;3K. Total Year 1 setup: S$5&ndash;15K</li>
+<li><strong>EDB engagement:</strong> For Pioneer Certificate (0&ndash;5% CIT), engage with Economic Development Board. Requires commitment to hire in SG, invest in local R&amp;D. Approval typically 3&ndash;6 months</li>
+</ul>
+</div>
+</div>
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="40">
+<div class="inner centered">
+<div class="label">VIII</div>
+<h1 class="title">Pillar 2 &amp; Global Minimum Tax<br/>for Startups</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">&euro;750M Threshold</span><span class="tag">SBIE</span><span class="tag">DMTT</span><span class="tag">Restructuring</span>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="41">
+<div class="inner content">
+<div class="label">Pillar 2</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-shield"></use></svg></div><h2 class="h2">Pillar 2: Does It Affect Your Startup?</h2></div>
+<div class="metrics">
+<div class="metric"><div class="metric-val">&euro;750M</div><div class="metric-lbl">Revenue Threshold</div></div>
+<div class="metric"><div class="metric-val">15%</div><div class="metric-lbl">Minimum ETR</div></div>
+<div class="metric"><div class="metric-val">Series D+</div><div class="metric-lbl">Typical Crossing Point</div></div>
+</div>
+<div class="two-col">
+<div class="card" style="border-left-color:var(--accent);">
+<div class="h3" style="border:none;padding:0;">Most Startups: NOT In Scope</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; &euro;750M consolidated revenue is very large (&sim;$800M)<br/>
+&bull; Typical SaaS startup crosses this at Series D+ or post-IPO<br/>
+&bull; Until then: all low-tax incentives (SUTE, tax holidays, Pioneer) work at full value<br/>
+&bull; <strong>No reason to avoid low-tax structures pre-threshold</strong>
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">But Plan Ahead Anyway</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; Restructuring at &euro;750M is expensive and disruptive<br/>
+&bull; Build substance from Day 1 in SG/ID (SBIE carve-out = 5% payroll + 5% tangible assets)<br/>
+&bull; Prefer R&amp;D credits over rate holidays (credits reduce covered taxes, holidays don&rsquo;t)<br/>
+&bull; SG DMTT (Domestic Minimum Top-up Tax) from Jan 2025 for in-scope groups
+</div>
+</div>
+</div>
+<div class="key-point"><strong>SBIE for software startups:</strong> Substance-Based Income Exclusion carves out 5% of payroll + 5% of tangible assets. Software companies have minimal tangible assets, so <strong>payroll is your lever</strong>. 50 engineers in SG at S$120K = S$6M payroll &times; 5% = S$300K excluded from top-up calculation.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="42">
+<div class="inner content">
+<div class="label">Anti-Avoidance</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-shield"></use></svg></div><h2 class="h2">Anti-Avoidance Rules: GAAR, SAAR &amp; Substance Tests</h2></div>
+<table class="dtable">
+<tr><th>Rule</th><th>US</th><th>SG</th><th>AU</th><th>CA</th><th>ID</th><th>What It Catches</th></tr>
+<tr><td><strong>GAAR</strong></td><td>&sect;7701(o) (economic substance)</td><td>&sect;33 ITA (limited)</td><td>Part IVA ITAA 1936</td><td>&sect;245 ITA (very broad)</td><td>Art 18 UU KUP</td><td>Arrangements with <em>sole</em> or dominant purpose of tax avoidance</td></tr>
+<tr><td><strong>TP Rules</strong></td><td>&sect;482 (broad authority)</td><td>&sect;34D ITA</td><td>Div 815 ITAA</td><td>&sect;247 ITA</td><td>Art 18(3) UU PPh</td><td>Non-arm&rsquo;s length intercompany pricing</td></tr>
+<tr><td><strong>CFC Rules</strong></td><td>Subpart F + GILTI</td><td class="num highlight">None</td><td>Part X ITAA</td><td>FAPI &sect;91</td><td>Art 18(2) deemed div</td><td>Passive income parked in low-tax subsidiaries</td></tr>
+<tr><td><strong>Thin Cap</strong></td><td>30% ATI &sect;163(j)</td><td>Arm&rsquo;s length only</td><td>30% EBITDA Div 820</td><td>30% EIFEL</td><td>DER 4:1</td><td>Excessive intercompany debt to strip profits</td></tr>
+<tr><td><strong>PPT / LOB</strong></td><td>LOB in most treaties</td><td>PPT (MLI)</td><td>PPT (MLI)</td><td>PPT + LOB</td><td>PPT (MLI)</td><td>Treaty shopping through conduit entities</td></tr>
+</table>
+<div class="two-col" style="margin-top:10px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">How Startups Stay Safe</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>Real substance:</strong> Employees, decisions, board meetings in claimed jurisdiction<br/>
+&bull; <strong>Arm&rsquo;s length pricing:</strong> Benchmarking study from Year 1. Update annually<br/>
+&bull; <strong>Business purpose:</strong> Document <em>commercial</em> reasons for structure (market access, talent, not just tax)<br/>
+&bull; <strong>Contemporaneous documentation:</strong> TP policy, board minutes, intercompany agreements all dated and signed<br/>
+&bull; <strong>Avoid round-tripping:</strong> Don&rsquo;t route money through entities that add no value
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">SG&rsquo;s Advantage: No CFC Rules</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+Singapore has <strong>no CFC regime</strong> &mdash; foreign subsidiary profits are not deemed taxable in SG. Combined with:<br/>
+&bull; No GAAR (only limited &sect;33, rarely invoked for genuine businesses)<br/>
+&bull; No thin cap rules (arm&rsquo;s length standard only)<br/>
+&bull; Territorial system with broad &sect;13(8) exemptions<br/>
+&bull; <strong>Result:</strong> SG HoldCo structure faces far less anti-avoidance friction than US parent (GILTI) or AU parent (Part X)
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="43">
+<div class="inner centered">
+<div class="label">IX</div>
+<h1 class="title">Worked Scenarios<br/>for B2B Product Startups</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">US-Founded $5M ARR</span><span class="tag">SG-Founded $10M ARR</span><span class="tag">Scale-Up $50M</span><span class="tag">ID-Founded Platform</span>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="44">
+<div class="inner content">
+<div class="label">Scenario 1</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-code"></use></svg></div><h2 class="h2">US-Founded SaaS, $5M ARR</h2></div>
+<div class="metrics" style="margin-bottom:10px;">
+<div class="metric"><div class="metric-val">$5M</div><div class="metric-lbl">ARR</div></div>
+<div class="metric"><div class="metric-val">15</div><div class="metric-lbl">Engineers</div></div>
+<div class="metric"><div class="metric-val">70%</div><div class="metric-lbl">US Revenue</div></div>
+<div class="metric"><div class="metric-val">QSBS</div><div class="metric-lbl">Exit Strategy</div></div>
+</div>
+<div class="two-col">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Recommended Structure</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; <strong>US Delaware C-Corp</strong> (parent &mdash; QSBS eligibility)<br/>
+&bull; <strong>SG subsidiary</strong> for APAC revenue ($1.5M)<br/>
+&bull; IP kept in US (QSBS requires business test, 80% assets)<br/>
+&bull; 8 engineers in US, 7 remote (ID contract R&amp;D)
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Tax Optimization</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; &sect;41 R&amp;D payroll offset: $250K/yr against FICA<br/>
+&bull; SG sub: SUTE 4.25% on APAC profits<br/>
+&bull; ID contract R&amp;D: avoid &sect;174 domestic amortization<br/>
+&bull; <strong>Blended ETR: ~14%</strong> (vs 21% single entity)
+</div>
+</div>
+</div>
+<div class="key-point"><strong>Exit play:</strong> Each founder with $100K basis &rarr; $10M tax-free gain under QSBS &sect;1202. 5-year hold from stock issuance. Combined with SG sub 0% CGT on APAC asset sale = highly tax-efficient exit.</div>
+</div>
+</div>
+
+<div class="slide" data-s="45">
+<div class="inner content">
+<div class="label">Scenario 2</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-cloud"></use></svg></div><h2 class="h2">SG-Founded SaaS, $10M ARR</h2></div>
+<div class="metrics" style="margin-bottom:10px;">
+<div class="metric"><div class="metric-val">$10M</div><div class="metric-lbl">ARR</div></div>
+<div class="metric"><div class="metric-val">30</div><div class="metric-lbl">Engineers</div></div>
+<div class="metric"><div class="metric-val">40%</div><div class="metric-lbl">US Revenue</div></div>
+<div class="metric"><div class="metric-val">3.9%</div><div class="metric-lbl">Target Blended ETR</div></div>
+</div>
+<table class="dtable">
+<tr><th>Entity</th><th>Role</th><th class="right">Revenue/Cost</th><th class="right">Taxable</th><th class="right">Rate</th><th class="right">Tax</th></tr>
+<tr><td><strong>SG HoldCo</strong></td><td>IP Owner / Principal</td><td class="right num">$10M</td><td class="right num">$7.4M residual</td><td class="right">4.25%*</td><td class="right num">$314K</td></tr>
+<tr><td>US Sales LRD</td><td>Marketing + support</td><td class="right num">$4M</td><td class="right num">$200K (5%)</td><td class="right">21%</td><td class="right num">$42K</td></tr>
+<tr><td>ID Dev Center</td><td>Contract R&amp;D</td><td class="right num">$2M cost</td><td class="right num">$240K (12%)</td><td class="right">0%**</td><td class="right num">$0</td></tr>
+<tr><td>AU Sales LRD</td><td>APAC sales</td><td class="right num">$2M</td><td class="right num">$100K (5%)</td><td class="right">25%</td><td class="right num">$25K</td></tr>
+<tr class="result"><td colspan="4"><strong>Group Total / Blended ETR</strong></td><td></td><td class="right num"><strong>$381K (3.8%)</strong></td></tr>
+</table>
+<div style="font-size:9px;color:var(--muted);">*SUTE Year 1&ndash;3 rate. **ID tax holiday for pioneer industry.</div>
+</div>
+</div>
+
+<div class="slide" data-s="46">
+<div class="inner content">
+<div class="label">Scenario 3</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-trending-up"></use></svg></div><h2 class="h2">Scale-Up: $50M ARR, Pre-IPO</h2></div>
+<div class="metrics">
+<div class="metric"><div class="metric-val">$50M</div><div class="metric-lbl">ARR</div></div>
+<div class="metric"><div class="metric-val">150+</div><div class="metric-lbl">Employees</div></div>
+<div class="metric"><div class="metric-val">5</div><div class="metric-lbl">Sales Subs</div></div>
+<div class="metric"><div class="metric-val">~8%</div><div class="metric-lbl">Target Blended ETR</div></div>
+</div>
+<ul class="points">
+<li><strong>Structure:</strong> SG HoldCo + US, AU, CA, BR, MX sales LRDs + ID &amp; SG dev centers. Full principal model operational. APA (Advance Pricing Agreement) filed for SG&harr;US and SG&harr;AU corridors</li>
+<li><strong>Substance:</strong> 30+ employees in SG (CTO, VP Eng, Product leads). SG board makes IP and pricing decisions. Full DEMPE documentation. Master File + Local Files + CbCR</li>
+<li><strong>Pillar 2 readiness:</strong> Not yet in scope (&lt;&euro;750M) but tracking. Payroll-heavy structure in SG builds SBIE carve-out. R&amp;D credits preferred over rate holidays for future compliance</li>
+<li><strong>Exit planning:</strong> SG listing (SGX) = 0% CGT. Dual listing (SGX + NASDAQ) = FIRPTA planning for non-US holders. ESOP exercise timing around IPO lockup. QSBS for US co-founders if hybrid structure</li>
+<li><strong>Multi-jurisdiction ESOP:</strong> SG (ERIS), US (ISO/NSO), AU (ESS deferral), CA (&sect;7 deferral). Requires country-specific plan sub-documents and local counsel in each jurisdiction</li>
+</ul>
+</div>
+</div>
+
+<div class="slide" data-s="47">
+<div class="inner content">
+<div class="label">Scenario 4</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-database"></use></svg></div><h2 class="h2">ID-Founded B2B Platform, SEA + US Target</h2></div>
+<div class="vs-grid">
+<div class="vs-box">
+<div class="vs-label">Option A: Pure Indonesia</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; ID OpCo with tax holiday (0% CIT, 5&ndash;20 years)<br/>
+&bull; Direct US sales from Indonesia<br/>
+&bull; <strong>Risk:</strong> US agent PE from sales reps, 20% royalty WHT on inbound payments from SG/US, limited treaty network for exit<br/>
+&bull; ETR: 0% during holiday, then 22%
+</div>
+</div>
+<div class="vs-divider">VS</div>
+<div class="vs-box win">
+<div class="vs-label">Option B: SG HoldCo + ID OpCo</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&bull; SG HoldCo (IP owner, principal)<br/>
+&bull; ID subsidiary (dev center + SEA sales, tax holiday)<br/>
+&bull; US LRD for US market<br/>
+&bull; <strong>Advantage:</strong> 0% CGT on exit via SG, treaty WHT rates, no PE risk, clean VC structure<br/>
+&bull; Blended ETR: ~5%
+</div>
+</div>
+</div>
+<div class="key-point"><strong>ID founder consideration:</strong> BKPM Positive Investment List allows 100% foreign ownership for most software/SaaS activities. Use SG HoldCo to hold ID operating sub &mdash; SG-ID treaty reduces dividend WHT to 10%. On exit, sell SG HoldCo shares at 0% CGT.</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="48">
+<div class="inner content">
+<div class="label">Exit Planning</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-trending-up"></use></svg></div><h2 class="h2">Exit Tax Deep-Dive: Share Sale vs Asset Sale vs IPO</h2></div>
+<table class="dtable">
+<tr><th>Exit Type</th><th>SG Parent</th><th>US Parent (C-Corp)</th><th>Hybrid (US + SG)</th></tr>
+<tr><td><strong>Share sale (trade sale)</strong></td><td class="num highlight">0% CGT to seller</td><td>QSBS: 0% on $10M/holder. Else: 21% corp + 23.8% personal</td><td>SG shares: 0%. US shares: QSBS or 21%+23.8%</td></tr>
+<tr><td><strong>Asset sale</strong></td><td>17% CIT on gain, then 0% div distribution</td><td>21% corp tax on gain + 23.8% on liquidation div</td><td>Sell SG assets (17%) or US assets (21%)</td></tr>
+<tr><td><strong>IPO (SG listing)</strong></td><td class="num highlight">0% CGT on secondary sales</td><td>N/A for US parent on SGX</td><td>SG sub IPO: 0% CGT. US parent IPO: standard rates</td></tr>
+<tr><td><strong>IPO (US listing / NASDAQ)</strong></td><td>0% SG CGT on sale of SG shares. FIRPTA risk if >50% US real property</td><td>QSBS for pre-IPO shares. LTCG 23.8% post-IPO</td><td>Mixed treatment based on which entity lists</td></tr>
+<tr><td><strong>Acqui-hire / IP sale</strong></td><td>17% on IP gain, 0% on share premium</td><td>21% on all gains + &sect;1060 allocation</td><td>Route through SG for IP; US for talent</td></tr>
+</table>
+<div class="two-col" style="margin-top:10px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Worked Example: $100M Exit</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+<strong>SG parent, share sale:</strong><br/>
+Gain: $100M. SG CGT: <span class="num">$0</span>. Founder personal tax: <span class="num">$0</span> (SG resident).<br/><br/>
+<strong>US C-Corp, share sale (no QSBS):</strong><br/>
+Corp gains: $100M &times; 21% = $21M. Liquidation: $79M &times; 23.8% = $18.8M.<br/>
+Total tax: <span class="num" style="color:var(--red);">$39.8M</span> (39.8% effective).<br/><br/>
+<strong>US C-Corp, QSBS:</strong><br/>
+First $10M/founder: $0 tax. Above $10M: 23.8%.<br/>
+3 founders, $30M excluded: remaining $70M &times; 23.8% = <span class="num">$16.7M</span>.
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">FIRPTA Planning</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+<strong>Non-US holders of US corporation stock:</strong><br/>
+&bull; If company is &ldquo;US Real Property Holding Corporation&rdquo; (USRPHC): 15% withholding under FIRPTA<br/>
+&bull; SaaS companies generally <strong>not USRPHC</strong> &mdash; assets are IP (intangible), not real property<br/>
+&bull; <strong>Publicly traded exception:</strong> If &lt;5% of public stock, FIRPTA doesn&rsquo;t apply<br/>
+&bull; <strong>REIT exception:</strong> Not relevant for SaaS<br/>
+&bull; <strong>Planning:</strong> Maintain records showing &lt;50% of assets are US real property interests
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="49">
+<div class="inner centered">
+<div class="label">X</div>
+<h1 class="title">Compliance &amp;<br/>Execution Checklists</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">Pre-Incorporation</span><span class="tag">Year 1&ndash;2</span><span class="tag">Growth Stage</span><span class="tag">Common Mistakes</span>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="50">
+<div class="inner content">
+<div class="label">Pre-Incorporation</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-check-square"></use></svg></div><h2 class="h2">Pre-Incorporation Tax Checklist</h2></div>
+<ul class="checklist">
+<li><strong>Founder residency analysis</strong> &mdash; determine home country CFC exposure, personal tax residency, social security obligations</li>
+<li><strong>Entity jurisdiction selection</strong> &mdash; SG HoldCo vs US Delaware vs Hybrid based on revenue target, VC source, exit plan</li>
+<li><strong>IP assignment on Day 0</strong> &mdash; assign all pre-existing IP to the principal entity at incorporation. Document FMV = $0 (pre-revenue, pre-product). This cannot be undone cheaply later</li>
+<li><strong>ESOP pool design</strong> &mdash; 10&ndash;20% option pool. Choose ISO vs NSO (US), determine vesting schedule, get initial 409A valuation if US entity</li>
+<li><strong>VC term sheet tax review</strong> &mdash; preferred share structure, anti-dilution, liquidation preference. Check SAFE/convertible cross-border treatment</li>
+<li><strong>Initial TP policy draft</strong> &mdash; even pre-revenue, document the intended principal model. Sets arm&rsquo;s length framework from Day 1</li>
+<li><strong>Tax treaty map</strong> &mdash; identify treaty rates for planned sales jurisdictions (dividend WHT, royalty WHT, service PE thresholds)</li>
+</ul>
+</div>
+</div>
+
+<div class="slide" data-s="51">
+<div class="inner content">
+<div class="label">Year 1&ndash;2 Operations</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-check-square"></use></svg></div><h2 class="h2">Year 1&ndash;2 Operational Tax Checklist</h2></div>
+<ul class="checklist">
+<li><strong>R&amp;D credit documentation from Day 1</strong> &mdash; track qualifying activities contemporaneously: project descriptions, time allocation, technological uncertainty documentation. Cannot reconstruct later</li>
+<li><strong>TP contemporaneous documentation</strong> &mdash; Master File outline, intercompany agreements signed, pricing methodology documented. Even if no intercompany transactions yet, the framework matters</li>
+<li><strong>Economic substance evidence</strong> &mdash; SG board minutes, key decisions documented in SG, employees hired in SG. Avoid &ldquo;brass plate&rdquo; perception from Day 1</li>
+<li><strong>VAT/GST registration</strong> &mdash; register in sales jurisdictions once thresholds are crossed. SG OVR, AU GST, CA GST, ID PMSE</li>
+<li><strong>&sect;409A valuation</strong> (US entity) &mdash; independent valuation before first option grant. Annual refresh required. Safe harbor: qualified independent appraiser</li>
+<li><strong>R&amp;D credit claims filed</strong> &mdash; AU: register with AusIndustry before lodging return. CA: T661 form with return. US: Form 6765. SG: claim in Form C-S/C</li>
+<li><strong>Incentive applications</strong> &mdash; ID tax holiday (BKPM), SG Pioneer Certificate (EDB), SG EIS claim</li>
+</ul>
+</div>
+</div>
+
+<div class="slide" data-s="52">
+<div class="inner content">
+<div class="label">Growth Stage</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-check-square"></use></svg></div><h2 class="h2">Growth Stage Tax Checklist</h2></div>
+<ul class="checklist">
+<li><strong>Principal structure activation</strong> &mdash; establish LRD entities in key sales markets (US, AU, CA). Sign intercompany service and IP license agreements. Set TNMM benchmarks (5% OM for LRDs)</li>
+<li><strong>IP migration if needed</strong> &mdash; if IP is not yet in the optimal jurisdiction, execute CSA or buy-in. Get independent valuation. Earlier = cheaper</li>
+<li><strong>APA consideration</strong> &mdash; for intercompany flows &gt;$10M, consider Advance Pricing Agreements with key tax authorities (IRAS, IRS, ATO)</li>
+<li><strong>Pillar 2 readiness assessment</strong> &mdash; track consolidated revenue trajectory. If approaching &euro;750M within 3 years, begin SBIE optimization (payroll in low-tax entities)</li>
+<li><strong>Multi-jurisdiction ESOP compliance</strong> &mdash; local plan sub-documents for each country. Securities law filings (Form D US, AU ASIC exemption, SG s273 exemption)</li>
+<li><strong>Exit structure planning</strong> &mdash; SG listing (0% CGT), US IPO (FIRPTA), dual listing. QSBS 5-year hold period tracking per shareholder</li>
+<li><strong>CbCR filing</strong> &mdash; required if group revenue exceeds local thresholds (SG: S$1.125B, US: $850M). File in parent jurisdiction</li>
+</ul>
+</div>
+</div>
+
+<div class="slide" data-s="53">
+<div class="inner content">
+<div class="label">Pitfalls</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-alert"></use></svg></div><h2 class="h2">Common Startup Tax Mistakes</h2></div>
+<ul class="points">
+<li><strong>IP assignment too late:</strong> Founders build product for 2 years, raise Series A, then try to assign IP to SG HoldCo. IP now worth $10M+ &rarr; capital gains tax on transfer. <span class="tag-inline" style="border-color:var(--red);color:var(--red);">$2&ndash;5M cost</span></li>
+<li><strong>Ignoring TP from Day 1:</strong> No intercompany agreements, no documentation. Tax authority audit at Series C &rarr; TP adjustments + penalties (up to 200% in Indonesia, 40% in US). <span class="tag-inline" style="border-color:var(--red);color:var(--red);">Audit risk</span></li>
+<li><strong>Choosing entity based on VC preference alone:</strong> US VC says &ldquo;we only invest in Delaware C-Corps&rdquo; &rarr; founder ignores 21% CIT + &sect;174 amortization + GILTI. Should evaluate hybrid structures first. <span class="tag-inline" style="border-color:var(--amber);color:var(--amber);">Avoidable</span></li>
+<li><strong>Not claiming R&amp;D credits:</strong> AU startup leaving $870K/year cash on the table. CA startup not filing SR&amp;ED. US startup not using &sect;41 payroll offset. <span class="tag-inline" style="border-color:var(--red);color:var(--red);">Cash left on table</span></li>
+<li><strong>Single-entity international sales:</strong> SG company with US sales reps = dependent agent PE in US. Should have established US LRD before first hire. <span class="tag-inline" style="border-color:var(--amber);color:var(--amber);">PE exposure</span></li>
+<li><strong>ESOP without local compliance:</strong> US ISO plan applied globally. Employees in AU/SG/CA face unexpected tax at exercise because plan doesn&rsquo;t meet local favorable treatment requirements. <span class="tag-inline" style="border-color:var(--amber);color:var(--amber);">Employee impact</span></li>
+</ul>
+</div>
+</div>
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="54">
+<div class="inner centered">
+<div class="label">XI</div>
+<h1 class="title">Decision Framework<br/>&amp; Appendix</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+<span class="tag">Incorporation</span><span class="tag">IP Location</span><span class="tag">KPI Dashboard</span><span class="tag">Legislation Index</span>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="55">
+<div class="inner content">
+<div class="label">Decision Tree</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-compass"></use></svg></div><h2 class="h2">Where to Incorporate Your B2B SaaS</h2></div>
+<div class="three-col" style="margin-bottom:12px;">
+<div class="card" style="border-left-color:var(--accent);border-left-width:4px;">
+<div class="h3" style="border:none;padding:0;">US-Focused Revenue (&gt;70%)</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&rarr; <strong>US Delaware C-Corp</strong><br/>
+&bull; QSBS eligibility<br/>
+&bull; US VC compatibility<br/>
+&bull; Add SG sub for APAC later
+</div>
+</div>
+<div class="card" style="border-left-color:var(--accent);border-left-width:4px;">
+<div class="h3" style="border:none;padding:0;">APAC-Focused / Non-US Founders</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&rarr; <strong>SG HoldCo</strong><br/>
+&bull; 0% CGT, 0% div WHT<br/>
+&bull; SUTE + EIS<br/>
+&bull; No CFC rules<br/>
+&bull; Add US sub for US market
+</div>
+</div>
+<div class="card" style="border-left-color:var(--amber);border-left-width:4px;">
+<div class="h3" style="border:none;padding:0;color:var(--amber);">Mixed / Global</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+&rarr; <strong>Hybrid</strong><br/>
+&bull; US parent (QSBS) + SG OpCo<br/>
+&bull; Or SG parent + US C-Corp sub<br/>
+&bull; Depends on VC source and exit plan
+</div>
+</div>
+</div>
+<div class="two-col">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Targeting Tax Holiday?</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">&rarr; <strong>SG parent + ID subsidiary</strong>. SG holds IP, ID gets tax holiday on dev center. SG-ID treaty for efficient repatriation.</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">100% Remote Team?</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">&rarr; <strong>SG HoldCo</strong>. Best for distributed teams: no employee-specific CFC or PE issues. Minimal substance to start, build over time.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="slide" data-s="56">
+<div class="inner content">
+<div class="label">Decision Tree</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-code"></use></svg></div><h2 class="h2">Where to Locate Your IP</h2></div>
+<div class="flow" style="flex-direction:column;gap:8px;">
+<div class="flow-node" style="min-width:400px;"><strong>Pre-Revenue / Day 0?</strong>Assign to planned principal entity at incorporation. FMV = $0. Cost = $0.</div>
+<div class="flow-arrow-down">&darr;</div>
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+<div class="flow-node"><strong>Need US QSBS?</strong>&rarr; Keep IP in US C-Corp<br/>(80% asset test)</div>
+<div class="flow-node" style="border-color:var(--accent);border-width:3px;"><strong>Maximum R&amp;D benefit?</strong>&rarr; SG (EIS 400%) or<br/>AU (43.5% cash)</div>
+<div class="flow-node"><strong>Low cost dev?</strong>&rarr; ID for development<br/>SG for ownership</div>
+</div>
+<div class="flow-arrow-down">&darr;</div>
+<div class="flow-node" style="min-width:400px;border-color:var(--red);"><strong>Post-Revenue / Already has IP elsewhere?</strong>CSA (gradual, ongoing) or Buy-In (lump sum). Get independent valuation. <strong>Expensive.</strong></div>
+</div>
+<div class="key-point"><strong>Core principle:</strong> IP should live where the principal entity is. For SG principal model, IP is in SG. For US QSBS play, IP stays in US. <strong>Never</strong> split IP ownership across entities &mdash; it creates TP nightmares and dual-taxation risk.</div>
+</div>
+</div>
+
+<div class="slide" data-s="57">
+<div class="inner content">
+<div class="label">Tax KPIs</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-bar-chart"></use></svg></div><h2 class="h2">B2B SaaS Tax KPI Dashboard</h2></div>
+<div class="three-col">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Blended ETR</div>
+<div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--accent);">3&ndash;8%</div>
+<div style="font-size:10px;color:var(--muted);margin-top:4px;">Target with principal model<br/>Track: group tax / group PBT</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">R&amp;D Credit Utilization</div>
+<div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--accent);">90%+</div>
+<div style="font-size:10px;color:var(--muted);margin-top:4px;">% of qualifying R&amp;D claimed<br/>Track: credits claimed / eligible spend</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">WHT Leakage</div>
+<div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--accent);">&lt;1%</div>
+<div style="font-size:10px;color:var(--muted);margin-top:4px;">WHT paid / total intercompany flows<br/>Indicates treaty optimization</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">LRD Operating Margin</div>
+<div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--fg);">3&ndash;8%</div>
+<div style="font-size:10px;color:var(--muted);margin-top:4px;">Within arm&rsquo;s length range<br/>Track per entity quarterly</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Cash Tax Rate</div>
+<div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--accent);">&lt;5%</div>
+<div style="font-size:10px;color:var(--muted);margin-top:4px;">Cash taxes paid / operating cash flow<br/>More useful than statutory ETR</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">ESOP Tax Efficiency</div>
+<div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--fg);">Track</div>
+<div style="font-size:10px;color:var(--muted);margin-top:4px;">Employee net gain / gross gain<br/>Varies by jurisdiction</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="58">
+<div class="inner content">
+<div class="label">Cash Management</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-dollar"></use></svg></div><h2 class="h2">Cash Repatriation Playbook: Getting Money Out Efficiently</h2></div>
+<table class="dtable">
+<tr><th>Method</th><th>From US to SG</th><th>From AU to SG</th><th>From ID to SG</th><th>From BR to SG</th></tr>
+<tr><td><strong>Dividend</strong></td><td>30% WHT (treaty: 5%*)</td><td>0% (franked) / 30% (unfranked)</td><td>20% (treaty: 10%)</td><td class="num highlight">0% (no WHT on BR divs)</td></tr>
+<tr><td><strong>Intercompany service fee</strong></td><td class="num">0% WHT</td><td class="num">0% WHT</td><td class="num">0% (if not royalty)</td><td>15% IRRF + PIS/COFINS</td></tr>
+<tr><td><strong>Royalty / license fee</strong></td><td>0% (treaty)</td><td>30% (treaty: 10%)</td><td>20% (treaty: 10%)</td><td>15% + 10% CIDE = 25%</td></tr>
+<tr><td><strong>Management fee</strong></td><td class="num">0% WHT</td><td class="num">0% WHT</td><td>20% WHT</td><td>15% IRRF</td></tr>
+<tr><td><strong>Loan repayment</strong></td><td class="num">0% (principal)</td><td class="num">0% (principal)</td><td class="num">0% (principal); 20% on interest</td><td class="num">0% (principal); 15% on interest</td></tr>
+<tr><td><strong>FX controls</strong></td><td class="num">None</td><td class="num">None</td><td>BI reporting &gt;$25K</td><td>BCB registration (RDE-IED)</td></tr>
+</table>
+<div style="font-size:9px;color:var(--muted);margin-top:4px;">*US-SG treaty: 5% dividend WHT if SG entity owns &ge;10% of US sub. Otherwise 15%.</div>
+<div class="two-col" style="margin-top:10px;">
+<div class="card">
+<div class="h3" style="border:none;padding:0;">Optimal Repatriation Stack</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+<strong>Priority order (lowest cost first):</strong><br/>
+1. <strong>Intercompany service fees</strong> &mdash; 0% WHT in most corridors. Deductible by payer<br/>
+2. <strong>Royalties</strong> &mdash; 0% under SG-US/CA treaties. Deductible by payer<br/>
+3. <strong>Loan repayment</strong> &mdash; return of capital, no WHT on principal<br/>
+4. <strong>Dividends</strong> &mdash; last resort (non-deductible by payer, WHT applies)
+</div>
+</div>
+<div class="card">
+<div class="h3" style="border:none;padding:0;">ID &amp; BR: Special Considerations</div>
+<div style="font-size:11px;color:var(--dark);line-height:1.5;">
+<strong>Indonesia:</strong> Bank Indonesia reporting for FX &gt;$25K. Commercial bank handles. No approval needed for current account transactions. <strong>Plan:</strong> Quarterly service fee invoicing to SG.<br/><br/>
+<strong>Brazil:</strong> BCB RDE-IED registration required for all foreign investment. IOF tax on some FX transactions (0.38% general). <strong>Plan:</strong> 0% dividend WHT is BR&rsquo;s unique advantage &mdash; use it.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" data-s="59">
+<div class="inner content">
+<div class="label">Statutory Authority</div>
+<div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-book"></use></svg></div><h2 class="h2">Startup-Specific Legislation Index</h2></div>
+<div class="two-col">
+<div>
+<table class="dtable">
+<tr><th>Provision</th><th>Citation</th></tr>
+<tr><td>US QSBS</td><td>IRC &sect;1202</td></tr>
+<tr><td>US R&amp;D Credit</td><td>IRC &sect;41, &sect;41(h) payroll</td></tr>
+<tr><td>US &sect;174 Amortization</td><td>IRC &sect;174 (post-TCJA)</td></tr>
+<tr><td>US GILTI</td><td>IRC &sect;951A</td></tr>
+<tr><td>US FDII</td><td>IRC &sect;250</td></tr>
+<tr><td>US &sect;409A Valuation</td><td>IRC &sect;409A</td></tr>
+<tr><td>SG SUTE / PTE</td><td>ITA &sect;43 (SUTE), &sect;43A (PTE)</td></tr>
+<tr><td>SG EIS</td><td>ITA &sect;14C (EIS 400%)</td></tr>
+<tr><td>SG ERIS</td><td>ITA &sect;13H (ERIS scheme)</td></tr>
+<tr><td>SG FSIE</td><td>ITA &sect;13(8)</td></tr>
+</table>
+</div>
+<div>
+<table class="dtable">
+<tr><th>Provision</th><th>Citation</th></tr>
+<tr><td>AU R&amp;D Offset</td><td>ITAA 1997 Div 355</td></tr>
+<tr><td>AU ESIC</td><td>ITAA 1997 Subdiv 360-A</td></tr>
+<tr><td>AU ESS</td><td>ITAA 1997 Div 83A</td></tr>
+<tr><td>CA SR&amp;ED</td><td>ITA &sect;37, &sect;127(5)</td></tr>
+<tr><td>CA SBD</td><td>ITA &sect;125</td></tr>
+<tr><td>ID Tax Holiday</td><td>PP 94/2010, PMK 130/2020</td></tr>
+<tr><td>ID Super Deduction</td><td>PP 45/2019</td></tr>
+<tr><td>BR Lei do Bem</td><td>Lei 11.196/2005</td></tr>
+<tr><td>MX R&amp;D Credit</td><td>LISR Art 202</td></tr>
+<tr><td>Pillar 2 DMTT (SG)</td><td>MTTT Act 2024</td></tr>
+</table>
+</div>
+</div>
+<div class="key-point"><strong>Disclaimer:</strong> All data reflects 2024/2025 tax year rates. Tax laws change frequently. Always verify current rates and consult qualified tax professionals in each jurisdiction.</div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- OPTIMIZATION RESULTS SLIDES (New) -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+
+<div class="slide" style="overflow-y:auto;" data-s="60">
+<div class="inner">
+<div class="label">Optimization Engine Results</div>
+<h2 class="title" style="font-size:26px;">B2B Startup: 2,401 Structures Evaluated</h2>
+<div class="divider"></div>
+<p style="font-size:11px;color:var(--muted);margin-bottom:16px;">All 7&times;7&times;7&times;7 combinations of Incorporation &times; Operations &times; IP Holding &times; Investor country</p>
+<table style="width:100%;font-size:10px;border-collapse:collapse;">
+<thead><tr style="background:var(--card);"><th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);">#</th><th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);">Structure</th><th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">Eff. Rate</th><th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">Annual Tax</th><th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">Net to Investor</th></tr></thead>
+<tbody>
+<tr><td style="padding:4px 8px;">1</td><td style="padding:4px 8px;font-weight:600;color:var(--accent);">US / US / US / US</td><td style="padding:4px 8px;text-align:right;font-weight:700;">7.80%</td><td style="padding:4px 8px;text-align:right;">$39,000</td><td style="padding:4px 8px;text-align:right;">$22,275</td></tr>
+<tr style="background:var(--card);"><td style="padding:4px 8px;">2</td><td style="padding:4px 8px;">US / US / US / CA</td><td style="padding:4px 8px;text-align:right;">8.02%</td><td style="padding:4px 8px;text-align:right;">$40,114</td><td style="padding:4px 8px;text-align:right;">$21,161</td></tr>
+<tr><td style="padding:4px 8px;">3</td><td style="padding:4px 8px;">US / US / US / MX</td><td style="padding:4px 8px;text-align:right;">8.02%</td><td style="padding:4px 8px;text-align:right;">$40,114</td><td style="padding:4px 8px;text-align:right;">$21,161</td></tr>
+<tr style="background:var(--card);"><td style="padding:4px 8px;">4</td><td style="padding:4px 8px;">CA / CA / CA / CA</td><td style="padding:4px 8px;text-align:right;">8.27%</td><td style="padding:4px 8px;text-align:right;">$41,350</td><td style="padding:4px 8px;text-align:right;">$22,500</td></tr>
+<tr><td style="padding:4px 8px;">5</td><td style="padding:4px 8px;">US / US / US / SG</td><td style="padding:4px 8px;text-align:right;">8.47%</td><td style="padding:4px 8px;text-align:right;">$42,341</td><td style="padding:4px 8px;text-align:right;">$18,934</td></tr>
+<tr style="background:var(--card);"><td style="padding:4px 8px;">6</td><td style="padding:4px 8px;">CA / CA / CA / US</td><td style="padding:4px 8px;text-align:right;">8.49%</td><td style="padding:4px 8px;text-align:right;">$42,475</td><td style="padding:4px 8px;text-align:right;">$21,375</td></tr>
+<tr><td style="padding:4px 8px;">7</td><td style="padding:4px 8px;">ID / ID / ID / ID</td><td style="padding:4px 8px;text-align:right;">11.33%</td><td style="padding:4px 8px;text-align:right;">$56,650</td><td style="padding:4px 8px;text-align:right;">$22,005</td></tr>
+</tbody>
+</table>
+<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+<span class="tag">$500K Revenue</span><span class="tag">10 Employees</span><span class="tag">15% R&amp;D</span><span class="tag">5yr Exit at 8&times;</span>
+</div>
+</div>
+</div>
+
+<div class="slide" style="overflow-y:auto;" data-s="61">
+<div class="inner">
+<div class="label">Product Principal Optimization</div>
+<h2 class="title" style="font-size:26px;">Principal Entity Location Rankings ($5M Revenue)</h2>
+<div class="divider"></div>
+<table style="width:100%;font-size:10px;border-collapse:collapse;">
+<thead><tr style="background:var(--card);"><th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);">#</th><th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);">Principal</th><th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">Eff. Rate</th><th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">Total Tax</th><th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">After-Tax</th><th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);">Key Advantage</th></tr></thead>
+<tbody>
+<tr><td style="padding:5px 8px;">1</td><td style="padding:5px 8px;font-weight:700;color:var(--accent);">Singapore</td><td style="padding:5px 8px;text-align:right;font-weight:700;">8.18%</td><td style="padding:5px 8px;text-align:right;">$408,896</td><td style="padding:5px 8px;text-align:right;">$1,504,040</td><td style="padding:5px 8px;font-size:9px;">Pioneer 5%, 0% div WHT, no CFC, 400% R&amp;D EIS</td></tr>
+<tr style="background:var(--card);"><td style="padding:5px 8px;">2</td><td style="padding:5px 8px;">Brazil</td><td style="padding:5px 8px;text-align:right;">12.95%</td><td style="padding:5px 8px;text-align:right;">$647,340</td><td style="padding:5px 8px;text-align:right;">$1,250,938</td><td style="padding:5px 8px;font-size:9px;">0% div WHT, JCP deduction</td></tr>
+<tr><td style="padding:5px 8px;">3</td><td style="padding:5px 8px;">Mexico</td><td style="padding:5px 8px;text-align:right;">13.71%</td><td style="padding:5px 8px;text-align:right;">$685,430</td><td style="padding:5px 8px;text-align:right;">$1,337,540</td><td style="padding:5px 8px;font-size:9px;">Border zone 20%, 30% R&amp;D credit</td></tr>
+<tr style="background:var(--card);"><td style="padding:5px 8px;">4</td><td style="padding:5px 8px;">Indonesia</td><td style="padding:5px 8px;text-align:right;">14.08%</td><td style="padding:5px 8px;text-align:right;">$703,768</td><td style="padding:5px 8px;text-align:right;">$1,203,232</td><td style="padding:5px 8px;font-size:9px;">Tax Holiday, 300% R&amp;D super deduction</td></tr>
+<tr><td style="padding:5px 8px;">5</td><td style="padding:5px 8px;">Canada</td><td style="padding:5px 8px;text-align:right;">16.11%</td><td style="padding:5px 8px;text-align:right;">$805,722</td><td style="padding:5px 8px;text-align:right;">$1,142,295</td><td style="padding:5px 8px;font-size:9px;">SR&amp;ED 35% refundable ITC</td></tr>
+<tr style="background:var(--card);"><td style="padding:5px 8px;">6</td><td style="padding:5px 8px;">Australia</td><td style="padding:5px 8px;text-align:right;">16.93%</td><td style="padding:5px 8px;text-align:right;">$846,676</td><td style="padding:5px 8px;text-align:right;">$1,056,468</td><td style="padding:5px 8px;font-size:9px;">48.5% R&amp;D offset, franking</td></tr>
+<tr><td style="padding:5px 8px;">7</td><td style="padding:5px 8px;">United States</td><td style="padding:5px 8px;text-align:right;">17.82%</td><td style="padding:5px 8px;text-align:right;">$891,141</td><td style="padding:5px 8px;text-align:right;">$1,133,915</td><td style="padding:5px 8px;font-size:9px;">FDII 13.125%, QSBS exit, VC access</td></tr>
+</tbody>
+</table>
+<div style="margin-top:14px;padding:10px 14px;background:var(--card);border-radius:8px;border-left:3px solid var(--accent);font-size:10px;line-height:1.6;">
+<strong>Key Finding:</strong> Singapore as Principal saves <strong>$482,245/yr</strong> vs US Principal on $5M revenue. The gap is driven by Pioneer Status (5% vs 21% CIT), 0% dividend WHT (vs 30%), and no CFC rules (vs GILTI/Subpart F).
+</div>
+</div>
+</div>
+
+<div class="slide" style="overflow-y:auto;" data-s="62">
+<div class="inner">
+<div class="label">Recommended Architectures</div>
+<h2 class="title" style="font-size:24px;">Optimal B2B Product Principal Structures</h2>
+<div class="divider"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+
+<div style="background:var(--card);border-radius:10px;padding:14px;border:1px solid var(--border);">
+<div style="font-size:10px;color:var(--accent);font-weight:600;letter-spacing:0.05em;margin-bottom:6px;">ARCHITECTURE A &mdash; SG PRINCIPAL</div>
+<div style="font-size:11px;font-weight:700;margin-bottom:8px;">Singapore Principal (8.18% eff.)</div>
+<div style="font-size:9px;line-height:1.8;color:var(--muted);">
+&bull; SG Principal: Pioneer 5%, owns IP, 400% R&amp;D EIS<br/>
+&bull; US Sales Co: FDII on re-exports (IRC &sect;250)<br/>
+&bull; ID Dev Center: MSME 0.5% (PP 55/2022)<br/>
+&bull; CA R&amp;D Unit: SR&amp;ED 35% credit (ITA &sect;127)<br/>
+&bull; MX Ops: Border zone 20% effective<br/>
+<strong>Legal:</strong> ITA &sect;13(8), EDB Pioneer, ITA &sect;14C
+</div>
+</div>
+
+<div style="background:var(--card);border-radius:10px;padding:14px;border:1px solid var(--border);">
+<div style="font-size:10px;color:var(--accent);font-weight:600;letter-spacing:0.05em;margin-bottom:6px;">ARCHITECTURE B &mdash; US PRINCIPAL</div>
+<div style="font-size:11px;font-weight:700;margin-bottom:8px;">US Principal (17.82% eff.)</div>
+<div style="font-size:9px;line-height:1.8;color:var(--muted);">
+&bull; US Principal: FDII 13.125% on foreign income<br/>
+&bull; SG Regional HQ: Territorial (ITA &sect;10(25))<br/>
+&bull; ID Dev Center: MSME 0.5% (PP 55/2022)<br/>
+&bull; CA R&amp;D Unit: SR&amp;ED 35% ITC<br/>
+&bull; MX Near-shore: Border zone 20%<br/>
+<strong>Legal:</strong> IRC &sect;250, &sect;1202 (QSBS), &sect;41
+</div>
+</div>
+
+<div style="background:var(--card);border-radius:10px;padding:14px;border:1px solid var(--border);grid-column:span 2;">
+<div style="font-size:10px;color:var(--accent);font-weight:600;letter-spacing:0.05em;margin-bottom:6px;">ARCHITECTURE C &mdash; DUAL PRINCIPAL (SG HOLD + US PRINCIPAL)</div>
+<div style="font-size:9px;line-height:1.8;color:var(--muted);">
+SG Holding Co (0% div, no CGT) &rarr; US Principal Entity (FDII 13.125%) &rarr; LRDs worldwide<br/>
+IP split: Core IP in SG, market-specific IP in US via cost-sharing arrangement (IRC &sect;482 CSA).<br/>
+<strong>Legal Basis:</strong> ITA &sect;13(8) + IRC &sect;250 + &sect;482 (cost-sharing agreement)
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="slide" style="overflow-y:auto;" data-s="63">
+<div class="inner">
+<div class="label">Investment Corridors &amp; Country Scores</div>
+<h2 class="title" style="font-size:24px;">Top Investment Corridors &amp; Country Suitability</h2>
+<div class="divider"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+
+<div>
+<div style="font-size:11px;font-weight:700;margin-bottom:8px;">Top Corridors (CIT + Div WHT on $100K)</div>
+<table style="width:100%;font-size:9px;border-collapse:collapse;">
+<tr style="background:var(--card);"><td style="padding:4px 6px;font-weight:600;">Any &rarr; SG</td><td style="padding:4px 6px;text-align:right;color:var(--accent);font-weight:700;">17.0%</td><td style="padding:4px 6px;text-align:right;">$83,000 net</td></tr>
+<tr><td style="padding:4px 6px;">CA &rarr; US</td><td style="padding:4px 6px;text-align:right;">24.9%</td><td style="padding:4px 6px;text-align:right;">$75,050 net</td></tr>
+<tr style="background:var(--card);"><td style="padding:4px 6px;">MX &rarr; US</td><td style="padding:4px 6px;text-align:right;">24.9%</td><td style="padding:4px 6px;text-align:right;">$75,050 net</td></tr>
+<tr><td style="padding:4px 6px;">SG &rarr; ID</td><td style="padding:4px 6px;text-align:right;">29.8%</td><td style="padding:4px 6px;text-align:right;">$70,200 net</td></tr>
+<tr style="background:var(--card);"><td style="padding:4px 6px;">Any &rarr; AU</td><td style="padding:4px 6px;text-align:right;">30.0%</td><td style="padding:4px 6px;text-align:right;">$70,000 net</td></tr>
+<tr><td style="padding:4px 6px;">Any &rarr; BR</td><td style="padding:4px 6px;text-align:right;">34.0%</td><td style="padding:4px 6px;text-align:right;">$66,000 net</td></tr>
+</table>
+</div>
+
+<div>
+<div style="font-size:11px;font-weight:700;margin-bottom:8px;">Country Suitability Scores (0-100)</div>
+<table style="width:100%;font-size:9px;border-collapse:collapse;">
+<thead><tr style="background:var(--card);"><th style="padding:4px 6px;text-align:left;">Country</th><th style="padding:4px 6px;text-align:right;">Incorp</th><th style="padding:4px 6px;text-align:right;">Ops</th><th style="padding:4px 6px;text-align:right;">IP Hold</th><th style="padding:4px 6px;text-align:right;">Investor</th></tr></thead>
+<tbody>
+<tr><td style="padding:3px 6px;font-weight:600;color:var(--accent);">SG</td><td style="padding:3px 6px;text-align:right;">100</td><td style="padding:3px 6px;text-align:right;">100</td><td style="padding:3px 6px;text-align:right;">100</td><td style="padding:3px 6px;text-align:right;">100</td></tr>
+<tr style="background:var(--card);"><td style="padding:3px 6px;">US</td><td style="padding:3px 6px;text-align:right;">89.5</td><td style="padding:3px 6px;text-align:right;">77.7</td><td style="padding:3px 6px;text-align:right;">83.5</td><td style="padding:3px 6px;text-align:right;">100</td></tr>
+<tr><td style="padding:3px 6px;">ID</td><td style="padding:3px 6px;text-align:right;">84.0</td><td style="padding:3px 6px;text-align:right;">100</td><td style="padding:3px 6px;text-align:right;">75.3</td><td style="padding:3px 6px;text-align:right;">91.3</td></tr>
+<tr style="background:var(--card);"><td style="padding:3px 6px;">CA</td><td style="padding:3px 6px;text-align:right;">61.8</td><td style="padding:3px 6px;text-align:right;">93.9</td><td style="padding:3px 6px;text-align:right;">52.8</td><td style="padding:3px 6px;text-align:right;">79.5</td></tr>
+<tr><td style="padding:3px 6px;">MX</td><td style="padding:3px 6px;text-align:right;">76.0</td><td style="padding:3px 6px;text-align:right;">73.5</td><td style="padding:3px 6px;text-align:right;">45.0</td><td style="padding:3px 6px;text-align:right;">100</td></tr>
+<tr style="background:var(--card);"><td style="padding:3px 6px;">BR</td><td style="padding:3px 6px;text-align:right;">68.5</td><td style="padding:3px 6px;text-align:right;">98.0</td><td style="padding:3px 6px;text-align:right;">62.9</td><td style="padding:3px 6px;text-align:right;">97.4</td></tr>
+<tr><td style="padding:3px 6px;">AU</td><td style="padding:3px 6px;text-align:right;">62.0</td><td style="padding:3px 6px;text-align:right;">83.2</td><td style="padding:3px 6px;text-align:right;">58.8</td><td style="padding:3px 6px;text-align:right;">88.0</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div style="margin-top:12px;padding:10px 14px;background:var(--card);border-radius:8px;border-left:3px solid var(--accent);font-size:9px;line-height:1.7;">
+<strong>Singapore dominates all 4 categories</strong> due to: 0% CGT, 0% div WHT, territorial system, no CFC rules, 400% R&amp;D EIS, 90+ treaty network, and Pioneer/DEI concessionary IP rates (0-10%).
+</div>
+</div>
+</div>
+
+<div class="slide" style="overflow-y:auto;" data-s="64">
+<div class="inner">
+<div class="label">Tax Code Reference Summary</div>
+<h2 class="title" style="font-size:24px;">Key Legal Citations by Country</h2>
+<div class="divider"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:8.5px;line-height:1.7;">
+
+<div style="background:var(--card);border-radius:8px;padding:10px;">
+<div style="font-weight:700;font-size:10px;margin-bottom:4px;">&#x1f1fa;&#x1f1f8; United States</div>
+CIT: IRC &sect;11 (21%)<br/>QSBS: IRC &sect;1202 (100% CGT excl.)<br/>FDII: IRC &sect;250 (13.125%)<br/>R&amp;D: IRC &sect;41 (20%/14%)<br/>GILTI: IRC &sect;951A<br/>&sect;174: 5yr amortization
+</div>
+
+<div style="background:var(--card);border-radius:8px;padding:10px;">
+<div style="font-weight:700;font-size:10px;margin-bottom:4px;">&#x1f1f8;&#x1f1ec; Singapore</div>
+CIT: ITA &sect;43 (17%)<br/>SUTE: ITA &sect;43B (4.25%)<br/>No CGT: ITA &sect;10(1)<br/>EIS: ITA &sect;14C (400%)<br/>Pioneer: EDB Act (0-5%)<br/>Territorial: ITA &sect;10(25)
+</div>
+
+<div style="background:var(--card);border-radius:8px;padding:10px;">
+<div style="font-weight:700;font-size:10px;margin-bottom:4px;">&#x1f1ee;&#x1f1e9; Indonesia</div>
+CIT: UU HPP Art. 17 (22%)<br/>MSME: PP 55/2022 (0.5%)<br/>Tax Holiday: PMK 130/2020<br/>R&amp;D: PP 45/2019 (300%)<br/>Thin Cap: PMK 169/2015 (4:1)
+</div>
+
+<div style="background:var(--card);border-radius:8px;padding:10px;">
+<div style="font-weight:700;font-size:10px;margin-bottom:4px;">&#x1f1e8;&#x1f1e6; Canada</div>
+SBD: ITA &sect;125 (9%)<br/>SR&amp;ED: ITA &sect;127 (35%)<br/>EIFEL: ITA &sect;18.2 (30%)<br/>LCGE: ITA &sect;110.6 (C$1.016M)<br/>FAPI: ITA &sect;91
+</div>
+
+<div style="background:var(--card);border-radius:8px;padding:10px;">
+<div style="font-weight:700;font-size:10px;margin-bottom:4px;">&#x1f1e7;&#x1f1f7; Brazil</div>
+CIT: Lei 9.249/1995 (34%)<br/>Simples: LC 123/2006 (4-33%)<br/>JCP: Lei 9.249 Art. 9<br/>0% Div: Lei 9.249 Art. 10<br/>CFC: Lei 12.973/2014
+</div>
+
+<div style="background:var(--card);border-radius:8px;padding:10px;">
+<div style="font-weight:700;font-size:10px;margin-bottom:4px;">&#x1f1f2;&#x1f1fd; Mexico &amp; &#x1f1e6;&#x1f1fa; Australia</div>
+MX ISR: LISR Art. 9 (30%)<br/>MX Border: Decreto (20%)<br/>MX R&amp;D: LISR Art. 202 (30%)<br/>AU BRE: ITAA &sect;23-10 (25%)<br/>AU R&amp;D: Div. 355 (48.5%)<br/>AU Franking: Div. 207
+</div>
+</div>
+</div>
+</div>
+
+<div class="slide section-slide" style="overflow:hidden;" data-s="65">
+<div class="inner centered">
+<div style="margin-bottom:12px;"><svg class="si" style="width:28px;height:28px;color:var(--muted);"><use href="#i-star"></use></svg></div>
+<div class="label" style="color:var(--muted);">Kolosal Tax &mdash; Startup Series</div>
+<h1 class="title" style="color:var(--bg);font-size:36px;">B2B Principal Product Startup<br/>&mdash; Cross-Border Tax Architecture</h1>
+<div class="divider" style="background:var(--muted);margin:20px auto;"></div>
+<p style="font-size:12px;color:var(--muted);max-width:640px;line-height:1.7;">7 jurisdictions &middot; 11 sections &mdash; Principal model design, IP domicile strategy, SaaS revenue characterization, R&amp;D credit optimization ($3M worked examples), ESOP/equity planning, VC fund structuring, digital PE risk, Pillar 2 readiness, 4 worked scenarios ($5M&ndash;$50M ARR), and execution checklists for B2B software product companies.</p>
+<div style="margin-top:24px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+<span class="tag" style="border-color:var(--muted);color:var(--muted);">Principal Model</span>
+<span class="tag" style="border-color:var(--muted);color:var(--muted);">IP Structuring</span>
+<span class="tag" style="border-color:var(--muted);color:var(--muted);">R&amp;D Credits</span>
+<span class="tag" style="border-color:var(--muted);color:var(--muted);">ESOP</span>
+<span class="tag" style="border-color:var(--muted);color:var(--muted);">QSBS</span>
+<span class="tag" style="border-color:var(--muted);color:var(--muted);">SaaS</span>
+<span class="tag" style="border-color:var(--muted);color:var(--muted);">VC Tax</span>
+</div>
+<p style="margin-top:32px;font-size:9px;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">Kolosal &mdash; 2024/2025 &middot; For informational purposes only. Consult qualified tax professionals.</p>
+</div>
+</div>
+
+</div><!-- /slide-stage -->
+
+<!-- Nav -->
+<nav class="nav">
+<button class="nav-btn" disabled="" id="prev" onclick="go(-1)">
+<svg viewbox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Back
+</button>
+<span class="counter" id="counter">01 / 66</span>
+<button class="nav-btn" id="next" onclick="go(1)">
+Next <svg viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
+<button class="nav-btn" onclick="exportPDF()" style="margin-left:auto;" title="Export to PDF (Ctrl+P)">
+<svg viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line></svg> Export PDF
+</button>
+</nav>
+<script>
+const S=document.querySelectorAll('.slide'), N=S.length;
+let c=0;
+function show(){
+  S.forEach(s=>s.classList.remove('active'));
+  S[c].classList.add('active');
+  S[c].scrollTop=0;
+  document.getElementById('prev').disabled=c===0;
+  document.getElementById('next').disabled=c===N-1;
+  document.getElementById('counter').textContent=String(c+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');
+  document.getElementById('progress').style.width=((c+1)/N*100)+'%';
+}
+function go(d){const n=c+d;if(n<0||n>=N)return;c=n;show();}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(1);}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(-1);}
+  if(e.key==='Home'){e.preventDefault();c=0;show();}
+  if(e.key==='End'){e.preventDefault();c=N-1;show();}
+});
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX;});
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-tx;if(Math.abs(d)>50)go(d>0?-1:1);});
+
+// Animate elements when slide becomes active
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((m) => {
+    if (m.target.classList && m.target.classList.contains('active')) {
+      const items = m.target.querySelectorAll('.anim-item');
+      items.forEach(el => {
+        el.style.animation = 'none';
+        el.offsetHeight;
+        el.style.animation = '';
+      });
+    }
+  });
+});
+S.forEach(s => observer.observe(s, { attributes: true, attributeFilter: ['class'] }));
+
+// Export PDF via print dialog
+function exportPDF() {
+  window.print();
+}
+
+show();
+</script>
+</body>
+</html>

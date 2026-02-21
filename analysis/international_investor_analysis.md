@@ -425,4 +425,58 @@ Scenario: Canadian parent earns BRL 10M through Brazilian subsidiary
 
 ---
 
+---
+
+## 9. B2B Startup Structuring for International Investors
+
+### 9.1 Optimal Structures by Investor Home Country
+
+The optimization engine evaluated 2,401 structures across all 7 countries. Below are the results for international investors structuring a B2B startup:
+
+| Investor Home | Best Structure | Eff. Rate | Key Treaty/Provision |
+|---|---|---|---|
+| **US** | US Inc (single entity) | 7.80% | IRC §11 (21%), §1202 (QSBS 100% CGT exclusion) |
+| **Canada** | US Inc + CA investor | 8.02% | US-CA Treaty Art. X: 5% div WHT on 10%+ ownership |
+| **Mexico** | US Inc + MX investor | 8.02% | US-MX Treaty Art. 10: 5% div WHT |
+| **Singapore** | US Inc + SG investor | 8.47% | SG territorial: no tax on foreign dividends (ITA §13(8)) |
+| **Indonesia** | US Inc + ID investor | 8.47% | US-ID Treaty: 15% div WHT; ID CFC threshold 50% |
+| **Brazil** | US Inc + BR investor | 8.47% | BR universal CFC applies but JCP offset available |
+| **Australia** | US Inc + AU investor | 8.47% | US-AU Treaty: 15% div WHT; AU franking credit on AU-source |
+
+### 9.2 Product Principal Structures for Cross-Border B2B
+
+For B2B companies with $5M+ global revenue, a **principal structure** with limited-risk distributors is tax-efficient:
+
+| Principal Location | Eff. Rate | Annual Saving vs. Worst | Key IP Regime |
+|---|---|---|---|
+| **Singapore** | 8.18% | $482,245 | Pioneer Status 0-5% (EDB Act), EIS 400% R&D (ITA §14C) |
+| **Brazil** | 12.95% | $243,801 | 0% div WHT (Lei 9.249/1995 Art. 10), JCP deduction |
+| **Mexico** | 13.71% | $205,711 | Border zone 20% effective (Decreto Fronteriza) |
+| **Indonesia** | 14.08% | $187,373 | Tax Holiday 0% (PMK 130/2020), 300% R&D (PP 45/2019) |
+| **Canada** | 16.11% | $85,419 | SR&ED 35% refundable ITC (ITA §127) |
+| **Australia** | 16.93% | $44,465 | 48.5% R&D offset (ITAA 1997 Div. 355) |
+| **United States** | 17.82% | Baseline | FDII 13.125% (IRC §250), QSBS exit (IRC §1202) |
+
+### 9.3 Investment Corridor Rankings for B2B
+
+**Top corridors for profit repatriation** (CIT + div WHT on $100K profit):
+
+| Corridor | Effective Rate | Net | Key Treaty/Feature |
+|---|---|---|---|
+| Any → **Singapore** | 17.0% | $83,000 | 0% div WHT (ITA §13(1)(za)), 17% CIT |
+| CA → **US** | 24.9% | $75,050 | US-CA Treaty: 5% div WHT |
+| MX → **US** | 24.9% | $75,050 | US-MX Treaty: 5% div WHT |
+| SG → **Indonesia** | 29.8% | $70,200 | SG-ID Treaty: 10% div WHT |
+| Any → **Brazil** | 34.0% | $66,000 | 0% div WHT (Lei 9.249/1995), but 34% CIT |
+| Any → **Australia** | 30.0% | $70,000 | 0% franked div WHT (ITAA 1997 Div. 207) |
+
+### 9.4 Key Considerations for International B2B Investors
+
+1. **CFC Exposure**: US (GILTI/Subpart F) and BR (universal CFC) investors face current taxation on CFC income regardless of repatriation. Structure accordingly.
+2. **Substance Requirements**: Post-BEPS, all jurisdictions require real economic substance. Empty shell holding companies face recharacterization.
+3. **BEPS Pillar 2**: From 2025, groups with >EUR 750M global revenue face 15% minimum effective tax. SG has enacted domestic top-up tax.
+4. **Exit Planning**: SG (0% CGT), US (QSBS 100% exclusion per IRC §1202), and AU (SBE 15-year exemption per ITAA 1997 Div. 152) offer the best exit tax profiles.
+
+---
+
 *This analysis is for informational and planning purposes only. It does not constitute tax advice. Consult qualified tax professionals in each jurisdiction for specific guidance. Tax laws change frequently; always verify current rates and rules with official sources. All citations reference legislation current as of the stated tax year (2024/2025).*

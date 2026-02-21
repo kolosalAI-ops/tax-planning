@@ -102,3 +102,74 @@ export interface CfcRanking {
   description: string;
   activeExemption: boolean;
 }
+
+// B2B Startup Optimization Types
+
+export interface B2BStartupStructure {
+  id: string;
+  incorp: CountryCode;
+  ops: CountryCode;
+  ipHold: CountryCode;
+  investor: CountryCode;
+  effectiveRate: number;
+  effectiveWithExit: number;
+  totalAnnualTax: number;
+  netToInvestor: number;
+  opsCit: number;
+  royaltyWht: number;
+  divWht: number;
+  payrollTax: number;
+  rndTaxSaving: number;
+}
+
+export interface ProductPrincipalResult {
+  principal: CountryCode;
+  principalName: string;
+  effectiveRate: number;
+  totalTax: number;
+  afterTaxProfit: number;
+  residualProfit: number;
+  principalCit: number;
+  lrdCit: number;
+  royaltyWht: number;
+  payrollTax: number;
+  divWht: number;
+  rndTaxSaving: number;
+  keyAdvantage: string;
+  legalCitation: string;
+}
+
+export interface InvestmentCorridorResult {
+  from: CountryCode;
+  to: CountryCode;
+  citRate: number;
+  divWhtRate: number;
+  effectiveRate: number;
+  netPer100K: number;
+}
+
+export interface RevenueSensitivity {
+  revenueLabel: string;
+  revenue: number;
+  rates: Record<CountryCode, number>;
+  bestCountry: CountryCode;
+}
+
+export interface PrincipalArchitecture {
+  id: string;
+  name: string;
+  description: string;
+  principal: CountryCode;
+  lrds: { country: CountryCode; role: string; regime: string }[];
+  effectiveRate: number;
+  legalBasis: string[];
+}
+
+export interface CountryTaxScore {
+  code: CountryCode;
+  name: string;
+  incorporationScore: number;
+  operationsScore: number;
+  ipHoldingScore: number;
+  investorFriendliness: number;
+}

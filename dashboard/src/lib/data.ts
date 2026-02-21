@@ -5,6 +5,7 @@ import brData from '../data/brazil.json';
 import mxData from '../data/mexico.json';
 import auData from '../data/australia.json';
 import sgData from '../data/singapore.json';
+import optimizationData from '../data/optimization.json';
 import { CountryCode, CountryData } from './types';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -22,4 +23,24 @@ export default allData;
 
 export function getCountryData(code: CountryCode): CountryData {
   return allData[code];
+}
+
+export function getOptimizationData() {
+  return optimizationData;
+}
+
+export function getB2BStartupData() {
+  return optimizationData.b2b_startup;
+}
+
+export function getProductPrincipalData() {
+  return optimizationData.product_principal;
+}
+
+export function getInvestmentCorridorsData() {
+  return optimizationData.investment_corridors;
+}
+
+export function getCountryScores() {
+  return optimizationData.country_scores;
 }

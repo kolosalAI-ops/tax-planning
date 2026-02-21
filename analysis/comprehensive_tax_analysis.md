@@ -722,4 +722,154 @@ This map shows where to find detailed documentation for each topic by country:
 
 ---
 
+---
+
+## 17. B2B Startup Tax Optimization Analysis
+
+### 17.1 Optimization Methodology
+
+An exhaustive optimization was run evaluating **2,401 multi-entity structures** (7 countries × 4 roles: incorporation, operations, IP holding, investor home) and **7 product principal configurations** for B2B startups. The model accounts for:
+
+- Corporate income tax (standard and SME regimes)
+- Payroll/employer social contributions
+- R&D tax incentives (credits, super deductions)
+- Withholding taxes on dividends, interest, and royalties (treaty-adjusted)
+- Capital gains tax on exit (non-resident rates)
+- Transfer pricing markup on limited-risk distributors (cost + 8%)
+
+### 17.2 Top Structures by Effective Rate ($500K Revenue, B2B SaaS Startup)
+
+| # | Structure (Incorp / Ops / IP / Investor) | Eff. Rate | Annual Tax | Key Driver |
+|---|---|---|---|---|
+| 1 | **US / US / US / US** | **7.80%** | $39,000 | Low CIT on small profit + low payroll (7.65%) + QSBS exit |
+| 2 | **US / US / US / CA** | **8.02%** | $40,114 | US-CA treaty: 5% div WHT |
+| 3 | **US / US / US / MX** | **8.02%** | $40,114 | US-MX treaty: 5% div WHT |
+| 4 | **CA / CA / CA / CA** | **8.27%** | $41,350 | SBD 11% + SR&ED credits |
+| 5 | **US / US / US / SG** | **8.47%** | $42,341 | US ops, SG investor (15% div WHT) |
+
+### 17.3 Best Structure per Investor Home Country
+
+| Investor From | Best Structure | Effective Rate | Legal Basis |
+|---|---|---|---|
+| **United States** | US / US / US / US | 7.80% | IRC §11 (21%), §1202 (QSBS), §41 (R&D) |
+| **Canada** | US / US / US / CA | 8.02% | US-CA Treaty Art. X (5% div WHT) |
+| **Mexico** | US / US / US / MX | 8.02% | US-MX Treaty Art. 10 (5% div WHT) |
+| **Singapore** | US / US / US / SG | 8.47% | ITA §13(1)(za) (0% SG-side) |
+| **Indonesia** | US / US / US / ID | 8.47% | UU PPh Art. 26 (treaty rates) |
+| **Brazil** | US / US / US / BR | 8.47% | Lei 9.249/1995 Art. 10 (0% BR-side) |
+| **Australia** | US / US / US / AU | 8.47% | ITAA 1997 Div. 207 (franking) |
+
+### 17.4 Single-Entity Ranking (Most Practical for Early-Stage)
+
+| # | Country | Eff. Rate | Key Regime | Legal Citation |
+|---|---|---|---|---|
+| 1 | **United States** | 7.80% | 21% flat + 7.65% payroll | IRC §11(b), FICA §3111 |
+| 2 | **Canada** | 8.27% | SBD 11% + 8.27% payroll | ITA §125(1), CPP/EI |
+| 3 | **Indonesia** | 11.33% | MSME 0.5% final + 11% payroll | PP 55/2022, BPJS |
+| 4 | **Australia** | 16.50% | BRE 25% + 16.5% payroll | ITAA 1997 §23-10, SG Act |
+| 5 | **Singapore** | 17.25% | SUTE 4.25% + 17.25% CPF | ITA §43B, CPF Act |
+| 6 | **Mexico** | 30.45% | 30% ISR + ~30% IMSS | LISR Art. 9, Ley del IMSS |
+| 7 | **Brazil** | 35.92% | Simples 4% + 35.8% payroll | LC 123/2006, Lei 8.212 |
+
+### 17.5 Revenue Sensitivity Analysis
+
+| Revenue | Best Country | Eff. Rate | Runner-Up | Note |
+|---|---|---|---|---|
+| $50K | US | 76.65% | CA (82.70%) | Payroll dominates at low revenue |
+| $100K | US | 38.40% | CA (41.35%) | |
+| $500K | US | 7.80% | CA (8.27%) | |
+| $1M | US | 3.98% | CA (4.13%) | |
+| $5M | **CA** | **0.83%** | US (0.92%) | SR&ED credits tip balance at scale |
+
+### 17.6 Investment Corridor Analysis (42 Country Pairs)
+
+**Top 10 Most Tax-Efficient Corridors** (CIT + Dividend WHT on $100K profit):
+
+| # | Corridor | CIT% | Div WHT% | Eff. Rate | Net per $100K |
+|---|---|---|---|---|---|
+| 1 | Any → **SG** | 17.0% | 0.0% | **17.0%** | $83,000 |
+| 2 | CA → **US** | 21.0% | 5.0% | **24.9%** | $75,050 |
+| 3 | MX → **US** | 21.0% | 5.0% | **24.9%** | $75,050 |
+| 4 | SG → **ID** | 22.0% | 10.0% | **29.8%** | $70,200 |
+| 5 | MX → **ID** | 22.0% | 10.0% | **29.8%** | $70,200 |
+
+**Worst Corridors:** Operations in Brazil with investor from Canada (effective rate up to 81.94% including exit CGT).
+
+---
+
+## 18. B2B Product Principal Optimization Analysis
+
+### 18.1 Product Principal Model
+
+The principal structure places a **principal entity** in a low-tax jurisdiction that:
+- Owns all intellectual property
+- Bears entrepreneurial risk
+- Makes key strategic decisions
+- Contracts with **limited-risk distributors (LRDs)** in operating countries at cost + 8% markup
+
+### 18.2 Principal Location Rankings ($5M Global Revenue)
+
+| # | Principal | Eff. Rate | Total Tax | After-Tax Profit | Key Advantage |
+|---|---|---|---|---|---|
+| 1 | **Singapore** | **8.18%** | $408,896 | $1,504,040 | Pioneer 5%, 0% div WHT, no CFC, 400% R&D EIS |
+| 2 | Brazil | 12.95% | $647,340 | $1,250,938 | 0% div WHT outbound, JCP deduction |
+| 3 | Mexico | 13.71% | $685,430 | $1,337,540 | Border zone 20%, 30% R&D credit |
+| 4 | Indonesia | 14.08% | $703,768 | $1,203,232 | Tax holiday potential, 300% R&D super deduction |
+| 5 | Canada | 16.11% | $805,722 | $1,142,295 | SR&ED 35% refundable ITC |
+| 6 | Australia | 16.93% | $846,676 | $1,056,468 | 48.5% R&D offset, franking |
+| 7 | United States | 17.82% | $891,141 | $1,133,915 | FDII 13.125%, QSBS exit, VC access |
+
+### 18.3 Tax Code Citations for Principal Structures
+
+| Country | IP Regime | R&D Incentive | Dividend Treatment | Key Statute |
+|---|---|---|---|---|
+| **SG** | Pioneer Status 0-5% | EIS 400% deduction | 0% WHT (one-tier) | ITA §13(8), §14C, EDB Act |
+| **US** | FDII 13.125% | 20% credit / 14% ASC | 30% WHT (treaty-reducible) | IRC §250, §41, §1202 |
+| **ID** | Tax Holiday 0% | 300% super deduction | 20% WHT (treaty-reducible) | PMK 130/2020, PP 45/2019 |
+| **CA** | No patent box | SR&ED 35% ITC | 25% WHT (treaty-reducible) | ITA §127, §125 |
+| **BR** | JCP mechanism | Lei do Bem 180% | 0% WHT | Lei 9.249/1995, Lei 11.196/2005 |
+| **MX** | No patent box | 30% credit | 10% WHT | LISR Art. 202, Art. 164 |
+| **AU** | No patent box | 48.5% offset | 0% (franked) | ITAA 1997 Div. 355, Div. 207 |
+
+### 18.4 Transfer Pricing & Substance Requirements
+
+| Country | TP Documentation | CbCR Threshold | APA | Key Anti-Avoidance |
+|---|---|---|---|---|
+| **SG** | Contemporaneous (ITA §34F) | SGD 1.125B | Yes | GAAR (ITA §33), substance-over-form |
+| **US** | IRC §6662(e), Reg. §1.6662-6 | USD 850M | Yes | BEAT 10% (>$500M), economic substance |
+| **ID** | Master + local file (PMK 213/2016) | IDR 11T | Yes | Anti-avoidance (UU PPh Art. 18) |
+| **CA** | ITA §247 | EUR 750M | Yes | GAAR (ITA §245), EIFEL |
+| **BR** | Lei 14.596/2023 (arm's length) | BRL 2.26B | No | Universal CFC, CIDE 10% |
+| **MX** | LISR Art. 76-IX, 76-A | MXN 13B | Yes | GAAR (CFF Art. 5-A), REFIPRE |
+| **AU** | ITAA 1997 Subdiv 815-B | AUD 1B | Yes | DPT 40%, Part IVA GAAR, MAAL |
+
+### 18.5 Recommended Architectures
+
+**Architecture A: Singapore Principal (Optimal for most B2B)**
+- SG Principal Entity (Pioneer Status 5%, ITA §13(8))
+- US Sales Co (FDII on re-exports, IRC §250)
+- ID Dev Center (MSME 0.5%, PP 55/2022)
+- CA R&D Unit (SR&ED 35% credit, ITA §127)
+
+**Architecture B: US Principal (Best for US-centric B2B)**
+- US Principal Entity (FDII 13.125%, QSBS exit, IRC §250, §1202)
+- SG Regional HQ (territorial, ITA §10(25))
+- ID Dev Center (cost advantage)
+- MX Near-shore Ops (border zone 20%, Decreto Fronteriza)
+
+**Architecture C: Dual Principal (SG Hold + US Principal)**
+- SG Holding Co (0% div, no CGT, ITA §13(1)(za))
+- US Principal Entity (FDII, IRC §250)
+- Cost-sharing arrangement (IRC §482)
+
+### 18.6 Compliance Notes
+
+- **BEPS Pillar 2**: 15% minimum effective tax for groups >EUR 750M revenue (SG domestic top-up from Jan 2025)
+- **OECD TP Guidelines 2022**: Profits must align with value creation (Actions 8-10)
+- **Substance requirements**: Principal must have real employees making real decisions in the chosen jurisdiction
+- **BEAT (US)**: 10% minimum tax if base erosion payments >$500M revenue
+- **DPT (AU)**: 40% penalty tax on diverted profits for significant global entities (>AUD 1B)
+
+---
+
 *This analysis is for informational and planning purposes only. It does not constitute tax advice. Consult qualified tax professionals in each jurisdiction for specific guidance. All citations reference legislation current as of the stated tax year.*

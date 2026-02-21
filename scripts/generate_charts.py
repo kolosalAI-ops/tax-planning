@@ -1542,6 +1542,342 @@ def chart_26_sector_specific_taxes(data):
     print("  [OK] 26_sector_specific_taxes.png")
 
 
+def chart_27_b2b_startup_effective_rates(data):
+    """Chart 27: B2B Startup Effective Tax Rates by Country (Single Entity)."""
+    fig, ax = plt.subplots(figsize=(14, 8))
+
+    countries = COUNTRY_LABELS
+    codes = ['US', 'ID', 'CA', 'BR', 'MX', 'AU', 'SG']
+
+    # Effective rates at $500K revenue (single entity, same investor)
+    # Components: CIT on profit + payroll tax as % of revenue
+    revenue = 500_000
+    profit_margin = 0.15
+    rnd_pct = 0.15
+    headcount = 10
+    avg_salary = 50_000
+
+    cit_rates = {
+        'US': 21.0, 'SG': 4.25, 'ID': 0.5, 'CA': 11.0,
+        'BR': 4.0, 'MX': 20.0, 'AU': 25.0
+    }
+    payroll_rates = {
+        'US': 7.65, 'SG': 17.25, 'ID': 11.0, 'CA': 8.27,
+        'BR': 35.8, 'MX': 30.0, 'AU': 16.5
+    }
+
+    cit_component = []
+    payroll_component = []
+    rnd_saving_component = []
+
+    for code in codes:
+        profit = revenue * profit_margin
+        cit = profit * cit_rates[code] / 100
+        payroll = headcount * avg_salary * payroll_rates[code] / 100
+        # R&D savings (simplified)
+        rnd_benefits = {'US': 20, 'SG': 400, 'ID': 300, 'CA': 35, 'BR': 180, 'MX': 30, 'AU': 48.5}
+        rnd_spend = revenue * rnd_pct
+        benefit = rnd_benefits[code]
+        if benefit >= 100:
+            saving = rnd_spend * (benefit - 100) / 100 * cit_rates[code] / 100
+        else:
+            saving = rnd_spend * benefit / 100
+        cit_component.append(max(0, cit - saving) / revenue * 100)
+        payroll_component.append(payroll / revenue * 100)
+        rnd_saving_component.append(saving / revenue * 100)
+
+    x = np.arange(len(countries))
+    width = 0.5
+
+    bars1 = ax.bar(x, cit_component, width, label='CIT (after R&D benefit)',
+                   color=[COLORS[c.split()[0] if c != 'United States' else 'US'] for c in countries], alpha=0.9)
+    bars2 = ax.bar(x, payroll_component, width, bottom=cit_component,
+                   label='Payroll Tax Burden', color='#999999', alpha=0.6)
+
+    # Total labels
+    for i, (c1, c2) in enumerate(zip(cit_component, payroll_component)):
+        total = c1 + c2
+        ax.text(x[i], total + 0.3, f'{total:.1f}%', ha='center', va='bottom',
+                fontsize=10, fontweight='bold')
+
+    ax.set_ylabel('Effective Tax Rate (% of Revenue)', fontsize=12)
+    ax.set_title('B2B Startup Total Tax Burden by Country (Single Entity)\n'
+                 '$500K Revenue | 10 Employees | 15% R&D Spend', fontsize=14, fontweight='bold')
+    ax.set_xticks(x)
+    ax.set_xticklabels(countries, fontsize=9)
+    ax.legend(fontsize=10, loc='upper right')
+    ax.set_ylim(0, max(c1 + c2 for c1, c2 in zip(cit_component, payroll_component)) * 1.15)
+
+    plt.tight_layout()
+    fig.savefig(CHARTS_DIR / '27_b2b_startup_effective_rates.png', dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    print("  [OK] 27_b2b_startup_effective_rates.png")
+
+
+def chart_28_product_principal_comparison(data):
+    """Chart 28: Product Principal Effective Rate by Principal Location."""
+    fig, ax = plt.subplots(figsize=(14, 8))
+
+    principals = ['Singapore', 'Brazil', 'Mexico', 'Indonesia', 'Canada', 'Australia', 'United States']
+    codes_map = {'Singapore': 'SG', 'Brazil': 'BR', 'Mexico': 'MX', 'Indonesia': 'ID',
+                 'Canada': 'CA', 'Australia': 'AU', 'United States': 'US'}
+
+    # Results from optimizer (on $5M revenue)
+    eff_rates = [8.18, 12.95, 13.71, 14.08, 16.11, 16.93, 17.82]
+    principal_cit = [0, 232302, 144660, 0, 49260, 0, 53725]
+    lrd_cit = [59293, 61061, 61789, 57733, 55640, 53677, 38389]
+    royalty_wht = [25625, 30000, 21250, 21250, 12500, 16250, 11875]
+    payroll_tax = [323978, 323978, 323978, 323978, 323978, 323978, 323978]
+    div_wht = [0, 0, 133754, 300808, 364345, 452772, 463174]
+
+    x = np.arange(len(principals))
+    width = 0.6
+
+    # Stacked bars (as % of $5M revenue)
+    rev = 5_000_000
+    p_cit = [v / rev * 100 for v in principal_cit]
+    l_cit = [v / rev * 100 for v in lrd_cit]
+    r_wht = [v / rev * 100 for v in royalty_wht]
+    p_tax = [v / rev * 100 for v in payroll_tax]
+    d_wht = [v / rev * 100 for v in div_wht]
+
+    b1 = ax.bar(x, p_cit, width, label='Principal CIT', color='#e74c3c', alpha=0.85)
+    b2 = ax.bar(x, l_cit, width, bottom=p_cit, label='LRD CIT', color='#f39c12', alpha=0.85)
+    bottoms2 = [a + b for a, b in zip(p_cit, l_cit)]
+    b3 = ax.bar(x, r_wht, width, bottom=bottoms2, label='Royalty WHT', color='#9b59b6', alpha=0.85)
+    bottoms3 = [a + b for a, b in zip(bottoms2, r_wht)]
+    b4 = ax.bar(x, p_tax, width, bottom=bottoms3, label='Payroll Tax', color='#999999', alpha=0.6)
+    bottoms4 = [a + b for a, b in zip(bottoms3, p_tax)]
+    b5 = ax.bar(x, d_wht, width, bottom=bottoms4, label='Dividend WHT', color='#2c3e50', alpha=0.7)
+
+    # Total labels
+    for i, rate in enumerate(eff_rates):
+        total_top = bottoms4[i] + d_wht[i]
+        ax.text(x[i], total_top + 0.2, f'{rate:.1f}%', ha='center', va='bottom',
+                fontsize=10, fontweight='bold', color='#2c3e50')
+
+    ax.set_ylabel('Tax Burden (% of Revenue)', fontsize=12)
+    ax.set_title('B2B Product Principal: Effective Tax Rate by Principal Location\n'
+                 '$5M Global Revenue | LRDs at Cost + 8% | 20% R&D Spend',
+                 fontsize=14, fontweight='bold')
+    ax.set_xticks(x)
+    ax.set_xticklabels([f'{p}\n({codes_map[p]})' for p in principals], fontsize=9)
+    ax.legend(fontsize=9, loc='upper right', ncol=2)
+    ax.set_ylim(0, max(eff_rates) * 1.3)
+
+    plt.tight_layout()
+    fig.savefig(CHARTS_DIR / '28_product_principal_comparison.png', dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    print("  [OK] 28_product_principal_comparison.png")
+
+
+def chart_29_investment_corridors_heatmap(data):
+    """Chart 29: Investment Corridor Effective Tax Rate Heatmap (42 pairs)."""
+    fig, ax = plt.subplots(figsize=(10, 8))
+
+    labels = ['US', 'SG', 'ID', 'CA', 'BR', 'MX', 'AU']
+
+    # Effective rate: CIT in 'to' country + dividend WHT to 'from' country
+    corridor_matrix = np.zeros((7, 7))
+
+    rates_cit = {'US': 21.0, 'SG': 17.0, 'ID': 22.0, 'CA': 26.5, 'BR': 34.0, 'MX': 30.0, 'AU': 30.0}
+
+    # Treaty dividend WHT rates (to -> from)
+    div_wht = {
+        ('US','SG'): 15.0, ('US','ID'): 15.0, ('US','CA'): 5.0, ('US','BR'): 15.0, ('US','MX'): 5.0, ('US','AU'): 15.0,
+        ('SG','US'): 0.0, ('SG','ID'): 0.0, ('SG','CA'): 0.0, ('SG','BR'): 0.0, ('SG','MX'): 0.0, ('SG','AU'): 0.0,
+        ('ID','US'): 15.0, ('ID','SG'): 10.0, ('ID','CA'): 15.0, ('ID','BR'): 15.0, ('ID','MX'): 10.0, ('ID','AU'): 15.0,
+        ('CA','US'): 5.0, ('CA','SG'): 15.0, ('CA','ID'): 15.0, ('CA','BR'): 15.0, ('CA','MX'): 10.0, ('CA','AU'): 15.0,
+        ('BR','US'): 0.0, ('BR','SG'): 0.0, ('BR','ID'): 0.0, ('BR','CA'): 0.0, ('BR','MX'): 0.0, ('BR','AU'): 0.0,
+        ('MX','US'): 5.0, ('MX','SG'): 0.0, ('MX','ID'): 10.0, ('MX','CA'): 10.0, ('MX','BR'): 10.0, ('MX','AU'): 10.0,
+        ('AU','US'): 0.0, ('AU','SG'): 0.0, ('AU','ID'): 0.0, ('AU','CA'): 0.0, ('AU','BR'): 0.0, ('AU','MX'): 0.0,
+    }
+
+    for i, to_code in enumerate(labels):
+        for j, from_code in enumerate(labels):
+            if i == j:
+                corridor_matrix[j][i] = 0
+            else:
+                cit = rates_cit[to_code]
+                after_cit = 100 - cit
+                wht_rate = div_wht.get((to_code, from_code), 15.0)
+                wht = after_cit * wht_rate / 100
+                corridor_matrix[j][i] = cit + wht
+
+    im = ax.imshow(corridor_matrix, cmap='RdYlGn_r', aspect='auto', vmin=15, vmax=40)
+
+    ax.set_xticks(range(7))
+    ax.set_yticks(range(7))
+    ax.set_xticklabels([f'Ops in\n{c}' for c in labels], fontsize=10)
+    ax.set_yticklabels([f'Investor\nfrom {c}' for c in labels], fontsize=10)
+
+    for i in range(7):
+        for j in range(7):
+            val = corridor_matrix[i][j]
+            if val == 0:
+                text = '—'
+            else:
+                text = f'{val:.1f}%'
+            color = 'white' if val > 30 else 'black'
+            ax.text(j, i, text, ha='center', va='center', fontsize=9,
+                    fontweight='bold' if val < 20 else 'normal', color=color)
+
+    ax.set_title('Investment Corridor Effective Tax Rates\n'
+                 'CIT + Dividend WHT (Treaty Rates) on $100K Profit',
+                 fontsize=14, fontweight='bold')
+
+    cbar = plt.colorbar(im, ax=ax, fraction=0.03, pad=0.04)
+    cbar.set_label('Effective Rate (%)', fontsize=11)
+
+    plt.tight_layout()
+    fig.savefig(CHARTS_DIR / '29_investment_corridors_heatmap.png', dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    print("  [OK] 29_investment_corridors_heatmap.png")
+
+
+def chart_30_revenue_sensitivity(data):
+    """Chart 30: Revenue Sensitivity - Best Country by Revenue Tier."""
+    fig, ax = plt.subplots(figsize=(14, 8))
+
+    tiers = ['$50K', '$100K', '$250K', '$500K', '$1M', '$2M', '$5M']
+    tier_values = [50000, 100000, 250000, 500000, 1000000, 2000000, 5000000]
+
+    # Effective rates by country at each tier (from optimizer output, single entity)
+    # Format: payroll dominates at low revenue, CIT matters at high revenue
+    country_rates = {
+        'US':        [76.65, 38.40, 15.45, 7.80, 3.98, 2.06, 0.92],
+        'SG':        [172.50, 86.25, 34.50, 17.25, 8.62, 4.31, 1.73],
+        'ID':        [110.33, 55.33, 22.33, 11.33, 5.83, 3.08, 1.43],
+        'CA':        [82.70, 41.35, 16.54, 8.27, 4.13, 2.07, 0.83],
+        'BR':        [358.12, 179.12, 71.72, 35.92, 18.92, 9.97, 4.60],
+        'MX':        [300.45, 150.45, 60.45, 30.45, 15.45, 7.95, 3.45],
+        'AU':        [165.00, 82.50, 33.00, 16.50, 8.25, 4.12, 1.65],
+    }
+
+    for code, color_key in [('US', 'US'), ('SG', 'Singapore'), ('ID', 'Indonesia'),
+                             ('CA', 'Canada'), ('BR', 'Brazil'), ('MX', 'Mexico'), ('AU', 'Australia')]:
+        # Cap display at 50% for readability
+        rates = [min(50, r) for r in country_rates[code]]
+        ax.plot(range(len(tiers)), rates, marker='o', linewidth=2.5,
+                color=COLORS[color_key], label=code, markersize=8)
+
+    ax.set_xticks(range(len(tiers)))
+    ax.set_xticklabels(tiers, fontsize=11)
+    ax.set_xlabel('Annual Revenue', fontsize=12)
+    ax.set_ylabel('Effective Tax Rate (% of Revenue, capped at 50%)', fontsize=12)
+    ax.set_title('B2B Startup: Effective Tax Rate by Revenue Tier\n'
+                 'Single Entity Structure | 10 Employees | 15% R&D',
+                 fontsize=14, fontweight='bold')
+    ax.legend(fontsize=10, loc='upper right')
+    ax.set_ylim(0, 52)
+    ax.axhline(y=10, color='gray', linestyle='--', alpha=0.3)
+    ax.axhline(y=20, color='gray', linestyle='--', alpha=0.3)
+
+    plt.tight_layout()
+    fig.savefig(CHARTS_DIR / '30_revenue_sensitivity.png', dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    print("  [OK] 30_revenue_sensitivity.png")
+
+
+def chart_31_structure_comparison(data):
+    """Chart 31: Multi-entity vs Single-entity Structure Comparison."""
+    fig, ax = plt.subplots(figsize=(14, 8))
+
+    structures = [
+        'US Single\n(US-US-US)',
+        'CA Single\n(CA-CA-CA)',
+        'SG Single\n(SG-SG-SG)',
+        'ID Single\n(ID-ID-ID)',
+        'SG Hold\n+ US Ops',
+        'SG Hold\n+ ID Ops',
+        'SG Hold\n+ CA Ops',
+        'US Hold\n+ SG IP',
+    ]
+
+    # Effective rates from optimizer at $500K
+    eff_rates = [7.80, 8.27, 17.25, 11.33, 10.03, 10.72, 10.44, 9.72]
+    is_multi = [False, False, False, False, True, True, True, True]
+
+    colors = ['#3498db' if not m else '#e74c3c' for m in is_multi]
+
+    bars = ax.barh(range(len(structures)), eff_rates, color=colors, alpha=0.85, edgecolor='white', height=0.6)
+
+    for i, (bar, rate) in enumerate(zip(bars, eff_rates)):
+        ax.text(bar.get_width() + 0.2, i, f'{rate:.2f}%', va='center', fontsize=11, fontweight='bold')
+
+    ax.set_yticks(range(len(structures)))
+    ax.set_yticklabels(structures, fontsize=10)
+    ax.set_xlabel('Effective Tax Rate (% of Revenue)', fontsize=12)
+    ax.set_title('B2B Startup: Single-Entity vs Multi-Entity Structures\n'
+                 '$500K Revenue | Top Combinations from 2,401 Evaluated',
+                 fontsize=14, fontweight='bold')
+    ax.invert_yaxis()
+
+    # Legend
+    from matplotlib.patches import Patch
+    legend_elements = [Patch(facecolor='#3498db', label='Single Entity'),
+                       Patch(facecolor='#e74c3c', label='Multi-Entity')]
+    ax.legend(handles=legend_elements, fontsize=10, loc='lower right')
+
+    ax.set_xlim(0, max(eff_rates) * 1.25)
+
+    plt.tight_layout()
+    fig.savefig(CHARTS_DIR / '31_structure_comparison.png', dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    print("  [OK] 31_structure_comparison.png")
+
+
+def chart_32_principal_architecture(data):
+    """Chart 32: Product Principal Architecture Decision Matrix."""
+    fig, ax = plt.subplots(figsize=(14, 10))
+
+    factors = [
+        'CIT Rate\n(Principal)', 'IP Concess.\nRate', 'R&D Benefit',
+        'Div WHT\nOutbound', 'CGT on Exit', 'CFC Risk',
+        'Treaty\nNetwork', 'Substance\nEase', 'TP Doc\nBurden', 'VC\nAccess'
+    ]
+
+    # Scores 1-10 (10 = best for principal)
+    scores = {
+        'US':   [8, 7, 5, 3, 10, 3, 8, 9, 6, 10],
+        'SG':   [7, 10, 10, 10, 10, 10, 9, 8, 7, 6],
+        'ID':   [6, 8, 9, 3, 7, 7, 8, 5, 6, 3],
+        'CA':   [5, 4, 8, 3, 5, 7, 9, 8, 7, 7],
+        'BR':   [3, 5, 7, 10, 6, 3, 4, 5, 6, 4],
+        'MX':   [4, 4, 6, 7, 7, 7, 8, 6, 6, 5],
+        'AU':   [4, 5, 9, 7, 6, 7, 6, 8, 7, 7],
+    }
+
+    matrix = np.array([scores[c] for c in ['US', 'SG', 'ID', 'CA', 'BR', 'MX', 'AU']])
+    country_labels = ['United\nStates', 'Singapore', 'Indonesia', 'Canada', 'Brazil', 'Mexico', 'Australia']
+
+    im = ax.imshow(matrix, cmap='RdYlGn', aspect='auto', vmin=1, vmax=10)
+
+    ax.set_xticks(range(len(factors)))
+    ax.set_yticks(range(7))
+    ax.set_xticklabels(factors, fontsize=9)
+    ax.set_yticklabels(country_labels, fontsize=10)
+
+    for i in range(7):
+        for j in range(len(factors)):
+            val = matrix[i][j]
+            color = 'white' if val <= 3 else 'black'
+            ax.text(j, i, str(val), ha='center', va='center', fontsize=11,
+                    fontweight='bold', color=color)
+
+    ax.set_title('Product Principal Location Decision Matrix\n'
+                 'Score 1-10 (10 = Best) across Key Factors for B2B Principal Structure',
+                 fontsize=14, fontweight='bold')
+
+    cbar = plt.colorbar(im, ax=ax, fraction=0.03, pad=0.04)
+    cbar.set_label('Score (1-10)', fontsize=11)
+
+    plt.tight_layout()
+    fig.savefig(CHARTS_DIR / '32_principal_architecture_matrix.png', dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    print("  [OK] 32_principal_architecture_matrix.png")
+
+
 def main():
     """Generate all charts."""
     print("Loading data files...")
@@ -1576,7 +1912,15 @@ def main():
     chart_25_dividend_interest_treatment(data)
     chart_26_sector_specific_taxes(data)
 
-    print(f"\nAll {26} charts generated successfully in: {CHARTS_DIR}")
+    print("\nGenerating B2B optimization charts...")
+    chart_27_b2b_startup_effective_rates(data)
+    chart_28_product_principal_comparison(data)
+    chart_29_investment_corridors_heatmap(data)
+    chart_30_revenue_sensitivity(data)
+    chart_31_structure_comparison(data)
+    chart_32_principal_architecture(data)
+
+    print(f"\nAll {32} charts generated successfully in: {CHARTS_DIR}")
 
 
 if __name__ == '__main__':
