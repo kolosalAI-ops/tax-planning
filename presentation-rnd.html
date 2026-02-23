@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kolosal Tax: Global R&D Tax Incentives — 45-Country Analysis</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #0f172a; --card-hover: #f8fafc; --border: #e2e8f0;
+    --muted: #64748b; --light: #f1f5f9; --medium: #cbd5e1; --dark: #1e293b;
+    --accent: #0f766e; --accent-light: #ccfbf1; --accent-mid: #14b8a6;
+    --blue: #1d4ed8; --blue-light: #dbeafe; --amber: #b45309; --amber-light: #fef3c7;
+    --red: #b91c1c; --red-light: #fee2e2;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; margin: 0; padding: 0; }
+  body { font-family: var(--sans); background: var(--fg); color: var(--fg); -webkit-font-smoothing: antialiased; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .slide-stage { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+  .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); display: flex; flex-direction: column; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; transform: translateX(30px); overflow-y: auto; overflow-x: hidden; }
+  .slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); z-index: 10; }
+  .inner { max-width: 1280px; width: 100%; margin: 0 auto; padding: 36px 72px 64px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .inner.content { justify-content: flex-start; padding-top: 28px; }
+  .inner.centered { align-items: center; text-align: center; }
+  .nav { position: fixed; bottom: 0; left: 0; right: 0; height: 48px; background: var(--bg); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: center; gap: 24px; padding: 0 28px; z-index: 100; }
+  .nav-btn { display: flex; align-items: center; gap: 6px; padding: 6px 16px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all 0.15s; }
+  .nav-btn:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+  .nav-btn:disabled:hover { background: var(--bg); color: var(--fg); border-color: var(--border); }
+  .nav-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .counter { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); transition: width 0.35s ease; z-index: 101; }
+  .label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .title { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; color: var(--fg); margin-bottom: 12px; }
+  .subtitle { font-size: 14px; font-weight: 400; line-height: 1.6; color: var(--muted); max-width: 620px; }
+  .h2 { font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--fg); margin-bottom: 16px; }
+  .h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 10px; padding-bottom: 4px; border-bottom: 2px solid var(--accent); }
+  .mono { font-family: var(--mono); }
+  .bold { font-weight: 700; }
+  .divider { width: 48px; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); margin: 16px 0; border-radius: 2px; }
+  .key-point { border-left: 3px solid var(--accent); padding: 10px 14px; margin: 12px 0 0; background: var(--accent-light); font-size: 11px; line-height: 1.55; color: var(--dark); border-radius: 0 8px 8px 0; }
+  .key-point strong { color: var(--accent); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .card { border: 1px solid var(--border); padding: 16px; border-radius: 10px; border-left: 3px solid var(--accent); box-shadow: 0 1px 3px rgba(15,23,42,0.04); }
+  .metrics { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 18px; border-radius: 10px; overflow: hidden; }
+  .metric { background: var(--bg); padding: 12px; text-align: center; flex: 1; position: relative; }
+  .metric::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+  .metric-val { font-size: 22px; font-weight: 700; font-family: var(--mono); letter-spacing: -0.02em; color: var(--fg); }
+  .metric-lbl { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 3px; font-weight: 600; }
+  .tag { display: inline-block; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 7px; border: 1px solid var(--border); color: var(--muted); margin: 0 3px 3px 0; border-radius: 4px; }
+  .tag.filled { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .title-slide .title { font-size: 42px; font-weight: 800; letter-spacing: -0.035em; margin-bottom: 14px; }
+  .title-meta { display: flex; gap: 28px; margin-top: 24px; }
+  .title-meta-item { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 0; border-top: 2px solid var(--accent); }
+  .title-meta-item strong { color: var(--fg); display: block; margin-top: 3px; font-size: 12px; text-transform: none; letter-spacing: 0; }
+  .checklist { list-style: none; margin: 0; padding: 0; }
+  .checklist li { padding: 4px 0 4px 22px; position: relative; font-size: 11px; line-height: 1.5; color: var(--dark); border-bottom: 1px solid var(--light); }
+  .checklist li::before { content: '\2610'; position: absolute; left: 0; top: 3px; font-size: 12px; color: var(--accent); }
+  .checklist li:last-child { border-bottom: none; }
+  .slide-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .slide-header .icon-box { width: 36px; height: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: none; border-radius: 8px; background: var(--accent-light); }
+  .slide-header .icon-box svg { width: 18px; height: 18px; color: var(--accent); }
+  .slide-header .h2 { margin-bottom: 0; }
+  .hbar { width: 100%; margin: 4px 0; }
+  .hbar-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+  .hbar-label { width: 76px; font-size: 10px; font-weight: 600; text-align: right; flex-shrink: 0; color: var(--dark); }
+  .hbar-track { flex: 1; height: 20px; background: var(--light); border-radius: 4px; overflow: hidden; position: relative; }
+  .hbar-fill { height: 100%; background: var(--accent); border-radius: 4px; min-width: 2px; transition: width 0.5s ease; }
+  .hbar-fill.alt { background: var(--medium); }
+  .hbar-fill.accent { background: var(--amber); }
+  .hbar-fill.high { background: var(--red); }
+  .hbar-val { width: 52px; font-family: var(--mono); font-size: 10px; font-weight: 700; flex-shrink: 0; color: var(--fg); }
+  .dtable { width: 100%; border-collapse: collapse; font-size: 11px; margin: 6px 0; }
+  .dtable th { text-align: left; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bg); padding: 7px 8px; background: var(--fg); font-weight: 700; }
+  .dtable th:first-child { border-radius: 6px 0 0 0; }
+  .dtable th:last-child { border-radius: 0 6px 0 0; }
+  .dtable td { padding: 6px 8px; border-bottom: 1px solid var(--light); color: var(--dark); vertical-align: top; }
+  .dtable tr:nth-child(even) td { background: var(--light); }
+  .dtable tr:last-child td { border-bottom: 2px solid var(--fg); }
+  .dtable .num { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+  .dtable .right { text-align: right; }
+  .dtable .highlight { background: var(--accent-light) !important; font-weight: 700; }
+  .dtable .result td { background: var(--accent-light) !important; font-weight: 700; }
+  .timeline { position: relative; padding-left: 20px; border-left: 3px solid var(--accent); margin: 8px 0; }
+  .tl-item { position: relative; padding: 6px 0 6px 14px; font-size: 11px; line-height: 1.5; color: var(--dark); }
+  .tl-item::before { content: ''; position: absolute; left: -26px; top: 11px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg); }
+  .tl-year { font-family: var(--mono); font-weight: 700; color: var(--accent); margin-right: 6px; }
+  .vs-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; }
+  .vs-box { border: 1px solid var(--border); padding: 14px; border-radius: 10px; box-shadow: 0 1px 3px rgba(15,23,42,0.04); }
+  .vs-box.win { border-color: var(--accent); border-width: 2px; background: var(--accent-light); }
+  .vs-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+  .vs-divider { display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--medium); }
+  .flow { display: flex; align-items: center; gap: 6px; justify-content: center; margin: 10px 0; flex-wrap: wrap; }
+  .flow-node { border: 2px solid var(--accent); padding: 10px 14px; text-align: center; font-size: 10px; line-height: 1.4; border-radius: 8px; background: var(--bg); min-width: 120px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+  .flow-node strong { display: block; font-size: 11px; color: var(--accent); }
+  .flow-arrow { font-size: 18px; color: var(--accent-mid); flex-shrink: 0; }
+  .section-slide { background: var(--fg) !important; color: var(--bg) !important; }
+  .section-slide .label { color: var(--accent-mid) !important; }
+  .section-slide .title { color: var(--bg) !important; }
+  .section-slide .divider { background: linear-gradient(90deg, var(--accent-mid), var(--accent)) !important; }
+  .section-slide .tag { border-color: var(--accent-mid); color: var(--accent-mid); }
+  .score-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+  .score-label { width: 76px; font-size: 10px; font-weight: 600; text-align: right; flex-shrink: 0; }
+  .score-track { flex: 1; height: 24px; background: var(--light); border-radius: 4px; position: relative; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; background: var(--accent); }
+  .score-fill span { font-family: var(--mono); font-size: 10px; font-weight: 700; color: var(--bg); }
+  .slide::-webkit-scrollbar { width: 3px; }
+  .slide::-webkit-scrollbar-track { background: var(--light); }
+  .slide::-webkit-scrollbar-thumb { background: var(--medium); }
+  .slide .inner.compact { padding: 24px 72px 56px; }
+  .slide .inner.compact .dtable { font-size: 10px; }
+  .slide .inner.compact .dtable th { font-size: 8px; padding: 5px 6px; }
+  .slide .inner.compact .dtable td { padding: 4px 6px; }
+  .slide .inner.compact .key-point { font-size: 10px; padding: 8px 12px; margin-top: 8px; }
+  .slide .inner.compact .card { padding: 10px 12px; }
+  .slide .inner.compact .h3 { font-size: 9px; margin-bottom: 6px; }
+  @media (max-width: 768px) {
+    .inner { padding: 20px 16px 56px; max-width: 100%; }
+    .title-slide .title { font-size: 28px; }
+    .h2 { font-size: 20px; }
+    .two-col, .three-col { grid-template-columns: 1fr; }
+    .metrics { flex-wrap: wrap; }
+    .vs-grid { grid-template-columns: 1fr; }
+  }
+  @page { size: 16in 9in; margin: 0; }
+  @media print {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    html, body { width: 16in; height: 9in; overflow: visible; margin: 0; padding: 0; background: #fff; display: block; }
+    .slide-stage { width: 100%; height: auto; overflow: visible; }
+    .slide { position: relative !important; opacity: 1 !important; pointer-events: auto !important; transform: none !important; transition: none !important; width: 16in !important; height: 9in !important; max-height: 9in; overflow: hidden; page-break-after: always; break-after: page; break-inside: avoid; display: flex; flex-direction: column; align-items: center; }
+    .slide:last-of-type { page-break-after: auto; break-after: auto; }
+    .inner { padding: 32px 64px 32px; justify-content: flex-start; flex: 1; overflow: hidden; max-width: 1280px; width: 100%; }
+    .title-slide .inner { justify-content: center; }
+    .nav, .progress { display: none !important; }
+    .title { font-size: 32px; margin-bottom: 10px; }
+    .title-slide .title { font-size: 40px; }
+    .h2 { font-size: 22px; margin-bottom: 12px; }
+    .dtable { font-size: 10px; }
+    .dtable th { font-size: 8px; padding: 5px 6px; }
+    .dtable td { padding: 4px 6px; }
+    .key-point { font-size: 10px; padding: 8px 12px; margin: 8px 0 0; line-height: 1.4; }
+    .metrics { margin-bottom: 12px; }
+    .metric { padding: 10px 8px; }
+    .metric-val { font-size: 18px; }
+    .metric-lbl { font-size: 7px; margin-top: 2px; }
+    .card { padding: 10px 12px; border-radius: 6px; box-shadow: none; }
+    .section-slide .title { font-size: 36px !important; }
+    .section-slide .inner { justify-content: center; }
+  }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .slide.active .anim-item { animation: fadeInUp 0.5s ease both; }
+  .slide.active .anim-item:nth-child(1) { animation-delay: 0.05s; }
+  .slide.active .anim-item:nth-child(2) { animation-delay: 0.1s; }
+  .slide.active .anim-item:nth-child(3) { animation-delay: 0.15s; }
+  .slide.active .anim-item:nth-child(4) { animation-delay: 0.2s; }
+  .slide.active .anim-item:nth-child(5) { animation-delay: 0.25s; }
+  .slide.active .anim-item:nth-child(6) { animation-delay: 0.3s; }
+  .points { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 6px; counter-reset: point-counter; }
+  .points.grid-2 { grid-template-columns: 1fr 1fr; }
+  .points li { position: relative; padding: 10px 14px 10px 40px; font-size: 12px; line-height: 1.55; color: var(--dark); border: 1px solid var(--border); border-radius: 8px; background: var(--bg); border-left: 3px solid var(--accent); }
+  .points li::before { content: counter(point-counter); counter-increment: point-counter; position: absolute; left: 10px; top: 10px; width: 22px; height: 22px; background: linear-gradient(135deg, var(--accent), var(--accent-mid)); color: white; border-radius: 6px; font-size: 10px; font-weight: 700; font-family: var(--mono); display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="slide-stage">
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide" data-s="1">
+<div class="inner centered">
+  <div class="label">Kolosal Tax Advisory — Global Incentives Practice</div>
+  <div class="title">Global R&amp;D Tax Incentives</div>
+  <div class="divider" style="margin: 12px auto;"></div>
+  <div class="subtitle">45-Country Comparative Analysis — Tax Credits, Super Deductions &amp; Patent Boxes</div>
+  <div class="title-meta">
+    <div class="title-meta-item">Coverage<strong>45 Countries</strong></div>
+    <div class="title-meta-item">Regions<strong>4 Continents</strong></div>
+    <div class="title-meta-item">Data Year<strong>2024 / 2025</strong></div>
+    <div class="title-meta-item">Prepared By<strong>Kolosal Tax Advisory</strong></div>
+  </div>
+  <div style="margin-top: 20px;">
+    <span class="tag filled">R&amp;D Credits</span>
+    <span class="tag filled">Super Deductions</span>
+    <span class="tag filled">Patent Boxes</span>
+    <span class="tag filled">IP Regimes</span>
+    <span class="tag">Grant Programs</span>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 2: Executive Summary -->
+<div class="slide" data-s="2">
+<div class="inner content">
+  <div class="label">Executive Summary</div>
+  <div class="h2">Global R&amp;D Incentive Landscape at a Glance</div>
+  <div class="metrics anim-item">
+    <div class="metric"><div class="metric-val">45</div><div class="metric-lbl">Countries Analyzed</div></div>
+    <div class="metric"><div class="metric-val">43</div><div class="metric-lbl">With R&amp;D Incentives</div></div>
+    <div class="metric"><div class="metric-val">14</div><div class="metric-lbl">Patent Box Regimes</div></div>
+    <div class="metric"><div class="metric-val">13</div><div class="metric-lbl">Refundable Credits</div></div>
+  </div>
+  <div class="two-col anim-item">
+    <div class="card">
+      <div class="h3">Key Findings</div>
+      <ul class="checklist">
+        <li><strong>96% of surveyed countries</strong> offer at least one R&amp;D tax incentive mechanism</li>
+        <li><strong>Enhanced deductions dominate</strong> — 28 countries offer 150–400% super deductions on qualifying R&amp;D spend</li>
+        <li><strong>Patent boxes expanding</strong> — 14 countries now offer preferential IP income taxation (3.75%–12.5%)</li>
+        <li><strong>Refundability trend</strong> — 13 countries provide cash refunds for pre-revenue or loss-making companies</li>
+        <li><strong>Average effective benefit</strong> ranges from $60K to $350K per $1M of qualifying R&amp;D expenditure</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="h3">Incentive Mechanism Distribution</div>
+      <div class="hbar">
+        <div class="hbar-row"><div class="hbar-label">Tax Credits</div><div class="hbar-track"><div class="hbar-fill" style="width:62%"></div></div><div class="hbar-val">28 countries</div></div>
+        <div class="hbar-row"><div class="hbar-label">Super Deduct.</div><div class="hbar-track"><div class="hbar-fill" style="width:60%"></div></div><div class="hbar-val">27 countries</div></div>
+        <div class="hbar-row"><div class="hbar-label">Patent Box</div><div class="hbar-track"><div class="hbar-fill" style="width:31%"></div></div><div class="hbar-val">14 countries</div></div>
+        <div class="hbar-row"><div class="hbar-label">Grants</div><div class="hbar-track"><div class="hbar-fill alt" style="width:22%"></div></div><div class="hbar-val">10 countries</div></div>
+        <div class="hbar-row"><div class="hbar-label">CIT Holiday</div><div class="hbar-track"><div class="hbar-fill alt" style="width:13%"></div></div><div class="hbar-val">6 countries</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>Strategic Takeaway:</strong> Companies operating across multiple jurisdictions can stack R&amp;D incentives — combining tax credits in the parent entity with super deductions in subsidiaries and patent boxes for IP holding — to achieve effective tax rates below 5% on innovation-derived income.</div>
+</div>
+</div>
+
+<!-- SLIDE 3: Section Divider — Part I -->
+<div class="slide section-slide" data-s="3">
+<div class="inner centered">
+  <div class="label">Part I</div>
+  <div class="title">Incentive Mechanisms</div>
+  <div class="divider" style="margin: 16px auto;"></div>
+  <div class="subtitle" style="color:#94a3b8;">Tax Credits, Enhanced Deductions, Patent Boxes &amp; Hybrid Models — Understanding the three pillars of R&amp;D tax policy</div>
+  <div style="margin-top: 20px;">
+    <span class="tag">Tax Credits</span>
+    <span class="tag">Super Deductions</span>
+    <span class="tag">Patent Boxes</span>
+    <span class="tag">Refundability</span>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 4: Mechanism Types Overview -->
+<div class="slide" data-s="4">
+<div class="inner content">
+  <div class="label">Incentive Mechanisms</div>
+  <div class="h2">Three Pillars of R&amp;D Tax Incentives</div>
+  <div class="three-col anim-item">
+    <div class="card">
+      <div class="h3">Tax Credits</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:8px;"><strong>Mechanism:</strong> Direct offset against tax liability, calculated as a percentage of qualifying R&amp;D expenditure.</p>
+        <p style="margin-bottom:8px;"><strong>Benefit type:</strong> Reduces tax payable dollar-for-dollar.</p>
+        <p style="margin-bottom:8px;"><strong>Range:</strong> 6% (Japan) to 50% (Ireland, first €50K)</p>
+        <p style="margin-bottom:8px;"><strong>Best for:</strong> Profitable companies with tax liability to offset.</p>
+        <p><strong>Refundable variants:</strong> Cash back even without taxable income (13 countries).</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="h3">Enhanced Deductions</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:8px;"><strong>Mechanism:</strong> Deduct more than 100% of qualifying R&amp;D spend from taxable income.</p>
+        <p style="margin-bottom:8px;"><strong>Benefit type:</strong> Reduces taxable income by a multiple of actual spend.</p>
+        <p style="margin-bottom:8px;"><strong>Range:</strong> 150% (South Africa) to 400% (Singapore EIS)</p>
+        <p style="margin-bottom:8px;"><strong>Best for:</strong> Companies in high-CIT jurisdictions to amplify deductions.</p>
+        <p><strong>Note:</strong> Effective value depends on statutory CIT rate.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="h3">Patent Boxes / IP Regimes</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:8px;"><strong>Mechanism:</strong> Reduced CIT rate on income derived from qualifying IP (patents, software copyrights).</p>
+        <p style="margin-bottom:8px;"><strong>Benefit type:</strong> Ongoing reduced rate on IP-derived profits.</p>
+        <p style="margin-bottom:8px;"><strong>Range:</strong> 3.75% (Belgium/Portugal) to 12.5% (Israel)</p>
+        <p style="margin-bottom:8px;"><strong>Best for:</strong> Companies with mature IP generating licensing or embedded royalty income.</p>
+        <p><strong>OECD nexus:</strong> Modified nexus approach required since BEPS Action 5.</p>
+      </div>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>Stacking opportunity:</strong> Many jurisdictions allow combining mechanisms — e.g., France offers a 30% R&amp;D tax credit <em>and</em> a patent box at 10%. Belgium offers a WHT exemption, innovation income deduction, <em>and</em> enhanced deductions simultaneously.</div>
+</div>
+</div>
+
+<!-- SLIDE 5: Top Tax Credit Countries -->
+<div class="slide" data-s="5">
+<div class="inner content">
+  <div class="label">Tax Credits</div>
+  <div class="h2">Top R&amp;D Tax Credit Jurisdictions</div>
+  <table class="dtable anim-item">
+    <tr><th>Country</th><th>Credit Rate</th><th>Cap / Threshold</th><th>Refundable</th><th>Carry-Forward</th><th>Effective per $1M</th></tr>
+    <tr><td><strong>Chile</strong></td><td class="num">35%</td><td>Up to ~$1.1M spend/yr</td><td>Yes (SMEs)</td><td>10 years</td><td class="num">$350,000</td></tr>
+    <tr><td><strong>Portugal (SIFIDE II)</strong></td><td class="num">32.5% + 50%</td><td>32.5% base + 50% incremental</td><td>No</td><td>8 years</td><td class="num">$325,000+</td></tr>
+    <tr><td><strong>France (CIR)</strong></td><td class="num">30%</td><td>First €100M; 5% above</td><td>Yes (SMEs/startups)</td><td>3 years then refund</td><td class="num">$300,000</td></tr>
+    <tr><td><strong>Ireland</strong></td><td class="num">30% / 50%</td><td>30% general; 50% first €50K</td><td>Yes (3-year install)</td><td>Unlimited</td><td class="num">$300,000</td></tr>
+    <tr><td><strong>Mexico</strong></td><td class="num">30%</td><td>MXN 50M cap</td><td>No (offsets ISR)</td><td>10 years</td><td class="num">$300,000</td></tr>
+    <tr><td><strong>Spain</strong></td><td class="num">25% / 42%</td><td>25% base; 42% incremental</td><td>Yes (with limits)</td><td>18 years</td><td class="num">$250,000+</td></tr>
+    <tr><td><strong>Germany</strong></td><td class="num">25%</td><td>Max €1M credit (€4M base)</td><td>Yes</td><td>Unlimited</td><td class="num">$250,000</td></tr>
+    <tr class="highlight"><td><strong>Canada (SR&amp;ED)</strong></td><td class="num">35% / 15%</td><td>35% CCPC first $3M; 15% above</td><td>Yes (35% rate)</td><td>20 years</td><td class="num">$150–350K</td></tr>
+    <tr><td><strong>USA (§41)</strong></td><td class="num">~6–7%</td><td>ASC method; no cap</td><td>Partial (startups)</td><td>20 years</td><td class="num">$60–70K</td></tr>
+  </table>
+  <div class="key-point anim-item"><strong>Note:</strong> "Effective per $1M" assumes a company spending $1M on qualifying R&amp;D. Actual values depend on CIT rate, incremental vs. volume method, caps, and entity type. Refundable credits are particularly valuable for pre-revenue startups.</div>
+</div>
+</div>
+
+<!-- SLIDE 6: Top Enhanced Deduction Countries -->
+<div class="slide" data-s="6">
+<div class="inner content">
+  <div class="label">Enhanced Deductions</div>
+  <div class="h2">Super Deduction Leaders — Above 100% Write-Off</div>
+  <div class="metrics anim-item">
+    <div class="metric"><div class="metric-val">400%</div><div class="metric-lbl">Singapore (EIS)</div></div>
+    <div class="metric"><div class="metric-val">300%</div><div class="metric-lbl">China / Indonesia</div></div>
+    <div class="metric"><div class="metric-val">300%</div><div class="metric-lbl">Poland / Thailand</div></div>
+    <div class="metric"><div class="metric-val">200%</div><div class="metric-lbl">Turkey / Czech</div></div>
+  </div>
+  <table class="dtable anim-item">
+    <tr><th>Country</th><th>Deduction %</th><th>CIT Rate</th><th>Effective Tax Saving per $1M</th><th>Conditions</th></tr>
+    <tr class="highlight"><td><strong>Singapore (EIS)</strong></td><td class="num">400%</td><td>17%</td><td class="num">$510,000</td><td>Approved EIS projects; cap $50K–$400K</td></tr>
+    <tr><td><strong>China</strong></td><td class="num">300%</td><td>25%</td><td class="num">$500,000</td><td>All enterprises from 2023; HNTE eligible</td></tr>
+    <tr><td><strong>Indonesia</strong></td><td class="num">300%</td><td>22%</td><td class="num">$440,000</td><td>GR 45/2019; super deduction for approved activities</td></tr>
+    <tr><td><strong>Poland</strong></td><td class="num">300%</td><td>19%</td><td class="num">$380,000</td><td>R&amp;D Relief + IP Box combo; Innovation Center status</td></tr>
+    <tr><td><strong>Thailand</strong></td><td class="num">300%</td><td>20%</td><td class="num">$400,000</td><td>Approved by NSTDA; expires periodically</td></tr>
+    <tr><td><strong>Turkey</strong></td><td class="num">200%</td><td>25%</td><td class="num">$250,000</td><td>R&amp;D centers with 15+ FTE researchers</td></tr>
+    <tr><td><strong>Czech Republic</strong></td><td class="num">200%</td><td>21%</td><td class="num">$210,000</td><td>Self-assessed; carry forward 3 years</td></tr>
+    <tr><td><strong>Hungary</strong></td><td class="num">200%</td><td>9%</td><td class="num">$90,000</td><td>Low CIT limits absolute benefit despite high %</td></tr>
+    <tr><td><strong>Malaysia</strong></td><td class="num">200%</td><td>24%</td><td class="num">$240,000</td><td>Double deduction for approved R&amp;D; Pioneer Status available</td></tr>
+  </table>
+  <div class="key-point anim-item"><strong>Formula:</strong> Effective saving = (Deduction% − 100%) × CIT rate × Spend. A 300% deduction at 25% CIT = extra 200% × 25% = <strong>50% cash-equivalent saving on R&amp;D spend</strong>. Singapore's 400% at 17% CIT yields 51% — the world's highest.</div>
+</div>
+</div>
+
+<!-- SLIDE 7: Patent Box / IP Regimes -->
+<div class="slide" data-s="7">
+<div class="inner content">
+  <div class="label">Patent Boxes</div>
+  <div class="h2">IP Box Regimes — Preferential Taxation of Innovation Income</div>
+  <div class="metrics anim-item">
+    <div class="metric"><div class="metric-val">14</div><div class="metric-lbl">Countries with Patent Box</div></div>
+    <div class="metric"><div class="metric-val">3.75%</div><div class="metric-lbl">Lowest Effective Rate (BE/PT)</div></div>
+    <div class="metric"><div class="metric-val">17%</div><div class="metric-lbl">Highest Rate (AU Biotech)</div></div>
+    <div class="metric"><div class="metric-val">OECD</div><div class="metric-lbl">Modified Nexus Required</div></div>
+  </div>
+  <table class="dtable anim-item">
+    <tr><th>Country</th><th>IP Box Rate</th><th>Standard CIT</th><th>Tax Saving</th><th>Qualifying IP</th><th>Nexus Compliant</th></tr>
+    <tr class="highlight"><td><strong>Belgium</strong></td><td class="num">3.75%</td><td>25%</td><td class="num">21.25pp</td><td>Patents, software, plant breeders' rights</td><td>Yes</td></tr>
+    <tr><td><strong>Portugal</strong></td><td class="num">3.75%</td><td>21%</td><td class="num">17.25pp</td><td>Patents, designs, models, software copyrights</td><td>Yes</td></tr>
+    <tr><td><strong>Poland</strong></td><td class="num">5%</td><td>19%</td><td class="num">14pp</td><td>Patents, utility models, software copyrights</td><td>Yes</td></tr>
+    <tr><td><strong>Hungary</strong></td><td class="num">4.5%</td><td>9%</td><td class="num">4.5pp</td><td>Patents, utility models, copyrights</td><td>Yes</td></tr>
+    <tr><td><strong>Ireland (KDB)</strong></td><td class="num">6.25%</td><td>12.5%</td><td class="num">6.25pp</td><td>Patents, copyrighted software</td><td>Yes</td></tr>
+    <tr><td><strong>Netherlands</strong></td><td class="num">9%</td><td>25.8%</td><td class="num">16.8pp</td><td>Patented IP, R&amp;D assets, software</td><td>Yes</td></tr>
+    <tr><td><strong>Switzerland</strong></td><td class="num">~3–5%</td><td>~12–14%</td><td class="num">~8pp</td><td>Patents (cantonal variation, up to 90% relief)</td><td>Yes</td></tr>
+    <tr><td><strong>France</strong></td><td class="num">10%</td><td>25%</td><td class="num">15pp</td><td>Patents, patentable inventions, software</td><td>Yes</td></tr>
+    <tr><td><strong>UK</strong></td><td class="num">10%</td><td>25%</td><td class="num">15pp</td><td>Patents, supplementary protection certificates</td><td>Yes</td></tr>
+    <tr><td><strong>Spain</strong></td><td class="num">10%</td><td>25%</td><td class="num">15pp</td><td>Patents, secret formulas (60% exemption)</td><td>Yes</td></tr>
+    <tr><td><strong>Italy</strong></td><td class="num">~14%</td><td>24%</td><td class="num">~10pp</td><td>110% super-deduction model on R&amp;D costs for IP</td><td>Yes</td></tr>
+    <tr><td><strong>India</strong></td><td class="num">10%</td><td>25.2%</td><td class="num">15.2pp</td><td>Patents developed &amp; registered in India only</td><td>Partial</td></tr>
+    <tr><td><strong>Israel</strong></td><td class="num">6–12%</td><td>23%</td><td class="num">11–17pp</td><td>Tech enterprise IP income; preferred/special status</td><td>Custom</td></tr>
+    <tr><td><strong>Australia</strong></td><td class="num">17%</td><td>30%</td><td class="num">13pp</td><td>Biotech patents only (limited scope)</td><td>Yes</td></tr>
+  </table>
+  <div class="key-point anim-item"><strong>OECD Modified Nexus Approach (BEPS Action 5):</strong> Tax benefit must be proportional to the taxpayer's own qualifying R&amp;D expenditure. Acquired IP and outsourced R&amp;D (to related parties) reduce the qualifying ratio. This limits shell-company patent box arbitrage.</div>
+</div>
+</div>
+
+<!-- SLIDE 8: Section Divider — Part II -->
+<div class="slide section-slide" data-s="8">
+<div class="inner centered">
+  <div class="label">Part II</div>
+  <div class="title">Regional Analysis</div>
+  <div class="divider" style="margin: 16px auto;"></div>
+  <div class="subtitle" style="color:#94a3b8;">Comparing R&amp;D incentive landscapes across Americas, Europe, Asia-Pacific, and Middle East &amp; Africa</div>
+  <div style="margin-top: 20px;">
+    <span class="tag">Americas (7)</span>
+    <span class="tag">Europe (19)</span>
+    <span class="tag">Asia-Pacific (13)</span>
+    <span class="tag">ME &amp; Africa (6)</span>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 9: Regional — Americas -->
+<div class="slide" data-s="9">
+<div class="inner content">
+  <div class="label">Regional Analysis</div>
+  <div class="h2">Americas — 7 Countries</div>
+  <div class="metrics anim-item">
+    <div class="metric"><div class="metric-val">$350K</div><div class="metric-lbl">Highest (Chile)</div></div>
+    <div class="metric"><div class="metric-val">$60K</div><div class="metric-lbl">Lowest (USA §41)</div></div>
+    <div class="metric"><div class="metric-val">0</div><div class="metric-lbl">Patent Box Regimes</div></div>
+    <div class="metric"><div class="metric-val">1</div><div class="metric-lbl">Fully Refundable (Canada)</div></div>
+  </div>
+  <div class="hbar anim-item">
+    <div class="hbar-row"><div class="hbar-label">Chile</div><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><div class="hbar-val">$350,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">France</div><div class="hbar-track"><div class="hbar-fill" style="width:86%"></div></div><div class="hbar-val">$300,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Mexico</div><div class="hbar-track"><div class="hbar-fill" style="width:86%"></div></div><div class="hbar-val">$300,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Colombia</div><div class="hbar-track"><div class="hbar-fill" style="width:71%"></div></div><div class="hbar-val">$250,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Brazil</div><div class="hbar-track"><div class="hbar-fill" style="width:58%"></div></div><div class="hbar-val">$204,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Canada</div><div class="hbar-track"><div class="hbar-fill" style="width:43%"></div></div><div class="hbar-val">$150,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Argentina</div><div class="hbar-track"><div class="hbar-fill" style="width:43%"></div></div><div class="hbar-val">$150,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">USA</div><div class="hbar-track"><div class="hbar-fill alt" style="width:20%"></div></div><div class="hbar-val">$70,000</div></div>
+  </div>
+  <div class="two-col anim-item">
+    <div class="card">
+      <div class="h3">Strengths</div>
+      <ul class="checklist">
+        <li><strong>Chile:</strong> 35% credit — highest headline rate globally</li>
+        <li><strong>Canada:</strong> 35% fully refundable for CCPCs + provincial stacking (up to 65% combined)</li>
+        <li><strong>Colombia:</strong> Dual benefit — 25% credit + 100% extra deduction</li>
+        <li><strong>Brazil (Lei do Bem):</strong> 60–100% extra deduction + 50% IPI reduction</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="h3">Watch Points</div>
+      <ul class="checklist">
+        <li><strong>USA §174:</strong> R&amp;D amortization (5/15 yr) erodes benefit; ASC method yields only ~6–7%</li>
+        <li><strong>Brazil:</strong> Must be profitable to claim Lei do Bem; no carry-forward</li>
+        <li><strong>Mexico:</strong> MXN 50M annual cap limits benefit for large spenders</li>
+        <li><strong>Argentina:</strong> Economic volatility affects real value of peso-denominated benefits</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 10: Regional — Europe -->
+<div class="slide" data-s="10">
+<div class="inner content compact">
+  <div class="label">Regional Analysis</div>
+  <div class="h2">Europe — 19 Countries (Most Comprehensive Incentive Ecosystem)</div>
+  <div class="metrics anim-item">
+    <div class="metric"><div class="metric-val">$325K</div><div class="metric-lbl">Highest (Portugal)</div></div>
+    <div class="metric"><div class="metric-val">11</div><div class="metric-lbl">Patent Box Regimes</div></div>
+    <div class="metric"><div class="metric-val">8</div><div class="metric-lbl">Refundable Credits</div></div>
+    <div class="metric"><div class="metric-val">19/19</div><div class="metric-lbl">All Offer R&amp;D Incentives</div></div>
+  </div>
+  <table class="dtable anim-item">
+    <tr><th>Country</th><th>Main Mechanism</th><th>Rate</th><th>Patent Box</th><th>Refundable</th><th>Effective / $1M</th></tr>
+    <tr class="highlight"><td><strong>Portugal</strong></td><td>SIFIDE II Credit</td><td class="num">32.5%+50%</td><td>Yes (3.75%)</td><td>No</td><td class="num">$325,000</td></tr>
+    <tr><td><strong>France</strong></td><td>CIR Credit</td><td class="num">30%</td><td>Yes (10%)</td><td>SMEs</td><td class="num">$300,000</td></tr>
+    <tr><td><strong>Ireland</strong></td><td>R&amp;D Credit + KDB</td><td class="num">30%/50%</td><td>Yes (6.25%)</td><td>Yes</td><td class="num">$300,000</td></tr>
+    <tr><td><strong>Germany</strong></td><td>Forschungszulage</td><td class="num">25%</td><td>No</td><td>Yes</td><td class="num">$250,000</td></tr>
+    <tr><td><strong>Spain</strong></td><td>R&amp;D Credit</td><td class="num">25%/42%</td><td>Yes (10%)</td><td>Partial</td><td class="num">$250,000</td></tr>
+    <tr><td><strong>Denmark</strong></td><td>Tax Credit</td><td class="num">22%</td><td>No</td><td>Yes</td><td class="num">$220,000</td></tr>
+    <tr><td><strong>Belgium</strong></td><td>WHT Exemp. + IID</td><td class="num">80%/85%</td><td>Yes (3.75%)</td><td>Yes</td><td class="num">$200,000</td></tr>
+    <tr><td><strong>Turkey</strong></td><td>200% Deduction</td><td class="num">200%</td><td>No</td><td>No</td><td class="num">$200,000</td></tr>
+    <tr><td><strong>Czech Rep.</strong></td><td>200% Deduction</td><td class="num">200%</td><td>No</td><td>No</td><td class="num">$190,000</td></tr>
+    <tr><td><strong>Poland</strong></td><td>300% Deduction + IP Box</td><td class="num">300%</td><td>Yes (5%)</td><td>Startups</td><td class="num">$190,000</td></tr>
+    <tr><td><strong>Norway</strong></td><td>SkatteFUNN Credit</td><td class="num">19%</td><td>No</td><td>Yes</td><td class="num">$190,000</td></tr>
+    <tr><td><strong>Netherlands</strong></td><td>WBSO + Innov. Box</td><td class="num">32%/16%</td><td>Yes (9%)</td><td>Yes</td><td class="num">$160,000</td></tr>
+    <tr><td><strong>UK</strong></td><td>RDEC + Patent Box</td><td class="num">20%</td><td>Yes (10%)</td><td>Yes</td><td class="num">$150,000</td></tr>
+  </table>
+  <div class="key-point anim-item"><strong>Europe leads globally</strong> in stacking opportunities: Belgium offers WHT exemption + innovation income deduction + enhanced deductions simultaneously. Ireland combines a 30% credit with a 6.25% KDB. The Netherlands pairs WBSO with a 9% Innovation Box.</div>
+</div>
+</div>
+
+<!-- SLIDE 11: Regional — Asia-Pacific -->
+<div class="slide" data-s="11">
+<div class="inner content">
+  <div class="label">Regional Analysis</div>
+  <div class="h2">Asia-Pacific — 13 Countries (Super Deduction Dominant)</div>
+  <div class="metrics anim-item">
+    <div class="metric"><div class="metric-val">400%</div><div class="metric-lbl">Max Deduction (Singapore)</div></div>
+    <div class="metric"><div class="metric-val">50%</div><div class="metric-lbl">Max Credit (S. Korea)</div></div>
+    <div class="metric"><div class="metric-val">2</div><div class="metric-lbl">Patent Boxes (AU, IN)</div></div>
+    <div class="metric"><div class="metric-val">2</div><div class="metric-lbl">Refundable (AU, NZ)</div></div>
+  </div>
+  <div class="hbar anim-item">
+    <div class="hbar-row"><div class="hbar-label">S. Korea</div><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><div class="hbar-val">$250,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">China</div><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><div class="hbar-val">$250,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Malaysia</div><div class="hbar-track"><div class="hbar-fill" style="width:96%"></div></div><div class="hbar-val">$240,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Indonesia</div><div class="hbar-track"><div class="hbar-fill" style="width:88%"></div></div><div class="hbar-val">$220,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Thailand</div><div class="hbar-track"><div class="hbar-fill" style="width:80%"></div></div><div class="hbar-val">$200,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Australia</div><div class="hbar-track"><div class="hbar-fill" style="width:74%"></div></div><div class="hbar-val">$185,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Singapore</div><div class="hbar-track"><div class="hbar-fill" style="width:68%"></div></div><div class="hbar-val">$170,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Taiwan</div><div class="hbar-track"><div class="hbar-fill" style="width:60%"></div></div><div class="hbar-val">$150,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">New Zealand</div><div class="hbar-track"><div class="hbar-fill" style="width:60%"></div></div><div class="hbar-val">$150,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Philippines</div><div class="hbar-track"><div class="hbar-fill" style="width:50%"></div></div><div class="hbar-val">$125,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Japan</div><div class="hbar-track"><div class="hbar-fill alt" style="width:40%"></div></div><div class="hbar-val">$100,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">Vietnam</div><div class="hbar-track"><div class="hbar-fill alt" style="width:40%"></div></div><div class="hbar-val">$100,000</div></div>
+    <div class="hbar-row"><div class="hbar-label">India</div><div class="hbar-track"><div class="hbar-fill alt" style="width:20%"></div></div><div class="hbar-val">$50,000</div></div>
+  </div>
+  <div class="key-point anim-item"><strong>Regional hallmark: super deductions.</strong> China (300%), Singapore (400%), Indonesia (300%), Thailand (300%) all favour enhanced deductions over credits. South Korea is the exception with its world-leading 50% credit for national strategic technologies (semiconductors, batteries, vaccines).</div>
+</div>
+</div>
+
+<!-- SLIDE 12: Regional — Middle East & Africa -->
+<div class="slide" data-s="12">
+<div class="inner content">
+  <div class="label">Regional Analysis</div>
+  <div class="h2">Middle East &amp; Africa — 6 Countries</div>
+  <div class="metrics anim-item">
+    <div class="metric"><div class="metric-val">$300K</div><div class="metric-lbl">Highest (Israel / Kenya)</div></div>
+    <div class="metric"><div class="metric-val">$0</div><div class="metric-lbl">UAE / Saudi Arabia</div></div>
+    <div class="metric"><div class="metric-val">1</div><div class="metric-lbl">Patent Box (Israel)</div></div>
+    <div class="metric"><div class="metric-val">1</div><div class="metric-lbl">Grant-Based (Israel IIA)</div></div>
+  </div>
+  <div class="three-col anim-item">
+    <div class="card">
+      <div class="h3">Israel — Exceptional</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:6px;"><strong>IIA Grants:</strong> 20–50% of R&amp;D costs refunded directly.</p>
+        <p style="margin-bottom:6px;"><strong>Preferred Tech Enterprise:</strong> 12% CIT (6% in Zone A).</p>
+        <p style="margin-bottom:6px;"><strong>IP Exit Tax:</strong> Reduced rates on IP transfers.</p>
+        <p><strong>Effective:</strong> $300K per $1M — on par with France and Ireland.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="h3">Africa — Emerging</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:6px;"><strong>Kenya:</strong> 100% deduction + 100% investment deduction for R&amp;D buildings. $300K effective.</p>
+        <p style="margin-bottom:6px;"><strong>South Africa:</strong> 150% enhanced deduction (§11D). Pre-approval by DSI required.</p>
+        <p style="margin-bottom:6px;"><strong>Nigeria:</strong> 120% deduction + Pioneer Status (5-year CIT holiday).</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="h3">Gulf States — No Specific R&amp;D</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:6px;"><strong>UAE:</strong> 9% CIT (from 2023); free zones at 0%. No R&amp;D credit.</p>
+        <p style="margin-bottom:6px;"><strong>Saudi Arabia:</strong> 20% CIT + 2.5% Zakat. No R&amp;D credit. Vision 2030 grants exist.</p>
+        <p><strong>Strategy:</strong> Low base rates mean less value from deduction-based incentives; focus on direct grants and free zone structures.</p>
+      </div>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>Israel stands out</strong> as a world-class R&amp;D jurisdiction despite the region's overall limited incentive landscape. Its combination of IIA grants + preferred tech enterprise rate + strong tech ecosystem makes it comparable to Ireland or the Netherlands for IP-intensive operations.</div>
+</div>
+</div>
+
+<!-- SLIDE 13: Section Divider — Part III -->
+<div class="slide section-slide" data-s="13">
+<div class="inner centered">
+  <div class="label">Part III</div>
+  <div class="title">Refundability &amp; Cash Flow</div>
+  <div class="divider" style="margin: 16px auto;"></div>
+  <div class="subtitle" style="color:#94a3b8;">Which jurisdictions return cash to pre-revenue startups and loss-making R&amp;D-intensive companies?</div>
+  <div style="margin-top: 20px;">
+    <span class="tag">Cash Refunds</span>
+    <span class="tag">Payroll Offsets</span>
+    <span class="tag">SME Provisions</span>
+    <span class="tag">Carry-Forward</span>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 14: Refundability Analysis -->
+<div class="slide" data-s="14">
+<div class="inner content compact">
+  <div class="label">Refundability</div>
+  <div class="h2">Refundable R&amp;D Credits — Cash Back for Innovation</div>
+  <div class="two-col anim-item">
+    <div>
+      <div class="h3">Fully Refundable (7 Countries)</div>
+      <table class="dtable">
+        <tr><th>Country</th><th>Mechanism</th><th>Rate</th><th>Cap</th></tr>
+        <tr><td><strong>Canada (CCPC)</strong></td><td>SR&amp;ED refund</td><td class="num">35%</td><td>C$3M spend</td></tr>
+        <tr><td><strong>Austria</strong></td><td>Forschungsprämie</td><td class="num">14%</td><td>No cap</td></tr>
+        <tr><td><strong>Germany</strong></td><td>Forschungszulage</td><td class="num">25%</td><td>€4M base</td></tr>
+        <tr><td><strong>Norway</strong></td><td>SkatteFUNN</td><td class="num">19%</td><td>NOK 25M</td></tr>
+        <tr><td><strong>Denmark</strong></td><td>Skattekreditordningen</td><td class="num">22%</td><td>DKK 25M</td></tr>
+        <tr><td><strong>Netherlands</strong></td><td>WBSO wage credit</td><td class="num">32%</td><td>€350K tier 1</td></tr>
+        <tr><td><strong>Sweden</strong></td><td>SSC reduction</td><td class="num">10%</td><td>SEK 600K</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="h3">Partially Refundable (6 Countries)</div>
+      <table class="dtable">
+        <tr><th>Country</th><th>Mechanism</th><th>Rate</th><th>Condition</th></tr>
+        <tr><td><strong>Australia</strong></td><td>R&amp;DTI offset</td><td class="num">43.5%</td><td>Turnover &lt;A$20M</td></tr>
+        <tr><td><strong>France</strong></td><td>CIR refund</td><td class="num">30%</td><td>SMEs / JEI / startups</td></tr>
+        <tr><td><strong>Ireland</strong></td><td>3-year installment</td><td class="num">30%</td><td>Pre-profit companies</td></tr>
+        <tr><td><strong>UK</strong></td><td>RDEC / ERIS</td><td class="num">20%</td><td>R&amp;D intensive (&gt;30%)</td></tr>
+        <tr><td><strong>New Zealand</strong></td><td>RDTI refund</td><td class="num">15%</td><td>R&amp;D intensity &gt;20%</td></tr>
+        <tr><td><strong>Israel</strong></td><td>IIA grants</td><td class="num">20–50%</td><td>Approved by IIA</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>For pre-revenue startups:</strong> Canada (35% cash refund), Australia (43.5% refundable offset for SMEs), and France (30% immediate refund for JEI) are the most attractive. Austria stands out for having <strong>no cap and no size restriction</strong> on its 14% fully refundable premium.</div>
+</div>
+</div>
+
+<!-- SLIDE 15: Section Divider — Part IV -->
+<div class="slide section-slide" data-s="15">
+<div class="inner centered">
+  <div class="label">Part IV</div>
+  <div class="title">Startup &amp; SME Provisions</div>
+  <div class="divider" style="margin: 16px auto;"></div>
+  <div class="subtitle" style="color:#94a3b8;">Enhanced rates, refundable credits, and special programs designed for early-stage and small-to-medium enterprises</div>
+  <div style="margin-top: 20px;">
+    <span class="tag">Enhanced Rates</span>
+    <span class="tag">Cash Payouts</span>
+    <span class="tag">Payroll Offsets</span>
+    <span class="tag">Fast-Track</span>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 16: Startup & SME Deep Dive -->
+<div class="slide" data-s="16">
+<div class="inner content compact">
+  <div class="label">Startup &amp; SME Programs</div>
+  <div class="h2">Best Jurisdictions for Pre-Revenue &amp; Early-Stage R&amp;D</div>
+  <table class="dtable anim-item">
+    <tr><th>Country</th><th>Program</th><th>SME / Startup Rate</th><th>General Rate</th><th>Key Advantage</th></tr>
+    <tr class="highlight"><td><strong>Ireland</strong></td><td>R&amp;D Credit</td><td class="num">50% (first €50K)</td><td class="num">30%</td><td>Highest introductory rate globally</td></tr>
+    <tr><td><strong>Australia</strong></td><td>R&amp;DTI</td><td class="num">43.5% (refundable)</td><td class="num">38.5%</td><td>Cash refund for &lt;A$20M turnover</td></tr>
+    <tr><td><strong>Canada</strong></td><td>SR&amp;ED</td><td class="num">35% (refundable)</td><td class="num">15%</td><td>Cash refund on first C$3M; provincial top-ups</td></tr>
+    <tr><td><strong>France</strong></td><td>JEI + CIR</td><td class="num">30% (immediate refund)</td><td class="num">30%</td><td>JEI status: SSC exemptions + immediate CIR refund</td></tr>
+    <tr><td><strong>Netherlands</strong></td><td>WBSO</td><td class="num">40% (startup tier 1)</td><td class="num">32%</td><td>Higher first-tier rate for startups</td></tr>
+    <tr><td><strong>UK</strong></td><td>ERIS</td><td class="num">86% deduction</td><td class="num">20% RDEC</td><td>R&amp;D intensive SMEs get enhanced support</td></tr>
+    <tr><td><strong>South Korea</strong></td><td>R&amp;D Credit</td><td class="num">25–50%</td><td class="num">2–40%</td><td>SMEs get 25% base; 50% for strategic tech</td></tr>
+    <tr><td><strong>Singapore</strong></td><td>EIS Cash Payout</td><td class="num">20% (cash)</td><td class="num">400% deduct.</td><td>SMEs can elect cash payout instead of deduction</td></tr>
+    <tr><td><strong>USA</strong></td><td>Payroll Offset</td><td class="num">$500K offset</td><td class="num">~6–7%</td><td>Startups (&lt;$5M rev) offset payroll tax up to $500K</td></tr>
+    <tr><td><strong>Germany</strong></td><td>Forschungszulage</td><td class="num">25% (refundable)</td><td class="num">25%</td><td>Same rate, but fully refundable = cash for startups</td></tr>
+  </table>
+  <div class="key-point anim-item"><strong>Optimal startup R&amp;D location strategy:</strong> Incorporate IP holding in Ireland (50% credit on first €50K, 6.25% KDB), conduct R&amp;D operations in Canada (35% cash refund) or Australia (43.5% refundable), and use France's JEI status for social charge exemptions. Stack these with local grants.</div>
+</div>
+</div>
+
+<!-- SLIDE 17: Section Divider — Part V -->
+<div class="slide section-slide" data-s="17">
+<div class="inner centered">
+  <div class="label">Part V</div>
+  <div class="title">Strategic Planning</div>
+  <div class="divider" style="margin: 16px auto;"></div>
+  <div class="subtitle" style="color:#94a3b8;">Location selection, incentive stacking, and IP structuring frameworks for multinational R&amp;D operations</div>
+  <div style="margin-top: 20px;">
+    <span class="tag">Location Selection</span>
+    <span class="tag">Stacking</span>
+    <span class="tag">IP Structures</span>
+    <span class="tag">Transfer Pricing</span>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 18: Stacking Strategies -->
+<div class="slide" data-s="18">
+<div class="inner content">
+  <div class="label">Incentive Stacking</div>
+  <div class="h2">Multi-Jurisdiction R&amp;D Incentive Stacking</div>
+  <div class="flow anim-item">
+    <div class="flow-node"><strong>R&amp;D Lab</strong>Canada / Australia<br/>35–43.5% cash refund</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node"><strong>IP Holding</strong>Ireland / Netherlands<br/>6.25–9% patent box</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node"><strong>Operations</strong>Singapore / China<br/>300–400% deductions</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node"><strong>Licensing</strong>Belgium / Portugal<br/>3.75% effective rate</div>
+  </div>
+  <div class="two-col anim-item">
+    <div class="card">
+      <div class="h3">Model A — Pre-Revenue Startup</div>
+      <div style="font-size:11px; line-height:1.6; color:var(--dark);">
+        <p><strong>1. R&amp;D Entity (Canada):</strong> Claim 35% SR&amp;ED cash refund on C$3M.</p>
+        <p><strong>2. IP Assignment (Ireland):</strong> Transfer developed IP. 50% credit on first €50K R&amp;D; 6.25% KDB on future income.</p>
+        <p><strong>3. Commercialize:</strong> License IP back to operating entities at arm's length.</p>
+        <p style="margin-top:6px;"><strong>Combined effective rate on IP income: &lt;8%</strong></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="h3">Model B — Profitable Multinational</div>
+      <div style="font-size:11px; line-height:1.6; color:var(--dark);">
+        <p><strong>1. R&amp;D Hub (China):</strong> 300% super deduction + 15% HNTE rate.</p>
+        <p><strong>2. IP Holding (Netherlands):</strong> 9% Innovation Box on qualifying profits.</p>
+        <p><strong>3. European Sales (Belgium):</strong> 3.75% on IP income via Innovation Income Deduction.</p>
+        <p style="margin-top:6px;"><strong>Combined R&amp;D subsidy + IP tax: effective &lt;5%</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>Critical compliance note:</strong> All structures must satisfy OECD BEPS requirements — transfer pricing at arm's length (OECD TP Guidelines Ch. VI for intangibles), modified nexus approach for patent boxes, and substance requirements in each jurisdiction. DEMPE functions (Development, Enhancement, Maintenance, Protection, Exploitation) must align with profit allocation.</div>
+</div>
+</div>
+
+<!-- SLIDE 19: Effective Benefit Ranking — Full 45-Country -->
+<div class="slide" data-s="19">
+<div class="inner content compact">
+  <div class="label">Global Ranking</div>
+  <div class="h2">Effective Benefit per $1M R&amp;D Spend — All 45 Countries</div>
+  <div class="two-col anim-item">
+    <div>
+      <div class="h3">Top 20</div>
+      <div class="hbar">
+        <div class="hbar-row"><div class="hbar-label">Chile</div><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><div class="hbar-val">$350K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Portugal</div><div class="hbar-track"><div class="hbar-fill" style="width:93%"></div></div><div class="hbar-val">$325K</div></div>
+        <div class="hbar-row"><div class="hbar-label">France</div><div class="hbar-track"><div class="hbar-fill" style="width:86%"></div></div><div class="hbar-val">$300K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Ireland</div><div class="hbar-track"><div class="hbar-fill" style="width:86%"></div></div><div class="hbar-val">$300K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Mexico</div><div class="hbar-track"><div class="hbar-fill" style="width:86%"></div></div><div class="hbar-val">$300K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Israel</div><div class="hbar-track"><div class="hbar-fill" style="width:86%"></div></div><div class="hbar-val">$300K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Kenya</div><div class="hbar-track"><div class="hbar-fill" style="width:86%"></div></div><div class="hbar-val">$300K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Germany</div><div class="hbar-track"><div class="hbar-fill" style="width:71%"></div></div><div class="hbar-val">$250K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Spain</div><div class="hbar-track"><div class="hbar-fill" style="width:71%"></div></div><div class="hbar-val">$250K</div></div>
+        <div class="hbar-row"><div class="hbar-label">S. Korea</div><div class="hbar-track"><div class="hbar-fill" style="width:71%"></div></div><div class="hbar-val">$250K</div></div>
+        <div class="hbar-row"><div class="hbar-label">China</div><div class="hbar-track"><div class="hbar-fill" style="width:71%"></div></div><div class="hbar-val">$250K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Colombia</div><div class="hbar-track"><div class="hbar-fill" style="width:71%"></div></div><div class="hbar-val">$250K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Malaysia</div><div class="hbar-track"><div class="hbar-fill" style="width:69%"></div></div><div class="hbar-val">$240K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Denmark</div><div class="hbar-track"><div class="hbar-fill" style="width:63%"></div></div><div class="hbar-val">$220K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Indonesia</div><div class="hbar-track"><div class="hbar-fill" style="width:63%"></div></div><div class="hbar-val">$220K</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="h3">Rank 16–35 &amp; Below</div>
+      <div class="hbar">
+        <div class="hbar-row"><div class="hbar-label">Brazil</div><div class="hbar-track"><div class="hbar-fill" style="width:58%"></div></div><div class="hbar-val">$204K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Belgium</div><div class="hbar-track"><div class="hbar-fill" style="width:57%"></div></div><div class="hbar-val">$200K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Turkey</div><div class="hbar-track"><div class="hbar-fill" style="width:57%"></div></div><div class="hbar-val">$200K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Thailand</div><div class="hbar-track"><div class="hbar-fill" style="width:57%"></div></div><div class="hbar-val">$200K</div></div>
+        <div class="hbar-row"><div class="hbar-label">CZ / PL / NO</div><div class="hbar-track"><div class="hbar-fill" style="width:54%"></div></div><div class="hbar-val">$190K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Australia</div><div class="hbar-track"><div class="hbar-fill" style="width:53%"></div></div><div class="hbar-val">$185K</div></div>
+        <div class="hbar-row"><div class="hbar-label">Singapore</div><div class="hbar-track"><div class="hbar-fill" style="width:49%"></div></div><div class="hbar-val">$170K</div></div>
+        <div class="hbar-row"><div class="hbar-label">NL</div><div class="hbar-track"><div class="hbar-fill" style="width:46%"></div></div><div class="hbar-val">$160K</div></div>
+        <div class="hbar-row"><div class="hbar-label">CA / TW / NZ / AR / UK</div><div class="hbar-track"><div class="hbar-fill alt" style="width:43%"></div></div><div class="hbar-val">$150K</div></div>
+        <div class="hbar-row"><div class="hbar-label">AT</div><div class="hbar-track"><div class="hbar-fill alt" style="width:40%"></div></div><div class="hbar-val">$140K</div></div>
+        <div class="hbar-row"><div class="hbar-label">S. Africa</div><div class="hbar-track"><div class="hbar-fill alt" style="width:39%"></div></div><div class="hbar-val">$135K</div></div>
+        <div class="hbar-row"><div class="hbar-label">PH / JP / IT / VN / FI</div><div class="hbar-track"><div class="hbar-fill alt" style="width:29%"></div></div><div class="hbar-val">$100–125K</div></div>
+        <div class="hbar-row"><div class="hbar-label">HU / CH / US / NG</div><div class="hbar-track"><div class="hbar-fill alt" style="width:20%"></div></div><div class="hbar-val">$60–90K</div></div>
+        <div class="hbar-row"><div class="hbar-label">IN / SE</div><div class="hbar-track"><div class="hbar-fill alt" style="width:14%"></div></div><div class="hbar-val">$50K</div></div>
+        <div class="hbar-row"><div class="hbar-label">UAE / Saudi</div><div class="hbar-track"><div class="hbar-fill high" style="width:1%"></div></div><div class="hbar-val">$0</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>Methodology:</strong> Effective benefit = tax saved per $1M of qualifying R&amp;D expenditure at statutory CIT rate, assuming volume-based method, single-year claim, no incremental uplift. Actual benefits may be higher with incremental methods, stacking, or SME enhanced rates.</div>
+</div>
+</div>
+
+<!-- SLIDE 20: Recent Trends -->
+<div class="slide" data-s="20">
+<div class="inner content">
+  <div class="label">Recent Developments</div>
+  <div class="h2">Key Legislative Changes (2023–2025)</div>
+  <div class="two-col anim-item">
+    <div>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-year">2024</span><strong>UK:</strong> Merged R&amp;D scheme replaces separate SME/large company schemes. RDEC rate set at 20%. Enhanced R&amp;D Intensive Support (ERIS) for &gt;30% intensity companies.</div>
+        <div class="tl-item"><span class="tl-year">2024</span><strong>Germany:</strong> Forschungszulage base doubled from €2M to €4M (max credit €1M). Available to all company sizes.</div>
+        <div class="tl-item"><span class="tl-year">2024</span><strong>Ireland:</strong> R&amp;D credit increased from 25% to 30%. First €50K at 50%. Knowledge Development Box maintained at 6.25%.</div>
+        <div class="tl-item"><span class="tl-year">2023</span><strong>China:</strong> 200% additional deduction (300% total) made permanent for all enterprises. Previously temporary/sector-limited.</div>
+        <div class="tl-item"><span class="tl-year">2023</span><strong>Singapore:</strong> Enterprise Innovation Scheme (EIS) launched — 400% deduction on first S$400K per qualifying activity (YA2024–2028).</div>
+      </div>
+    </div>
+    <div>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-year">2024</span><strong>S. Korea:</strong> National Strategic Technology credits extended — 50% for SMEs on semiconductors, batteries, vaccines, AI, and robotics.</div>
+        <div class="tl-item"><span class="tl-year">2024</span><strong>France:</strong> CIR maintained at 30%; Innovation Tax Credit (CII) rate increased to 30% (from 20%) for SMEs on innovation projects.</div>
+        <div class="tl-item"><span class="tl-year">2023</span><strong>UAE:</strong> Corporate tax introduced at 9%. Free zone qualifying income remains at 0%. No specific R&amp;D credit planned.</div>
+        <div class="tl-item"><span class="tl-year">2023</span><strong>Finland:</strong> New R&amp;D additional deduction introduced — 50% extra (150% total); pilot projects get 100% extra (200% total).</div>
+        <div class="tl-item"><span class="tl-year">2023</span><strong>Philippines:</strong> CREATE MORE Act enhances R&amp;D deduction to 200% for local R&amp;D expenditure.</div>
+      </div>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>Global trend:</strong> Governments are increasing R&amp;D incentive generosity — expanding caps (Germany), raising rates (Ireland), and making temporary measures permanent (China). Competition for R&amp;D investment is intensifying, particularly in semiconductors, AI, and clean energy.</div>
+</div>
+</div>
+
+<!-- SLIDE 21: Location Selection Decision Framework -->
+<div class="slide" data-s="21">
+<div class="inner content">
+  <div class="label">Decision Framework</div>
+  <div class="h2">R&amp;D Location Selection by Company Profile</div>
+  <div class="three-col anim-item">
+    <div class="card">
+      <div class="h3">Pre-Revenue Startup</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:6px;"><strong>Priority:</strong> Cash refundability</p>
+        <p style="margin-bottom:6px;"><strong>Tier 1:</strong> Canada (35% cash), Australia (43.5% refund), France JEI (30% immediate)</p>
+        <p style="margin-bottom:6px;"><strong>Tier 2:</strong> Austria (14% no-cap refund), Germany (25% refundable), Norway (19% refundable)</p>
+        <p style="margin-bottom:6px;"><strong>Avoid:</strong> Deduction-only countries (no taxable income to deduct against)</p>
+        <p><strong>IP plan:</strong> Pre-position IP in Ireland (50% on first €50K) or Netherlands (40% startup WBSO)</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="h3">Profitable Growth Company</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:6px;"><strong>Priority:</strong> Highest effective rate + patent box</p>
+        <p style="margin-bottom:6px;"><strong>Tier 1:</strong> Portugal (32.5%+50%), Chile (35%), France (30% + patent box)</p>
+        <p style="margin-bottom:6px;"><strong>Tier 2:</strong> Spain (25%+42%), South Korea (25–50%), China (300% + HNTE)</p>
+        <p style="margin-bottom:6px;"><strong>Stack:</strong> Combine R&amp;D credit location with patent box in a different entity</p>
+        <p><strong>IP plan:</strong> Establish IP holding in Belgium (3.75%) or Ireland (6.25%)</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="h3">IP-Heavy Multinational</div>
+      <div style="font-size:11px; line-height:1.5; color:var(--dark);">
+        <p style="margin-bottom:6px;"><strong>Priority:</strong> Patent box + transfer pricing efficiency</p>
+        <p style="margin-bottom:6px;"><strong>Tier 1:</strong> Belgium (3.75%), Portugal (3.75%), Poland (5%)</p>
+        <p style="margin-bottom:6px;"><strong>Tier 2:</strong> Ireland (6.25%), Netherlands (9%), Switzerland (3–5%)</p>
+        <p style="margin-bottom:6px;"><strong>R&amp;D center:</strong> China (300% + 15% HNTE), Singapore (400% EIS)</p>
+        <p><strong>Compliance:</strong> DEMPE analysis, arm's-length pricing, substance requirements critical</p>
+      </div>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>Key principle:</strong> The best R&amp;D location depends on company lifecycle stage. Pre-revenue companies need cash (refundability). Profitable companies need high rates (credits/deductions). IP-heavy multinationals need low rates on IP income (patent boxes). The optimal structure usually combines all three across multiple entities.</div>
+</div>
+</div>
+
+<!-- SLIDE 22: Compliance & Documentation -->
+<div class="slide" data-s="22">
+<div class="inner content compact">
+  <div class="label">Compliance</div>
+  <div class="h2">Documentation &amp; Compliance Requirements</div>
+  <div class="two-col anim-item">
+    <div class="card">
+      <div class="h3">Pre-Approval Required</div>
+      <table class="dtable">
+        <tr><th>Country</th><th>Authority</th><th>Requirement</th></tr>
+        <tr><td>Chile</td><td>CORFO</td><td>Project certification before claiming</td></tr>
+        <tr><td>Indonesia</td><td>BRIN</td><td>Activity approval + annual report</td></tr>
+        <tr><td>Israel</td><td>IIA</td><td>Grant application before R&amp;D begins</td></tr>
+        <tr><td>Mexico</td><td>CONACYT</td><td>Annual project approval; budgetary allocation</td></tr>
+        <tr><td>Norway</td><td>Research Council</td><td>SkatteFUNN project approval</td></tr>
+        <tr><td>S. Africa</td><td>DSI</td><td>Pre-approval of R&amp;D project</td></tr>
+        <tr><td>Thailand</td><td>NSTDA</td><td>Project certification by NSTDA/NIA</td></tr>
+        <tr><td>Turkey</td><td>Ministry</td><td>R&amp;D centre designation (15+ FTE)</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="h3">Self-Assessment (File with Return)</div>
+      <table class="dtable">
+        <tr><th>Country</th><th>Key Documentation</th></tr>
+        <tr><td>USA</td><td>§41 credit computation; contemporaneous records</td></tr>
+        <tr><td>UK</td><td>Additional information form (AIF) + claim form</td></tr>
+        <tr><td>Canada</td><td>T661 form; project descriptions; cost allocation</td></tr>
+        <tr><td>France</td><td>CIR form 2069-A; project dossiers; time tracking</td></tr>
+        <tr><td>Germany</td><td>BSFZ certification + Forschungszulage application</td></tr>
+        <tr><td>Australia</td><td>AusIndustry registration + tax return schedule</td></tr>
+        <tr><td>Czech Rep.</td><td>R&amp;D project documentation; filed before year-end</td></tr>
+        <tr><td>China</td><td>R&amp;D auxiliary accounts; HNTE re-certification (3yr)</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="key-point anim-item"><strong>Universal best practice:</strong> Maintain contemporaneous documentation — project narratives, time-tracking logs, cost allocation records, and technical uncertainty descriptions. Retrospective reconstruction is the #1 cause of rejected claims across all jurisdictions.</div>
+</div>
+</div>
+
+<!-- SLIDE 23: Closing -->
+<div class="slide section-slide" data-s="23">
+<div class="inner centered">
+  <div class="label">Kolosal Tax Advisory</div>
+  <div class="title">Global R&amp;D Tax Incentives</div>
+  <div class="divider" style="margin: 16px auto;"></div>
+  <div class="subtitle" style="color:#94a3b8;">45-country comparative analysis covering tax credits, super deductions, patent boxes, refundability, and strategic planning frameworks for multinational R&amp;D optimization.</div>
+  <div class="title-meta" style="margin-top: 28px;">
+    <div class="title-meta-item" style="color:#94a3b8;">Coverage<strong style="color:#e2e8f0;">45 Countries</strong></div>
+    <div class="title-meta-item" style="color:#94a3b8;">Mechanisms<strong style="color:#e2e8f0;">Credits · Deductions · Patent Boxes</strong></div>
+    <div class="title-meta-item" style="color:#94a3b8;">Data Year<strong style="color:#e2e8f0;">2024 / 2025</strong></div>
+    <div class="title-meta-item" style="color:#94a3b8;">Prepared By<strong style="color:#e2e8f0;">Kolosal Tax Advisory</strong></div>
+  </div>
+  <div style="margin-top: 24px;">
+    <span class="tag">R&amp;D Credits</span>
+    <span class="tag">Super Deductions</span>
+    <span class="tag">Patent Boxes</span>
+    <span class="tag">Refundability</span>
+    <span class="tag">Stacking Strategies</span>
+    <span class="tag">45-Country Data</span>
+  </div>
+</div>
+</div>
+
+</div><!-- /slide-stage -->
+
+<!-- Nav -->
+<nav class="nav">
+  <button class="nav-btn" id="prev" onclick="go(-1)" disabled>
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg> Back
+  </button>
+  <span class="counter" id="counter">01 / 23</span>
+  <button class="nav-btn" id="next" onclick="go(1)">
+    Next <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</nav>
+
+<script>
+const S=document.querySelectorAll('.slide'), N=S.length;
+let c=0;
+function show(d){
+  S.forEach(s=>s.classList.remove('active'));
+  S[c].classList.add('active');
+  S[c].scrollTop=0;
+  document.getElementById('prev').disabled=c===0;
+  document.getElementById('next').disabled=c===N-1;
+  document.getElementById('counter').textContent=String(c+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');
+  document.getElementById('progress').style.width=((c+1)/N*100)+'%';
+}
+function go(d){const n=c+d;if(n<0||n>=N)return;c=n;show(d);}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(1);}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(-1);}
+});
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX;});
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-tx;if(Math.abs(d)>50)go(d>0?-1:1);});
+
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((m) => {
+    if (m.target.classList && m.target.classList.contains('active')) {
+      const items = m.target.querySelectorAll('.anim-item');
+      items.forEach(el => {
+        el.style.animation = 'none';
+        el.offsetHeight;
+        el.style.animation = '';
+      });
+    }
+  });
+});
+S.forEach(s => observer.observe(s, { attributes: true, attributeFilter: ['class'] }));
+
+show(0);
+</script>
+</body>
+</html>
