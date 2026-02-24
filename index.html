@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolosal Tax Advisory — Resource Hub</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #0f172a;
+    --card-hover: #f8fafc;
+    --border: #e2e8f0;
+    --muted: #64748b;
+    --light: #f1f5f9;
+    --medium: #cbd5e1;
+    --dark: #1e293b;
+    --accent: #0f766e;
+    --accent-light: #ccfbf1;
+    --accent-mid: #14b8a6;
+    --blue: #1d4ed8;
+    --blue-light: #dbeafe;
+    --amber: #b45309;
+    --amber-light: #fef3c7;
+    --red: #b91c1c;
+    --red-light: #fee2e2;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans); background: var(--light); color: var(--fg);
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    background: var(--fg); color: var(--bg); padding: 64px 48px 56px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -120px; right: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(15,118,110,0.15) 0%, transparent 70%);
+  }
+  .header::after {
+    content: ''; position: absolute; bottom: -60px; left: 20%;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%);
+  }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+  }
+  .header-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-mid); margin-bottom: 16px;
+  }
+  .header-title {
+    font-size: 42px; font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.035em; margin-bottom: 14px;
+  }
+  .header-subtitle {
+    font-size: 15px; font-weight: 400; line-height: 1.7;
+    color: var(--medium); max-width: 600px;
+  }
+  .header-meta {
+    display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap;
+  }
+  .header-stat {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .header-stat-val {
+    font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--accent-mid);
+  }
+  .header-stat-lbl {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* Main */
+  .main { max-width: 1200px; margin: 0 auto; padding: 40px 48px 80px; }
+
+  /* Section */
+  .section { margin-bottom: 48px; }
+  .section-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 24px; font-weight: 700; letter-spacing: -0.02em;
+    color: var(--fg); margin-bottom: 20px;
+  }
+
+  /* Dashboard CTA */
+  .dashboard-cta {
+    display: flex; align-items: center; gap: 24px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent); border-radius: 10px;
+    padding: 28px 32px; margin-bottom: 48px;
+    text-decoration: none; color: var(--fg);
+    transition: all 0.2s ease; position: relative; overflow: hidden;
+  }
+  .dashboard-cta:hover {
+    border-color: var(--accent); box-shadow: 0 4px 24px rgba(15,118,110,0.1);
+    transform: translateY(-1px);
+  }
+  .dashboard-cta-icon {
+    width: 56px; height: 56px; background: var(--accent-light);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .dashboard-cta-icon svg { width: 28px; height: 28px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .dashboard-cta-content { flex: 1; }
+  .dashboard-cta-title { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .dashboard-cta-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .dashboard-cta-arrow {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--light); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all 0.2s;
+  }
+  .dashboard-cta:hover .dashboard-cta-arrow { background: var(--accent); }
+  .dashboard-cta-arrow svg { width: 16px; height: 16px; stroke: var(--muted); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.2s; }
+  .dashboard-cta:hover .dashboard-cta-arrow svg { stroke: var(--bg); }
+
+  /* Cards Grid */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent); border-radius: 10px;
+    padding: 24px 28px; text-decoration: none; color: var(--fg);
+    transition: all 0.2s ease; display: flex; flex-direction: column;
+    position: relative;
+  }
+  .card:hover {
+    border-color: var(--accent); box-shadow: 0 4px 24px rgba(15,118,110,0.08);
+    transform: translateY(-2px);
+  }
+  .card-level {
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px; display: inline-block;
+    width: fit-content; margin-bottom: 14px;
+  }
+  .card-level.l100 { background: var(--accent-light); color: var(--accent); }
+  .card-level.l201 { background: var(--blue-light); color: var(--blue); }
+  .card-level.l301 { background: var(--amber-light); color: var(--amber); }
+  .card-level.special { background: var(--light); color: var(--dark); }
+  .card-level.rnd { background: var(--accent-light); color: var(--accent); }
+  .card-level.intl { background: var(--blue-light); color: var(--blue); }
+
+  .card-title {
+    font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .card-desc {
+    font-size: 12px; color: var(--muted); line-height: 1.6; flex: 1;
+    margin-bottom: 16px;
+  }
+  .card-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 14px; border-top: 1px solid var(--border);
+  }
+  .card-slides {
+    font-family: var(--mono); font-size: 10px; color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .card-arrow {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--light);
+    display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+  }
+  .card:hover .card-arrow { background: var(--accent); }
+  .card-arrow svg {
+    width: 14px; height: 14px; stroke: var(--muted); fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+  .card:hover .card-arrow svg { stroke: var(--bg); }
+
+  /* Coverage section */
+  .coverage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .coverage-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 24px 28px;
+  }
+  .coverage-card-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--accent); margin-bottom: 12px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--accent);
+  }
+  .country-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .country-tag {
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    padding: 4px 10px; border-radius: 4px; letter-spacing: 0.04em;
+  }
+  .country-tag.primary { background: var(--accent-light); color: var(--accent); }
+  .country-tag.secondary { background: var(--light); color: var(--muted); }
+
+  /* Footer */
+  .footer {
+    max-width: 1200px; margin: 0 auto; padding: 0 48px 48px;
+    text-align: center;
+  }
+  .footer-text {
+    font-size: 11px; color: var(--muted); line-height: 1.6;
+  }
+  .footer-text a { color: var(--accent); text-decoration: none; }
+  .footer-text a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header { padding: 40px 24px 36px; }
+    .header-title { font-size: 28px; }
+    .main { padding: 28px 24px 60px; }
+    .cards { grid-template-columns: 1fr; }
+    .coverage-grid { grid-template-columns: 1fr; }
+    .dashboard-cta { flex-direction: column; text-align: center; padding: 24px; }
+    .footer { padding: 0 24px 36px; }
+  }
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Animations */
+  .fade-up {
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up:nth-child(1) { animation-delay: 0.05s; }
+  .fade-up:nth-child(2) { animation-delay: 0.1s; }
+  .fade-up:nth-child(3) { animation-delay: 0.15s; }
+  .fade-up:nth-child(4) { animation-delay: 0.2s; }
+  .fade-up:nth-child(5) { animation-delay: 0.25s; }
+  .fade-up:nth-child(6) { animation-delay: 0.3s; }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .header { background: var(--fg); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card, .dashboard-cta { break-inside: avoid; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-label">Kolosal Tax Advisory</div>
+    <h1 class="header-title">International Tax Planning<br>Resource Hub</h1>
+    <p class="header-subtitle">
+      Comprehensive tax planning presentations, interactive dashboards, and research
+      covering corporate tax, R&D incentives, deductions, and cross-border structuring.
+    </p>
+    <div class="header-meta">
+      <div class="header-stat">
+        <span class="header-stat-val">45</span>
+        <span class="header-stat-lbl">Countries Covered</span>
+      </div>
+      <div class="header-stat">
+        <span class="header-stat-val">6</span>
+        <span class="header-stat-lbl">Presentations</span>
+      </div>
+      <div class="header-stat">
+        <span class="header-stat-val">7</span>
+        <span class="header-stat-lbl">Primary Jurisdictions</span>
+      </div>
+      <div class="header-stat">
+        <span class="header-stat-val">4</span>
+        <span class="header-stat-lbl">Research Layers</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Interactive Dashboard CTA -->
+  <a href="dashboard/" class="dashboard-cta fade-up">
+    <div class="dashboard-cta-icon">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+    </div>
+    <div class="dashboard-cta-content">
+      <div class="dashboard-cta-title">Interactive Tax Dashboard</div>
+      <div class="dashboard-cta-desc">
+        Live 7-country comparison with interactive charts, KPI metrics, corporate tax rates,
+        VAT/GST analysis, payroll burden radar, and comprehensive tax summary tables.
+      </div>
+    </div>
+    <div class="dashboard-cta-arrow">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </div>
+  </a>
+
+  <!-- Presentations -->
+  <div class="section">
+    <div class="section-label">Presentations</div>
+    <div class="section-title">Tax Planning Slide Decks</div>
+    <div class="cards">
+
+      <a href="presentation.html" class="card fade-up">
+        <span class="card-level l100">Level 100</span>
+        <div class="card-title">Foundational Tax Planning</div>
+        <div class="card-desc">
+          Core concepts of international tax planning. Corporate tax rates, entity structures,
+          transfer pricing basics, and foundational strategies for 7 primary jurisdictions.
+        </div>
+        <div class="card-meta">
+          <span class="card-slides">Comprehensive Deck</span>
+          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        </div>
+      </a>
+
+      <a href="presentation-201.html" class="card fade-up">
+        <span class="card-level l201">Level 201</span>
+        <div class="card-title">Intermediate Tax Strategies</div>
+        <div class="card-desc">
+          Deeper dive into deductions, allowances, treaty networks, and regional tax optimization
+          techniques across multiple jurisdictions.
+        </div>
+        <div class="card-meta">
+          <span class="card-slides">Intermediate Deck</span>
+          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        </div>
+      </a>
+
+      <a href="presentation-301.html" class="card fade-up">
+        <span class="card-level l301">Level 301</span>
+        <div class="card-title">Advanced Cross-Border Structuring</div>
+        <div class="card-desc">
+          Advanced international tax planning, holding structures, IP migration,
+          cross-border financing, and multi-entity optimization frameworks.
+        </div>
+        <div class="card-meta">
+          <span class="card-slides">Advanced Deck</span>
+          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        </div>
+      </a>
+
+      <a href="presentation-startup.html" class="card fade-up">
+        <span class="card-level special">Startup</span>
+        <div class="card-title">B2B Startup Tax Optimization</div>
+        <div class="card-desc">
+          Tailored tax planning for B2B startups and product principals. Entity selection,
+          R&D credits, equity compensation, and growth-stage tax strategies.
+        </div>
+        <div class="card-meta">
+          <span class="card-slides">Startup Focus</span>
+          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        </div>
+      </a>
+
+      <a href="presentation-rnd.html" class="card fade-up">
+        <span class="card-level rnd">R&D</span>
+        <div class="card-title">R&D Tax Incentives — 45 Countries</div>
+        <div class="card-desc">
+          Comprehensive analysis of R&D tax credits, enhanced deductions, patent boxes,
+          and innovation incentives across 45 countries worldwide.
+        </div>
+        <div class="card-meta">
+          <span class="card-slides">45-Country Analysis</span>
+          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        </div>
+      </a>
+
+      <a href="International_Tax_Planning_Guide.html" class="card fade-up">
+        <span class="card-level intl">International</span>
+        <div class="card-title">International Tax Planning Guide</div>
+        <div class="card-desc">
+          Complete guide for international investors. Withholding taxes, treaty benefits,
+          repatriation strategies, and foreign investor-specific planning.
+        </div>
+        <div class="card-meta">
+          <span class="card-slides">Investor Guide</span>
+          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Country Coverage -->
+  <div class="section">
+    <div class="section-label">Research Coverage</div>
+    <div class="section-title">Country & Jurisdiction Data</div>
+    <div class="coverage-grid">
+
+      <div class="coverage-card">
+        <div class="coverage-card-title">Tier 1 — Comprehensive Analysis (4 files each)</div>
+        <div class="country-tags">
+          <span class="country-tag primary">US</span>
+          <span class="country-tag primary">CA</span>
+          <span class="country-tag primary">ID</span>
+          <span class="country-tag primary">BR</span>
+          <span class="country-tag primary">MX</span>
+          <span class="country-tag primary">AU</span>
+          <span class="country-tag primary">SG</span>
+        </div>
+      </div>
+
+      <div class="coverage-card">
+        <div class="coverage-card-title">Tier 2 — R&D Incentives (38 additional countries)</div>
+        <div class="country-tags">
+          <span class="country-tag secondary">AT</span>
+          <span class="country-tag secondary">BE</span>
+          <span class="country-tag secondary">CL</span>
+          <span class="country-tag secondary">CN</span>
+          <span class="country-tag secondary">CO</span>
+          <span class="country-tag secondary">CZ</span>
+          <span class="country-tag secondary">DK</span>
+          <span class="country-tag secondary">EE</span>
+          <span class="country-tag secondary">FI</span>
+          <span class="country-tag secondary">FR</span>
+          <span class="country-tag secondary">DE</span>
+          <span class="country-tag secondary">GR</span>
+          <span class="country-tag secondary">HU</span>
+          <span class="country-tag secondary">IN</span>
+          <span class="country-tag secondary">IE</span>
+          <span class="country-tag secondary">IL</span>
+          <span class="country-tag secondary">IT</span>
+          <span class="country-tag secondary">JP</span>
+          <span class="country-tag secondary">KR</span>
+          <span class="country-tag secondary">LT</span>
+          <span class="country-tag secondary">LU</span>
+          <span class="country-tag secondary">MY</span>
+          <span class="country-tag secondary">NL</span>
+          <span class="country-tag secondary">NZ</span>
+          <span class="country-tag secondary">NO</span>
+          <span class="country-tag secondary">PH</span>
+          <span class="country-tag secondary">PL</span>
+          <span class="country-tag secondary">PT</span>
+          <span class="country-tag secondary">RO</span>
+          <span class="country-tag secondary">ZA</span>
+          <span class="country-tag secondary">ES</span>
+          <span class="country-tag secondary">SE</span>
+          <span class="country-tag secondary">CH</span>
+          <span class="country-tag secondary">TW</span>
+          <span class="country-tag secondary">TH</span>
+          <span class="country-tag secondary">TR</span>
+          <span class="country-tag secondary">GB</span>
+          <span class="country-tag secondary">VN</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p class="footer-text">
+    Kolosal Tax Advisory &mdash; International Tax Planning Resources<br>
+    Research data current as of February 2026. For advisory purposes only.
+  </p>
+</footer>
+
+</body>
+</html>
