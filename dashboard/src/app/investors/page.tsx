@@ -54,11 +54,11 @@ function fmtPct(v: number | null | undefined): string {
 }
 
 function fxColor(fx: string): string {
-  if (!fx) return '#64748b';
+  if (!fx) return '#6A6F73';
   const l = fx.toLowerCase();
-  if (l === 'none') return '#0f766e';
-  if (l === 'moderate') return '#b45309';
-  return '#b91c1c';
+  if (l === 'none') return '#0052C4';
+  if (l === 'moderate') return '#CC8727';
+  return '#CC2727';
 }
 
 function fxLabel(fx: string): string {
@@ -167,22 +167,22 @@ export default function InvestorsPage() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-extrabold tracking-tight text-[#0f172a]">International Investors</h1>
-        <p className="text-sm text-[#64748b] mt-1">
+        <h1 className="text-2xl font-extrabold tracking-tight text-[#0D0E0F]">International Investors</h1>
+        <p className="text-sm text-[#6A6F73] mt-1">
           Comprehensive cross-border investment analysis: WHT rates, entity structuring, CFC rules, treaty networks, and repatriation controls across 7 jurisdictions
         </p>
       </div>
 
       {/* ─── 1. WHT Comparison (enriched) ─── */}
-      <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#e2e8f0]">
-          <h3 className="text-sm font-bold text-[#0f172a]">Withholding Tax Rates — Dividends, Interest &amp; Royalties</h3>
-          <p className="text-[10px] text-[#64748b] mt-0.5">Default (non-treaty) rates for payments to non-residents</p>
+      <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+        <div className="px-4 py-3 border-b border-[#E4E7E9]">
+          <h3 className="text-sm font-bold text-[#0D0E0F]">Withholding Tax Rates — Dividends, Interest &amp; Royalties</h3>
+          <p className="text-[10px] text-[#6A6F73] mt-0.5">Default (non-treaty) rates for payments to non-residents</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
             <thead>
-              <tr className="bg-[#0f172a] text-white">
+              <tr className="bg-[#0D0E0F] text-white">
                 <th className="px-3 py-2 text-left font-semibold">Country</th>
                 <th className="px-3 py-2 text-right font-semibold">Dividend WHT</th>
                 <th className="px-3 py-2 text-right font-semibold">Interest WHT</th>
@@ -201,28 +201,28 @@ export default function InvestorsPage() {
                 const intWht = getInterestWht(code);
                 const royWht = getRoyaltyWht(code);
                 return (
-                  <tr key={code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f1f5f9]'}>
-                    <td className="px-3 py-2 font-semibold text-[#0f172a] whitespace-nowrap">
+                  <tr key={code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F1F3F4]'}>
+                    <td className="px-3 py-2 font-semibold text-[#0D0E0F] whitespace-nowrap">
                       {COUNTRY_FLAGS[code]} {COUNTRY_LABELS[code]}
                     </td>
                     <td className="px-3 py-2 text-right font-mono">
-                      <span style={{ color: s.dividendWht === 0 ? '#0f766e' : s.dividendWht >= 25 ? '#b91c1c' : '#0f172a' }}>
+                      <span style={{ color: s.dividendWht === 0 ? '#0052C4' : s.dividendWht >= 25 ? '#CC2727' : '#0D0E0F' }}>
                         {s.dividendWht.toFixed(1)}%
                       </span>
                     </td>
                     <td className="px-3 py-2 text-right font-mono">
-                      <span style={{ color: intWht === 0 ? '#0f766e' : (intWht ?? 0) >= 25 ? '#b91c1c' : '#0f172a' }}>
+                      <span style={{ color: intWht === 0 ? '#0052C4' : (intWht ?? 0) >= 25 ? '#CC2727' : '#0D0E0F' }}>
                         {fmtPct(intWht)}
                       </span>
                     </td>
                     <td className="px-3 py-2 text-right font-mono">
-                      <span style={{ color: royWht === 0 ? '#0f766e' : (royWht ?? 0) >= 25 ? '#b91c1c' : '#0f172a' }}>
+                      <span style={{ color: royWht === 0 ? '#0052C4' : (royWht ?? 0) >= 25 ? '#CC2727' : '#0D0E0F' }}>
                         {fmtPct(royWht)}
                       </span>
                     </td>
                     <td className="px-3 py-2 text-right font-mono">{s.corporateRate.toFixed(1)}%</td>
                     <td className="px-3 py-2 text-right font-mono font-semibold">{combined.toFixed(1)}%</td>
-                    <td className="px-3 py-2 text-right font-mono font-bold text-[#0f766e]">{s.treatyCount}</td>
+                    <td className="px-3 py-2 text-right font-mono font-bold text-[#0052C4]">{s.treatyCount}</td>
                     <td className="px-3 py-2 text-right font-mono font-semibold">${netPer100k.toLocaleString()}</td>
                   </tr>
                 );
@@ -233,15 +233,15 @@ export default function InvestorsPage() {
       </div>
 
       {/* ─── 2. Branch vs Subsidiary ─── */}
-      <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#e2e8f0]">
-          <h3 className="text-sm font-bold text-[#0f172a]">Branch vs Subsidiary Comparison</h3>
-          <p className="text-[10px] text-[#64748b] mt-0.5">Effective tax on repatriated profits — branch (CIT + BPT) vs subsidiary (CIT + dividend WHT)</p>
+      <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+        <div className="px-4 py-3 border-b border-[#E4E7E9]">
+          <h3 className="text-sm font-bold text-[#0D0E0F]">Branch vs Subsidiary Comparison</h3>
+          <p className="text-[10px] text-[#6A6F73] mt-0.5">Effective tax on repatriated profits — branch (CIT + BPT) vs subsidiary (CIT + dividend WHT)</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
             <thead>
-              <tr className="bg-[#0f172a] text-white">
+              <tr className="bg-[#0D0E0F] text-white">
                 <th className="px-3 py-2 text-left font-semibold">Country</th>
                 <th className="px-3 py-2 text-right font-semibold">Branch CIT</th>
                 <th className="px-3 py-2 text-right font-semibold">Branch Profits Tax</th>
@@ -256,18 +256,18 @@ export default function InvestorsPage() {
               {branchSubData.map((row, i) => {
                 const winner = row.branchEffective <= row.subEffective ? 'branch' : 'sub';
                 return (
-                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f1f5f9]'}>
-                    <td className="px-3 py-2 font-semibold text-[#0f172a] whitespace-nowrap">
+                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F1F3F4]'}>
+                    <td className="px-3 py-2 font-semibold text-[#0D0E0F] whitespace-nowrap">
                       {COUNTRY_FLAGS[row.code]} {COUNTRY_LABELS[row.code]}
                     </td>
                     <td className="px-3 py-2 text-right font-mono">{row.branchRate.toFixed(1)}%</td>
                     <td className="px-3 py-2 text-right font-mono">{row.bpt.toFixed(1)}%</td>
-                    <td className="px-3 py-2 text-right font-mono font-semibold" style={{ color: winner === 'branch' ? '#0f766e' : '#0f172a' }}>
+                    <td className="px-3 py-2 text-right font-mono font-semibold" style={{ color: winner === 'branch' ? '#0052C4' : '#0D0E0F' }}>
                       {row.branchEffective.toFixed(1)}%
                     </td>
                     <td className="px-3 py-2 text-right font-mono">{row.subRate.toFixed(1)}%</td>
                     <td className="px-3 py-2 text-right font-mono">{row.divWht.toFixed(1)}%</td>
-                    <td className="px-3 py-2 text-right font-mono font-semibold" style={{ color: winner === 'sub' ? '#0f766e' : '#0f172a' }}>
+                    <td className="px-3 py-2 text-right font-mono font-semibold" style={{ color: winner === 'sub' ? '#0052C4' : '#0D0E0F' }}>
                       {row.subEffective.toFixed(1)}%
                     </td>
                     <td className="px-3 py-2 text-center">
@@ -275,11 +275,11 @@ export default function InvestorsPage() {
                         className="text-[9px] font-mono px-2 py-0.5 rounded font-bold"
                         style={{
                           backgroundColor:
-                            row.recommendation === 'Either' ? '#dbeafe' :
-                            row.recommendation === 'Branch' ? '#ccfbf1' : '#fef3c7',
+                            row.recommendation === 'Either' ? '#F0F6FE' :
+                            row.recommendation === 'Branch' ? '#F0F6FE' : '#FFFAF3',
                           color:
-                            row.recommendation === 'Either' ? '#1d4ed8' :
-                            row.recommendation === 'Branch' ? '#0f766e' : '#b45309',
+                            row.recommendation === 'Either' ? '#0052C4' :
+                            row.recommendation === 'Branch' ? '#0052C4' : '#CC8727',
                         }}
                       >
                         {row.recommendation}
@@ -296,15 +296,15 @@ export default function InvestorsPage() {
       {/* ─── 3. CFC Rules + 4. Treaty Network (side by side) ─── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* CFC Rules */}
-        <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#e2e8f0]">
-            <h3 className="text-sm font-bold text-[#0f172a]">CFC Rules Comparison</h3>
-            <p className="text-[10px] text-[#64748b] mt-0.5">Controlled foreign corporation regimes and key thresholds</p>
+        <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+          <div className="px-4 py-3 border-b border-[#E4E7E9]">
+            <h3 className="text-sm font-bold text-[#0D0E0F]">CFC Rules Comparison</h3>
+            <p className="text-[10px] text-[#6A6F73] mt-0.5">Controlled foreign corporation regimes and key thresholds</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-[11px]">
               <thead>
-                <tr className="bg-[#0f172a] text-white">
+                <tr className="bg-[#0D0E0F] text-white">
                   <th className="px-3 py-2 text-left font-semibold">Country</th>
                   <th className="px-3 py-2 text-left font-semibold">Regime</th>
                   <th className="px-3 py-2 text-right font-semibold">Ownership</th>
@@ -313,15 +313,15 @@ export default function InvestorsPage() {
               </thead>
               <tbody>
                 {cfcData.map((row, i) => (
-                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f1f5f9]'}>
-                    <td className="px-3 py-2 font-semibold text-[#0f172a] whitespace-nowrap">
+                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F1F3F4]'}>
+                    <td className="px-3 py-2 font-semibold text-[#0D0E0F] whitespace-nowrap">
                       {COUNTRY_FLAGS[row.code]} {COUNTRY_LABELS[row.code]}
                     </td>
-                    <td className="px-3 py-2 text-[#0f172a]">
+                    <td className="px-3 py-2 text-[#0D0E0F]">
                       {row.hasCfc ? (
                         <span className="font-mono text-[10px]">{row.name}</span>
                       ) : (
-                        <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#ccfbf1] text-[#0f766e] font-bold">
+                        <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#F0F6FE] text-[#0052C4] font-bold">
                           {row.territorial ? 'Territorial' : 'No CFC'}
                         </span>
                       )}
@@ -334,14 +334,14 @@ export default function InvestorsPage() {
                         <span
                           className="text-[9px] font-mono px-2 py-0.5 rounded font-bold"
                           style={{
-                            backgroundColor: row.activeExemption ? '#ccfbf1' : '#fee2e2',
-                            color: row.activeExemption ? '#0f766e' : '#b91c1c',
+                            backgroundColor: row.activeExemption ? '#F0F6FE' : '#FFF3F3',
+                            color: row.activeExemption ? '#0052C4' : '#CC2727',
                           }}
                         >
                           {row.activeExemption ? 'Yes' : 'No'}
                         </span>
                       ) : (
-                        <span className="text-[#64748b]">—</span>
+                        <span className="text-[#6A6F73]">—</span>
                       )}
                     </td>
                   </tr>
@@ -352,10 +352,10 @@ export default function InvestorsPage() {
         </div>
 
         {/* Treaty Network Bar Chart */}
-        <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#e2e8f0]">
-            <h3 className="text-sm font-bold text-[#0f172a]">Treaty Network Coverage</h3>
-            <p className="text-[10px] text-[#64748b] mt-0.5">Comprehensive double-tax treaties in force + LOB/PPT provisions</p>
+        <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+          <div className="px-4 py-3 border-b border-[#E4E7E9]">
+            <h3 className="text-sm font-bold text-[#0D0E0F]">Treaty Network Coverage</h3>
+            <p className="text-[10px] text-[#6A6F73] mt-0.5">Comprehensive double-tax treaties in force + LOB/PPT provisions</p>
           </div>
           <div className="p-4 space-y-2.5">
             {treatyData
@@ -365,27 +365,27 @@ export default function InvestorsPage() {
                 return (
                   <div key={row.code}>
                     <div className="flex items-center gap-3">
-                      <div className="w-24 text-[11px] font-semibold text-[#0f172a] whitespace-nowrap truncate">
+                      <div className="w-24 text-[11px] font-semibold text-[#0D0E0F] whitespace-nowrap truncate">
                         {COUNTRY_FLAGS[row.code]} {COUNTRY_LABELS[row.code]}
                       </div>
-                      <div className="flex-1 h-5 bg-[#f1f5f9] rounded overflow-hidden">
+                      <div className="flex-1 h-5 bg-[#F1F3F4] rounded overflow-hidden">
                         <div
                           className="h-full rounded"
                           style={{
                             width: `${barWidth}%`,
-                            backgroundColor: row.count >= 60 ? '#0f766e' : row.count >= 40 ? '#b45309' : '#b91c1c',
+                            backgroundColor: row.count >= 60 ? '#0052C4' : row.count >= 40 ? '#CC8727' : '#CC2727',
                           }}
                         />
                       </div>
-                      <span className="text-[11px] font-mono font-bold text-[#0f172a] w-8 text-right">{row.count}</span>
+                      <span className="text-[11px] font-mono font-bold text-[#0D0E0F] w-8 text-right">{row.count}</span>
                       <div className="flex gap-1 w-16">
                         {row.lob && (
-                          <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-[#dbeafe] text-[#1d4ed8] font-bold">
+                          <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-[#F0F6FE] text-[#0052C4] font-bold">
                             LOB
                           </span>
                         )}
                         {row.ppt && (
-                          <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-[#fef3c7] text-[#b45309] font-bold">
+                          <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-[#FFFAF3] text-[#CC8727] font-bold">
                             PPT
                           </span>
                         )}
@@ -399,15 +399,15 @@ export default function InvestorsPage() {
       </div>
 
       {/* ─── 5. FX Controls & Repatriation ─── */}
-      <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#e2e8f0]">
-          <h3 className="text-sm font-bold text-[#0f172a]">FX Controls &amp; Repatriation Risk</h3>
-          <p className="text-[10px] text-[#64748b] mt-0.5">Capital repatriation restrictions, FX controls, and central bank requirements</p>
+      <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+        <div className="px-4 py-3 border-b border-[#E4E7E9]">
+          <h3 className="text-sm font-bold text-[#0D0E0F]">FX Controls &amp; Repatriation Risk</h3>
+          <p className="text-[10px] text-[#6A6F73] mt-0.5">Capital repatriation restrictions, FX controls, and central bank requirements</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
             <thead>
-              <tr className="bg-[#0f172a] text-white">
+              <tr className="bg-[#0D0E0F] text-white">
                 <th className="px-3 py-2 text-left font-semibold">Country</th>
                 <th className="px-3 py-2 text-center font-semibold">FX Controls</th>
                 <th className="px-3 py-2 text-left font-semibold">Dividend Restrictions</th>
@@ -419,11 +419,11 @@ export default function InvestorsPage() {
               {repatData.map((row, i) => {
                 const riskScore = (row.fxControls.toLowerCase() !== 'none' ? 2 : 0) + (row.centralBank ? 1 : 0);
                 const riskLabel = riskScore === 0 ? 'Low' : riskScore <= 2 ? 'Moderate' : 'High';
-                const riskColor = riskScore === 0 ? '#0f766e' : riskScore <= 2 ? '#b45309' : '#b91c1c';
-                const riskBg = riskScore === 0 ? '#ccfbf1' : riskScore <= 2 ? '#fef3c7' : '#fee2e2';
+                const riskColor = riskScore === 0 ? '#0052C4' : riskScore <= 2 ? '#CC8727' : '#CC2727';
+                const riskBg = riskScore === 0 ? '#F0F6FE' : riskScore <= 2 ? '#FFFAF3' : '#FFF3F3';
                 return (
-                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f1f5f9]'}>
-                    <td className="px-3 py-2 font-semibold text-[#0f172a] whitespace-nowrap">
+                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F1F3F4]'}>
+                    <td className="px-3 py-2 font-semibold text-[#0D0E0F] whitespace-nowrap">
                       {COUNTRY_FLAGS[row.code]} {COUNTRY_LABELS[row.code]}
                     </td>
                     <td className="px-3 py-2 text-center">
@@ -434,13 +434,13 @@ export default function InvestorsPage() {
                         {fxLabel(row.fxControls)}
                       </span>
                     </td>
-                    <td className="px-3 py-2 text-[#0f172a] capitalize">{row.dividendRestrictions.replace(/_/g, ' ')}</td>
+                    <td className="px-3 py-2 text-[#0D0E0F] capitalize">{row.dividendRestrictions.replace(/_/g, ' ')}</td>
                     <td className="px-3 py-2 text-center">
                       <span
                         className="text-[9px] font-mono px-2 py-0.5 rounded font-bold"
                         style={{
-                          backgroundColor: row.centralBank ? '#fef3c7' : '#ccfbf1',
-                          color: row.centralBank ? '#b45309' : '#0f766e',
+                          backgroundColor: row.centralBank ? '#FFFAF3' : '#F0F6FE',
+                          color: row.centralBank ? '#CC8727' : '#0052C4',
                         }}
                       >
                         {row.centralBank ? 'Required' : 'Not Required'}
@@ -465,15 +465,15 @@ export default function InvestorsPage() {
       {/* ─── 6. PE Thresholds + 8. Foreign Tax Credit (side by side) ─── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* PE Thresholds */}
-        <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#e2e8f0]">
-            <h3 className="text-sm font-bold text-[#0f172a]">Permanent Establishment Thresholds</h3>
-            <p className="text-[10px] text-[#64748b] mt-0.5">Construction PE (months) and service PE (days) trigger points</p>
+        <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+          <div className="px-4 py-3 border-b border-[#E4E7E9]">
+            <h3 className="text-sm font-bold text-[#0D0E0F]">Permanent Establishment Thresholds</h3>
+            <p className="text-[10px] text-[#6A6F73] mt-0.5">Construction PE (months) and service PE (days) trigger points</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-[11px]">
               <thead>
-                <tr className="bg-[#0f172a] text-white">
+                <tr className="bg-[#0D0E0F] text-white">
                   <th className="px-3 py-2 text-left font-semibold">Country</th>
                   <th className="px-3 py-2 text-right font-semibold">Construction PE</th>
                   <th className="px-3 py-2 text-right font-semibold">Service PE</th>
@@ -483,17 +483,17 @@ export default function InvestorsPage() {
               </thead>
               <tbody>
                 {peData.map((row, i) => (
-                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f1f5f9]'}>
-                    <td className="px-3 py-2 font-semibold text-[#0f172a] whitespace-nowrap">
+                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F1F3F4]'}>
+                    <td className="px-3 py-2 font-semibold text-[#0D0E0F] whitespace-nowrap">
                       {COUNTRY_FLAGS[row.code]} {COUNTRY_LABELS[row.code]}
                     </td>
                     <td className="px-3 py-2 text-right font-mono">
-                      <span style={{ color: (row.constructionMonths ?? 0) <= 6 ? '#b91c1c' : '#0f172a' }}>
+                      <span style={{ color: (row.constructionMonths ?? 0) <= 6 ? '#CC2727' : '#0D0E0F' }}>
                         {row.constructionMonths != null ? `${row.constructionMonths} mo` : '—'}
                       </span>
                     </td>
                     <td className="px-3 py-2 text-right font-mono">
-                      <span style={{ color: (row.serviceDays ?? 999) <= 90 ? '#b91c1c' : '#0f172a' }}>
+                      <span style={{ color: (row.serviceDays ?? 999) <= 90 ? '#CC2727' : '#0D0E0F' }}>
                         {row.serviceDays != null ? `${row.serviceDays} days` : '—'}
                       </span>
                     </td>
@@ -501,8 +501,8 @@ export default function InvestorsPage() {
                       <span
                         className="text-[9px] font-mono px-2 py-0.5 rounded font-bold"
                         style={{
-                          backgroundColor: row.digitalPe ? '#fee2e2' : '#f1f5f9',
-                          color: row.digitalPe ? '#b91c1c' : '#64748b',
+                          backgroundColor: row.digitalPe ? '#FFF3F3' : '#F1F3F4',
+                          color: row.digitalPe ? '#CC2727' : '#6A6F73',
                         }}
                       >
                         {row.digitalPe ? 'Yes' : 'No'}
@@ -512,8 +512,8 @@ export default function InvestorsPage() {
                       <span
                         className="text-[9px] font-mono px-2 py-0.5 rounded font-bold"
                         style={{
-                          backgroundColor: row.dependentAgent ? '#fef3c7' : '#f1f5f9',
-                          color: row.dependentAgent ? '#b45309' : '#64748b',
+                          backgroundColor: row.dependentAgent ? '#FFFAF3' : '#F1F3F4',
+                          color: row.dependentAgent ? '#CC8727' : '#6A6F73',
                         }}
                       >
                         {row.dependentAgent ? 'Yes' : 'No'}
@@ -527,15 +527,15 @@ export default function InvestorsPage() {
         </div>
 
         {/* Foreign Tax Credit Methods */}
-        <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#e2e8f0]">
-            <h3 className="text-sm font-bold text-[#0f172a]">Foreign Tax Credit Methods</h3>
-            <p className="text-[10px] text-[#64748b] mt-0.5">Relief method, limitation basis, and carry forward/back periods</p>
+        <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+          <div className="px-4 py-3 border-b border-[#E4E7E9]">
+            <h3 className="text-sm font-bold text-[#0D0E0F]">Foreign Tax Credit Methods</h3>
+            <p className="text-[10px] text-[#6A6F73] mt-0.5">Relief method, limitation basis, and carry forward/back periods</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-[11px]">
               <thead>
-                <tr className="bg-[#0f172a] text-white">
+                <tr className="bg-[#0D0E0F] text-white">
                   <th className="px-3 py-2 text-left font-semibold">Country</th>
                   <th className="px-3 py-2 text-left font-semibold">Method</th>
                   <th className="px-3 py-2 text-left font-semibold">Limitation</th>
@@ -545,23 +545,23 @@ export default function InvestorsPage() {
               </thead>
               <tbody>
                 {ftcData.map((row, i) => (
-                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f1f5f9]'}>
-                    <td className="px-3 py-2 font-semibold text-[#0f172a] whitespace-nowrap">
+                  <tr key={row.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F1F3F4]'}>
+                    <td className="px-3 py-2 font-semibold text-[#0D0E0F] whitespace-nowrap">
                       {COUNTRY_FLAGS[row.code]} {COUNTRY_LABELS[row.code]}
                     </td>
                     <td className="px-3 py-2">
-                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#dbeafe] text-[#1d4ed8] font-bold capitalize">
+                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#F0F6FE] text-[#0052C4] font-bold capitalize">
                         {row.method.replace(/_/g, ' ')}
                       </span>
                     </td>
-                    <td className="px-3 py-2 font-mono text-[10px] text-[#0f172a] capitalize">{row.limitation.replace(/_/g, ' ')}</td>
+                    <td className="px-3 py-2 font-mono text-[10px] text-[#0D0E0F] capitalize">{row.limitation.replace(/_/g, ' ')}</td>
                     <td className="px-3 py-2 text-right font-mono">
-                      <span style={{ color: row.carryForward > 0 ? '#0f766e' : '#64748b' }}>
+                      <span style={{ color: row.carryForward > 0 ? '#0052C4' : '#6A6F73' }}>
                         {row.carryForward > 0 ? `${row.carryForward} yr` : 'None'}
                       </span>
                     </td>
                     <td className="px-3 py-2 text-right font-mono">
-                      <span style={{ color: row.carryBack > 0 ? '#0f766e' : '#64748b' }}>
+                      <span style={{ color: row.carryBack > 0 ? '#0052C4' : '#6A6F73' }}>
                         {row.carryBack > 0 ? `${row.carryBack} yr` : 'None'}
                       </span>
                     </td>
@@ -576,30 +576,30 @@ export default function InvestorsPage() {
       {/* ─── 7. Corridors + Optimal Structures (existing, preserved) ─── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Top Investment Corridors */}
-        <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#e2e8f0]">
-            <h3 className="text-sm font-bold text-[#0f172a]">Top Investment Corridors</h3>
-            <p className="text-[10px] text-[#64748b] mt-0.5">Ranked by effective tax rate on repatriated profits (per $100K gross)</p>
+        <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+          <div className="px-4 py-3 border-b border-[#E4E7E9]">
+            <h3 className="text-sm font-bold text-[#0D0E0F]">Top Investment Corridors</h3>
+            <p className="text-[10px] text-[#6A6F73] mt-0.5">Ranked by effective tax rate on repatriated profits (per $100K gross)</p>
           </div>
           <div className="p-4 space-y-2">
             {corridors.top_corridors.map((c, i) => {
               const barWidth = Math.min(100, (c.effectiveRate / 40) * 100);
               return (
                 <div key={i} className="flex items-center gap-3">
-                  <div className="w-24 text-[11px] font-semibold text-[#0f172a] whitespace-nowrap truncate">
+                  <div className="w-24 text-[11px] font-semibold text-[#0D0E0F] whitespace-nowrap truncate">
                     {c.from} &rarr; {c.to}
                   </div>
-                  <div className="flex-1 h-5 bg-[#f1f5f9] rounded overflow-hidden relative">
+                  <div className="flex-1 h-5 bg-[#F1F3F4] rounded overflow-hidden relative">
                     <div
                       className="h-full rounded"
                       style={{
                         width: `${barWidth}%`,
-                        backgroundColor: c.effectiveRate <= 20 ? '#0f766e' : c.effectiveRate <= 30 ? '#b45309' : '#b91c1c',
+                        backgroundColor: c.effectiveRate <= 20 ? '#0052C4' : c.effectiveRate <= 30 ? '#CC8727' : '#CC2727',
                       }}
                     />
                   </div>
-                  <span className="text-[11px] font-mono font-bold text-[#0f172a] w-12 text-right">{c.effectiveRate}%</span>
-                  <span className="text-[10px] font-mono text-[#64748b] w-16 text-right">${c.net.toLocaleString()}</span>
+                  <span className="text-[11px] font-mono font-bold text-[#0D0E0F] w-12 text-right">{c.effectiveRate}%</span>
+                  <span className="text-[10px] font-mono text-[#6A6F73] w-16 text-right">${c.net.toLocaleString()}</span>
                 </div>
               );
             })}
@@ -607,24 +607,24 @@ export default function InvestorsPage() {
         </div>
 
         {/* Best Structure Per Investor */}
-        <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#e2e8f0]">
-            <h3 className="text-sm font-bold text-[#0f172a]">Optimal Structure by Investor Country</h3>
-            <p className="text-[10px] text-[#64748b] mt-0.5">B2B startup scenario ($500K revenue, 15% margin)</p>
+        <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+          <div className="px-4 py-3 border-b border-[#E4E7E9]">
+            <h3 className="text-sm font-bold text-[#0D0E0F]">Optimal Structure by Investor Country</h3>
+            <p className="text-[10px] text-[#6A6F73] mt-0.5">B2B startup scenario ($500K revenue, 15% margin)</p>
           </div>
           <div className="p-4 space-y-2">
             {Object.entries(b2b.best_per_investor).map(([code, info]) => (
-              <div key={code} className="flex items-center justify-between p-2 rounded-lg border border-[#e2e8f0] hover:bg-[#f8fafc] transition-colors">
+              <div key={code} className="flex items-center justify-between p-2 rounded-lg border border-[#E4E7E9] hover:bg-[#F8F9F9] transition-colors">
                 <div className="flex items-center gap-2">
                   <span className="text-lg">{COUNTRY_FLAGS[code as CountryCode]}</span>
                   <div>
-                    <p className="text-xs font-bold text-[#0f172a]">{COUNTRY_LABELS[code as CountryCode]} Investor</p>
-                    <p className="text-[10px] font-mono text-[#64748b]">{info.structure}</p>
+                    <p className="text-xs font-bold text-[#0D0E0F]">{COUNTRY_LABELS[code as CountryCode]} Investor</p>
+                    <p className="text-[10px] font-mono text-[#6A6F73]">{info.structure}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-extrabold font-mono text-[#0f766e]">{info.effectiveRate}%</p>
-                  <p className="text-[10px] text-[#64748b]">effective rate</p>
+                  <p className="text-sm font-extrabold font-mono text-[#0052C4]">{info.effectiveRate}%</p>
+                  <p className="text-[10px] text-[#6A6F73]">effective rate</p>
                 </div>
               </div>
             ))}
@@ -633,9 +633,9 @@ export default function InvestorsPage() {
       </div>
 
       {/* ─── 9. Key Takeaway Callout ─── */}
-      <div className="bg-[#ccfbf1] border border-[#0f766e]/20 rounded-lg p-4">
-        <h4 className="text-xs font-bold text-[#0f766e] uppercase tracking-wider mb-2">Key Takeaways for International Investors</h4>
-        <div className="space-y-2 text-sm text-[#0f172a]">
+      <div className="bg-[#F0F6FE] border border-[#0052C4]/20 rounded-lg p-4">
+        <h4 className="text-xs font-bold text-[#0052C4] uppercase tracking-wider mb-2">Key Takeaways for International Investors</h4>
+        <div className="space-y-2 text-sm text-[#0D0E0F]">
           <p>
             <span className="font-bold">Lowest WHT corridor:</span> Singapore&apos;s 0% dividend WHT and 17% CIT delivers an unmatched 17% combined rate for any investor domicile.
             Brazil also imposes 0% outbound dividend WHT (Lei 9.249/1995), but its 34% CIT erodes the benefit.

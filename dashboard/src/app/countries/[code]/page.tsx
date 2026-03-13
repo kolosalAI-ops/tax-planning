@@ -12,10 +12,10 @@ export function generateStaticParams() {
 
 function SectionCard({ title, icon, children }: { title: string; icon?: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-      <div className="px-4 py-3 border-b border-[#e2e8f0] flex items-center gap-2">
+    <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+      <div className="px-4 py-3 border-b border-[#E4E7E9] flex items-center gap-2">
         {icon && <span className="text-sm">{icon}</span>}
-        <h3 className="text-sm font-bold text-[#0f172a]">{title}</h3>
+        <h3 className="text-sm font-bold text-[#0D0E0F]">{title}</h3>
       </div>
       <div className="p-4">{children}</div>
     </div>
@@ -25,9 +25,9 @@ function SectionCard({ title, icon, children }: { title: string; icon?: string; 
 function DataRow({ label, value, accent, mono = true }: { label: string; value: React.ReactNode; accent?: string; mono?: boolean }) {
   if (value === null || value === undefined || value === '') return null;
   return (
-    <div className="flex justify-between items-center py-1.5 border-b border-[#f1f5f9] last:border-0 gap-4">
-      <span className="text-[11px] text-[#64748b] shrink-0">{label}</span>
-      <span className={`text-[11px] font-semibold text-right ${mono ? 'font-mono' : ''}`} style={{ color: accent || '#0f172a' }}>
+    <div className="flex justify-between items-center py-1.5 border-b border-[#F1F3F4] last:border-0 gap-4">
+      <span className="text-[11px] text-[#6A6F73] shrink-0">{label}</span>
+      <span className={`text-[11px] font-semibold text-right ${mono ? 'font-mono' : ''}`} style={{ color: accent || '#0D0E0F' }}>
         {value}
       </span>
     </div>
@@ -36,11 +36,11 @@ function DataRow({ label, value, accent, mono = true }: { label: string; value: 
 
 function Badge({ children, color = 'teal' }: { children: React.ReactNode; color?: 'teal' | 'amber' | 'red' | 'blue' | 'gray' }) {
   const colors = {
-    teal: 'bg-[#ccfbf1] text-[#0f766e] border-[#0f766e]/20',
-    amber: 'bg-[#fef3c7] text-[#b45309] border-[#b45309]/20',
-    red: 'bg-[#fee2e2] text-[#b91c1c] border-[#b91c1c]/20',
-    blue: 'bg-[#dbeafe] text-[#1d4ed8] border-[#1d4ed8]/20',
-    gray: 'bg-[#f1f5f9] text-[#64748b] border-[#e2e8f0]',
+    teal: 'bg-[#F0F6FE] text-[#0052C4] border-[#0052C4]/20',
+    amber: 'bg-[#FFFAF3] text-[#CC8727] border-[#CC8727]/20',
+    red: 'bg-[#FFF3F3] text-[#CC2727] border-[#CC2727]/20',
+    blue: 'bg-[#F0F6FE] text-[#0052C4] border-[#0052C4]/20',
+    gray: 'bg-[#F1F3F4] text-[#6A6F73] border-[#E4E7E9]',
   };
   return (
     <span className={`inline-block text-[9px] font-mono font-bold px-2 py-0.5 rounded border ${colors[color]}`}>
@@ -49,15 +49,15 @@ function Badge({ children, color = 'teal' }: { children: React.ReactNode; color?
   );
 }
 
-function RateBar({ label, value, max = 50, color = '#0f766e' }: { label: string; value: number; max?: number; color?: string }) {
+function RateBar({ label, value, max = 50, color = '#0052C4' }: { label: string; value: number; max?: number; color?: string }) {
   const pct = Math.min((value / max) * 100, 100);
   return (
     <div className="flex items-center gap-2 py-1">
-      <span className="text-[10px] text-[#64748b] w-[100px] shrink-0 truncate">{label}</span>
-      <div className="flex-1 h-4 bg-[#f1f5f9] rounded overflow-hidden">
+      <span className="text-[10px] text-[#6A6F73] w-[100px] shrink-0 truncate">{label}</span>
+      <div className="flex-1 h-4 bg-[#F1F3F4] rounded overflow-hidden">
         <div className="h-full rounded transition-all" style={{ width: `${pct}%`, backgroundColor: color }} />
       </div>
-      <span className="text-[10px] font-mono font-bold text-[#0f172a] w-[48px] text-right shrink-0">{value}%</span>
+      <span className="text-[10px] font-mono font-bold text-[#0D0E0F] w-[48px] text-right shrink-0">{value}%</span>
     </div>
   );
 }
@@ -67,7 +67,7 @@ function MiniTable({ headers, rows }: { headers: string[]; rows: (string | numbe
     <div className="overflow-x-auto">
       <table className="w-full text-[10px]">
         <thead>
-          <tr className="bg-[#0f172a] text-white">
+          <tr className="bg-[#0D0E0F] text-white">
             {headers.map((h, i) => (
               <th key={i} className="px-2 py-1.5 text-left font-bold uppercase tracking-wider">{h}</th>
             ))}
@@ -75,9 +75,9 @@ function MiniTable({ headers, rows }: { headers: string[]; rows: (string | numbe
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+            <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F8F9F9]'}>
               {row.map((cell, j) => (
-                <td key={j} className="px-2 py-1.5 border-b border-[#f1f5f9] font-mono">{cell}</td>
+                <td key={j} className="px-2 py-1.5 border-b border-[#F1F3F4] font-mono">{cell}</td>
               ))}
             </tr>
           ))}
@@ -90,7 +90,7 @@ function MiniTable({ headers, rows }: { headers: string[]; rows: (string | numbe
 function SubSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mt-3 first:mt-0">
-      <p className="text-[10px] font-bold text-[#64748b] uppercase tracking-[0.1em] mb-2 pb-1 border-b border-[#f1f5f9]">{title}</p>
+      <p className="text-[10px] font-bold text-[#6A6F73] uppercase tracking-[0.1em] mb-2 pb-1 border-b border-[#F1F3F4]">{title}</p>
       {children}
     </div>
   );
@@ -98,9 +98,9 @@ function SubSection({ title, children }: { title: string; children: React.ReactN
 
 function KeyInsight({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-[#ccfbf1] border border-[#0f766e]/20 rounded-lg p-3 mt-3">
-      <p className="text-[10px] font-bold text-[#0f766e] uppercase tracking-wider mb-1">Key Insight</p>
-      <p className="text-[11px] text-[#0f172a] leading-relaxed">{children}</p>
+    <div className="bg-[#F0F6FE] border border-[#0052C4]/20 rounded-lg p-3 mt-3">
+      <p className="text-[10px] font-bold text-[#0052C4] uppercase tracking-wider mb-1">Key Insight</p>
+      <p className="text-[11px] text-[#0D0E0F] leading-relaxed">{children}</p>
     </div>
   );
 }
@@ -145,10 +145,10 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
     <SectionCard title="Corporate Tax" icon="🏢">
       {/* Headline */}
       {headline !== null && (
-        <div className="flex items-center gap-3 mb-3 pb-3 border-b border-[#e2e8f0]">
-          <div className="text-3xl font-extrabold font-mono text-[#0f172a]">{headline}%</div>
+        <div className="flex items-center gap-3 mb-3 pb-3 border-b border-[#E4E7E9]">
+          <div className="text-3xl font-extrabold font-mono text-[#0D0E0F]">{headline}%</div>
           <div>
-            <p className="text-[11px] font-bold text-[#0f172a]">
+            <p className="text-[11px] font-bold text-[#0D0E0F]">
               {ct.federal_rate !== undefined ? 'Federal Rate' : 'Headline Rate'}
             </p>
             <div className="flex gap-1.5 mt-1 flex-wrap">
@@ -201,7 +201,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
       {/* AU: Two-tier */}
       {ct.base_rate_entity_rate !== undefined && (
         <SubSection title="Base Rate Entity">
-          <DataRow label="Reduced Rate" value={`${ct.base_rate_entity_rate}%`} accent="#0f766e" />
+          <DataRow label="Reduced Rate" value={`${ct.base_rate_entity_rate}%`} accent="#0052C4" />
           {ct.base_rate_entity && (
             <>
               <DataRow label="Turnover Threshold" value={`$${fmtNum(ct.base_rate_entity.turnover_threshold)}`} />
@@ -216,14 +216,14 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
         <SubSection title="Dividend Imputation">
           <DataRow label="Max Franking (General)" value={`${ct.imputation.max_franking_rate_general}%`} />
           <DataRow label="Max Franking (Base)" value={`${ct.imputation.max_franking_rate_base}%`} />
-          <DataRow label="Refundable" value={ct.imputation.refundable ? 'Yes' : 'No'} accent={ct.imputation.refundable ? '#0f766e' : undefined} />
+          <DataRow label="Refundable" value={ct.imputation.refundable ? 'Yes' : 'No'} accent={ct.imputation.refundable ? '#0052C4' : undefined} />
         </SubSection>
       )}
 
       {/* ID: Listed company rate */}
       {ct.listed_company_rate !== undefined && (
         <SubSection title="Listed Company Incentive">
-          <DataRow label="Listed Rate" value={`${ct.listed_company_rate}%`} accent="#0f766e" />
+          <DataRow label="Listed Rate" value={`${ct.listed_company_rate}%`} accent="#0052C4" />
           <DataRow label="Discount" value={`${ct.listed_discount}% reduction`} />
         </SubSection>
       )}
@@ -233,16 +233,16 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
         <SubSection title="SME Regimes">
           {ct.sme_regimes.msme_final_tax && (
             <div className="mb-2">
-              <p className="text-[10px] font-semibold text-[#0f172a] mb-1">MSME Final Tax</p>
-              <DataRow label="Rate" value={`${ct.sme_regimes.msme_final_tax.rate}% of gross turnover`} accent="#0f766e" />
+              <p className="text-[10px] font-semibold text-[#0D0E0F] mb-1">MSME Final Tax</p>
+              <DataRow label="Rate" value={`${ct.sme_regimes.msme_final_tax.rate}% of gross turnover`} accent="#0052C4" />
               <DataRow label="Threshold" value={`IDR ${fmtNum(ct.sme_regimes.msme_final_tax.threshold)}`} />
               <DataRow label="Duration" value={ct.sme_regimes.msme_final_tax.duration_corporate} mono={false} />
             </div>
           )}
           {ct.sme_regimes.article_31e_reduction && (
             <div>
-              <p className="text-[10px] font-semibold text-[#0f172a] mb-1">Art. 31E 50% Reduction</p>
-              <DataRow label="Effective Rate on Portion" value={`${ct.sme_regimes.article_31e_reduction.effective_rate_on_portion}%`} accent="#0f766e" />
+              <p className="text-[10px] font-semibold text-[#0D0E0F] mb-1">Art. 31E 50% Reduction</p>
+              <DataRow label="Effective Rate on Portion" value={`${ct.sme_regimes.article_31e_reduction.effective_rate_on_portion}%`} accent="#0052C4" />
               <DataRow label="Max Gross Revenue" value={`IDR ${fmtNum(ct.sme_regimes.article_31e_reduction.max_gross_revenue)}`} />
             </div>
           )}
@@ -261,7 +261,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
             ])}
           />
           {ct.tax_holiday.transition_reduction && (
-            <p className="text-[10px] text-[#64748b] mt-1">+ {ct.tax_holiday.transition_years} yr transition at {ct.tax_holiday.transition_reduction}% reduction</p>
+            <p className="text-[10px] text-[#6A6F73] mt-1">+ {ct.tax_holiday.transition_years} yr transition at {ct.tax_holiday.transition_reduction}% reduction</p>
           )}
         </SubSection>
       )}
@@ -270,10 +270,10 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
       {ct.partial_tax_exemption && (
         <SubSection title="Partial Tax Exemption">
           {ct.partial_tax_exemption.first_10k && (
-            <DataRow label="First S$10K" value={`${ct.partial_tax_exemption.first_10k.effective_rate}% effective (${ct.partial_tax_exemption.first_10k.exemption_pct}% exempt)`} accent="#0f766e" />
+            <DataRow label="First S$10K" value={`${ct.partial_tax_exemption.first_10k.effective_rate}% effective (${ct.partial_tax_exemption.first_10k.exemption_pct}% exempt)`} accent="#0052C4" />
           )}
           {ct.partial_tax_exemption.next_190k && (
-            <DataRow label="Next S$190K" value={`${ct.partial_tax_exemption.next_190k.effective_rate}% effective (${ct.partial_tax_exemption.next_190k.exemption_pct}% exempt)`} accent="#0f766e" />
+            <DataRow label="Next S$190K" value={`${ct.partial_tax_exemption.next_190k.effective_rate}% effective (${ct.partial_tax_exemption.next_190k.exemption_pct}% exempt)`} accent="#0052C4" />
           )}
           {ct.partial_tax_exemption.above_200k && (
             <DataRow label="Above S$200K" value={`${ct.partial_tax_exemption.above_200k.rate}%`} />
@@ -284,10 +284,10 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
       {/* SG: Startup Tax Exemption */}
       {ct.startup_tax_exemption && (
         <SubSection title="Startup Tax Exemption (First 3 YAs)">
-          <DataRow label="First S$100K" value={`${ct.startup_tax_exemption.first_100k.effective_rate}% effective`} accent="#0f766e" />
-          <DataRow label="Next S$100K" value={`${ct.startup_tax_exemption.next_100k.effective_rate}% effective`} accent="#0f766e" />
+          <DataRow label="First S$100K" value={`${ct.startup_tax_exemption.first_100k.effective_rate}% effective`} accent="#0052C4" />
+          <DataRow label="Next S$100K" value={`${ct.startup_tax_exemption.next_100k.effective_rate}% effective`} accent="#0052C4" />
           <DataRow label="Max Exemption/YA" value={`S$${fmtNum(ct.startup_tax_exemption.max_exemption_per_ya)}`} />
-          <p className="text-[9px] text-[#64748b] mt-1 leading-relaxed">{ct.startup_tax_exemption.eligibility}</p>
+          <p className="text-[9px] text-[#6A6F73] mt-1 leading-relaxed">{ct.startup_tax_exemption.eligibility}</p>
         </SubSection>
       )}
 
@@ -295,8 +295,8 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
       {ct.concessionary_rates && (
         <SubSection title="Concessionary Tax Rates">
           {Object.entries(ct.concessionary_rates).map(([k, v]: [string, any]) => (
-            <div key={k} className="flex items-center justify-between py-1 border-b border-[#f1f5f9] last:border-0">
-              <span className="text-[10px] text-[#64748b]">{humanKey(k)}</span>
+            <div key={k} className="flex items-center justify-between py-1 border-b border-[#F1F3F4] last:border-0">
+              <span className="text-[10px] text-[#6A6F73]">{humanKey(k)}</span>
               <div className="flex gap-1.5">
                 {v.rate_range && <Badge color="teal">{v.rate_range}</Badge>}
                 {v.rate !== undefined && <Badge color="teal">{v.rate}%</Badge>}
@@ -320,15 +320,15 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
       {/* SG: Foreign Sourced Income */}
       {ct.foreign_sourced_income_exemption && (
         <SubSection title="Foreign Sourced Income Exemption">
-          <p className="text-[10px] text-[#64748b] mb-1">Conditions:</p>
+          <p className="text-[10px] text-[#6A6F73] mb-1">Conditions:</p>
           <ul className="space-y-0.5">
             {ct.foreign_sourced_income_exemption.conditions.map((c: string, i: number) => (
-              <li key={i} className="text-[10px] text-[#0f172a] flex items-start gap-1">
-                <span className="text-[#0f766e] shrink-0">✓</span> {c}
+              <li key={i} className="text-[10px] text-[#0D0E0F] flex items-start gap-1">
+                <span className="text-[#0052C4] shrink-0">✓</span> {c}
               </li>
             ))}
           </ul>
-          <p className="text-[10px] text-[#64748b] mt-1">Applies to: {ct.foreign_sourced_income_exemption.applicable_to.join(', ')}</p>
+          <p className="text-[10px] text-[#6A6F73] mt-1">Applies to: {ct.foreign_sourced_income_exemption.applicable_to.join(', ')}</p>
         </SubSection>
       )}
 
@@ -347,11 +347,11 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
           <DataRow label="IRPJ Standard" value={`${ct.lucro_real.irpj.standard_rate}%`} />
           <DataRow label="IRPJ Surtax" value={`${ct.lucro_real.irpj.surtax_rate}% above R$${fmtNum(ct.lucro_real.irpj.surtax_annual_threshold)}/yr`} />
           <DataRow label="CSLL" value={`${ct.lucro_real.csll.general}%`} />
-          <DataRow label="Combined (High Income)" value={`${ct.lucro_real.combined_effective.above_240k}%`} accent="#b91c1c" />
+          <DataRow label="Combined (High Income)" value={`${ct.lucro_real.combined_effective.above_240k}%`} accent="#CC2727" />
           {ct.lucro_real.pis_cofins_noncumulative && (
             <>
               <DataRow label="PIS + COFINS" value={`${ct.lucro_real.pis_cofins_noncumulative.combined}% (non-cumulative)`} />
-              <DataRow label="Effective After Credits" value={`${ct.lucro_real.pis_cofins_noncumulative.effective_after_credits.min}-${ct.lucro_real.pis_cofins_noncumulative.effective_after_credits.max}%`} accent="#0f766e" />
+              <DataRow label="Effective After Credits" value={`${ct.lucro_real.pis_cofins_noncumulative.effective_after_credits.min}-${ct.lucro_real.pis_cofins_noncumulative.effective_after_credits.max}%`} accent="#0052C4" />
             </>
           )}
         </SubSection>
@@ -361,7 +361,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
       {ct.lucro_presumido && (
         <SubSection title="Lucro Presumido (Simplified)">
           <DataRow label="Revenue Limit" value={`R$${fmtNum(ct.lucro_presumido.revenue_limit)}`} />
-          <DataRow label="Effective (Commerce 8%)" value={`${ct.lucro_presumido.effective_rates_on_revenue.commerce_8pct_margin}%`} accent="#0f766e" />
+          <DataRow label="Effective (Commerce 8%)" value={`${ct.lucro_presumido.effective_rates_on_revenue.commerce_8pct_margin}%`} accent="#0052C4" />
           <DataRow label="Effective (Services 32%)" value={`${ct.lucro_presumido.effective_rates_on_revenue.services_32pct_margin}%`} />
         </SubSection>
       )}
@@ -371,9 +371,9 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
         <SubSection title="Regional Incentive Zones">
           {Object.entries(ct.regional_incentives).map(([zone, info]: [string, any]) => (
             <div key={zone} className="mb-2 last:mb-0">
-              <p className="text-[10px] font-semibold text-[#0f172a] mb-0.5">{humanKey(zone)}</p>
-              <DataRow label="ISR Effective Rate" value={`${info.isr_effective_rate}%`} accent="#0f766e" />
-              <DataRow label="IVA Rate" value={`${info.iva_rate}%`} accent="#0f766e" />
+              <p className="text-[10px] font-semibold text-[#0D0E0F] mb-0.5">{humanKey(zone)}</p>
+              <DataRow label="ISR Effective Rate" value={`${info.isr_effective_rate}%`} accent="#0052C4" />
+              <DataRow label="IVA Rate" value={`${info.iva_rate}%`} accent="#0052C4" />
               {info.municipalities && <DataRow label="Municipalities" value={info.municipalities} />}
             </div>
           ))}
@@ -390,15 +390,15 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
           <SubSection title={ct.state_rates ? 'State Tax Rates (Select)' : 'Provincial Rates (General)'}>
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <p className="text-[9px] font-bold text-[#0f766e] uppercase tracking-wider mb-1">Lowest</p>
+                <p className="text-[9px] font-bold text-[#0052C4] uppercase tracking-wider mb-1">Lowest</p>
                 {lowest3.map(([k, v]: any) => (
-                  <DataRow key={k} label={k.replace(/_/g, ' ')} value={`${v}%`} accent="#0f766e" />
+                  <DataRow key={k} label={k.replace(/_/g, ' ')} value={`${v}%`} accent="#0052C4" />
                 ))}
               </div>
               <div>
-                <p className="text-[9px] font-bold text-[#b91c1c] uppercase tracking-wider mb-1">Highest</p>
+                <p className="text-[9px] font-bold text-[#CC2727] uppercase tracking-wider mb-1">Highest</p>
                 {highest3.map(([k, v]: any) => (
-                  <DataRow key={k} label={k.replace(/_/g, ' ')} value={`${v}%`} accent="#b91c1c" />
+                  <DataRow key={k} label={k.replace(/_/g, ' ')} value={`${v}%`} accent="#CC2727" />
                 ))}
               </div>
             </div>
@@ -436,14 +436,14 @@ function IndirectTaxSection({ data }: { data: any }) {
       {/* Standard rate */}
       {source.standard_rate !== undefined && (
         <div className="flex items-center gap-3 mb-3">
-          <div className="text-2xl font-extrabold font-mono text-[#0f172a]">{source.standard_rate}%</div>
-          <p className="text-[11px] text-[#64748b]">Standard rate</p>
+          <div className="text-2xl font-extrabold font-mono text-[#0D0E0F]">{source.standard_rate}%</div>
+          <p className="text-[11px] text-[#6A6F73]">Standard rate</p>
         </div>
       )}
       {source.federal_gst !== undefined && (
         <div className="flex items-center gap-3 mb-3">
-          <div className="text-2xl font-extrabold font-mono text-[#0f172a]">{source.federal_gst}%</div>
-          <p className="text-[11px] text-[#64748b]">Federal GST</p>
+          <div className="text-2xl font-extrabold font-mono text-[#0D0E0F]">{source.federal_gst}%</div>
+          <p className="text-[11px] text-[#6A6F73]">Federal GST</p>
         </div>
       )}
 
@@ -456,13 +456,13 @@ function IndirectTaxSection({ data }: { data: any }) {
               <DataRow label="State Sales Tax Range" value={`${vatEq.state_range.min}% - ${vatEq.state_range.max}%`} />
             </div>
           )}
-          {vatEq.note && <p className="text-[10px] text-[#64748b] mt-1">{vatEq.note}</p>}
+          {vatEq.note && <p className="text-[10px] text-[#6A6F73] mt-1">{vatEq.note}</p>}
         </div>
       )}
 
       {/* ID: Planned increase */}
       {source.planned_increase_2025 && (
-        <DataRow label="Planned 2025 Rate" value={`${source.planned_increase_2025}%`} accent="#b45309" />
+        <DataRow label="Planned 2025 Rate" value={`${source.planned_increase_2025}%`} accent="#CC8727" />
       )}
 
       {/* Registration threshold */}
@@ -472,7 +472,7 @@ function IndirectTaxSection({ data }: { data: any }) {
 
       {/* MX: Border zone */}
       {source.border_zone_rate !== undefined && (
-        <DataRow label="Border Zone Rate" value={`${source.border_zone_rate}%`} accent="#0f766e" />
+        <DataRow label="Border Zone Rate" value={`${source.border_zone_rate}%`} accent="#0052C4" />
       )}
 
       {/* Exempt / Zero-rated */}
@@ -562,9 +562,9 @@ function PayrollSection({ data }: { data: any }) {
   return (
     <SectionCard title="Payroll / Employer Contributions" icon="👥">
       {totalVal && (
-        <div className="flex items-center gap-3 mb-3 pb-3 border-b border-[#e2e8f0]">
-          <div className="text-2xl font-extrabold font-mono text-[#0f172a]">{totalVal}</div>
-          <p className="text-[11px] text-[#64748b]">Total employer burden (approx.)</p>
+        <div className="flex items-center gap-3 mb-3 pb-3 border-b border-[#E4E7E9]">
+          <div className="text-2xl font-extrabold font-mono text-[#0D0E0F]">{totalVal}</div>
+          <p className="text-[11px] text-[#6A6F73]">Total employer burden (approx.)</p>
         </div>
       )}
 
@@ -582,18 +582,18 @@ function PayrollSection({ data }: { data: any }) {
             if (v.min !== undefined && v.max !== undefined) {
               return (
                 <div key={k} className="flex items-center gap-2 py-1">
-                  <span className="text-[10px] text-[#64748b] w-[100px] shrink-0 truncate">{humanKey(k)}</span>
-                  <div className="flex-1 h-4 bg-[#f1f5f9] rounded overflow-hidden">
-                    <div className="h-full rounded bg-[#cbd5e1]" style={{ width: `${(v.max / 25) * 100}%` }} />
+                  <span className="text-[10px] text-[#6A6F73] w-[100px] shrink-0 truncate">{humanKey(k)}</span>
+                  <div className="flex-1 h-4 bg-[#F1F3F4] rounded overflow-hidden">
+                    <div className="h-full rounded bg-[#DDE1E3]" style={{ width: `${(v.max / 25) * 100}%` }} />
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-[#0f172a] w-[48px] text-right shrink-0">{v.min}-{v.max}%</span>
+                  <span className="text-[10px] font-mono font-bold text-[#0D0E0F] w-[48px] text-right shrink-0">{v.min}-{v.max}%</span>
                 </div>
               );
             }
             // For objects like CPF or EI with sub-fields
             return (
               <div key={k} className="mt-2">
-                <p className="text-[10px] font-semibold text-[#0f172a] mb-0.5">{humanKey(k)}</p>
+                <p className="text-[10px] font-semibold text-[#0D0E0F] mb-0.5">{humanKey(k)}</p>
                 {Object.entries(v).filter(([, sv]) => typeof sv === 'number' || typeof sv === 'string').slice(0, 5).map(([sk, sv]) => (
                   <DataRow key={sk} label={humanKey(sk)} value={typeof sv === 'number' && sk.includes('rate') ? `${sv}%` : String(sv as any)} />
                 ))}
@@ -610,7 +610,7 @@ function PayrollSection({ data }: { data: any }) {
       {/* AU: Superannuation */}
       {superannuation && (
         <SubSection title="Superannuation Guarantee">
-          <DataRow label="Current Rate" value={`${superannuation.sg_rate_2024_25}%`} accent="#0f766e" />
+          <DataRow label="Current Rate" value={`${superannuation.sg_rate_2024_25}%`} accent="#0052C4" />
           <DataRow label="Next Year" value={`${superannuation.sg_rate_2025_26}%`} />
           <DataRow label="Concessional Cap" value={`A$${fmtNum(superannuation.concessional_cap)}`} />
           <DataRow label="Deductible" value={superannuation.deductible ? 'Yes' : 'No'} />
@@ -621,12 +621,12 @@ function PayrollSection({ data }: { data: any }) {
       {statePayroll && (
         <SubSection title="State/Provincial Payroll Tax">
           {Object.entries(statePayroll).filter(([k]) => k !== 'range').slice(0, 8).map(([k, v]: [string, any]) => {
-            if (typeof v === 'number') return <RateBar key={k} label={humanKey(k)} value={v} max={10} color="#64748b" />;
-            if (typeof v === 'object' && v.rate !== undefined) return <RateBar key={k} label={humanKey(k)} value={v.rate} max={10} color="#64748b" />;
+            if (typeof v === 'number') return <RateBar key={k} label={humanKey(k)} value={v} max={10} color="#6A6F73" />;
+            if (typeof v === 'object' && v.rate !== undefined) return <RateBar key={k} label={humanKey(k)} value={v.rate} max={10} color="#6A6F73" />;
             return null;
           })}
           {statePayroll.range && (
-            <p className="text-[10px] text-[#64748b] mt-1">Range: {statePayroll.range.min}% - {statePayroll.range.max}%</p>
+            <p className="text-[10px] text-[#6A6F73] mt-1">Range: {statePayroll.range.min}% - {statePayroll.range.max}%</p>
           )}
         </SubSection>
       )}
@@ -662,8 +662,8 @@ function WithholdingTaxSection({ data }: { data: any }) {
         headers={['Income Type', 'Default Rate', 'Treaty Rate']}
         rows={rows.map((r) => [
           r.type,
-          <span key="r" className="font-bold" style={{ color: parseFloat(r.rate) === 0 ? '#0f766e' : parseFloat(r.rate) >= 25 ? '#b91c1c' : '#0f172a' }}>{r.rate}</span>,
-          r.treaty ? <Badge key="t" color="teal">{r.treaty}</Badge> : <span key="t" className="text-[#cbd5e1]">—</span>,
+          <span key="r" className="font-bold" style={{ color: parseFloat(r.rate) === 0 ? '#0052C4' : parseFloat(r.rate) >= 25 ? '#CC2727' : '#0D0E0F' }}>{r.rate}</span>,
+          r.treaty ? <Badge key="t" color="teal">{r.treaty}</Badge> : <span key="t" className="text-[#DDE1E3]">—</span>,
         ])}
       />
 
@@ -703,7 +703,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
         if (dep.macrs_classes) {
           return (
             <SubSection title="Depreciation (MACRS)">
-              <DataRow label="Section 179 Limit" value={`$${fmtNum(dep.section_179_limit)}`} accent="#0f766e" />
+              <DataRow label="Section 179 Limit" value={`$${fmtNum(dep.section_179_limit)}`} accent="#0052C4" />
               <DataRow label="Bonus Depreciation (2024)" value={`${dep.bonus_depreciation_2024}%`} />
               <MiniTable
                 headers={['Years', 'Method', 'Example']}
@@ -722,7 +722,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
           return (
             <SubSection title="Capital Cost Allowance (CCA)">
               {dep.immediate_expensing_ccpc && (
-                <DataRow label="Immediate Expensing (CCPC)" value={`$${fmtNum(dep.immediate_expensing_ccpc.limit)}`} accent="#0f766e" />
+                <DataRow label="Immediate Expensing (CCPC)" value={`$${fmtNum(dep.immediate_expensing_ccpc.limit)}`} accent="#0052C4" />
               )}
               <MiniTable
                 headers={['Class', 'Rate', 'Method', 'Description']}
@@ -763,7 +763,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
           return (
             <SubSection title="Capital Allowances">
               <DataRow label="Standard Write-Off (S.19)" value={`${dep.section_19.years} years @ ${dep.section_19.annual_rate_pct}%`} />
-              {dep.section_19a?.one_year_option && <DataRow label="Accelerated (S.19A)" value="1-year option available" accent="#0f766e" />}
+              {dep.section_19a?.one_year_option && <DataRow label="Accelerated (S.19A)" value="1-year option available" accent="#0052C4" />}
               <MiniTable
                 headers={['Asset', 'Years', 'Rate']}
                 rows={dep.key_assets.map((a: any) => [
@@ -780,7 +780,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
         if (dep.tangible_non_building) {
           return (
             <SubSection title="Depreciation">
-              <p className="text-[10px] font-semibold text-[#0f172a] mb-1">Tangible Assets (Non-Building)</p>
+              <p className="text-[10px] font-semibold text-[#0D0E0F] mb-1">Tangible Assets (Non-Building)</p>
               <MiniTable
                 headers={['Group', 'Life', 'SL Rate', 'DB Rate', 'Examples']}
                 rows={dep.tangible_non_building.map((g: any) => [
@@ -793,7 +793,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
               />
               {dep.buildings && (
                 <>
-                  <p className="text-[10px] font-semibold text-[#0f172a] mt-2 mb-1">Buildings</p>
+                  <p className="text-[10px] font-semibold text-[#0D0E0F] mt-2 mb-1">Buildings</p>
                   {dep.buildings.map((b: any, i: number) => (
                     <DataRow key={i} label={humanKey(b.type)} value={`${b.rate}% (${b.useful_life} yr)`} />
                   ))}
@@ -818,7 +818,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
               {dep.vehicle_cap && <DataRow label="Vehicle Cap" value={fmtNum(dep.vehicle_cap)} />}
               {dep.accelerated_shifts && (
                 <>
-                  <p className="text-[10px] font-semibold text-[#0f172a] mt-2 mb-1">Shift Multipliers</p>
+                  <p className="text-[10px] font-semibold text-[#0D0E0F] mt-2 mb-1">Shift Multipliers</p>
                   {Object.entries(dep.accelerated_shifts).map(([k, v]) => (
                     <DataRow key={k} label={humanKey(k)} value={`${v}x`} />
                   ))}
@@ -842,11 +842,11 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
               nol.carry_back === true ? 'Allowed' :
               nol.carry_back === 0 ? 'Not allowed' :
               nol.revenue_carry_back ?? nol.non_capital_carry_back ?? nol.carry_back ?? 'N/A'
-            } accent={nol.carry_back === false || nol.carry_back === 0 ? '#b91c1c' : '#0f766e'} />
+            } accent={nol.carry_back === false || nol.carry_back === 0 ? '#CC2727' : '#0052C4'} />
             {nol.limitation_pct !== undefined && <DataRow label="Annual Limitation" value={`${nol.limitation_pct}% of taxable income`} />}
             {nol.annual_limitation_pct !== undefined && <DataRow label="Annual Limitation" value={`${nol.annual_limitation_pct}% of taxable income`} />}
             {nol.carry_back_cap && <DataRow label="Carry Back Cap" value={fmtNum(nol.carry_back_cap)} />}
-            {nol.group_relief !== undefined && <DataRow label="Group Relief" value={nol.group_relief ? 'Available' : 'No'} accent={nol.group_relief ? '#0f766e' : undefined} />}
+            {nol.group_relief !== undefined && <DataRow label="Group Relief" value={nol.group_relief ? 'Available' : 'No'} accent={nol.group_relief ? '#0052C4' : undefined} />}
             {nol.continuity_of_ownership_test !== undefined && <DataRow label="Continuity Test" value="Required" />}
             {nol.capital_gains_inclusion_rate !== undefined && <DataRow label="Capital Gains Inclusion" value={`${nol.capital_gains_inclusion_rate}%`} />}
           </SubSection>
@@ -868,7 +868,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
             {tc?.debt_equity_ratio && <DataRow label="Debt-Equity Ratio" value={tc.debt_equity_ratio} />}
             {tc?.related_party_ratio && <DataRow label="Related Party D/E" value={tc.related_party_ratio} />}
             {tc?.safe_harbour_pct && <DataRow label="Safe Harbour" value={`${tc.safe_harbour_pct}% debt-to-assets`} />}
-            {tc?.tax_haven_ratio && <DataRow label="Tax Haven D/E" value={tc.tax_haven_ratio} accent="#b91c1c" />}
+            {tc?.tax_haven_ratio && <DataRow label="Tax Haven D/E" value={tc.tax_haven_ratio} accent="#CC2727" />}
             {tc?.new_fixed_ratio_test_pct_ebitda && <DataRow label="New EBITDA Test" value={`${tc.new_fixed_ratio_test_pct_ebitda}%`} />}
           </SubSection>
         );
@@ -887,7 +887,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
             {/* US */}
             {rnd?.regular_credit_rate && (
               <>
-                <DataRow label="Regular Credit Rate" value={`${rnd.regular_credit_rate}%`} accent="#0f766e" />
+                <DataRow label="Regular Credit Rate" value={`${rnd.regular_credit_rate}%`} accent="#0052C4" />
                 <DataRow label="Alternative Simplified Credit" value={`${rnd.asc_rate}%`} />
                 <DataRow label="Domestic Amortization" value={`${rnd.amortization_domestic_years} years`} />
               </>
@@ -895,7 +895,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
             {/* MX */}
             {rnd?.credit_rate && (
               <>
-                <DataRow label="Credit Rate" value={`${rnd.credit_rate}%`} accent="#0f766e" />
+                <DataRow label="Credit Rate" value={`${rnd.credit_rate}%`} accent="#0052C4" />
                 <DataRow label="Max Credit" value={fmtNum(rnd.max_credit)} />
                 <DataRow label="Basis" value={humanKey(rnd.basis)} mono={false} />
               </>
@@ -903,14 +903,14 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
             {/* SG */}
             {rnd?.enhanced_deduction_pct && !rnd.regular_credit_rate && (
               <>
-                <DataRow label="Enhanced Deduction" value={`${rnd.enhanced_deduction_pct}%`} accent="#0f766e" />
+                <DataRow label="Enhanced Deduction" value={`${rnd.enhanced_deduction_pct}%`} accent="#0052C4" />
                 <DataRow label="IP Registration" value={`${rnd.ip_registration_enhanced_pct}% deduction`} />
                 {rnd.innovation_allowance && (
-                  <div className="mt-1 bg-[#ccfbf1] border border-[#0f766e]/20 rounded p-2">
-                    <p className="text-[9px] font-bold text-[#0f766e] uppercase mb-1">Enterprise Innovation Scheme (EIS)</p>
-                    <DataRow label="Enhanced Deduction" value={`${rnd.innovation_allowance.enhanced_deduction_pct}%`} accent="#0f766e" />
+                  <div className="mt-1 bg-[#F0F6FE] border border-[#0052C4]/20 rounded p-2">
+                    <p className="text-[9px] font-bold text-[#0052C4] uppercase mb-1">Enterprise Innovation Scheme (EIS)</p>
+                    <DataRow label="Enhanced Deduction" value={`${rnd.innovation_allowance.enhanced_deduction_pct}%`} accent="#0052C4" />
                     <DataRow label="Cap Per Activity" value={`S$${fmtNum(rnd.innovation_allowance.cap_per_activity)}`} />
-                    <DataRow label="Cash Payout Option" value={`${rnd.innovation_allowance.cash_payout_rate_pct}% (cap S$${fmtNum(rnd.innovation_allowance.cash_payout_cap)})`} accent="#0f766e" />
+                    <DataRow label="Cash Payout Option" value={`${rnd.innovation_allowance.cash_payout_rate_pct}% (cap S$${fmtNum(rnd.innovation_allowance.cash_payout_cap)})`} accent="#0052C4" />
                   </div>
                 )}
               </>
@@ -918,10 +918,10 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
             {/* CA: SR&ED */}
             {sred && (
               <>
-                <DataRow label="CCPC Enhanced Rate" value={`${sred.ccpc_enhanced_rate}%`} accent="#0f766e" />
+                <DataRow label="CCPC Enhanced Rate" value={`${sred.ccpc_enhanced_rate}%`} accent="#0052C4" />
                 <DataRow label="Expenditure Limit" value={`C$${fmtNum(sred.ccpc_expenditure_limit)}`} />
                 <DataRow label="Other Corp Rate" value={`${sred.other_corp_rate}%`} />
-                <DataRow label="Refundable (CCPC)" value={sred.refundable_ccpc ? 'Yes' : 'No'} accent={sred.refundable_ccpc ? '#0f766e' : undefined} />
+                <DataRow label="Refundable (CCPC)" value={sred.refundable_ccpc ? 'Yes' : 'No'} accent={sred.refundable_ccpc ? '#0052C4' : undefined} />
                 <DataRow label="Carry Forward" value={`${sred.carry_forward_years} years`} />
               </>
             )}
@@ -940,21 +940,21 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
             {lei && (
               <>
                 <DataRow label="Base Deduction" value={`${lei.base_deduction}%`} />
-                <DataRow label="Additional" value={`+${lei.additional_deduction}%`} accent="#0f766e" />
-                <DataRow label="If Headcount Increase" value={`+${lei.additional_if_headcount_increase}%`} accent="#0f766e" />
-                <DataRow label="If Patent Filed" value={`+${lei.additional_if_patent}%`} accent="#0f766e" />
+                <DataRow label="Additional" value={`+${lei.additional_deduction}%`} accent="#0052C4" />
+                <DataRow label="If Headcount Increase" value={`+${lei.additional_if_headcount_increase}%`} accent="#0052C4" />
+                <DataRow label="If Patent Filed" value={`+${lei.additional_if_patent}%`} accent="#0052C4" />
               </>
             )}
             {/* AU: R&D Tax Incentive */}
             {auRnd && (
               <>
-                <p className="text-[10px] font-semibold text-[#0f172a] mb-0.5">Small Company (&lt;A$20M turnover)</p>
-                <DataRow label="Offset Rate" value={`${auRnd.small_company.effective_rate_25pct_entity}%`} accent="#0f766e" />
-                <DataRow label="Refundable" value={auRnd.small_company.refundable ? 'Yes' : 'No'} accent="#0f766e" />
+                <p className="text-[10px] font-semibold text-[#0D0E0F] mb-0.5">Small Company (&lt;A$20M turnover)</p>
+                <DataRow label="Offset Rate" value={`${auRnd.small_company.effective_rate_25pct_entity}%`} accent="#0052C4" />
+                <DataRow label="Refundable" value={auRnd.small_company.refundable ? 'Yes' : 'No'} accent="#0052C4" />
                 <DataRow label="Refund Cap" value={`A$${fmtNum(auRnd.small_company.refund_cap)}`} />
-                <p className="text-[10px] font-semibold text-[#0f172a] mt-2 mb-0.5">Large Company</p>
+                <p className="text-[10px] font-semibold text-[#0D0E0F] mt-2 mb-0.5">Large Company</p>
                 <DataRow label="Base Rate" value={`${auRnd.large_company.effective_rate_30pct_entity}%`} />
-                <DataRow label="Intensity Premium" value={`${auRnd.large_company.intensity_effective_rate}% (above ${auRnd.large_company.intensity_threshold_pct}% R&D intensity)`} accent="#0f766e" />
+                <DataRow label="Intensity Premium" value={`${auRnd.large_company.intensity_effective_rate}% (above ${auRnd.large_company.intensity_threshold_pct}% R&D intensity)`} accent="#0052C4" />
                 <DataRow label="Annual Cap" value={`A$${fmtNum(auRnd.large_company.annual_cap)}`} />
               </>
             )}
@@ -967,7 +967,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
         <SubSection title="Charitable Deductions">
           {ded.charitable.cash_limit_pct && <DataRow label="Cash Limit" value={`${ded.charitable.cash_limit_pct}% of taxable income`} />}
           {ded.charitable.max_pct_of_income && <DataRow label="Max" value={`${ded.charitable.max_pct_of_income}% of income`} />}
-          {ded.charitable.deduction_multiplier && <DataRow label="Multiplier" value={`${ded.charitable.deduction_multiplier}x`} accent="#0f766e" />}
+          {ded.charitable.deduction_multiplier && <DataRow label="Multiplier" value={`${ded.charitable.deduction_multiplier}x`} accent="#0052C4" />}
           {ded.charitable.limit_pct_prior_year_income && <DataRow label="Limit" value={`${ded.charitable.limit_pct_prior_year_income}% of prior year income`} />}
           {ded.charitable.oscip_limit_pct_operating_profit && <DataRow label="OSCIP Limit" value={`${ded.charitable.oscip_limit_pct_operating_profit}% of operating profit`} />}
           {ded.charitable.carry_forward_years && <DataRow label="Carry Forward" value={`${ded.charitable.carry_forward_years} years`} />}
@@ -985,23 +985,23 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
         <DataRow label="Meals Deduction" value={`${ded.meals_deduction_pct}%`} />
       )}
       {ded.entertainment_deduction_pct !== undefined && (
-        <DataRow label="Entertainment Deduction" value={`${ded.entertainment_deduction_pct}%`} accent={ded.entertainment_deduction_pct === 0 ? '#b91c1c' : undefined} />
+        <DataRow label="Entertainment Deduction" value={`${ded.entertainment_deduction_pct}%`} accent={ded.entertainment_deduction_pct === 0 ? '#CC2727' : undefined} />
       )}
 
       {/* BR: JCP */}
       {ded.jcp_interest_on_equity && (
         <SubSection title="Interest on Equity (JCP)">
-          <DataRow label="Deductible" value="Yes" accent="#0f766e" />
+          <DataRow label="Deductible" value="Yes" accent="#0052C4" />
           <DataRow label="Rate Limit" value={ded.jcp_interest_on_equity.rate_limit} mono={false} />
           <DataRow label="WHT on Payment" value={`${ded.jcp_interest_on_equity.wht_on_payment}%`} />
-          <DataRow label="Net Benefit" value={`${ded.jcp_interest_on_equity.net_benefit_pct}%`} accent="#0f766e" />
+          <DataRow label="Net Benefit" value={`${ded.jcp_interest_on_equity.net_benefit_pct}%`} accent="#0052C4" />
         </SubSection>
       )}
 
       {/* AU: Small business */}
       {ded.small_business && (
         <SubSection title="Small Business Concessions">
-          <DataRow label="Instant Write-Off" value={`A$${fmtNum(ded.small_business.instant_write_off_threshold)}`} accent="#0f766e" />
+          <DataRow label="Instant Write-Off" value={`A$${fmtNum(ded.small_business.instant_write_off_threshold)}`} accent="#0052C4" />
           <DataRow label="Pool First Year" value={`${ded.small_business.pool_first_year_rate}%`} />
           <DataRow label="Pool Subsequent" value={`${ded.small_business.pool_subsequent_rate}%`} />
           <DataRow label="Turnover Threshold" value={`A$${fmtNum(ded.small_business.turnover_threshold)}`} />
@@ -1031,7 +1031,7 @@ function InternationalInvestorsSection({ ii, data }: { ii: any; data: any }) {
               {ii.screening.mandatory_filing_sectors.map((s: string) => <Badge key={s} color="amber">{humanKey(s)}</Badge>)}
             </div>
           )}
-          {ii.screening.legal_basis && <p className="text-[9px] text-[#64748b] mt-1 font-mono">{ii.screening.legal_basis}</p>}
+          {ii.screening.legal_basis && <p className="text-[9px] text-[#6A6F73] mt-1 font-mono">{ii.screening.legal_basis}</p>}
         </SubSection>
       )}
 
@@ -1039,20 +1039,20 @@ function InternationalInvestorsSection({ ii, data }: { ii: any; data: any }) {
       {ii.branch_vs_subsidiary && (
         <SubSection title="Branch vs Subsidiary">
           <div className="grid grid-cols-2 gap-3">
-            <div className="border border-[#e2e8f0] rounded-lg p-3">
-              <p className="text-[9px] font-bold text-[#64748b] uppercase tracking-wider mb-2">Branch</p>
+            <div className="border border-[#E4E7E9] rounded-lg p-3">
+              <p className="text-[9px] font-bold text-[#6A6F73] uppercase tracking-wider mb-2">Branch</p>
               <DataRow label="Tax Rate" value={`${ii.branch_vs_subsidiary.branch_tax_rate_pct}%`} />
               <DataRow label="Profits Tax" value={`${ii.branch_vs_subsidiary.branch_profits_tax_pct ?? ii.branch_vs_subsidiary.branch_remittance_tax_pct ?? 0}%`}
-                accent={ii.branch_vs_subsidiary.branch_profits_tax_pct === 0 ? '#0f766e' : undefined} />
+                accent={ii.branch_vs_subsidiary.branch_profits_tax_pct === 0 ? '#0052C4' : undefined} />
               <p className="text-[10px] font-mono font-bold mt-1">
                 Total: {(ii.branch_vs_subsidiary.branch_tax_rate_pct + (ii.branch_vs_subsidiary.branch_profits_tax_pct ?? ii.branch_vs_subsidiary.branch_remittance_tax_pct ?? 0)).toFixed(1)}%
               </p>
             </div>
-            <div className="border border-[#e2e8f0] rounded-lg p-3">
-              <p className="text-[9px] font-bold text-[#64748b] uppercase tracking-wider mb-2">Subsidiary</p>
+            <div className="border border-[#E4E7E9] rounded-lg p-3">
+              <p className="text-[9px] font-bold text-[#6A6F73] uppercase tracking-wider mb-2">Subsidiary</p>
               <DataRow label="Tax Rate" value={`${ii.branch_vs_subsidiary.subsidiary_tax_rate_pct}%`} />
               <DataRow label="Dividend WHT" value={`${ii.branch_vs_subsidiary.subsidiary_dividend_wht_pct ?? ii.branch_vs_subsidiary.subsidiary_dividend_wht_unfranked_pct ?? 0}%`}
-                accent={(ii.branch_vs_subsidiary.subsidiary_dividend_wht_pct ?? ii.branch_vs_subsidiary.subsidiary_dividend_wht_unfranked_pct ?? 0) === 0 ? '#0f766e' : undefined} />
+                accent={(ii.branch_vs_subsidiary.subsidiary_dividend_wht_pct ?? ii.branch_vs_subsidiary.subsidiary_dividend_wht_unfranked_pct ?? 0) === 0 ? '#0052C4' : undefined} />
               <p className="text-[10px] font-mono font-bold mt-1">
                 Total: {(ii.branch_vs_subsidiary.subsidiary_tax_rate_pct + (ii.branch_vs_subsidiary.subsidiary_dividend_wht_pct ?? ii.branch_vs_subsidiary.subsidiary_dividend_wht_unfranked_pct ?? 0)).toFixed(1)}%
               </p>
@@ -1066,12 +1066,12 @@ function InternationalInvestorsSection({ ii, data }: { ii: any; data: any }) {
       {ii.repatriation && (
         <SubSection title="Repatriation">
           <DataRow label="FX Controls" value={humanKey(ii.repatriation.fx_controls)} mono={false}
-            accent={ii.repatriation.fx_controls === 'none' ? '#0f766e' : '#b45309'} />
+            accent={ii.repatriation.fx_controls === 'none' ? '#0052C4' : '#CC8727'} />
           <DataRow label="Dividend Restrictions" value={humanKey(ii.repatriation.dividend_restrictions ?? 'none')} mono={false} />
           <DataRow label="Central Bank Registration" value={ii.repatriation.central_bank_registration ? 'Required' : 'Not required'}
-            accent={ii.repatriation.central_bank_registration ? '#b45309' : '#0f766e'} />
+            accent={ii.repatriation.central_bank_registration ? '#CC8727' : '#0052C4'} />
           {ii.repatriation.iof_on_fx && <Badge color="amber">IOF on FX Applies</Badge>}
-          {ii.repatriation.cide_on_royalties_pct && <DataRow label="CIDE on Royalties" value={`${ii.repatriation.cide_on_royalties_pct}%`} accent="#b45309" />}
+          {ii.repatriation.cide_on_royalties_pct && <DataRow label="CIDE on Royalties" value={`${ii.repatriation.cide_on_royalties_pct}%`} accent="#CC8727" />}
         </SubSection>
       )}
 
@@ -1084,7 +1084,7 @@ function InternationalInvestorsSection({ ii, data }: { ii: any; data: any }) {
             <DataRow label="Carry Forward" value={ii.foreign_tax_credit.carry_forward_years === 0 ? 'None' : `${ii.foreign_tax_credit.carry_forward_years} years`} />
           )}
           {ii.foreign_tax_credit.carry_back_years !== undefined && ii.foreign_tax_credit.carry_back_years > 0 && (
-            <DataRow label="Carry Back" value={`${ii.foreign_tax_credit.carry_back_years} year(s)`} accent="#0f766e" />
+            <DataRow label="Carry Back" value={`${ii.foreign_tax_credit.carry_back_years} year(s)`} accent="#0052C4" />
           )}
           {ii.foreign_tax_credit.reciprocity_required && <Badge color="amber">Reciprocity Required</Badge>}
           {ii.foreign_tax_credit.unilateral_credit && <Badge color="teal">Unilateral Credit</Badge>}
@@ -1122,8 +1122,8 @@ function InternationalInvestorsSection({ ii, data }: { ii: any; data: any }) {
         return (
           <SubSection title="Treaty Network">
             <div className="flex items-center gap-3 mb-2">
-              <div className="text-2xl font-extrabold font-mono text-[#0f766e]">{count}</div>
-              <p className="text-[11px] text-[#64748b]">comprehensive treaties</p>
+              <div className="text-2xl font-extrabold font-mono text-[#0052C4]">{count}</div>
+              <p className="text-[11px] text-[#6A6F73]">comprehensive treaties</p>
             </div>
             <div className="flex flex-wrap gap-1">
               {tn.has_lob && <Badge color="gray">LOB Clauses</Badge>}
@@ -1131,7 +1131,7 @@ function InternationalInvestorsSection({ ii, data }: { ii: any; data: any }) {
               {tn.limited_treaties && <Badge color="gray">{tn.limited_treaties} Limited Treaties</Badge>}
             </div>
             {tn.notable_missing && (
-              <p className="text-[10px] text-[#b45309] mt-1">Notable missing: {tn.notable_missing.join(', ')}</p>
+              <p className="text-[10px] text-[#CC8727] mt-1">Notable missing: {tn.notable_missing.join(', ')}</p>
             )}
             {dta.key_treaties && (
               <div className="flex flex-wrap gap-1 mt-1">
@@ -1148,10 +1148,10 @@ function InternationalInvestorsSection({ ii, data }: { ii: any; data: any }) {
           <DataRow label="Construction PE" value={`${ii.pe_rules.construction_pe_months} months`} />
           {ii.pe_rules.service_pe_days && <DataRow label="Service PE" value={`${ii.pe_rules.service_pe_days} days`} />}
           {ii.pe_rules.service_pe_months && <DataRow label="Service PE" value={`${ii.pe_rules.service_pe_months} months`} />}
-          <DataRow label="Digital PE" value={ii.pe_rules.digital_pe ? 'Yes' : 'No'} accent={ii.pe_rules.digital_pe ? '#b45309' : '#0f766e'} />
+          <DataRow label="Digital PE" value={ii.pe_rules.digital_pe ? 'Yes' : 'No'} accent={ii.pe_rules.digital_pe ? '#CC8727' : '#0052C4'} />
           <DataRow label="Dependent Agent PE" value={ii.pe_rules.dependent_agent_pe ? 'Yes' : 'No'} />
           {ii.pe_rules.maquiladora_safe_harbor && <Badge color="teal">Maquiladora Safe Harbor</Badge>}
-          {ii.pe_rules.dpt_rate_pct && <DataRow label="Diverted Profits Tax" value={`${ii.pe_rules.dpt_rate_pct}%`} accent="#b91c1c" />}
+          {ii.pe_rules.dpt_rate_pct && <DataRow label="Diverted Profits Tax" value={`${ii.pe_rules.dpt_rate_pct}%`} accent="#CC2727" />}
         </SubSection>
       )}
 
@@ -1196,11 +1196,11 @@ function IncomeBySourceSection({ ibs }: { ibs: any }) {
         const primaryRate = primaryRateKey ? info[primaryRateKey] : null;
 
         return (
-          <div key={key} className="py-2.5 border-b border-[#f1f5f9] last:border-0">
+          <div key={key} className="py-2.5 border-b border-[#F1F3F4] last:border-0">
             <div className="flex items-center justify-between mb-1">
-              <p className="text-[11px] font-bold text-[#0f172a]">{humanKey(key)}</p>
+              <p className="text-[11px] font-bold text-[#0D0E0F]">{humanKey(key)}</p>
               {primaryRate !== null && (
-                <span className="text-[11px] font-mono font-bold text-[#0f172a]">{primaryRate}%</span>
+                <span className="text-[11px] font-mono font-bold text-[#0D0E0F]">{primaryRate}%</span>
               )}
             </div>
             {/* Notable fields */}
@@ -1220,22 +1220,22 @@ function IncomeBySourceSection({ ibs }: { ibs: any }) {
               {info.inflation_adjustment && <Badge color="gray">Inflation Adjusted</Badge>}
             </div>
             {/* Key secondary fields */}
-            {info.fdii_effective_rate_pct && <DataRow label="FDII Effective" value={`${info.fdii_effective_rate_pct}%`} accent="#0f766e" />}
-            {info.qsbs_exclusion_pct && <DataRow label="QSBS Exclusion" value={`${info.qsbs_exclusion_pct}% (${info.qsbs_holding_years}yr hold)`} accent="#0f766e" />}
-            {info.rnd_enhanced_deduction_pct && <DataRow label="R&D Enhanced Deduction" value={`${info.rnd_enhanced_deduction_pct}%`} accent="#0f766e" />}
-            {info.qds_concessionary_pct && <DataRow label="QDS Concessionary" value={`${info.qds_concessionary_pct}%`} accent="#0f766e" />}
-            {info.lcge_qsbc_cad && <DataRow label="LCGE (QSBC)" value={`C$${fmtNum(info.lcge_qsbc_cad)}`} accent="#0f766e" />}
+            {info.fdii_effective_rate_pct && <DataRow label="FDII Effective" value={`${info.fdii_effective_rate_pct}%`} accent="#0052C4" />}
+            {info.qsbs_exclusion_pct && <DataRow label="QSBS Exclusion" value={`${info.qsbs_exclusion_pct}% (${info.qsbs_holding_years}yr hold)`} accent="#0052C4" />}
+            {info.rnd_enhanced_deduction_pct && <DataRow label="R&D Enhanced Deduction" value={`${info.rnd_enhanced_deduction_pct}%`} accent="#0052C4" />}
+            {info.qds_concessionary_pct && <DataRow label="QDS Concessionary" value={`${info.qds_concessionary_pct}%`} accent="#0052C4" />}
+            {info.lcge_qsbc_cad && <DataRow label="LCGE (QSBC)" value={`C$${fmtNum(info.lcge_qsbc_cad)}`} accent="#0052C4" />}
             {info.listed_shares_resident_pct !== undefined && <DataRow label="Listed Shares (Resident)" value={`${info.listed_shares_resident_pct}%`} />}
             {info.listed_shares_final_pct !== undefined && <DataRow label="Listed Shares (Final)" value={`${info.listed_shares_final_pct}%`} />}
             {info.land_building_final_pct !== undefined && <DataRow label="Land/Building (Final)" value={`${info.land_building_final_pct}%`} />}
             {info.bank_deposit_final_pct !== undefined && <DataRow label="Bank Deposit (Final)" value={`${info.bank_deposit_final_pct}%`} />}
             {info.drd_below_20_pct && <DataRow label="DRD (<20%)" value={`${info.drd_below_20_pct}%`} />}
             {info.drd_20_to_80_pct && <DataRow label="DRD (20-80%)" value={`${info.drd_20_to_80_pct}%`} />}
-            {info.drd_80_plus_pct && <DataRow label="DRD (80%+)" value={`${info.drd_80_plus_pct}%`} accent="#0f766e" />}
+            {info.drd_80_plus_pct && <DataRow label="DRD (80%+)" value={`${info.drd_80_plus_pct}%`} accent="#0052C4" />}
             {info.jcp_irrf_pct && <DataRow label="JCP IRRF" value={`${info.jcp_irrf_pct}%`} />}
             {info.sreit_wht_pct !== undefined && <DataRow label="S-REIT WHT" value={`${info.sreit_wht_pct}%`} />}
             {/* Legal basis */}
-            {legalBasis && <p className="text-[9px] text-[#64748b] font-mono mt-1">{legalBasis}</p>}
+            {legalBasis && <p className="text-[9px] text-[#6A6F73] font-mono mt-1">{legalBasis}</p>}
           </div>
         );
       })}
@@ -1254,9 +1254,9 @@ function SectorSpecificSection({ sst }: { sst: any }) {
         if (!info || typeof info !== 'object') return null;
 
         return (
-          <div key={key} className="py-2.5 border-b border-[#f1f5f9] last:border-0">
+          <div key={key} className="py-2.5 border-b border-[#F1F3F4] last:border-0">
             <div className="flex items-center justify-between mb-1">
-              <p className="text-[11px] font-bold text-[#0f172a]">{humanKey(key)}</p>
+              <p className="text-[11px] font-bold text-[#0D0E0F]">{humanKey(key)}</p>
               {info.has_dst !== undefined && (
                 <Badge color={info.has_dst ? 'amber' : 'teal'}>{info.has_dst ? 'Active' : 'No DST'}</Badge>
               )}
@@ -1281,8 +1281,8 @@ function SectorSpecificSection({ sst }: { sst: any }) {
               <DataRow key={k} label={humanKey(k)} value={`${v.min}-${v.max}%`} />
             ))}
             {/* Note */}
-            {info.note && <p className="text-[9px] text-[#64748b] mt-0.5 leading-relaxed">{info.note}</p>}
-            {info.legal_basis && <p className="text-[9px] text-[#64748b] font-mono mt-0.5">{info.legal_basis}</p>}
+            {info.note && <p className="text-[9px] text-[#6A6F73] mt-0.5 leading-relaxed">{info.note}</p>}
+            {info.legal_basis && <p className="text-[9px] text-[#6A6F73] font-mono mt-0.5">{info.legal_basis}</p>}
           </div>
         );
       })}
@@ -1305,7 +1305,7 @@ function PassThroughSection({ pt }: { pt: any }) {
           ])}
         />
       )}
-      {pt.qbi_deduction_rate && <DataRow label="QBI Deduction" value={`${pt.qbi_deduction_rate}%`} accent="#0f766e" />}
+      {pt.qbi_deduction_rate && <DataRow label="QBI Deduction" value={`${pt.qbi_deduction_rate}%`} accent="#0052C4" />}
       {pt.niit_rate && <DataRow label="Net Investment Income Tax" value={`${pt.niit_rate}%`} />}
     </SectionCard>
   );
@@ -1353,7 +1353,7 @@ function AdditionalDataSection({ data }: { data: any }) {
                   if (typeof v === 'object' && !Array.isArray(v)) {
                     return (
                       <div key={k} className="mt-2">
-                        <p className="text-[10px] font-semibold text-[#0f172a] mb-0.5">{humanKey(k)}</p>
+                        <p className="text-[10px] font-semibold text-[#0D0E0F] mb-0.5">{humanKey(k)}</p>
                         {Object.entries(v).slice(0, 6).map(([sk, sv]: [string, any]) => {
                           if (typeof sv === 'number') return <DataRow key={sk} label={humanKey(sk)} value={sk.includes('pct') || sk.includes('rate') ? `${sv}%` : fmtNum(sv)} />;
                           if (typeof sv === 'string') return <DataRow key={sk} label={humanKey(sk)} value={sv} mono={false} />;
@@ -1367,17 +1367,17 @@ function AdditionalDataSection({ data }: { data: any }) {
                     if (typeof v[0] === 'string') {
                       return (
                         <div key={k} className="mt-1">
-                          <span className="text-[10px] text-[#64748b]">{humanKey(k)}: </span>
-                          <span className="text-[10px] text-[#0f172a]">{v.join(', ')}</span>
+                          <span className="text-[10px] text-[#6A6F73]">{humanKey(k)}: </span>
+                          <span className="text-[10px] text-[#0D0E0F]">{v.join(', ')}</span>
                         </div>
                       );
                     }
                     if (typeof v[0] === 'object') {
                       return (
                         <div key={k} className="mt-2">
-                          <p className="text-[10px] font-semibold text-[#0f172a] mb-0.5">{humanKey(k)}</p>
+                          <p className="text-[10px] font-semibold text-[#0D0E0F] mb-0.5">{humanKey(k)}</p>
                           {v.slice(0, 6).map((item: any, i: number) => (
-                            <div key={i} className="pl-2 border-l-2 border-[#e2e8f0] mb-1">
+                            <div key={i} className="pl-2 border-l-2 border-[#E4E7E9] mb-1">
                               {Object.entries(item).slice(0, 4).map(([ik, iv]) => (
                                 <DataRow key={ik} label={humanKey(ik)} value={typeof iv === 'number' ? (ik.includes('rate') ? `${iv}%` : fmtNum(iv)) : String(iv)} />
                               ))}
@@ -1391,7 +1391,7 @@ function AdditionalDataSection({ data }: { data: any }) {
                 })}
               </div>
             ) : (
-              <p className="text-[11px] text-[#0f172a]">{JSON.stringify(sectionData)}</p>
+              <p className="text-[11px] text-[#0D0E0F]">{JSON.stringify(sectionData)}</p>
             )}
           </SectionCard>
         );
@@ -1409,7 +1409,7 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
   if (!COUNTRY_ORDER.includes(code)) {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
-        <p className="text-lg text-[#64748b]">Country not found: {rawCode}</p>
+        <p className="text-lg text-[#6A6F73]">Country not found: {rawCode}</p>
       </div>
     );
   }
@@ -1430,8 +1430,8 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
         <div className="flex items-center gap-3">
           <span className="text-4xl">{COUNTRY_FLAGS[code]}</span>
           <div>
-            <h1 className="text-2xl font-extrabold tracking-tight text-[#0f172a]">{COUNTRY_LABELS[code]}</h1>
-            <p className="text-sm text-[#64748b]">{code} &middot; {COUNTRY_CURRENCIES[code]} &middot; Tax Year {data.tax_year}</p>
+            <h1 className="text-2xl font-extrabold tracking-tight text-[#0D0E0F]">{COUNTRY_LABELS[code]}</h1>
+            <p className="text-sm text-[#6A6F73]">{code} &middot; {COUNTRY_CURRENCIES[code]} &middot; Tax Year {data.tax_year}</p>
           </div>
         </div>
         <div className="flex gap-1.5 flex-wrap">
@@ -1447,16 +1447,16 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
       {/* KPI Row */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         {[
-          { label: 'Corporate Tax', value: `${summary.corporateRate.toFixed(1)}%`, color: '#0f172a', sub: ct?.rate_type ? humanKey(ct.rate_type) : undefined },
-          { label: 'VAT / GST', value: `${summary.vatRate.toFixed(1)}%`, color: '#0f172a', sub: data.vat_equivalent ? 'Sales tax (state)' : undefined },
-          { label: 'Employer Payroll', value: `${summary.payrollRate.toFixed(1)}%`, color: summary.payrollRate > 20 ? '#b91c1c' : '#0f172a', sub: summary.payrollRate > 20 ? 'High burden' : undefined },
-          { label: 'Dividend WHT', value: `${summary.dividendWht.toFixed(1)}%`, color: summary.dividendWht === 0 ? '#0f766e' : summary.dividendWht >= 25 ? '#b91c1c' : '#0f172a', sub: summary.dividendWht === 0 ? 'Tax efficient' : undefined },
-          { label: 'Tax Treaties', value: String(summary.treatyCount), color: '#0f766e', sub: summary.treatyCount >= 80 ? 'Extensive network' : undefined },
+          { label: 'Corporate Tax', value: `${summary.corporateRate.toFixed(1)}%`, color: '#0D0E0F', sub: ct?.rate_type ? humanKey(ct.rate_type) : undefined },
+          { label: 'VAT / GST', value: `${summary.vatRate.toFixed(1)}%`, color: '#0D0E0F', sub: data.vat_equivalent ? 'Sales tax (state)' : undefined },
+          { label: 'Employer Payroll', value: `${summary.payrollRate.toFixed(1)}%`, color: summary.payrollRate > 20 ? '#CC2727' : '#0D0E0F', sub: summary.payrollRate > 20 ? 'High burden' : undefined },
+          { label: 'Dividend WHT', value: `${summary.dividendWht.toFixed(1)}%`, color: summary.dividendWht === 0 ? '#0052C4' : summary.dividendWht >= 25 ? '#CC2727' : '#0D0E0F', sub: summary.dividendWht === 0 ? 'Tax efficient' : undefined },
+          { label: 'Tax Treaties', value: String(summary.treatyCount), color: '#0052C4', sub: summary.treatyCount >= 80 ? 'Extensive network' : undefined },
         ].map((m) => (
-          <div key={m.label} className="bg-white border border-[#e2e8f0] rounded-lg p-4">
-            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#64748b] mb-1">{m.label}</p>
+          <div key={m.label} className="bg-white border border-[#E4E7E9] rounded-lg p-4">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6A6F73] mb-1">{m.label}</p>
             <p className="text-2xl font-extrabold tracking-tight font-mono" style={{ color: m.color }}>{m.value}</p>
-            {m.sub && <p className="text-[9px] text-[#64748b] mt-0.5">{m.sub}</p>}
+            {m.sub && <p className="text-[9px] text-[#6A6F73] mt-0.5">{m.sub}</p>}
           </div>
         ))}
       </div>

@@ -9,16 +9,16 @@ function ScoreBar({ value, max = 100 }: { value: number; max?: number }) {
   const pct = Math.round((value / max) * 100);
   return (
     <div className="flex items-center gap-2">
-      <div className="flex-1 h-2 bg-[#f1f5f9] rounded-full overflow-hidden">
+      <div className="flex-1 h-2 bg-[#F1F3F4] rounded-full overflow-hidden">
         <div
           className="h-full rounded-full"
           style={{
             width: `${pct}%`,
-            backgroundColor: pct >= 80 ? '#0f766e' : pct >= 60 ? '#14b8a6' : pct >= 40 ? '#b45309' : '#b91c1c',
+            backgroundColor: pct >= 80 ? '#0052C4' : pct >= 60 ? '#0066F5' : pct >= 40 ? '#CC8727' : '#CC2727',
           }}
         />
       </div>
-      <span className="text-[11px] font-mono font-semibold text-[#0f172a] w-10 text-right">{value.toFixed(1)}</span>
+      <span className="text-[11px] font-mono font-semibold text-[#0D0E0F] w-10 text-right">{value.toFixed(1)}</span>
     </div>
   );
 }
@@ -54,8 +54,8 @@ export default function ComparePage() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-extrabold tracking-tight text-[#0f172a]">Cross-Country Comparison</h1>
-        <p className="text-sm text-[#64748b] mt-1">Side-by-side tax analysis across all 7 Tier 1 jurisdictions</p>
+        <h1 className="text-2xl font-extrabold tracking-tight text-[#0D0E0F]">Cross-Country Comparison</h1>
+        <p className="text-sm text-[#6A6F73] mt-1">Side-by-side tax analysis across all 7 Tier 1 jurisdictions</p>
       </div>
 
       {/* Country Quick Cards */}
@@ -63,12 +63,12 @@ export default function ComparePage() {
         {COUNTRY_ORDER.map((code) => {
           const s = getCountrySummary(code);
           return (
-            <Link key={code} href={`/countries/${code}`} className="block bg-white border border-[#e2e8f0] rounded-lg p-3 text-center hover:shadow-md hover:border-[#0f766e]/30 transition-all group">
+            <Link key={code} href={`/countries/${code}`} className="block bg-white border border-[#E4E7E9] rounded-lg p-3 text-center hover:shadow-md hover:border-[#0052C4]/30 transition-all group">
               <span className="text-2xl">{COUNTRY_FLAGS[code]}</span>
-              <p className="text-xs font-bold text-[#0f172a] mt-1 group-hover:text-[#0f766e] transition-colors">{COUNTRY_LABELS[code]}</p>
-              <p className="text-lg font-extrabold text-[#0f766e] font-mono mt-1">{s.corporateRate.toFixed(1)}%</p>
-              <p className="text-[10px] text-[#64748b] uppercase tracking-wider">CIT Rate</p>
-              <p className="text-[9px] font-bold uppercase tracking-wider text-[#0f766e] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Details →</p>
+              <p className="text-xs font-bold text-[#0D0E0F] mt-1 group-hover:text-[#0052C4] transition-colors">{COUNTRY_LABELS[code]}</p>
+              <p className="text-lg font-extrabold text-[#0052C4] font-mono mt-1">{s.corporateRate.toFixed(1)}%</p>
+              <p className="text-[10px] text-[#6A6F73] uppercase tracking-wider">CIT Rate</p>
+              <p className="text-[9px] font-bold uppercase tracking-wider text-[#0052C4] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Details →</p>
             </Link>
           );
         })}
@@ -78,15 +78,15 @@ export default function ComparePage() {
       <ComparisonTable title="Comprehensive Tax Comparison" data={allRows} />
 
       {/* Country Scores */}
-      <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#e2e8f0]">
-          <h3 className="text-sm font-bold text-[#0f172a]">Country Tax Scores (0-100)</h3>
-          <p className="text-[11px] text-[#64748b] mt-0.5">Higher is better across four dimensions of tax competitiveness</p>
+      <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+        <div className="px-4 py-3 border-b border-[#E4E7E9]">
+          <h3 className="text-sm font-bold text-[#0D0E0F]">Country Tax Scores (0-100)</h3>
+          <p className="text-[11px] text-[#6A6F73] mt-0.5">Higher is better across four dimensions of tax competitiveness</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
             <thead>
-              <tr className="bg-[#0f172a] text-white">
+              <tr className="bg-[#0D0E0F] text-white">
                 <th className="px-3 py-2 text-left font-semibold">Country</th>
                 <th className="px-3 py-2 text-left font-semibold">Incorporation</th>
                 <th className="px-3 py-2 text-left font-semibold">Operations</th>
@@ -105,15 +105,15 @@ export default function ComparePage() {
                 .map((s, i) => {
                   const avg = (s.incorporationScore + s.operationsScore + s.ipHoldingScore + s.investorFriendliness) / 4;
                   return (
-                    <tr key={s.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f1f5f9]'}>
-                      <td className="px-3 py-2 font-semibold text-[#0f172a] whitespace-nowrap">
+                    <tr key={s.code} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F1F3F4]'}>
+                      <td className="px-3 py-2 font-semibold text-[#0D0E0F] whitespace-nowrap">
                         {COUNTRY_FLAGS[s.code]} {s.name}
                       </td>
                       <td className="px-3 py-2 w-40"><ScoreBar value={s.incorporationScore} /></td>
                       <td className="px-3 py-2 w-40"><ScoreBar value={s.operationsScore} /></td>
                       <td className="px-3 py-2 w-40"><ScoreBar value={s.ipHoldingScore} /></td>
                       <td className="px-3 py-2 w-40"><ScoreBar value={s.investorFriendliness} /></td>
-                      <td className="px-3 py-2 text-right font-mono font-bold text-[#0f766e]">{avg.toFixed(1)}</td>
+                      <td className="px-3 py-2 text-right font-mono font-bold text-[#0052C4]">{avg.toFixed(1)}</td>
                     </tr>
                   );
                 })}
@@ -123,9 +123,9 @@ export default function ComparePage() {
       </div>
 
       {/* Legend / Notes */}
-      <div className="bg-[#ccfbf1] border border-[#0f766e]/20 rounded-lg p-4">
-        <h4 className="text-xs font-bold text-[#0f766e] uppercase tracking-wider mb-2">Key Takeaway</h4>
-        <p className="text-sm text-[#0f172a]">
+      <div className="bg-[#F0F6FE] border border-[#0052C4]/20 rounded-lg p-4">
+        <h4 className="text-xs font-bold text-[#0052C4] uppercase tracking-wider mb-2">Key Takeaway</h4>
+        <p className="text-sm text-[#0D0E0F]">
           Singapore leads across all four dimensions, with a perfect 100 in incorporation, operations, and IP holding.
           The US and Indonesia also rank highly for incorporation and operations respectively. Brazil and Mexico are
           competitive for specific use cases such as Simples Nacional or the border zone incentive.

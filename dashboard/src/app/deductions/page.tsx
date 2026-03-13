@@ -320,29 +320,29 @@ function CountryDetailCard({ code }: { code: CountryCode }) {
   const charStr = getCharitable(code);
 
   return (
-    <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
+    <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-[#e2e8f0] flex items-center gap-3">
+      <div className="px-5 py-4 border-b border-[#E4E7E9] flex items-center gap-3">
         <span className="text-xl">{COUNTRY_FLAGS[code]}</span>
         <div>
-          <h3 className="text-sm font-bold text-[#0f172a]">{COUNTRY_LABELS[code]}</h3>
-          <span className="text-[10px] font-mono text-[#64748b]">{t.tax_year}</span>
+          <h3 className="text-sm font-bold text-[#0D0E0F]">{COUNTRY_LABELS[code]}</h3>
+          <span className="text-[10px] font-mono text-[#6A6F73]">{t.tax_year}</span>
         </div>
       </div>
 
       {/* R&D Callout */}
-      <div className="px-5 py-3 bg-[#f0fdfa] border-b border-[#e2e8f0]">
+      <div className="px-5 py-3 bg-[#F0F6FE] border-b border-[#E4E7E9]">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-[9px] font-bold uppercase tracking-wider text-[#0f766e]">R&D Incentive</span>
-          <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#ccfbf1] text-[#0f766e]">{rnd.type}</span>
+          <span className="text-[9px] font-bold uppercase tracking-wider text-[#0052C4]">R&D Incentive</span>
+          <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#F0F6FE] text-[#0052C4]">{rnd.type}</span>
         </div>
-        <div className="text-lg font-extrabold text-[#0f766e] font-mono">{rnd.rate}%</div>
-        <div className="text-[10px] text-[#64748b]">{rnd.label}</div>
+        <div className="text-lg font-extrabold text-[#0052C4] font-mono">{rnd.rate}%</div>
+        <div className="text-[10px] text-[#6A6F73]">{rnd.label}</div>
         <div className="mt-2 space-y-1">
           {rndDetails.map((item) => (
             <div key={item.label} className="flex justify-between text-[10px]">
-              <span className="text-[#64748b]">{item.label}</span>
-              <span className="font-semibold text-[#0f172a] font-mono">{item.value}</span>
+              <span className="text-[#6A6F73]">{item.label}</span>
+              <span className="font-semibold text-[#0D0E0F] font-mono">{item.value}</span>
             </div>
           ))}
         </div>
@@ -352,39 +352,39 @@ function CountryDetailCard({ code }: { code: CountryCode }) {
       <div className="px-5 py-3 space-y-3">
         {/* NOL */}
         <div>
-          <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748b]">Net Operating Losses</span>
+          <span className="text-[9px] font-bold uppercase tracking-wider text-[#6A6F73]">Net Operating Losses</span>
           <div className="mt-1 flex gap-3">
-            <div className="flex-1 bg-[#f1f5f9] rounded px-2 py-1.5 text-center">
-              <div className="text-xs font-bold text-[#0f172a] font-mono">{nol.cfLabel}</div>
-              <div className="text-[8px] text-[#64748b] uppercase">Carry-Forward</div>
+            <div className="flex-1 bg-[#F1F3F4] rounded px-2 py-1.5 text-center">
+              <div className="text-xs font-bold text-[#0D0E0F] font-mono">{nol.cfLabel}</div>
+              <div className="text-[8px] text-[#6A6F73] uppercase">Carry-Forward</div>
             </div>
-            <div className="flex-1 bg-[#f1f5f9] rounded px-2 py-1.5 text-center">
-              <div className="text-xs font-bold text-[#0f172a] font-mono">{nol.cbYears > 0 ? `${nol.cbYears}yr` : 'None'}</div>
-              <div className="text-[8px] text-[#64748b] uppercase">Carry-Back</div>
+            <div className="flex-1 bg-[#F1F3F4] rounded px-2 py-1.5 text-center">
+              <div className="text-xs font-bold text-[#0D0E0F] font-mono">{nol.cbYears > 0 ? `${nol.cbYears}yr` : 'None'}</div>
+              <div className="text-[8px] text-[#6A6F73] uppercase">Carry-Back</div>
             </div>
-            <div className="flex-1 bg-[#f1f5f9] rounded px-2 py-1.5 text-center">
-              <div className="text-xs font-bold font-mono" style={{ color: nol.limitPct < 100 ? '#b45309' : '#0f766e' }}>{nol.limitPct}%</div>
-              <div className="text-[8px] text-[#64748b] uppercase">Annual Limit</div>
+            <div className="flex-1 bg-[#F1F3F4] rounded px-2 py-1.5 text-center">
+              <div className="text-xs font-bold font-mono" style={{ color: nol.limitPct < 100 ? '#CC8727' : '#0052C4' }}>{nol.limitPct}%</div>
+              <div className="text-[8px] text-[#6A6F73] uppercase">Annual Limit</div>
             </div>
           </div>
         </div>
 
         {/* Depreciation Highlights */}
         <div>
-          <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748b]">Depreciation</span>
-          <p className="text-[11px] text-[#0f172a] mt-1 leading-relaxed">{depHighlight}</p>
+          <span className="text-[9px] font-bold uppercase tracking-wider text-[#6A6F73]">Depreciation</span>
+          <p className="text-[11px] text-[#0D0E0F] mt-1 leading-relaxed">{depHighlight}</p>
         </div>
 
         {/* Interest Limitation */}
         <div className="flex justify-between items-center">
-          <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748b]">Interest Limitation</span>
-          <span className="text-[10px] font-mono font-semibold text-[#0f172a]">{intMethod}</span>
+          <span className="text-[9px] font-bold uppercase tracking-wider text-[#6A6F73]">Interest Limitation</span>
+          <span className="text-[10px] font-mono font-semibold text-[#0D0E0F]">{intMethod}</span>
         </div>
 
         {/* Charitable */}
         <div className="flex justify-between items-center">
-          <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748b]">Charitable Deduction</span>
-          <span className="text-[10px] font-mono font-semibold text-[#0f172a]">{charStr}</span>
+          <span className="text-[9px] font-bold uppercase tracking-wider text-[#6A6F73]">Charitable Deduction</span>
+          <span className="text-[10px] font-mono font-semibold text-[#0D0E0F]">{charStr}</span>
         </div>
       </div>
     </div>
@@ -432,8 +432,8 @@ export default function DeductionsPage() {
     <div className="space-y-8">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-extrabold tracking-tight text-[#0f172a]">Deductions &amp; Allowances</h1>
-        <p className="text-sm text-[#64748b] mt-1">
+        <h1 className="text-2xl font-extrabold tracking-tight text-[#0D0E0F]">Deductions &amp; Allowances</h1>
+        <p className="text-sm text-[#6A6F73] mt-1">
           Comprehensive comparison of depreciation, R&amp;D incentives, loss carry rules, interest limitations, and other deductible expenses across 7 jurisdictions
         </p>
       </div>
@@ -442,15 +442,15 @@ export default function DeductionsPage() {
       <ComparisonTable title="Deductions & Allowances — Cross-Country Summary" data={rows} />
 
       {/* ── Depreciation Methods Comparison ── */}
-      <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#e2e8f0]">
-          <h3 className="text-sm font-bold text-[#0f172a]">Depreciation Methods — Key Asset Classes</h3>
-          <p className="text-[10px] text-[#64748b] mt-0.5">SL = Straight-Line, DB = Declining Balance, DV = Diminishing Value, IBA = Industrial Building Allowance</p>
+      <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+        <div className="px-4 py-3 border-b border-[#E4E7E9]">
+          <h3 className="text-sm font-bold text-[#0D0E0F]">Depreciation Methods — Key Asset Classes</h3>
+          <p className="text-[10px] text-[#6A6F73] mt-0.5">SL = Straight-Line, DB = Declining Balance, DV = Diminishing Value, IBA = Industrial Building Allowance</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[10px]">
             <thead>
-              <tr className="bg-[#0f172a] text-white">
+              <tr className="bg-[#0D0E0F] text-white">
                 <th className="px-3 py-2 text-left font-semibold">Asset Class</th>
                 {COUNTRY_ORDER.map((code) => (
                   <th key={code} className="px-3 py-2 text-center font-semibold whitespace-nowrap">
@@ -461,13 +461,13 @@ export default function DeductionsPage() {
             </thead>
             <tbody>
               {depreciationRows.map((row, i) => (
-                <tr key={row.asset} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f1f5f9]'}>
-                  <td className="px-3 py-2 font-semibold text-[#0f172a] whitespace-nowrap">{row.asset}</td>
+                <tr key={row.asset} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F1F3F4]'}>
+                  <td className="px-3 py-2 font-semibold text-[#0D0E0F] whitespace-nowrap">{row.asset}</td>
                   {COUNTRY_ORDER.map((code) => {
                     const val = row[code];
                     const is100 = val.includes('100%');
                     return (
-                      <td key={code} className="px-3 py-2 text-center whitespace-nowrap" style={{ color: is100 ? '#0f766e' : '#0f172a' }}>
+                      <td key={code} className="px-3 py-2 text-center whitespace-nowrap" style={{ color: is100 ? '#0052C4' : '#0D0E0F' }}>
                         {val}
                       </td>
                     );
@@ -480,55 +480,55 @@ export default function DeductionsPage() {
       </div>
 
       {/* ── R&D Incentives Comparison ── */}
-      <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#e2e8f0]">
-          <h3 className="text-sm font-bold text-[#0f172a]">R&amp;D Incentive — Effective Benefit Rate Comparison</h3>
-          <p className="text-[10px] text-[#64748b] mt-0.5">Estimated effective tax benefit per dollar of qualifying R&amp;D expenditure (higher = more generous)</p>
+      <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+        <div className="px-4 py-3 border-b border-[#E4E7E9]">
+          <h3 className="text-sm font-bold text-[#0D0E0F]">R&amp;D Incentive — Effective Benefit Rate Comparison</h3>
+          <p className="text-[10px] text-[#6A6F73] mt-0.5">Estimated effective tax benefit per dollar of qualifying R&amp;D expenditure (higher = more generous)</p>
         </div>
         <div className="px-4 py-4 space-y-3">
           {rndBars.map((bar) => (
             <div key={bar.code} className="flex items-center gap-3">
               <div className="w-[76px] flex items-center gap-1.5 shrink-0">
                 <span className="text-sm">{COUNTRY_FLAGS[bar.code]}</span>
-                <span className="text-[11px] font-semibold text-[#0f172a]">{bar.code}</span>
+                <span className="text-[11px] font-semibold text-[#0D0E0F]">{bar.code}</span>
               </div>
-              <div className="flex-1 h-7 bg-[#f1f5f9] rounded relative overflow-hidden">
+              <div className="flex-1 h-7 bg-[#F1F3F4] rounded relative overflow-hidden">
                 <div
                   className="h-full rounded transition-all duration-500"
                   style={{
                     width: `${(bar.rate / maxRnd) * 100}%`,
-                    backgroundColor: bar.rate >= 35 ? '#0f766e' : bar.rate >= 20 ? '#14b8a6' : bar.rate >= 15 ? '#b45309' : '#cbd5e1',
+                    backgroundColor: bar.rate >= 35 ? '#0052C4' : bar.rate >= 20 ? '#0066F5' : bar.rate >= 15 ? '#CC8727' : '#DDE1E3',
                   }}
                 />
-                <span className="absolute inset-y-0 right-2 flex items-center text-[10px] font-mono font-bold text-[#0f172a]">
+                <span className="absolute inset-y-0 right-2 flex items-center text-[10px] font-mono font-bold text-[#0D0E0F]">
                   {bar.rate}%
                 </span>
               </div>
               <div className="w-[160px] shrink-0 hidden lg:block">
-                <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#f1f5f9] text-[#64748b]">{bar.type}</span>
+                <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#F1F3F4] text-[#6A6F73]">{bar.type}</span>
               </div>
             </div>
           ))}
         </div>
         <div className="px-4 pb-3">
-          <div className="flex flex-wrap gap-4 text-[9px] text-[#64748b]">
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[#0f766e] inline-block" /> &ge;35% benefit</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[#14b8a6] inline-block" /> 20–34%</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[#b45309] inline-block" /> 15–19%</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[#cbd5e1] inline-block" /> &lt;15%</span>
+          <div className="flex flex-wrap gap-4 text-[9px] text-[#6A6F73]">
+            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[#0052C4] inline-block" /> &ge;35% benefit</span>
+            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[#0066F5] inline-block" /> 20–34%</span>
+            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[#CC8727] inline-block" /> 15–19%</span>
+            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-[#DDE1E3] inline-block" /> &lt;15%</span>
           </div>
         </div>
       </div>
 
       {/* ── NOL Rules Visual Comparison ── */}
-      <div className="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#e2e8f0]">
-          <h3 className="text-sm font-bold text-[#0f172a]">Net Operating Loss (NOL) Rules Comparison</h3>
-          <p className="text-[10px] text-[#64748b] mt-0.5">Carry-forward periods, carry-back availability, and annual utilisation limits</p>
+      <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
+        <div className="px-4 py-3 border-b border-[#E4E7E9]">
+          <h3 className="text-sm font-bold text-[#0D0E0F]">Net Operating Loss (NOL) Rules Comparison</h3>
+          <p className="text-[10px] text-[#6A6F73] mt-0.5">Carry-forward periods, carry-back availability, and annual utilisation limits</p>
         </div>
         <div className="p-4">
           {/* NOL Header Row */}
-          <div className="grid grid-cols-[100px_1fr_80px_80px_80px] gap-2 text-[9px] font-bold uppercase tracking-wider text-[#64748b] mb-2 px-1">
+          <div className="grid grid-cols-[100px_1fr_80px_80px_80px] gap-2 text-[9px] font-bold uppercase tracking-wider text-[#6A6F73] mb-2 px-1">
             <span>Country</span>
             <span>Carry-Forward Period</span>
             <span className="text-center">Carry-Back</span>
@@ -543,14 +543,14 @@ export default function DeductionsPage() {
                 <div key={bar.code} className="grid grid-cols-[100px_1fr_80px_80px_80px] gap-2 items-center">
                   <div className="flex items-center gap-1.5">
                     <span className="text-sm">{COUNTRY_FLAGS[bar.code]}</span>
-                    <span className="text-[11px] font-semibold text-[#0f172a]">{COUNTRY_LABELS[bar.code]}</span>
+                    <span className="text-[11px] font-semibold text-[#0D0E0F]">{COUNTRY_LABELS[bar.code]}</span>
                   </div>
-                  <div className="h-4 bg-[#f1f5f9] rounded relative overflow-hidden">
+                  <div className="h-4 bg-[#F1F3F4] rounded relative overflow-hidden">
                     <div
                       className="h-full rounded"
                       style={{
                         width: `${Math.min(barWidth, 100)}%`,
-                        backgroundColor: isIndef ? '#0f766e' : bar.cfYears >= 15 ? '#14b8a6' : '#b45309',
+                        backgroundColor: isIndef ? '#0052C4' : bar.cfYears >= 15 ? '#0066F5' : '#CC8727',
                       }}
                     />
                     <span className="absolute inset-y-0 left-2 flex items-center text-[9px] font-mono font-bold text-white mix-blend-difference">
@@ -559,17 +559,17 @@ export default function DeductionsPage() {
                   </div>
                   <div className="text-center">
                     {bar.cbYears > 0 ? (
-                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#ccfbf1] text-[#0f766e]">{bar.cbYears}yr</span>
+                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#F0F6FE] text-[#0052C4]">{bar.cbYears}yr</span>
                     ) : (
-                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#fee2e2] text-[#b91c1c]">None</span>
+                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#FFF3F3] text-[#CC2727]">None</span>
                     )}
                   </div>
                   <div className="text-center">
                     <span
                       className="text-[9px] font-mono px-2 py-0.5 rounded"
                       style={{
-                        backgroundColor: bar.limitPct >= 100 ? '#ccfbf1' : bar.limitPct >= 80 ? '#fef3c7' : '#fee2e2',
-                        color: bar.limitPct >= 100 ? '#0f766e' : bar.limitPct >= 80 ? '#b45309' : '#b91c1c',
+                        backgroundColor: bar.limitPct >= 100 ? '#F0F6FE' : bar.limitPct >= 80 ? '#FFFAF3' : '#FFF3F3',
+                        color: bar.limitPct >= 100 ? '#0052C4' : bar.limitPct >= 80 ? '#CC8727' : '#CC2727',
                       }}
                     >
                       {bar.limitPct}%
@@ -577,9 +577,9 @@ export default function DeductionsPage() {
                   </div>
                   <div className="text-center">
                     {bar.code === 'MX' ? (
-                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#ccfbf1] text-[#0f766e]">Yes</span>
+                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#F0F6FE] text-[#0052C4]">Yes</span>
                     ) : (
-                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#f1f5f9] text-[#64748b]">No</span>
+                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#F1F3F4] text-[#6A6F73]">No</span>
                     )}
                   </div>
                 </div>
@@ -591,7 +591,7 @@ export default function DeductionsPage() {
 
       {/* ── Country Detail Cards ── */}
       <div>
-        <h2 className="text-sm font-semibold text-[#64748b] uppercase tracking-wider mb-3">Detailed Country Profiles</h2>
+        <h2 className="text-sm font-semibold text-[#6A6F73] uppercase tracking-wider mb-3">Detailed Country Profiles</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {COUNTRY_ORDER.map((code) => (
             <CountryDetailCard key={code} code={code} />
@@ -600,9 +600,9 @@ export default function DeductionsPage() {
       </div>
 
       {/* ── Key Takeaway ── */}
-      <div className="bg-[#ccfbf1] border border-[#0f766e]/20 rounded-lg p-5">
-        <h4 className="text-xs font-bold text-[#0f766e] uppercase tracking-wider mb-3">Key Takeaways</h4>
-        <div className="space-y-2 text-sm text-[#0f172a]">
+      <div className="bg-[#F0F6FE] border border-[#0052C4]/20 rounded-lg p-5">
+        <h4 className="text-xs font-bold text-[#0052C4] uppercase tracking-wider mb-3">Key Takeaways</h4>
+        <div className="space-y-2 text-sm text-[#0D0E0F]">
           <p>
             <strong>R&amp;D leadership:</strong> Indonesia (300% super deduction, ~44% effective benefit) and Singapore (EIS 400% enhanced deduction) offer the most generous R&amp;D incentives.
             Canada&apos;s SR&amp;ED at 35% is the highest refundable tax credit among the seven countries. The US 20% regular credit and Mexico&apos;s 30% incremental credit round out the top tier.
