@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { COUNTRY_ORDER, COUNTRY_LABELS, COUNTRY_FLAGS } from '@/lib/constants';
 import { getComprehensiveSummary, getCountrySummary } from '@/lib/transformers';
 import { getCountryScores } from '@/lib/data';
@@ -62,12 +63,13 @@ export default function ComparePage() {
         {COUNTRY_ORDER.map((code) => {
           const s = getCountrySummary(code);
           return (
-            <div key={code} className="bg-white border border-[#e2e8f0] rounded-lg p-3 text-center">
+            <Link key={code} href={`/countries/${code}`} className="block bg-white border border-[#e2e8f0] rounded-lg p-3 text-center hover:shadow-md hover:border-[#0f766e]/30 transition-all group">
               <span className="text-2xl">{COUNTRY_FLAGS[code]}</span>
-              <p className="text-xs font-bold text-[#0f172a] mt-1">{COUNTRY_LABELS[code]}</p>
+              <p className="text-xs font-bold text-[#0f172a] mt-1 group-hover:text-[#0f766e] transition-colors">{COUNTRY_LABELS[code]}</p>
               <p className="text-lg font-extrabold text-[#0f766e] font-mono mt-1">{s.corporateRate.toFixed(1)}%</p>
               <p className="text-[10px] text-[#64748b] uppercase tracking-wider">CIT Rate</p>
-            </div>
+              <p className="text-[9px] font-bold uppercase tracking-wider text-[#0f766e] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Details →</p>
+            </Link>
           );
         })}
       </div>

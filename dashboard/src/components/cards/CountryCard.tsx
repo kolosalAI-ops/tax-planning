@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { CountryCode } from '@/lib/types';
 import { COUNTRY_LABELS, COUNTRY_FLAGS } from '@/lib/constants';
 import { getCountrySummary } from '@/lib/transformers';
@@ -10,11 +11,14 @@ export default function CountryCard({ code }: CountryCardProps) {
   const summary = getCountrySummary(code);
 
   return (
-    <div className="bg-white border border-[#e2e8f0] rounded-lg p-3 hover:shadow-md transition-shadow group">
+    <Link
+      href={`/countries/${code}`}
+      className="block bg-white border border-[#e2e8f0] rounded-lg p-3 hover:shadow-md hover:border-[#0f766e]/30 transition-all group"
+    >
       <div className="flex items-center gap-2 mb-2">
         <span className="text-lg">{COUNTRY_FLAGS[code]}</span>
         <div>
-          <p className="text-xs font-bold text-[#0f172a] leading-tight">
+          <p className="text-xs font-bold text-[#0f172a] leading-tight group-hover:text-[#0f766e] transition-colors">
             {COUNTRY_LABELS[code]}
           </p>
           <p className="text-[10px] text-[#64748b] font-mono">{code}</p>
@@ -40,6 +44,11 @@ export default function CountryCard({ code }: CountryCardProps) {
           <span className="font-mono font-bold text-[#0f766e]">{summary.treatyCount}</span>
         </div>
       </div>
-    </div>
+      <div className="mt-2 text-center">
+        <span className="text-[9px] font-bold uppercase tracking-wider text-[#0f766e] opacity-0 group-hover:opacity-100 transition-opacity">
+          View Details →
+        </span>
+      </div>
+    </Link>
   );
 }
