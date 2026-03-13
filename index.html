@@ -299,6 +299,45 @@
   }
 
   /* ============================================
+     CARD ACTIONS (View Pages / Present)
+     ============================================ */
+  .card-actions {
+    display: flex; align-items: center; gap: 6px;
+    padding-top: 12px; border-top: 1px solid var(--color-grey-700);
+    margin-top: auto;
+  }
+  .card-action {
+    display: flex; align-items: center; gap: 5px;
+    padding: 6px 12px; border-radius: 6px;
+    border: 1px solid var(--color-grey-800);
+    background: var(--color-neutral-white);
+    color: var(--color-text-800);
+    font-size: 12px; font-weight: 500; letter-spacing: -0.2px;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.15s ease;
+    flex: 1; justify-content: center;
+  }
+  .card-action:hover {
+    background: var(--color-grey-500); border-color: var(--color-grey-900);
+  }
+  .card-action svg {
+    width: 13px; height: 13px; stroke: currentColor;
+    fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+  .card-action.primary {
+    background: var(--color-text-900); color: var(--color-neutral-white);
+    border-color: var(--color-text-900);
+  }
+  .card-action.primary:hover { background: var(--color-text-800); }
+  .card-action.primary svg { stroke: var(--color-neutral-white); }
+  .card-slide-count {
+    font-family: "Geist Mono", monospace;
+    font-size: 11px; color: var(--color-text-600);
+    letter-spacing: -0.4px; margin-top: 4px;
+  }
+
+  /* ============================================
      COVERAGE
      ============================================ */
   .coverage-grid {
@@ -464,83 +503,121 @@
     </div>
     <div class="cards">
 
-      <a href="presentation.html" class="card fade-up">
+      <div class="card fade-up">
         <span class="card-badge success">Level 100</span>
         <div class="card-title">Foundational Tax Planning</div>
         <div class="card-desc">
           Core concepts of international tax planning. Corporate tax rates, entity structures,
           transfer pricing basics, and foundational strategies for 7 primary jurisdictions.
         </div>
-        <div class="card-meta">
-          <span class="card-type">Comprehensive Deck</span>
-          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        <div class="card-slide-count">53 slides</div>
+        <div class="card-actions">
+          <a href="viewer.html?deck=presentation.html" class="card-action">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            View Pages
+          </a>
+          <a href="presentation.html" class="card-action primary">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Present
+          </a>
         </div>
-      </a>
+      </div>
 
-      <a href="presentation-201.html" class="card fade-up">
+      <div class="card fade-up">
         <span class="card-badge info">Level 201</span>
         <div class="card-title">Intermediate Tax Strategies</div>
         <div class="card-desc">
           Deeper dive into deductions, allowances, treaty networks, and regional tax optimization
           techniques across multiple jurisdictions.
         </div>
-        <div class="card-meta">
-          <span class="card-type">Intermediate Deck</span>
-          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        <div class="card-slide-count">45 slides</div>
+        <div class="card-actions">
+          <a href="viewer.html?deck=presentation-201.html" class="card-action">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            View Pages
+          </a>
+          <a href="presentation-201.html" class="card-action primary">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Present
+          </a>
         </div>
-      </a>
+      </div>
 
-      <a href="presentation-301.html" class="card fade-up">
+      <div class="card fade-up">
         <span class="card-badge warning">Level 301</span>
         <div class="card-title">Advanced Cross-Border Structuring</div>
         <div class="card-desc">
           Advanced international tax planning, holding structures, IP migration,
           cross-border financing, and multi-entity optimization frameworks.
         </div>
-        <div class="card-meta">
-          <span class="card-type">Advanced Deck</span>
-          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        <div class="card-slide-count">81 slides</div>
+        <div class="card-actions">
+          <a href="viewer.html?deck=presentation-301.html" class="card-action">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            View Pages
+          </a>
+          <a href="presentation-301.html" class="card-action primary">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Present
+          </a>
         </div>
-      </a>
+      </div>
 
-      <a href="presentation-startup.html" class="card fade-up">
+      <div class="card fade-up">
         <span class="card-badge neutral">Startup</span>
         <div class="card-title">B2B Startup Tax Optimization</div>
         <div class="card-desc">
           Tailored tax planning for B2B startups and product principals. Entity selection,
           R&D credits, equity compensation, and growth-stage tax strategies.
         </div>
-        <div class="card-meta">
-          <span class="card-type">Startup Focus</span>
-          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        <div class="card-slide-count">66 slides</div>
+        <div class="card-actions">
+          <a href="viewer.html?deck=presentation-startup.html" class="card-action">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            View Pages
+          </a>
+          <a href="presentation-startup.html" class="card-action primary">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Present
+          </a>
         </div>
-      </a>
+      </div>
 
-      <a href="presentation-rnd.html" class="card fade-up">
+      <div class="card fade-up">
         <span class="card-badge success">R&D</span>
         <div class="card-title">R&D Tax Incentives — 45 Countries</div>
         <div class="card-desc">
           Comprehensive analysis of R&D tax credits, enhanced deductions, patent boxes,
           and innovation incentives across 45 countries worldwide.
         </div>
-        <div class="card-meta">
-          <span class="card-type">45-Country Analysis</span>
-          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        <div class="card-slide-count">23 slides</div>
+        <div class="card-actions">
+          <a href="viewer.html?deck=presentation-rnd.html" class="card-action">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            View Pages
+          </a>
+          <a href="presentation-rnd.html" class="card-action primary">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Present
+          </a>
         </div>
-      </a>
+      </div>
 
-      <a href="International_Tax_Planning_Guide.html" class="card fade-up">
+      <div class="card fade-up">
         <span class="card-badge info">International</span>
         <div class="card-title">International Tax Planning Guide</div>
         <div class="card-desc">
           Complete guide for international investors. Withholding taxes, treaty benefits,
           repatriation strategies, and foreign investor-specific planning.
         </div>
-        <div class="card-meta">
-          <span class="card-type">Investor Guide</span>
-          <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+        <div class="card-slide-count">Document</div>
+        <div class="card-actions">
+          <a href="International_Tax_Planning_Guide.html" class="card-action primary" style="flex:1;">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            Open Guide
+          </a>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>

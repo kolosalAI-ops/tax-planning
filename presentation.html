@@ -37,11 +37,11 @@
     position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
     background: var(--bg); display: flex; flex-direction: column;
     opacity: 0; pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateX(30px); overflow-y: auto;
+    transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(40px) scale(0.98); overflow-y: auto;
     aspect-ratio: 16/9;
   }
-  .slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); z-index: 10; }
+  .slide.active { opacity: 1; pointer-events: auto; transform: translateX(0) scale(1); z-index: 10; }
 
   .inner {
     max-width: 100%; width: 100%; margin: 0 auto;
@@ -51,16 +51,16 @@
 
   /* Nav */
   .nav {
-    position: fixed; bottom: 0; left: 0; right: 0; height: 56px;
+    position: fixed; bottom: 0; left: 0; right: 0; height: 48px;
     background: var(--bg); border-top: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 28px; z-index: 100;
   }
   .nav-btn {
     display: flex; align-items: center; gap: 6px;
-    padding: 8px 18px; border: 1px solid var(--border);
+    padding: 6px 16px; border: 1px solid var(--border);
     background: var(--bg); color: var(--fg);
-    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
     letter-spacing: 0.06em; text-transform: uppercase;
     cursor: pointer; transition: all 0.15s;
   }
@@ -166,7 +166,7 @@
   .title-meta-item svg.si { width: 12px; height: 12px; color: var(--muted); margin-right: 2px; vertical-align: -1px; }
 
   /* Scroll */
-  .slide::-webkit-scrollbar { width: 4px; }
+  .slide::-webkit-scrollbar { width: 3px; }
   .slide::-webkit-scrollbar-track { background: var(--light); }
   .slide::-webkit-scrollbar-thumb { background: var(--medium); }
 
@@ -249,13 +249,13 @@
   }
 
   @page { size: 16in 9in; margin: 0; }
-
   @media print {
-    html, body { width: 100%; height: 100%; overflow: visible; margin: 0; padding: 0; background: #fff; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    html, body { width: 16in; height: 9in; overflow: visible; margin: 0; padding: 0; background: #fff; }
     .slide {
       position: relative !important; opacity: 1 !important; pointer-events: auto !important;
       transform: none !important; transition: none !important;
-      width: 100%; height: 100vh; max-height: 100vh;
+      width: 16in !important; height: 9in !important; max-height: 9in;
       overflow: hidden;
       page-break-after: always; page-break-inside: avoid;
       break-after: page; break-inside: avoid;
@@ -2757,7 +2757,7 @@
 <script>
 const S=document.querySelectorAll('.slide'), N=S.length;
 let c=0;
-function show(d){
+function show(){
   S.forEach(s=>s.classList.remove('active'));
   S[c].classList.add('active');
   S[c].scrollTop=0;
@@ -2766,10 +2766,12 @@ function show(d){
   document.getElementById('counter').textContent=String(c+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');
   document.getElementById('progress').style.width=((c+1)/N*100)+'%';
 }
-function go(d){const n=c+d;if(n<0||n>=N)return;c=n;show(d);}
+function go(d){const n=c+d;if(n<0||n>=N)return;c=n;show();}
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(1);}
   if(e.key==='ArrowLeft'){e.preventDefault();go(-1);}
+  if(e.key==='Home'){e.preventDefault();c=0;show();}
+  if(e.key==='End'){e.preventDefault();c=N-1;show();}
 });
 let tx=0;
 document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX;});
@@ -2791,7 +2793,7 @@ const observer = new MutationObserver((mutations) => {
 });
 S.forEach(s => observer.observe(s, { attributes: true, attributeFilter: ['class'] }));
 
-show(0);
+show();
 </script>
 </body>
 </html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentation Viewer — Kolosal Tax Advisory</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
+<style>
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-variation-settings: "slnt" 0;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Inter", sans-serif;
+  }
+  :root {
+    --color-text-900: #0D0E0F;
+    --color-text-800: #3C3E40;
+    --color-text-700: #6A6F73;
+    --color-text-600: #9C9FA1;
+    --color-text-500: #CECFD0;
+    --color-grey-900: #DDE1E3;
+    --color-grey-800: #E4E7E9;
+    --color-grey-700: #EBEDEE;
+    --color-grey-600: #F1F3F4;
+    --color-grey-500: #F8F9F9;
+    --color-information-600: #0052C4;
+    --color-information-100: #F0F6FE;
+    --color-neutral-white: #FFFFFF;
+    --color-neutral-black: #000000;
+  }
+  html, body { height: 100%; overflow: hidden; background: var(--color-grey-600); }
+
+  /* ============================================
+     TOOLBAR
+     ============================================ */
+  .toolbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: 56px; background: var(--color-neutral-white);
+    border-bottom: 1px solid var(--color-grey-800);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px;
+  }
+  .toolbar-left, .toolbar-right {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .toolbar-center {
+    display: flex; align-items: center; gap: 12px;
+    position: absolute; left: 50%; transform: translateX(-50%);
+  }
+  .toolbar-back {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 8px;
+    border: 1px solid var(--color-grey-800);
+    background: var(--color-neutral-white);
+    color: var(--color-text-800);
+    font-size: 13px; font-weight: 500; letter-spacing: -0.2px;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .toolbar-back:hover { background: var(--color-grey-500); border-color: var(--color-grey-900); }
+  .toolbar-back svg {
+    width: 16px; height: 16px; stroke: currentColor;
+    fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .toolbar-title {
+    font-size: 14px; font-weight: 600; color: var(--color-text-900);
+    letter-spacing: -0.2px; white-space: nowrap; overflow: hidden;
+    text-overflow: ellipsis; max-width: 320px;
+  }
+  .toolbar-divider {
+    width: 1px; height: 20px; background: var(--color-grey-800);
+  }
+  .toolbar-counter {
+    font-family: "Geist Mono", monospace;
+    font-size: 12px; color: var(--color-text-600);
+    letter-spacing: -0.4px; white-space: nowrap;
+  }
+
+  /* Mode Toggle */
+  .mode-toggle {
+    display: flex; align-items: center;
+    background: var(--color-grey-600);
+    border: 1px solid var(--color-grey-800);
+    border-radius: 8px; padding: 2px; gap: 2px;
+  }
+  .mode-btn {
+    display: flex; align-items: center; gap: 5px;
+    padding: 5px 12px; border-radius: 6px; border: none;
+    background: transparent; color: var(--color-text-700);
+    font-size: 12px; font-weight: 500; letter-spacing: -0.2px;
+    cursor: pointer; transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .mode-btn svg {
+    width: 14px; height: 14px; stroke: currentColor;
+    fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .mode-btn.active {
+    background: var(--color-neutral-white); color: var(--color-text-900);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .mode-btn:hover:not(.active) { color: var(--color-text-800); }
+
+  /* Action Buttons */
+  .toolbar-btn {
+    display: flex; align-items: center; gap: 5px;
+    padding: 6px 12px; border-radius: 8px;
+    border: 1px solid var(--color-grey-800);
+    background: var(--color-neutral-white);
+    color: var(--color-text-800);
+    font-size: 12px; font-weight: 500; letter-spacing: -0.2px;
+    cursor: pointer; transition: all 0.15s ease;
+  }
+  .toolbar-btn:hover { background: var(--color-grey-500); border-color: var(--color-grey-900); }
+  .toolbar-btn svg {
+    width: 14px; height: 14px; stroke: currentColor;
+    fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .toolbar-btn.primary {
+    background: var(--color-text-900); color: var(--color-neutral-white);
+    border-color: var(--color-text-900);
+  }
+  .toolbar-btn.primary:hover { background: var(--color-text-800); }
+  .toolbar-btn.primary svg { stroke: var(--color-neutral-white); }
+
+  /* ============================================
+     LAYOUT
+     ============================================ */
+  .main {
+    position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+    display: flex; overflow: hidden;
+  }
+
+  /* ============================================
+     SIDEBAR
+     ============================================ */
+  .sidebar {
+    width: 200px; min-width: 200px;
+    background: var(--color-neutral-white);
+    border-right: 1px solid var(--color-grey-800);
+    overflow-y: auto; padding: 16px 12px;
+    display: flex; flex-direction: column; gap: 6px;
+    scrollbar-width: thin; scrollbar-color: var(--color-grey-800) transparent;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--color-grey-800); border-radius: 2px; }
+  .sidebar-label {
+    font-family: "Geist Mono", monospace;
+    font-size: 10px; letter-spacing: -0.2px;
+    color: var(--color-text-600); padding: 4px 8px;
+    margin-bottom: 2px;
+  }
+  .slide-thumb {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 8px;
+    cursor: pointer; transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .slide-thumb:hover { background: var(--color-grey-500); }
+  .slide-thumb.active {
+    background: var(--color-information-100);
+    border-color: var(--color-information-600);
+  }
+  .slide-thumb-num {
+    font-family: "Geist Mono", monospace;
+    font-size: 11px; font-weight: 500; color: var(--color-text-600);
+    min-width: 20px; text-align: right; letter-spacing: -0.4px;
+  }
+  .slide-thumb.active .slide-thumb-num { color: var(--color-information-600); }
+  .slide-thumb-preview {
+    width: 80px; height: 45px; border-radius: 4px;
+    background: var(--color-grey-600); border: 1px solid var(--color-grey-800);
+    overflow: hidden; flex-shrink: 0; position: relative;
+  }
+  .slide-thumb-preview iframe {
+    width: 1280px; height: 720px; border: none;
+    transform-origin: 0 0; transform: scale(0.0625);
+    pointer-events: none;
+  }
+  .slide-thumb-title {
+    font-size: 11px; line-height: 1.3; color: var(--color-text-800);
+    letter-spacing: -0.2px; overflow: hidden;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+  .slide-thumb.active .slide-thumb-title { color: var(--color-information-600); font-weight: 500; }
+
+  /* ============================================
+     PAGES VIEW
+     ============================================ */
+  .pages-container {
+    flex: 1; overflow-y: auto; padding: 32px;
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin; scrollbar-color: var(--color-grey-900) transparent;
+  }
+  .pages-container::-webkit-scrollbar { width: 6px; }
+  .pages-container::-webkit-scrollbar-thumb { background: var(--color-grey-900); border-radius: 3px; }
+
+  .page-wrapper {
+    width: 100%; max-width: 960px;
+    position: relative;
+  }
+  .page-number {
+    position: absolute; top: -24px; left: 0;
+    font-family: "Geist Mono", monospace;
+    font-size: 11px; color: var(--color-text-600);
+    letter-spacing: -0.4px;
+  }
+  .page-frame {
+    width: 100%; aspect-ratio: 16 / 9;
+    background: var(--color-neutral-white);
+    border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+    border: 1px solid var(--color-grey-800);
+    position: relative;
+  }
+  .page-frame iframe {
+    width: 100%; height: 100%; border: none;
+    pointer-events: none;
+  }
+  .page-frame-overlay {
+    position: absolute; inset: 0; cursor: pointer; z-index: 2;
+  }
+
+  /* ============================================
+     PRESENT VIEW
+     ============================================ */
+  .present-container {
+    flex: 1; display: none;
+    position: relative;
+  }
+  .present-container.active { display: flex; }
+  .present-container iframe {
+    width: 100%; height: 100%; border: none;
+  }
+
+  /* ============================================
+     GRID VIEW
+     ============================================ */
+  .grid-container {
+    flex: 1; overflow-y: auto; padding: 32px;
+    display: none;
+  }
+  .grid-container.active { display: block; }
+  .grid-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .grid-card {
+    aspect-ratio: 16 / 9; background: var(--color-neutral-white);
+    border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border: 1px solid var(--color-grey-800);
+    cursor: pointer; position: relative;
+    transition: all 0.2s ease;
+  }
+  .grid-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-color: var(--color-information-600);
+    transform: translateY(-2px);
+  }
+  .grid-card iframe {
+    width: 100%; height: 100%; border: none;
+    pointer-events: none;
+  }
+  .grid-card-num {
+    position: absolute; bottom: 8px; right: 8px;
+    font-family: "Geist Mono", monospace;
+    font-size: 10px; color: var(--color-neutral-white);
+    background: rgba(0,0,0,0.5); padding: 2px 6px;
+    border-radius: 4px; letter-spacing: -0.2px;
+  }
+
+  /* ============================================
+     PRESENTER VIEW
+     ============================================ */
+  .presenter-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    height: 48px; background: var(--color-text-900);
+    display: none; align-items: center; justify-content: center;
+    gap: 24px; z-index: 200; padding: 0 24px;
+  }
+  .presenter-bar.active { display: flex; }
+  .presenter-timer {
+    font-family: "Geist Mono", monospace;
+    font-size: 16px; color: var(--color-neutral-white);
+    letter-spacing: -0.4px; min-width: 80px;
+  }
+  .presenter-slide-info {
+    font-family: "Geist Mono", monospace;
+    font-size: 12px; color: var(--color-text-500);
+    letter-spacing: -0.4px;
+  }
+  .presenter-btn {
+    display: flex; align-items: center; gap: 4px;
+    padding: 6px 14px; border-radius: 6px; border: none;
+    background: rgba(255,255,255,0.1); color: var(--color-neutral-white);
+    font-size: 12px; font-weight: 500; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .presenter-btn:hover { background: rgba(255,255,255,0.2); }
+  .presenter-btn svg {
+    width: 14px; height: 14px; stroke: currentColor;
+    fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ============================================
+     EMPTY STATE
+     ============================================ */
+  .empty-state {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 12px;
+    color: var(--color-text-600);
+  }
+  .empty-state svg {
+    width: 48px; height: 48px; stroke: var(--color-grey-900);
+    fill: none; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .empty-state p { font-size: 14px; letter-spacing: -0.2px; }
+
+  /* ============================================
+     LOADING
+     ============================================ */
+  .loading-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: var(--color-neutral-white);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 16px;
+    transition: opacity 0.3s ease;
+  }
+  .loading-overlay.hidden { opacity: 0; pointer-events: none; }
+  .loading-spinner {
+    width: 32px; height: 32px; border: 2px solid var(--color-grey-800);
+    border-top-color: var(--color-information-600);
+    border-radius: 50%; animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text {
+    font-size: 13px; color: var(--color-text-600); letter-spacing: -0.2px;
+  }
+
+  /* ============================================
+     KEYBOARD HINTS
+     ============================================ */
+  .kbd-hints {
+    position: fixed; bottom: 16px; right: 16px; z-index: 50;
+    display: flex; gap: 8px; opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .kbd-hints:hover { opacity: 1; }
+  .kbd {
+    font-family: "Geist Mono", monospace;
+    font-size: 10px; padding: 3px 6px; border-radius: 4px;
+    background: var(--color-neutral-white); border: 1px solid var(--color-grey-800);
+    color: var(--color-text-700); letter-spacing: -0.2px;
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .pages-container { padding: 16px; gap: 16px; }
+    .toolbar-center { display: none; }
+    .toolbar-title { max-width: 160px; }
+    .grid-inner { grid-template-columns: 1fr; }
+    .kbd-hints { display: none; }
+  }
+  @media (max-width: 1024px) {
+    .sidebar { width: 160px; min-width: 160px; }
+  }
+
+  /* ============================================
+     PRINT
+     ============================================ */
+  @media print {
+    @page { size: 16in 9in; margin: 0; }
+    body { background: white !important; }
+    .toolbar, .sidebar, .kbd-hints, .loading-overlay, .presenter-bar { display: none !important; }
+    .main { position: static; }
+    .pages-container {
+      padding: 0; gap: 0; overflow: visible;
+    }
+    .page-wrapper {
+      max-width: none; width: 16in;
+      page-break-after: always; break-after: page;
+      page-break-inside: avoid; break-inside: avoid;
+    }
+    .page-wrapper:last-child { page-break-after: auto; }
+    .page-number { display: none; }
+    .page-frame {
+      border: none; box-shadow: none; border-radius: 0;
+      width: 16in; height: 9in;
+    }
+    .page-frame-overlay { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loading">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Loading presentation...</div>
+</div>
+
+<!-- Toolbar -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <a href="index.html" class="toolbar-back">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      Hub
+    </a>
+    <div class="toolbar-divider"></div>
+    <span class="toolbar-title" id="deckTitle">Presentation</span>
+    <span class="toolbar-counter" id="slideCounter"></span>
+  </div>
+
+  <div class="toolbar-center">
+    <div class="mode-toggle">
+      <button class="mode-btn active" data-mode="pages" onclick="switchMode('pages')">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+        Pages
+      </button>
+      <button class="mode-btn" data-mode="grid" onclick="switchMode('grid')">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
+        Grid
+      </button>
+      <button class="mode-btn" data-mode="present" onclick="switchMode('present')">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Present
+      </button>
+    </div>
+  </div>
+
+  <div class="toolbar-right">
+    <button class="toolbar-btn" onclick="exportPages()" title="Print / Export PDF">
+      <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Export
+    </button>
+    <button class="toolbar-btn primary" onclick="launchPresent()" title="Open fullscreen presentation">
+      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      Present
+    </button>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main" id="main">
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-label">Slides</div>
+  </div>
+
+  <!-- Pages View -->
+  <div class="pages-container" id="pagesContainer"></div>
+
+  <!-- Grid View -->
+  <div class="grid-container" id="gridContainer">
+    <div class="grid-inner" id="gridInner"></div>
+  </div>
+
+  <!-- Present View -->
+  <div class="present-container" id="presentContainer">
+    <iframe id="presentFrame" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Presenter Bar -->
+<div class="presenter-bar" id="presenterBar">
+  <span class="presenter-timer" id="presenterTimer">00:00</span>
+  <div class="toolbar-divider" style="background:rgba(255,255,255,0.15);"></div>
+  <span class="presenter-slide-info" id="presenterInfo"></span>
+  <div class="toolbar-divider" style="background:rgba(255,255,255,0.15);"></div>
+  <button class="presenter-btn" onclick="resetTimer()">
+    <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+    Reset
+  </button>
+  <button class="presenter-btn" onclick="switchMode('pages')">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    Exit
+  </button>
+</div>
+
+<!-- Keyboard Hints -->
+<div class="kbd-hints" id="kbdHints">
+  <span class="kbd">G grid</span>
+  <span class="kbd">P present</span>
+  <span class="kbd">Esc pages</span>
+</div>
+
+<script>
+// ============================================
+// CONFIG
+// ============================================
+const DECKS = {
+  'presentation.html': 'Foundational Tax Planning — Level 100',
+  'presentation-201.html': 'Intermediate Tax Strategies — Level 201',
+  'presentation-301.html': 'Advanced Cross-Border Structuring — Level 301',
+  'presentation-startup.html': 'B2B Startup Tax Optimization',
+  'presentation-rnd.html': 'R&D Tax Incentives — 45 Countries',
+  'International_Tax_Planning_Guide.html': 'International Tax Planning Guide'
+};
+
+// ============================================
+// STATE
+// ============================================
+let currentMode = 'pages';
+let deckFile = '';
+let slideCount = 0;
+let currentSlide = 0;
+let timerInterval = null;
+let timerSeconds = 0;
+
+// ============================================
+// INIT
+// ============================================
+function init() {
+  const params = new URLSearchParams(window.location.search);
+  deckFile = params.get('deck');
+
+  if (!deckFile || !DECKS[deckFile]) {
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('deckTitle').textContent = 'Invalid Deck';
+    return;
+  }
+
+  document.getElementById('deckTitle').textContent = DECKS[deckFile];
+  document.title = DECKS[deckFile] + ' — Kolosal Tax Advisory';
+
+  // Start with mode from URL if present
+  const mode = params.get('mode');
+  if (mode === 'present') {
+    loadPresent();
+    return;
+  }
+
+  loadPages();
+}
+
+// ============================================
+// LOAD PAGES VIEW
+// ============================================
+async function loadPages() {
+  try {
+    const resp = await fetch(deckFile);
+    const html = await resp.text();
+
+    // Parse HTML and count slides
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const slides = doc.querySelectorAll('.slide');
+    slideCount = slides.length;
+
+    document.getElementById('slideCounter').textContent = slideCount + ' slides';
+
+    // Extract slide titles for sidebar
+    const slideTitles = [];
+    slides.forEach((slide, i) => {
+      let title = '';
+      const h2 = slide.querySelector('.h2, h2');
+      const titleEl = slide.querySelector('.title');
+      if (h2) title = h2.textContent.trim();
+      else if (titleEl) title = titleEl.textContent.trim();
+      else if (slide.classList.contains('section-divider') || slide.classList.contains('section-slide')) {
+        const t = slide.querySelector('.title, h2, .h2, p');
+        if (t) title = t.textContent.trim();
+      }
+      slideTitles.push(title || 'Slide ' + (i + 1));
+    });
+
+    // Build sidebar
+    const sidebar = document.getElementById('sidebar');
+    slideTitles.forEach((title, i) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'slide-thumb' + (i === 0 ? ' active' : '');
+      thumb.setAttribute('data-slide', i);
+      thumb.innerHTML = `
+        <span class="slide-thumb-num">${String(i + 1).padStart(2, '0')}</span>
+        <span class="slide-thumb-title">${escHtml(title)}</span>
+      `;
+      thumb.addEventListener('click', () => scrollToSlide(i));
+      sidebar.appendChild(thumb);
+    });
+
+    // Build pages
+    const pagesContainer = document.getElementById('pagesContainer');
+    for (let i = 0; i < slideCount; i++) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'page-wrapper';
+      wrapper.setAttribute('data-slide', i);
+      wrapper.innerHTML = `
+        <div class="page-number">${String(i + 1).padStart(2, '0')} / ${String(slideCount).padStart(2, '0')}</div>
+        <div class="page-frame">
+          <iframe
+            src="${deckFile}#slide=${i}"
+            loading="lazy"
+            title="Slide ${i + 1}"
+          ></iframe>
+          <div class="page-frame-overlay" data-slide="${i}"></div>
+        </div>
+      `;
+      pagesContainer.appendChild(wrapper);
+    }
+
+    // Build grid
+    const gridInner = document.getElementById('gridInner');
+    for (let i = 0; i < slideCount; i++) {
+      const card = document.createElement('div');
+      card.className = 'grid-card';
+      card.setAttribute('data-slide', i);
+      card.innerHTML = `
+        <iframe
+          src="${deckFile}#slide=${i}"
+          loading="lazy"
+          title="Slide ${i + 1}"
+        ></iframe>
+        <span class="grid-card-num">${String(i + 1).padStart(2, '0')}</span>
+      `;
+      card.addEventListener('click', () => {
+        switchMode('pages');
+        setTimeout(() => scrollToSlide(i), 100);
+      });
+      gridInner.appendChild(card);
+    }
+
+    // After iframes load, navigate each to its slide
+    requestAnimationFrame(() => {
+      const allIframes = document.querySelectorAll('.page-frame iframe, .grid-card iframe');
+      allIframes.forEach((iframe) => {
+        iframe.addEventListener('load', function() {
+          const slideIdx = parseInt(this.closest('[data-slide]')?.getAttribute('data-slide') || '0');
+          try {
+            const idoc = this.contentDocument || this.contentWindow.document;
+            // Hide nav and progress, show only the target slide
+            const style = idoc.createElement('style');
+            style.textContent = `
+              html, body { overflow: hidden !important; }
+              .nav, .progress { display: none !important; }
+              .slide {
+                position: absolute !important; top: 0 !important; left: 0 !important;
+                width: 100% !important; height: 100% !important;
+                opacity: 0 !important; pointer-events: none !important;
+                transform: none !important;
+              }
+              .slide[data-s="${slideIdx}"] {
+                opacity: 1 !important; pointer-events: auto !important;
+                z-index: 10 !important;
+              }
+            `;
+            idoc.head.appendChild(style);
+          } catch(e) { /* cross-origin fallback */ }
+        });
+      });
+    });
+
+    // Scroll observer for sidebar highlight
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = parseInt(entry.target.getAttribute('data-slide'));
+          updateActiveSidebarItem(idx);
+        }
+      });
+    }, { root: pagesContainer, rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+    document.querySelectorAll('.page-wrapper').forEach(w => observer.observe(w));
+
+    // Double-click overlay to present from that slide
+    document.querySelectorAll('.page-frame-overlay').forEach(overlay => {
+      overlay.addEventListener('dblclick', () => {
+        const idx = parseInt(overlay.getAttribute('data-slide'));
+        launchPresent(idx);
+      });
+    });
+
+    document.getElementById('loading').classList.add('hidden');
+
+  } catch (err) {
+    console.error('Failed to load deck:', err);
+    document.getElementById('loading').classList.add('hidden');
+  }
+}
+
+// ============================================
+// NAVIGATION
+// ============================================
+function scrollToSlide(idx) {
+  const wrapper = document.querySelector(`.page-wrapper[data-slide="${idx}"]`);
+  if (wrapper) {
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    updateActiveSidebarItem(idx);
+  }
+}
+
+function updateActiveSidebarItem(idx) {
+  currentSlide = idx;
+  document.querySelectorAll('.slide-thumb').forEach(t => t.classList.remove('active'));
+  const active = document.querySelector(`.slide-thumb[data-slide="${idx}"]`);
+  if (active) {
+    active.classList.add('active');
+    active.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+// ============================================
+// MODE SWITCHING
+// ============================================
+function switchMode(mode) {
+  currentMode = mode;
+
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.mode-btn[data-mode="${mode}"]`)?.classList.add('active');
+
+  const pages = document.getElementById('pagesContainer');
+  const grid = document.getElementById('gridContainer');
+  const present = document.getElementById('presentContainer');
+  const sidebar = document.getElementById('sidebar');
+  const presenterBar = document.getElementById('presenterBar');
+  const kbdHints = document.getElementById('kbdHints');
+
+  pages.style.display = 'none';
+  grid.classList.remove('active');
+  present.classList.remove('active');
+  sidebar.style.display = 'none';
+  presenterBar.classList.remove('active');
+  kbdHints.style.display = 'flex';
+
+  if (mode === 'pages') {
+    pages.style.display = '';
+    sidebar.style.display = '';
+  } else if (mode === 'grid') {
+    grid.classList.add('active');
+  } else if (mode === 'present') {
+    loadPresent();
+    present.classList.add('active');
+    presenterBar.classList.add('active');
+    kbdHints.style.display = 'none';
+    startTimer();
+  }
+}
+
+// ============================================
+// PRESENT MODE
+// ============================================
+function loadPresent(startSlide) {
+  const frame = document.getElementById('presentFrame');
+  const url = deckFile + (startSlide != null ? '#slide=' + startSlide : '');
+  if (frame.src !== url && frame.getAttribute('src') !== url) {
+    frame.src = url;
+  }
+  document.getElementById('presenterInfo').textContent =
+    'Slide ' + ((startSlide || 0) + 1) + ' / ' + slideCount;
+}
+
+function launchPresent(startSlide) {
+  // Open in new window for true fullscreen
+  const url = deckFile + (startSlide != null ? '#slide=' + startSlide : '');
+  window.open(url, '_blank');
+}
+
+// ============================================
+// TIMER
+// ============================================
+function startTimer() {
+  if (timerInterval) return;
+  timerInterval = setInterval(() => {
+    timerSeconds++;
+    const m = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+    const s = String(timerSeconds % 60).padStart(2, '0');
+    document.getElementById('presenterTimer').textContent = m + ':' + s;
+  }, 1000);
+}
+
+function resetTimer() {
+  timerSeconds = 0;
+  document.getElementById('presenterTimer').textContent = '00:00';
+}
+
+// ============================================
+// EXPORT
+// ============================================
+function exportPages() {
+  window.print();
+}
+
+// ============================================
+// KEYBOARD SHORTCUTS
+// ============================================
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (currentMode !== 'pages') switchMode('pages');
+  }
+  if (e.key === 'g' && !e.metaKey && !e.ctrlKey) {
+    if (document.activeElement.tagName === 'INPUT') return;
+    switchMode('grid');
+  }
+  if (e.key === 'p' && !e.metaKey && !e.ctrlKey) {
+    if (document.activeElement.tagName === 'INPUT') return;
+    launchPresent();
+  }
+});
+
+// ============================================
+// UTILS
+// ============================================
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ============================================
+// BOOT
+// ============================================
+init();
+</script>
+</body>
+</html>
