@@ -1,0 +1,13 @@
+[     984ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/favicon.ico:0
+[     984ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/countries/SG:0
+[     985ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/countries/AU:0
+[     985ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/countries/BR:0
+[     985ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/countries/MX:0
+[    1024ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/countries/ID:0
+[    1025ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/countries/US:0
+[    1025ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/countries/CA:0
+[    1025ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/cases:0
+[    1062ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/pipeline:0
+[    1063ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/investors:0
+[    1063ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/deductions:0
+[    1063ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://kolosalai-ops.github.io/tax-planning/dashboard/compare:0

@@ -1,0 +1,3 @@
+[    1129ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://res.cloudinary.com/dh21tvktj/image/upload/v1761200652/kolosal-logo-black_lvtsno.svg:0
+[    1134ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8191/favicon.ico:0
+[    8937ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://res.cloudinary.com/dh21tvktj/image/upload/v1761200652/kolosal-logo-black_lvtsno.svg:0

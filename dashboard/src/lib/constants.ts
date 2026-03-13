@@ -47,6 +47,8 @@ export const NAV_ITEMS = [
   { label: 'Compare', href: '/compare' },
   { label: 'Investors', href: '/investors' },
   { label: 'Deductions', href: '/deductions' },
+  { label: 'R&D Incentives', href: '/rnd' },
+  { label: 'Treaty & WHT', href: '/treaty' },
   { label: 'Pipeline', href: '/pipeline' },
   { label: 'Cases', href: '/cases' },
 ];

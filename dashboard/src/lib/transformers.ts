@@ -169,3 +169,14 @@ export function getCountrySummary(code: CountryCode) {
     treatyCount: getTreatyCount(code),
   };
 }
+
+export function getEffectiveTaxData() {
+  return COUNTRY_ORDER.map((code) => ({
+    name: COUNTRY_LABELS[code],
+    code,
+    cit: getCorporateRate(code),
+    payroll: getPayrollRate(code),
+    divWht: getDividendWht(code),
+    total: getCorporateRate(code) + getPayrollRate(code) + getDividendWht(code),
+  })).sort((a, b) => b.total - a.total);
+}

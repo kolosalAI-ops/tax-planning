@@ -7,6 +7,7 @@ import CorporateTaxRatesChart from '@/components/charts/CorporateTaxRatesChart';
 import VatGstChart from '@/components/charts/VatGstChart';
 import PayrollBurdenChart from '@/components/charts/PayrollBurdenChart';
 import TaxBurdenRadar from '@/components/charts/TaxBurdenRadar';
+import EffectiveTaxChart from '@/components/charts/EffectiveTaxChart';
 import ComparisonTable from '@/components/cards/ComparisonTable';
 import { getComprehensiveSummary } from '@/lib/transformers';
 import { getCountryScores } from '@/lib/data';
@@ -90,6 +91,8 @@ export default function HomePage() {
 
       <PayrollBurdenChart />
 
+      <EffectiveTaxChart />
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <TaxBurdenRadar />
         <div>
@@ -138,10 +141,12 @@ export default function HomePage() {
       </div>
 
       {/* Quick Navigation */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {[
           { href: '/deductions', label: 'Deductions', desc: 'R&D incentives, depreciation, NOL rules', icon: '📋' },
           { href: '/investors', label: 'Investors', desc: 'WHT rates, corridors, repatriation', icon: '🌍' },
+          { href: '/rnd', label: 'R&D Incentives', desc: '45-country R&D credits, deductions, patent boxes', icon: '🔬' },
+          { href: '/treaty', label: 'Treaty & WHT', desc: 'Treaty heatmaps, optimal corridors', icon: '🤝' },
           { href: '/pipeline', label: 'Optimization', desc: 'B2B structures, product principal models', icon: '⚡' },
           { href: '/cases', label: 'Case Studies', desc: 'Architecture breakdowns, tax scoring', icon: '📊' },
         ].map((nav) => (
