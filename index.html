@@ -6,378 +6,538 @@
 <title>Kolosal Tax Advisory — Resource Hub</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg: #ffffff;
-    --fg: #0f172a;
-    --card-hover: #f8fafc;
-    --border: #e2e8f0;
-    --muted: #64748b;
-    --light: #f1f5f9;
-    --medium: #cbd5e1;
-    --dark: #1e293b;
-    --accent: #0f766e;
-    --accent-light: #ccfbf1;
-    --accent-mid: #14b8a6;
-    --blue: #1d4ed8;
-    --blue-light: #dbeafe;
-    --amber: #b45309;
-    --amber-light: #fef3c7;
-    --red: #b91c1c;
-    --red-light: #fee2e2;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  /* ============================================
+     KOLOSAL RESET
+     ============================================ */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-variation-settings: "slnt" 0;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+    scrollbar-gutter: stable overlay;
+    font-family: "Inter", sans-serif;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  h1, h2, h3, h4, h5, h6, small, p, span, a {
+    margin: 0; padding: 0; text-shadow: none;
+  }
   body {
-    font-family: var(--sans); background: var(--light); color: var(--fg);
-    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+    color: var(--color-text-900);
+    background-color: var(--color-neutral-white);
+  }
+  body img { display: block; }
+
+  /* ============================================
+     KOLOSAL COLORS
+     ============================================ */
+  :root {
+    --color-text-900: #0D0E0F;
+    --color-text-800: #3C3E40;
+    --color-text-700: #6A6F73;
+    --color-text-600: #9C9FA1;
+    --color-text-500: #CECFD0;
+    --color-grey-900: #DDE1E3;
+    --color-grey-800: #E4E7E9;
+    --color-grey-700: #EBEDEE;
+    --color-grey-600: #F1F3F4;
+    --color-grey-500: #F8F9F9;
+    --color-information-900: #001431;
+    --color-information-800: #002962;
+    --color-information-700: #003D93;
+    --color-information-600: #0052C4;
+    --color-information-500: #0066F5;
+    --color-information-400: #3C8AF7;
+    --color-information-300: #78AEFA;
+    --color-information-200: #B4D2FC;
+    --color-information-100: #F0F6FE;
+    --color-success-900: #0C260D;
+    --color-success-800: #174B19;
+    --color-success-700: #237126;
+    --color-success-600: #2E9632;
+    --color-success-500: #3ABC3F;
+    --color-success-400: #68CC6C;
+    --color-success-300: #97DC99;
+    --color-success-200: #C5EBC6;
+    --color-success-100: #F3FBF4;
+    --color-danger-900: #330A0A;
+    --color-danger-800: #661414;
+    --color-danger-700: #991D1D;
+    --color-danger-600: #CC2727;
+    --color-danger-500: #FF3131;
+    --color-danger-400: #FF6161;
+    --color-danger-300: #FF9292;
+    --color-danger-200: #FFC2C2;
+    --color-danger-100: #FFF3F3;
+    --color-warning-900: #33220A;
+    --color-warning-800: #664414;
+    --color-warning-700: #99651D;
+    --color-warning-600: #CC8727;
+    --color-warning-500: #FFA931;
+    --color-warning-400: #FFBD61;
+    --color-warning-300: #FFD192;
+    --color-warning-200: #FFE6C2;
+    --color-warning-100: #FFFAF3;
+    --color-neutral-white: #FFFFFF;
+    --color-neutral-black: #000000;
+    --color-accent-900: #1C0A33;
+    --color-accent-800: #381466;
+    --color-accent-700: #541D99;
+    --color-accent-600: #7027CC;
+    --color-accent-500: #8B5CF6;
+    --color-accent-400: #A67DF8;
+    --color-accent-300: #C19EFA;
+    --color-accent-200: #DBBFFC;
+    --color-accent-100: #F6EFFE;
   }
 
-  /* Header */
-  .header {
-    background: var(--fg); color: var(--bg); padding: 64px 48px 56px;
-    position: relative; overflow: hidden;
+  /* ============================================
+     LAYOUT
+     ============================================ */
+  .container {
+    max-width: 1080px; width: 100%;
+    padding-left: 20px; padding-right: 20px;
+    margin-left: auto; margin-right: auto;
   }
-  .header::before {
-    content: ''; position: absolute; top: -120px; right: -80px;
-    width: 400px; height: 400px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(15,118,110,0.15) 0%, transparent 70%);
+
+  /* ============================================
+     HEADER
+     ============================================ */
+  header {
+    position: sticky; top: 0; left: 0; width: 100%; z-index: 15;
+    background-color: var(--color-neutral-white);
+    border-bottom: 1px solid var(--color-grey-800);
   }
-  .header::after {
-    content: ''; position: absolute; bottom: -60px; left: 20%;
-    width: 300px; height: 300px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%);
+  .header-main {
+    display: flex; flex-direction: row;
+    justify-content: space-between; align-items: center;
+    padding-top: 16px; padding-bottom: 16px;
   }
-  .header-inner {
-    max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+  .header-logo {
+    display: flex; flex-direction: row; align-items: center; gap: 8px;
   }
-  .header-label {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--accent-mid); margin-bottom: 16px;
+  .header-logo .divider {
+    height: 16px; border-right: 1px solid var(--color-grey-900);
+    margin-left: 8px; margin-right: 8px;
   }
-  .header-title {
-    font-size: 42px; font-weight: 800; line-height: 1.1;
-    letter-spacing: -0.035em; margin-bottom: 14px;
+  .header-logo p { color: var(--color-text-700); }
+  .header-logo img { height: 18px; width: auto; }
+  .header-wordmark {
+    font-family: "Inter", sans-serif; font-size: 16px; font-weight: 700;
+    letter-spacing: -0.2px; color: var(--color-text-900);
+    text-decoration: none; line-height: 1;
   }
-  .header-subtitle {
-    font-size: 15px; font-weight: 400; line-height: 1.7;
-    color: var(--medium); max-width: 600px;
+
+  /* ============================================
+     HERO
+     ============================================ */
+  .hero {
+    padding-top: 64px; padding-bottom: 64px;
+    border-bottom: 1px solid var(--color-grey-800);
   }
-  .header-meta {
-    display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap;
+  .hero-inner {
+    display: flex; flex-direction: column; gap: 24px;
   }
-  .header-stat {
+  .hero h1 {
+    font-size: 40px; line-height: 52px; letter-spacing: -0.8px;
+    font-weight: 500; color: var(--color-text-900);
+    max-width: 640px;
+  }
+  .hero-desc {
+    font-size: 16px; line-height: 24px; letter-spacing: -0.2px;
+    color: var(--color-text-700); max-width: 540px;
+  }
+  .hero-stats {
+    display: flex; flex-direction: row; gap: 48px;
+    margin-top: 16px;
+  }
+  .hero-stat {
     display: flex; flex-direction: column; gap: 2px;
   }
-  .header-stat-val {
-    font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--accent-mid);
+  .hero-stat-val {
+    font-family: "Geist Mono", monospace;
+    font-size: 28px; line-height: 40px; letter-spacing: -0.4px;
+    font-weight: 500; color: var(--color-text-900);
   }
-  .header-stat-lbl {
-    font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--muted);
+  .hero-stat-lbl {
+    font-size: 12px; line-height: 16px; letter-spacing: -0.2px;
+    color: var(--color-text-600);
   }
 
-  /* Main */
-  .main { max-width: 1200px; margin: 0 auto; padding: 40px 48px 80px; }
-
-  /* Section */
-  .section { margin-bottom: 48px; }
+  /* ============================================
+     SECTIONS
+     ============================================ */
+  .section {
+    padding-top: 48px; padding-bottom: 48px;
+    border-bottom: 1px solid var(--color-grey-800);
+  }
+  .section:last-child { border-bottom: none; }
+  .section-cta {
+    padding-top: 32px; padding-bottom: 0; border-bottom: none;
+  }
+  .section-header {
+    display: flex; flex-direction: column; gap: 4px;
+    margin-bottom: 32px;
+  }
   .section-label {
-    font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+    font-family: "Geist Mono", monospace;
+    font-size: 12px; line-height: 16px; letter-spacing: -0.4px;
+    color: var(--color-text-600); font-weight: 400;
   }
   .section-title {
-    font-size: 24px; font-weight: 700; letter-spacing: -0.02em;
-    color: var(--fg); margin-bottom: 20px;
+    font-size: 20px; line-height: 32px; letter-spacing: -0.2px;
+    font-weight: 500; color: var(--color-text-900);
   }
 
-  /* Dashboard CTA */
+  /* ============================================
+     DASHBOARD CTA
+     ============================================ */
   .dashboard-cta {
-    display: flex; align-items: center; gap: 24px;
-    background: var(--bg); border: 1px solid var(--border);
-    border-left: 3px solid var(--accent); border-radius: 10px;
-    padding: 28px 32px; margin-bottom: 48px;
-    text-decoration: none; color: var(--fg);
-    transition: all 0.2s ease; position: relative; overflow: hidden;
+    display: flex; flex-direction: row; align-items: center; gap: 16px;
+    background: var(--color-grey-500); border: 1px solid var(--color-grey-800);
+    border-radius: 12px; padding: 20px 24px;
+    text-decoration: none; color: var(--color-text-900);
+    transition: all 0.25s ease;
   }
   .dashboard-cta:hover {
-    border-color: var(--accent); box-shadow: 0 4px 24px rgba(15,118,110,0.1);
-    transform: translateY(-1px);
+    background: var(--color-grey-600);
+    border-color: var(--color-grey-900);
   }
   .dashboard-cta-icon {
-    width: 56px; height: 56px; background: var(--accent-light);
-    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; background: var(--color-neutral-white);
+    border: 1px solid var(--color-grey-800);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
-  .dashboard-cta-icon svg { width: 28px; height: 28px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  .dashboard-cta-content { flex: 1; }
-  .dashboard-cta-title { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
-  .dashboard-cta-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .dashboard-cta-icon svg {
+    width: 20px; height: 20px; stroke: var(--color-text-800);
+    fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .dashboard-cta-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .dashboard-cta-title {
+    font-size: 14px; line-height: 20px; letter-spacing: -0.2px;
+    font-weight: 500; color: var(--color-text-900);
+  }
+  .dashboard-cta-desc {
+    font-size: 14px; line-height: 20px; letter-spacing: -0.2px;
+    color: var(--color-text-700);
+  }
   .dashboard-cta-arrow {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--light); display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; transition: all 0.2s;
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--color-neutral-white); border: 1px solid var(--color-grey-800);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all 0.25s ease;
   }
-  .dashboard-cta:hover .dashboard-cta-arrow { background: var(--accent); }
-  .dashboard-cta-arrow svg { width: 16px; height: 16px; stroke: var(--muted); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.2s; }
-  .dashboard-cta:hover .dashboard-cta-arrow svg { stroke: var(--bg); }
+  .dashboard-cta:hover .dashboard-cta-arrow {
+    background: var(--color-text-900); border-color: var(--color-text-900);
+  }
+  .dashboard-cta-arrow svg {
+    width: 14px; height: 14px; stroke: var(--color-text-700);
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    transition: stroke 0.25s ease;
+  }
+  .dashboard-cta:hover .dashboard-cta-arrow svg { stroke: var(--color-neutral-white); }
 
-  /* Cards Grid */
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-
+  /* ============================================
+     CARDS GRID
+     ============================================ */
+  .cards {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--color-grey-800); border: 1px solid var(--color-grey-800);
+    border-radius: 12px; overflow: hidden;
+  }
   .card {
-    background: var(--bg); border: 1px solid var(--border);
-    border-left: 3px solid var(--accent); border-radius: 10px;
-    padding: 24px 28px; text-decoration: none; color: var(--fg);
-    transition: all 0.2s ease; display: flex; flex-direction: column;
-    position: relative;
+    background: var(--color-neutral-white);
+    padding: 24px; text-decoration: none; color: var(--color-text-900);
+    display: flex; flex-direction: column; transition: background 0.2s ease;
   }
-  .card:hover {
-    border-color: var(--accent); box-shadow: 0 4px 24px rgba(15,118,110,0.08);
-    transform: translateY(-2px);
+  .card:hover { background: var(--color-grey-500); }
+
+  .card-badge {
+    display: flex; align-items: center; justify-content: center;
+    height: 24px; border-radius: 6px; width: fit-content;
+    padding: 0 8px; font-size: 12px; font-weight: 500;
+    font-family: "Geist Mono", monospace; letter-spacing: -0.4px;
+    margin-bottom: 16px;
   }
-  .card-level {
-    font-family: var(--mono); font-size: 10px; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 3px 8px; border-radius: 4px; display: inline-block;
-    width: fit-content; margin-bottom: 14px;
-  }
-  .card-level.l100 { background: var(--accent-light); color: var(--accent); }
-  .card-level.l201 { background: var(--blue-light); color: var(--blue); }
-  .card-level.l301 { background: var(--amber-light); color: var(--amber); }
-  .card-level.special { background: var(--light); color: var(--dark); }
-  .card-level.rnd { background: var(--accent-light); color: var(--accent); }
-  .card-level.intl { background: var(--blue-light); color: var(--blue); }
+  .card-badge.info { color: var(--color-information-600); background-color: var(--color-information-100); }
+  .card-badge.success { color: var(--color-success-600); background-color: var(--color-success-100); }
+  .card-badge.warning { color: var(--color-warning-600); background-color: var(--color-warning-100); }
+  .card-badge.neutral { color: var(--color-text-800); background-color: var(--color-grey-600); }
 
   .card-title {
-    font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
-    margin-bottom: 8px; line-height: 1.3;
+    font-size: 14px; line-height: 20px; letter-spacing: -0.2px;
+    font-weight: 500; margin-bottom: 6px;
   }
   .card-desc {
-    font-size: 12px; color: var(--muted); line-height: 1.6; flex: 1;
-    margin-bottom: 16px;
+    font-size: 14px; line-height: 20px; letter-spacing: -0.2px;
+    color: var(--color-text-700); flex: 1; margin-bottom: 20px;
   }
   .card-meta {
     display: flex; align-items: center; justify-content: space-between;
-    padding-top: 14px; border-top: 1px solid var(--border);
+    padding-top: 16px; border-top: 1px solid var(--color-grey-700);
   }
-  .card-slides {
-    font-family: var(--mono); font-size: 10px; color: var(--muted);
-    letter-spacing: 0.04em;
+  .card-type {
+    font-family: "Geist Mono", monospace;
+    font-size: 12px; line-height: 16px; letter-spacing: -0.4px;
+    color: var(--color-text-600);
   }
   .card-arrow {
-    width: 28px; height: 28px; border-radius: 50%; background: var(--light);
-    display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+    width: 24px; height: 24px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s ease;
   }
-  .card:hover .card-arrow { background: var(--accent); }
+  .card:hover .card-arrow { background: var(--color-grey-700); }
   .card-arrow svg {
-    width: 14px; height: 14px; stroke: var(--muted); fill: none;
-    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-    transition: stroke 0.2s;
+    width: 14px; height: 14px; stroke: var(--color-text-600);
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
   }
-  .card:hover .card-arrow svg { stroke: var(--bg); }
 
-  /* Coverage section */
-  .coverage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  /* ============================================
+     COVERAGE
+     ============================================ */
+  .coverage-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--color-grey-800); border: 1px solid var(--color-grey-800);
+    border-radius: 12px; overflow: hidden;
+  }
   .coverage-card {
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 24px 28px;
+    background: var(--color-neutral-white); padding: 24px;
+  }
+  .coverage-card-label {
+    font-family: "Geist Mono", monospace;
+    font-size: 12px; line-height: 16px; letter-spacing: -0.4px;
+    color: var(--color-text-600); margin-bottom: 4px;
   }
   .coverage-card-title {
-    font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.06em; color: var(--accent); margin-bottom: 12px;
-    padding-bottom: 8px; border-bottom: 2px solid var(--accent);
+    font-size: 14px; line-height: 20px; letter-spacing: -0.2px;
+    font-weight: 500; color: var(--color-text-900); margin-bottom: 16px;
   }
-  .country-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .country-tags { display: flex; flex-wrap: wrap; gap: 4px; }
   .country-tag {
-    font-family: var(--mono); font-size: 10px; font-weight: 600;
-    padding: 4px 10px; border-radius: 4px; letter-spacing: 0.04em;
+    font-family: "Geist Mono", monospace;
+    font-size: 12px; line-height: 16px; letter-spacing: -0.4px;
+    font-weight: 500; padding: 4px 8px; border-radius: 6px;
   }
-  .country-tag.primary { background: var(--accent-light); color: var(--accent); }
-  .country-tag.secondary { background: var(--light); color: var(--muted); }
+  .country-tag.primary {
+    background: var(--color-information-100); color: var(--color-information-600);
+  }
+  .country-tag.secondary {
+    background: var(--color-grey-600); color: var(--color-text-700);
+  }
 
-  /* Footer */
-  .footer {
-    max-width: 1200px; margin: 0 auto; padding: 0 48px 48px;
-    text-align: center;
+  /* ============================================
+     FOOTER
+     ============================================ */
+  .site-footer {
+    padding-top: 48px; padding-bottom: 48px;
+  }
+  .footer-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
   }
   .footer-text {
-    font-size: 11px; color: var(--muted); line-height: 1.6;
+    font-size: 14px; line-height: 20px; letter-spacing: -0.2px;
+    color: var(--color-text-600); text-align: center;
   }
-  .footer-text a { color: var(--accent); text-decoration: none; }
-  .footer-text a:hover { text-decoration: underline; }
+  .footer-copy {
+    font-family: "Geist Mono", monospace;
+    font-size: 12px; line-height: 16px; letter-spacing: -0.4px;
+    color: var(--color-text-600); text-align: center;
+  }
 
-  /* Responsive */
+  /* ============================================
+     ANIMATIONS
+     ============================================ */
+  .fade-up {
+    opacity: 0; transform: translateY(12px);
+    animation: fadeUp 0.4s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up:nth-child(1) { animation-delay: 0.04s; }
+  .fade-up:nth-child(2) { animation-delay: 0.08s; }
+  .fade-up:nth-child(3) { animation-delay: 0.12s; }
+  .fade-up:nth-child(4) { animation-delay: 0.16s; }
+  .fade-up:nth-child(5) { animation-delay: 0.2s; }
+  .fade-up:nth-child(6) { animation-delay: 0.24s; }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
   @media (max-width: 768px) {
-    .header { padding: 40px 24px 36px; }
-    .header-title { font-size: 28px; }
-    .main { padding: 28px 24px 60px; }
+    .hero { padding-top: 48px; padding-bottom: 48px; }
+    .hero h1 { font-size: 28px; line-height: 40px; letter-spacing: -0.2px; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .hero-stat-val { font-size: 20px; line-height: 32px; }
+    .section { padding-top: 40px; padding-bottom: 40px; }
     .cards { grid-template-columns: 1fr; }
     .coverage-grid { grid-template-columns: 1fr; }
-    .dashboard-cta { flex-direction: column; text-align: center; padding: 24px; }
-    .footer { padding: 0 24px 36px; }
+    .dashboard-cta { flex-direction: column; align-items: flex-start; }
+    .header-main { padding-top: 12px; padding-bottom: 12px; }
   }
   @media (max-width: 1024px) and (min-width: 769px) {
     .cards { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* Animations */
-  .fade-up {
-    opacity: 0; transform: translateY(16px);
-    animation: fadeUp 0.5s ease forwards;
-  }
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up:nth-child(1) { animation-delay: 0.05s; }
-  .fade-up:nth-child(2) { animation-delay: 0.1s; }
-  .fade-up:nth-child(3) { animation-delay: 0.15s; }
-  .fade-up:nth-child(4) { animation-delay: 0.2s; }
-  .fade-up:nth-child(5) { animation-delay: 0.25s; }
-  .fade-up:nth-child(6) { animation-delay: 0.3s; }
-
-  /* Print */
+  /* ============================================
+     PRINT
+     ============================================ */
   @media print {
     body { background: white; }
-    .header { background: var(--fg); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .card, .dashboard-cta { break-inside: avoid; box-shadow: none; }
+    .card { break-inside: avoid; }
+    header { position: static; border: none; }
   }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="header-inner">
-    <div class="header-label">Kolosal Tax Advisory</div>
-    <h1 class="header-title">International Tax Planning<br>Resource Hub</h1>
-    <p class="header-subtitle">
-      Comprehensive tax planning presentations, interactive dashboards, and research
-      covering corporate tax, R&D incentives, deductions, and cross-border structuring.
-    </p>
-    <div class="header-meta">
-      <div class="header-stat">
-        <span class="header-stat-val">45</span>
-        <span class="header-stat-lbl">Countries Covered</span>
-      </div>
-      <div class="header-stat">
-        <span class="header-stat-val">6</span>
-        <span class="header-stat-lbl">Presentations</span>
-      </div>
-      <div class="header-stat">
-        <span class="header-stat-val">7</span>
-        <span class="header-stat-lbl">Primary Jurisdictions</span>
-      </div>
-      <div class="header-stat">
-        <span class="header-stat-val">4</span>
-        <span class="header-stat-lbl">Research Layers</span>
-      </div>
+<header>
+  <div class="header-main container">
+    <div class="header-logo">
+      <span class="header-wordmark">KOLOSAL</span>
+      <div class="divider"></div>
+      <p style="font-family: 'Geist Mono', monospace; font-size: 14px; line-height: 20px; letter-spacing: -0.4px;">Tax Advisory</p>
     </div>
   </div>
 </header>
 
-<main class="main">
-
-  <!-- Interactive Dashboard CTA -->
-  <a href="dashboard/" class="dashboard-cta fade-up">
-    <div class="dashboard-cta-icon">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
-    </div>
-    <div class="dashboard-cta-content">
-      <div class="dashboard-cta-title">Interactive Tax Dashboard</div>
-      <div class="dashboard-cta-desc">
-        Live 7-country comparison with interactive charts, KPI metrics, corporate tax rates,
-        VAT/GST analysis, payroll burden radar, and comprehensive tax summary tables.
+<div class="hero">
+  <div class="container hero-inner">
+    <h1>International Tax Planning Resource Hub</h1>
+    <p class="hero-desc">
+      Comprehensive tax planning presentations, interactive dashboards, and research
+      covering corporate tax, R&D incentives, deductions, and cross-border structuring.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-val">45</span>
+        <span class="hero-stat-lbl">Countries Covered</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val">6</span>
+        <span class="hero-stat-lbl">Presentations</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val">7</span>
+        <span class="hero-stat-lbl">Primary Jurisdictions</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val">4</span>
+        <span class="hero-stat-lbl">Research Layers</span>
       </div>
     </div>
-    <div class="dashboard-cta-arrow">
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </div>
-  </a>
+  </div>
+</div>
+
+<main>
+
+  <!-- Interactive Dashboard CTA -->
+  <div class="section section-cta container">
+    <a href="dashboard/" class="dashboard-cta">
+      <div class="dashboard-cta-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+      </div>
+      <div class="dashboard-cta-content">
+        <div class="dashboard-cta-title">Interactive Tax Dashboard</div>
+        <div class="dashboard-cta-desc">
+          Live 7-country comparison with interactive charts, KPI metrics, corporate tax rates,
+          VAT/GST analysis, payroll burden radar, and comprehensive tax summary tables.
+        </div>
+      </div>
+      <div class="dashboard-cta-arrow">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </a>
+  </div>
 
   <!-- Presentations -->
-  <div class="section">
-    <div class="section-label">Presentations</div>
-    <div class="section-title">Tax Planning Slide Decks</div>
+  <div class="section container">
+    <div class="section-header">
+      <span class="section-label">Presentations</span>
+      <span class="section-title">Tax Planning Slide Decks</span>
+    </div>
     <div class="cards">
 
       <a href="presentation.html" class="card fade-up">
-        <span class="card-level l100">Level 100</span>
+        <span class="card-badge success">Level 100</span>
         <div class="card-title">Foundational Tax Planning</div>
         <div class="card-desc">
           Core concepts of international tax planning. Corporate tax rates, entity structures,
           transfer pricing basics, and foundational strategies for 7 primary jurisdictions.
         </div>
         <div class="card-meta">
-          <span class="card-slides">Comprehensive Deck</span>
+          <span class="card-type">Comprehensive Deck</span>
           <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
         </div>
       </a>
 
       <a href="presentation-201.html" class="card fade-up">
-        <span class="card-level l201">Level 201</span>
+        <span class="card-badge info">Level 201</span>
         <div class="card-title">Intermediate Tax Strategies</div>
         <div class="card-desc">
           Deeper dive into deductions, allowances, treaty networks, and regional tax optimization
           techniques across multiple jurisdictions.
         </div>
         <div class="card-meta">
-          <span class="card-slides">Intermediate Deck</span>
+          <span class="card-type">Intermediate Deck</span>
           <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
         </div>
       </a>
 
       <a href="presentation-301.html" class="card fade-up">
-        <span class="card-level l301">Level 301</span>
+        <span class="card-badge warning">Level 301</span>
         <div class="card-title">Advanced Cross-Border Structuring</div>
         <div class="card-desc">
           Advanced international tax planning, holding structures, IP migration,
           cross-border financing, and multi-entity optimization frameworks.
         </div>
         <div class="card-meta">
-          <span class="card-slides">Advanced Deck</span>
+          <span class="card-type">Advanced Deck</span>
           <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
         </div>
       </a>
 
       <a href="presentation-startup.html" class="card fade-up">
-        <span class="card-level special">Startup</span>
+        <span class="card-badge neutral">Startup</span>
         <div class="card-title">B2B Startup Tax Optimization</div>
         <div class="card-desc">
           Tailored tax planning for B2B startups and product principals. Entity selection,
           R&D credits, equity compensation, and growth-stage tax strategies.
         </div>
         <div class="card-meta">
-          <span class="card-slides">Startup Focus</span>
+          <span class="card-type">Startup Focus</span>
           <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
         </div>
       </a>
 
       <a href="presentation-rnd.html" class="card fade-up">
-        <span class="card-level rnd">R&D</span>
+        <span class="card-badge success">R&D</span>
         <div class="card-title">R&D Tax Incentives — 45 Countries</div>
         <div class="card-desc">
           Comprehensive analysis of R&D tax credits, enhanced deductions, patent boxes,
           and innovation incentives across 45 countries worldwide.
         </div>
         <div class="card-meta">
-          <span class="card-slides">45-Country Analysis</span>
+          <span class="card-type">45-Country Analysis</span>
           <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
         </div>
       </a>
 
       <a href="International_Tax_Planning_Guide.html" class="card fade-up">
-        <span class="card-level intl">International</span>
+        <span class="card-badge info">International</span>
         <div class="card-title">International Tax Planning Guide</div>
         <div class="card-desc">
           Complete guide for international investors. Withholding taxes, treaty benefits,
           repatriation strategies, and foreign investor-specific planning.
         </div>
         <div class="card-meta">
-          <span class="card-slides">Investor Guide</span>
+          <span class="card-type">Investor Guide</span>
           <span class="card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
         </div>
       </a>
@@ -386,13 +546,17 @@
   </div>
 
   <!-- Country Coverage -->
-  <div class="section">
-    <div class="section-label">Research Coverage</div>
-    <div class="section-title">Country & Jurisdiction Data</div>
+
+  <div class="section container">
+    <div class="section-header">
+      <span class="section-label">Research Coverage</span>
+      <span class="section-title">Country & Jurisdiction Data</span>
+    </div>
     <div class="coverage-grid">
 
       <div class="coverage-card">
-        <div class="coverage-card-title">Tier 1 — Comprehensive Analysis (4 files each)</div>
+        <div class="coverage-card-label">Tier 1</div>
+        <div class="coverage-card-title">Comprehensive Analysis — 4 files each</div>
         <div class="country-tags">
           <span class="country-tag primary">US</span>
           <span class="country-tag primary">CA</span>
@@ -405,7 +569,8 @@
       </div>
 
       <div class="coverage-card">
-        <div class="coverage-card-title">Tier 2 — R&D Incentives (38 additional countries)</div>
+        <div class="coverage-card-label">Tier 2</div>
+        <div class="coverage-card-title">R&D Incentives — 38 additional countries</div>
         <div class="country-tags">
           <span class="country-tag secondary">AT</span>
           <span class="country-tag secondary">BE</span>
@@ -453,11 +618,11 @@
 
 </main>
 
-<footer class="footer">
-  <p class="footer-text">
-    Kolosal Tax Advisory &mdash; International Tax Planning Resources<br>
-    Research data current as of February 2026. For advisory purposes only.
-  </p>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-text">Kolosal Tax Advisory — International Tax Planning Resources</p>
+    <p class="footer-copy">&copy; 2026 Kolosal. Research data current as of February 2026. For advisory purposes only.</p>
+  </div>
 </footer>
 
 </body>
