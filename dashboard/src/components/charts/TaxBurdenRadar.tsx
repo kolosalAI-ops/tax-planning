@@ -12,8 +12,9 @@ import {
 } from 'recharts';
 import { getRadarData } from '@/lib/transformers';
 import { COUNTRY_ORDER, COUNTRY_LABELS } from '@/lib/constants';
+import ChartContainer from './ChartContainer';
 
-const COLORS = ['#0052C4', '#0052C4', '#CC8727', '#CC2727', '#7c3aed', '#0891b2', '#6A6F73'];
+const COLORS = ['#0052C4', '#CC8727', '#CC2727', '#7c3aed', '#0891b2', '#0D0E0F', '#0066F5'];
 
 export default function TaxBurdenRadar() {
   const rawData = getRadarData();
@@ -29,13 +30,12 @@ export default function TaxBurdenRadar() {
   });
 
   return (
-    <div className="bg-white border border-[#E4E7E9] rounded-lg p-4">
-      <h3 className="text-sm font-bold text-[#0D0E0F] mb-4">Tax Burden Radar</h3>
-      <ResponsiveContainer width="100%" height={340}>
+    <ChartContainer title="Tax Burden Radar" height={340}>
+      <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={chartData} cx="50%" cy="50%" outerRadius="70%">
-          <PolarGrid stroke="#E4E7E9" />
-          <PolarAngleAxis dataKey="category" tick={{ fontSize: 10 }} />
-          <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fontSize: 9 }} />
+          <PolarGrid stroke="#DDE1E3" />
+          <PolarAngleAxis dataKey="category" tick={{ fontSize: 10, fill: '#0D0E0F' }} />
+          <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fontSize: 9, fill: '#6A6F73' }} />
           <Tooltip contentStyle={{ border: '1px solid #E4E7E9', borderRadius: '6px', fontSize: '11px' }} />
           {COUNTRY_ORDER.map((code, i) => (
             <Radar
@@ -54,6 +54,6 @@ export default function TaxBurdenRadar() {
           />
         </RadarChart>
       </ResponsiveContainer>
-    </div>
+    </ChartContainer>
   );
 }

@@ -11,27 +11,26 @@ import {
   Cell,
 } from 'recharts';
 import { getPayrollChartData } from '@/lib/transformers';
+import ChartContainer from './ChartContainer';
 
-const AMBER = '#CC8727';
-const AMBER_LIGHT = '#f59e0b';
+const COLORS = ['#CC8727', '#E8A94D', '#CC8727', '#E8A94D', '#CC8727', '#E8A94D', '#CC8727'];
 
 export default function PayrollBurdenChart() {
   const data = getPayrollChartData();
 
   return (
-    <div className="bg-white border border-[#E4E7E9] rounded-lg p-4">
-      <h3 className="text-sm font-bold text-[#0D0E0F] mb-4">Employer Payroll Tax Burden</h3>
-      <ResponsiveContainer width="100%" height={280}>
+    <ChartContainer title="Employer Payroll Tax Burden" height={280}>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#E4E7E9" />
           <XAxis
             dataKey="name"
-            tick={{ fontSize: 10 }}
+            tick={{ fontSize: 10, fill: '#6A6F73' }}
             tickLine={false}
             axisLine={{ stroke: '#E4E7E9' }}
           />
           <YAxis
-            tick={{ fontSize: 10 }}
+            tick={{ fontSize: 10, fill: '#6A6F73' }}
             tickLine={false}
             axisLine={{ stroke: '#E4E7E9' }}
             tickFormatter={(v: number) => `${v}%`}
@@ -46,14 +45,11 @@ export default function PayrollBurdenChart() {
           />
           <Bar dataKey="rate" radius={[4, 4, 0, 0]}>
             {data.map((entry, index) => (
-              <Cell
-                key={entry.code}
-                fill={index % 2 === 0 ? AMBER : AMBER_LIGHT}
-              />
+              <Cell key={entry.code} fill={COLORS[index % COLORS.length]} />
             ))}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </ChartContainer>
   );
 }
