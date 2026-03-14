@@ -39,16 +39,17 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <>
       {/* Logo */}
-      <div className="px-4 py-5 border-b border-[#3C3E40]">
-        <h1 className="text-base font-extrabold tracking-tight">
-          <span className="text-[#0066F5]">Kolosal</span> Tax
+      <div className="px-4 py-4 border-b border-[#3C3E40]">
+        <h1 className="text-base font-extrabold tracking-[-0.03em]">
+          <span className="text-[#0066F5]">Kolosal</span>{' '}
+          <span className="text-[#DDE1E3]">Tax</span>
         </h1>
         <p className="text-[10px] text-[#6A6F73] mt-0.5">7-Country Dashboard</p>
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto py-3 px-2">
-        <p className="px-2 text-[9px] font-bold uppercase tracking-[0.14em] text-[#6A6F73] mb-2">
+        <p className="px-2 text-[10px] font-bold uppercase tracking-[0.08em] text-[#9C9FA1] mb-2">
           Navigation
         </p>
         <ul className="space-y-0.5">
@@ -59,10 +60,10 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
                 <Link
                   href={item.href}
                   onClick={onNavigate}
-                  className={`block px-3 py-2 rounded-md text-xs font-medium transition-colors ${
+                  className={`block px-3 py-2 rounded-lg text-[13px] font-medium transition-colors ${
                     active
-                      ? 'bg-[#0052C4] text-white'
-                      : 'text-[#DDE1E3] hover:bg-[#3C3E40] hover:text-white'
+                      ? 'bg-[#0052C4]/90 text-white'
+                      : 'text-[#DDE1E3] hover:bg-[#1a1b1d] hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -72,7 +73,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           })}
         </ul>
 
-        <p className="px-2 mt-5 text-[9px] font-bold uppercase tracking-[0.14em] text-[#6A6F73] mb-2">
+        <p className="px-2 mt-5 text-[10px] font-bold uppercase tracking-[0.08em] text-[#9C9FA1] mb-2">
           Countries
         </p>
         <ul className="space-y-0.5">
@@ -83,13 +84,13 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
                 <Link
                   href={item.href}
                   onClick={onNavigate}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
                     active
-                      ? 'bg-[#0052C4] text-white'
-                      : 'text-[#DDE1E3] hover:bg-[#3C3E40] hover:text-white'
+                      ? 'bg-[#0052C4]/90 text-white'
+                      : 'text-[#DDE1E3] hover:bg-[#1a1b1d] hover:text-white'
                   }`}
                 >
-                  <span className="font-mono text-[10px] text-[#6A6F73] w-5">{item.code}</span>
+                  <span className="font-mono text-[11px] text-[#9C9FA1] w-5">{item.code}</span>
                   {item.label}
                 </Link>
               </li>
@@ -100,7 +101,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 
       {/* Footer */}
       <div className="px-4 py-3 border-t border-[#3C3E40]">
-        <p className="text-[10px] text-[#6A6F73]">Tax Year 2024/2025</p>
+        <p className="text-[11px] text-[#9C9FA1]">Tax Year 2024/2025</p>
       </div>
     </>
   );
@@ -112,7 +113,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden md:flex md:flex-col md:w-56 md:fixed md:inset-y-0 bg-[#0D0E0F] text-white z-30">
+      <aside className="hidden md:flex md:flex-col md:w-60 md:fixed md:inset-y-0 bg-[#0D0E0F] text-white z-30">
         <SidebarContent />
       </aside>
 
@@ -121,7 +122,7 @@ export default function Sidebar() {
         <div className="fixed inset-0 z-40 md:hidden" onClick={close}>
           <div className="absolute inset-0 bg-black/50" />
           <aside
-            className="relative flex flex-col w-64 h-full bg-[#0D0E0F] text-white shadow-xl"
+            className="relative flex flex-col w-72 h-full bg-[#0D0E0F] text-white shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}

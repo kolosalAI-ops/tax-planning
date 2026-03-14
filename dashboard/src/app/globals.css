@@ -18,12 +18,16 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
 /* Recharts overrides */
 .recharts-cartesian-axis-tick-value {
   fill: #6A6F73 !important;
-  font-size: 11px;
+  font-size: 10px;
+  font-family: 'Geist Mono', monospace;
 }
 
 .recharts-cartesian-grid line {
@@ -31,7 +35,8 @@ body {
 }
 
 .recharts-legend-item-text {
-  color: #0D0E0F !important;
+  color: #3C3E40 !important;
+  font-size: 12px !important;
 }
 
 .recharts-polar-angle-axis-tick-value {
@@ -53,16 +58,28 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F3F4;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: #DDE1E3;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9B9FA3;
+  background: #9C9FA1;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid #0052C4;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.12s ease;
 }

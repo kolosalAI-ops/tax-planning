@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <SidebarProvider>
           <Sidebar />
-          <div className="md:ml-56 min-h-screen flex flex-col">
+          <div className="md:ml-60 min-h-screen flex flex-col">
             <Header />
             <main className="flex-1 p-4 md:p-8 overflow-x-hidden bg-background">
               {children}
