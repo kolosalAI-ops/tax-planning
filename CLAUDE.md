@@ -50,23 +50,25 @@ tax-planning/
 ```css
 :root {
   /* Neutrals */
-  --bg: #ffffff;          --fg: #0f172a;
-  --border: #e2e8f0;      --muted: #64748b;
-  --light: #f1f5f9;       --medium: #cbd5e1;
-  --dark: #1e293b;        --card-hover: #f8fafc;
+  --bg: #FFFFFF;          --fg: #0D0E0F;
+  --border: #E4E7E9;      --muted: #6A6F73;
+  --light: #F1F3F4;       --medium: #DDE1E3;
+  --dark: #3C3E40;        --card-hover: #F8F9F9;
 
-  /* Accent (Teal) */
-  --accent: #0f766e;      --accent-light: #ccfbf1;
-  --accent-mid: #14b8a6;
+  /* Accent (Blue) */
+  --accent: #0052C4;      --accent-light: #F0F6FE;
+  --accent-mid: #0066F5;
 
   /* Semantic */
-  --blue: #1d4ed8;        --blue-light: #dbeafe;
-  --amber: #b45309;       --amber-light: #fef3c7;
-  --red: #b91c1c;         --red-light: #fee2e2;
+  --blue: #0052C4;        --blue-light: #F0F6FE;
+  --amber: #CC8727;       --amber-light: #FFFAF3;
+  --red: #CC2727;         --red-light: #FFF3F3;
+  --green: #16a34a;       --green-light: #f0fdf4;
+  --blue-alt: #2563eb;
 
   /* Typography */
-  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  --sans: 'Inter', sans-serif;
+  --mono: 'Geist Mono', monospace;
 }
 ```
 
@@ -290,7 +292,7 @@ Every file follows these 7 sections:
 
 | Color | Variable | Usage |
 |-------|----------|-------|
-| Teal | `--accent` | Primary highlights, positive states, key data, success |
+| Blue | `--accent` | Primary highlights, positive states, key data, success |
 | Medium gray | `--medium` | Secondary/alternate bar fills |
 | Amber | `--amber` | Warnings, diminished benefits, alternate emphasis |
 | Red | `--red` | Negative outcomes, worst case, errors, no-incentive |
@@ -307,7 +309,7 @@ Every file follows these 7 sections:
 - [ ] Print styles with `@page { size: 16in 9in; margin: 0; }`
 - [ ] `.anim-item` on content blocks for staggered fade-in
 - [ ] Responsive breakpoint at 768px
-- [ ] Google Fonts loaded: Inter (400–800) + JetBrains Mono (400–700)
+- [ ] Google Fonts loaded: Inter (400–800) + Geist Mono (400–700)
 - [ ] Every slide has `data-s="N"` attribute
 - [ ] Key points end each content slide with strategic takeaway
 
