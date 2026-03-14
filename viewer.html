@@ -91,7 +91,7 @@
   }
   .mode-btn {
     display: flex; align-items: center; gap: 5px;
-    padding: 5px 12px; border-radius: 5px; border: none;
+    padding: 6px 14px; border-radius: 5px; border: none;
     background: transparent; color: var(--color-text-700);
     font-size: 12px; font-weight: 500; letter-spacing: -0.2px;
     cursor: pointer; transition: all 0.12s ease;
@@ -169,7 +169,7 @@
   .slide-thumb:hover { background: var(--color-grey-600); }
   .slide-thumb.active {
     background: var(--color-information-100);
-    border-left: 2px solid var(--color-information-600);
+    border-left: 3px solid var(--color-information-600);
   }
   .slide-thumb-num {
     font-family: "Geist Mono", monospace;
@@ -180,6 +180,7 @@
   .slide-thumb-preview {
     width: 80px; height: 45px; border-radius: 4px;
     background: var(--color-grey-600); border: 1px solid var(--color-grey-800);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
     overflow: hidden; flex-shrink: 0; position: relative;
   }
   .slide-thumb-preview iframe {
@@ -411,6 +412,13 @@
       width: 16in; height: 9in;
     }
     .page-frame-overlay { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 </head>
