@@ -108,7 +108,7 @@
   }
   .h2 {
     font-size: 28px; font-weight: 700; line-height: 1.15;
-    letter-spacing: -0.025em; color: var(--fg); margin-bottom: 18px;
+    letter-spacing: -0.02em; color: var(--fg); margin-bottom: 18px;
   }
   .h3 {
     font-size: 11px; font-weight: 700; text-transform: uppercase;
@@ -190,6 +190,7 @@
     color: var(--muted); margin: 0 3px 3px 0; border-radius: 6px;
     transition: all 0.12s ease;
   }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
   .tag.filled {
     background: var(--accent); color: var(--bg);
     border-color: var(--accent);
@@ -2977,6 +2978,7 @@ function go(d) {
   S[cur].classList.remove('active');
   cur = Math.max(0, Math.min(T-1, cur+d));
   S[cur].classList.add('active');
+  S[cur].scrollTop = 0;
   P.style.width = ((cur+1)/T*100)+'%';
   const section = getSectionName(cur);
   C.textContent = String(cur+1).padStart(2,'0')+' / '+String(T).padStart(2,'0') + (section ? ' \u00b7 '+section : '');
