@@ -10,11 +10,11 @@ export function generateStaticParams() {
 
 /* ────────────────────────────── Primitives ────────────────────────────── */
 
-function SectionCard({ title, icon, children }: { title: string; icon?: string; children: React.ReactNode }) {
+function SectionCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
       <div className="px-4 py-3 border-b border-[#E4E7E9] flex items-center gap-2">
-        {icon && <span className="text-sm">{icon}</span>}
+        <span className="w-1 h-4 rounded-full bg-[#0052C4] shrink-0" />
         <h3 className="text-sm font-bold text-[#0D0E0F]">{title}</h3>
       </div>
       <div className="p-4">{children}</div>
@@ -142,7 +142,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
   const headline = ct.federal_rate ?? ct.headline_rate ?? ct.standard_rate ?? ct.general_rate ?? ct.federal_general_rate ?? null;
 
   return (
-    <SectionCard title="Corporate Tax" icon="🏢">
+    <SectionCard title="Corporate Tax">
       {/* Headline */}
       {headline !== null && (
         <div className="flex items-center gap-3 mb-3 pb-3 border-b border-[#E4E7E9]">
@@ -324,7 +324,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
           <ul className="space-y-0.5">
             {ct.foreign_sourced_income_exemption.conditions.map((c: string, i: number) => (
               <li key={i} className="text-[10px] text-[#0D0E0F] flex items-start gap-1">
-                <span className="text-[#0052C4] shrink-0">✓</span> {c}
+                <span className="text-[#0052C4] shrink-0 text-[8px] leading-none mt-0.5">&bull;</span> {c}
               </li>
             ))}
           </ul>
@@ -432,7 +432,7 @@ function IndirectTaxSection({ data }: { data: any }) {
   const title = gstHst ? 'GST / HST' : gst ? 'GST' : iva ? 'IVA (VAT)' : vat ? 'VAT' : 'Sales Tax / VAT Equivalent';
 
   return (
-    <SectionCard title={title} icon="🧾">
+    <SectionCard title={title}>
       {/* Standard rate */}
       {source.standard_rate !== undefined && (
         <div className="flex items-center gap-3 mb-3">
@@ -560,7 +560,7 @@ function PayrollSection({ data }: { data: any }) {
   const totalVal = typeof total === 'object' ? `${total.min}-${total.max}%` : total !== undefined ? `${total}%` : null;
 
   return (
-    <SectionCard title="Payroll / Employer Contributions" icon="👥">
+    <SectionCard title="Payroll / Employer Contributions">
       {totalVal && (
         <div className="flex items-center gap-3 mb-3 pb-3 border-b border-[#E4E7E9]">
           <div className="text-2xl font-extrabold font-mono text-[#0D0E0F]">{totalVal}</div>
@@ -657,7 +657,7 @@ function WithholdingTaxSection({ data }: { data: any }) {
   }
 
   return (
-    <SectionCard title="Withholding Taxes (Non-Resident)" icon="🌐">
+    <SectionCard title="Withholding Taxes (Non-Resident)">
       <MiniTable
         headers={['Income Type', 'Default Rate', 'Treaty Rate']}
         rows={rows.map((r) => [
@@ -694,7 +694,7 @@ function DeductionsSection({ ded, data }: { ded: any; data: any }) {
   if (!ded) return null;
 
   return (
-    <SectionCard title="Deductions & Allowances" icon="📋">
+    <SectionCard title="Deductions & Allowances">
       {/* Depreciation */}
       {(ded.depreciation || ded.cca || ded.decline_in_value || ded.capital_allowances) && (() => {
         const dep = ded.depreciation || ded.cca || ded.decline_in_value || ded.capital_allowances;
@@ -1015,7 +1015,7 @@ function InternationalInvestorsSection({ ii, data }: { ii: any; data: any }) {
   if (!ii) return null;
 
   return (
-    <SectionCard title="International Investors" icon="🌍">
+    <SectionCard title="International Investors">
       {/* Screening */}
       {ii.screening && (
         <SubSection title="Foreign Investment Screening">
@@ -1184,7 +1184,7 @@ function IncomeBySourceSection({ ibs }: { ibs: any }) {
   if (sources.length === 0) return null;
 
   return (
-    <SectionCard title="Income by Source" icon="💰">
+    <SectionCard title="Income by Source">
       {sources.map(([key, info]: [string, any]) => {
         if (!info || typeof info !== 'object') return null;
         const legalBasis = info.legal_basis;
@@ -1249,7 +1249,7 @@ function SectorSpecificSection({ sst }: { sst: any }) {
   if (sectors.length === 0) return null;
 
   return (
-    <SectionCard title="Sector-Specific Taxes" icon="🏭">
+    <SectionCard title="Sector-Specific Taxes">
       {sectors.map(([key, info]: [string, any]) => {
         if (!info || typeof info !== 'object') return null;
 
@@ -1294,7 +1294,7 @@ function PassThroughSection({ pt }: { pt: any }) {
   if (!pt) return null;
 
   return (
-    <SectionCard title="Pass-Through / Individual Rates" icon="👤">
+    <SectionCard title="Pass-Through / Individual Rates">
       {pt.brackets_single_2024 && (
         <MiniTable
           headers={['Min', 'Max', 'Rate']}
@@ -1312,31 +1312,31 @@ function PassThroughSection({ pt }: { pt: any }) {
 }
 
 function AdditionalDataSection({ data }: { data: any }) {
-  const sections: { key: string; title: string; icon: string }[] = [];
+  const sections: { key: string; title: string }[] = [];
 
-  if (data.fbt) sections.push({ key: 'fbt', title: 'Fringe Benefits Tax', icon: '🎁' });
-  if (data.carbon_tax) sections.push({ key: 'carbon_tax', title: 'Carbon Tax', icon: '🌱' });
-  if (data.stamp_duty) sections.push({ key: 'stamp_duty', title: 'Stamp Duty', icon: '📄' });
-  if (data.ptu_profit_sharing) sections.push({ key: 'ptu_profit_sharing', title: 'Profit Sharing (PTU)', icon: '🤝' });
-  if (data.ieps_excise) sections.push({ key: 'ieps_excise', title: 'Excise Tax (IEPS)', icon: '🍺' });
-  if (data.mining_tax) sections.push({ key: 'mining_tax', title: 'Mining Tax', icon: '⛏️' });
-  if (data.diverted_profits_tax) sections.push({ key: 'diverted_profits_tax', title: 'Diverted Profits Tax', icon: '🔍' });
-  if (data.transfer_pricing) sections.push({ key: 'transfer_pricing', title: 'Transfer Pricing', icon: '🔗' });
-  if (data.inflation_adjustment) sections.push({ key: 'inflation_adjustment', title: 'Inflation Adjustment', icon: '📈' });
-  if (data.tax_reform_2024) sections.push({ key: 'tax_reform_2024', title: 'Tax Reform 2024', icon: '🔄' });
-  if (data.cgt_concessions_small_business) sections.push({ key: 'cgt_concessions_small_business', title: 'Small Business CGT Concessions', icon: '🏪' });
-  if (data.icms_state_tax) sections.push({ key: 'icms_state_tax', title: 'ICMS State Tax', icon: '🏛️' });
+  if (data.fbt) sections.push({ key: 'fbt', title: 'Fringe Benefits Tax' });
+  if (data.carbon_tax) sections.push({ key: 'carbon_tax', title: 'Carbon Tax' });
+  if (data.stamp_duty) sections.push({ key: 'stamp_duty', title: 'Stamp Duty' });
+  if (data.ptu_profit_sharing) sections.push({ key: 'ptu_profit_sharing', title: 'Profit Sharing (PTU)' });
+  if (data.ieps_excise) sections.push({ key: 'ieps_excise', title: 'Excise Tax (IEPS)' });
+  if (data.mining_tax) sections.push({ key: 'mining_tax', title: 'Mining Tax' });
+  if (data.diverted_profits_tax) sections.push({ key: 'diverted_profits_tax', title: 'Diverted Profits Tax' });
+  if (data.transfer_pricing) sections.push({ key: 'transfer_pricing', title: 'Transfer Pricing' });
+  if (data.inflation_adjustment) sections.push({ key: 'inflation_adjustment', title: 'Inflation Adjustment' });
+  if (data.tax_reform_2024) sections.push({ key: 'tax_reform_2024', title: 'Tax Reform 2024' });
+  if (data.cgt_concessions_small_business) sections.push({ key: 'cgt_concessions_small_business', title: 'Small Business CGT Concessions' });
+  if (data.icms_state_tax) sections.push({ key: 'icms_state_tax', title: 'ICMS State Tax' });
 
   if (sections.length === 0) return null;
 
   return (
     <>
-      {sections.map(({ key, title, icon }) => {
+      {sections.map(({ key, title }) => {
         const sectionData = data[key];
         if (!sectionData) return null;
 
         return (
-          <SectionCard key={key} title={title} icon={icon}>
+          <SectionCard key={key} title={title}>
             {typeof sectionData === 'object' && !Array.isArray(sectionData) ? (
               <div className="space-y-0">
                 {Object.entries(sectionData).map(([k, v]: [string, any]) => {

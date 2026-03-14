@@ -143,15 +143,15 @@ export default function HomePage() {
       {/* Quick Navigation */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {[
-          { href: '/deductions', label: 'Deductions', desc: 'R&D incentives, depreciation, NOL rules', icon: '📋' },
-          { href: '/investors', label: 'Investors', desc: 'WHT rates, corridors, repatriation', icon: '🌍' },
-          { href: '/rnd', label: 'R&D Incentives', desc: '45-country R&D credits, deductions, patent boxes', icon: '🔬' },
-          { href: '/treaty', label: 'Treaty & WHT', desc: 'Treaty heatmaps, optimal corridors', icon: '🤝' },
-          { href: '/pipeline', label: 'Optimization', desc: 'B2B structures, product principal models', icon: '⚡' },
-          { href: '/cases', label: 'Case Studies', desc: 'Architecture breakdowns, tax scoring', icon: '📊' },
+          { href: '/deductions', label: 'Deductions', desc: 'R&D incentives, depreciation, NOL rules' },
+          { href: '/investors', label: 'Investors', desc: 'WHT rates, corridors, repatriation' },
+          { href: '/rnd', label: 'R&D Incentives', desc: '45-country R&D credits, deductions, patent boxes' },
+          { href: '/treaty', label: 'Treaty & WHT', desc: 'Treaty heatmaps, optimal corridors' },
+          { href: '/pipeline', label: 'Optimization', desc: 'B2B structures, product principal models' },
+          { href: '/cases', label: 'Case Studies', desc: 'Architecture breakdowns, tax scoring' },
         ].map((nav) => (
           <Link key={nav.href} href={nav.href} className="bg-white border border-[#E4E7E9] rounded-lg p-4 hover:shadow-md hover:border-[#0052C4]/30 transition-all group">
-            <span className="text-xl">{nav.icon}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0052C4] inline-block" />
             <p className="text-sm font-bold text-[#0D0E0F] mt-2 group-hover:text-[#0052C4] transition-colors">{nav.label}</p>
             <p className="text-[11px] text-[#6A6F73] mt-1">{nav.desc}</p>
           </Link>
