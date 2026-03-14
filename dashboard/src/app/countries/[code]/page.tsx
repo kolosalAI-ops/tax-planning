@@ -53,7 +53,7 @@ function RateBar({ label, value, max = 50, color = '#0052C4' }: { label: string;
   const pct = Math.min((value / max) * 100, 100);
   return (
     <div className="flex items-center gap-2 py-1">
-      <span className="text-[10px] text-[#6A6F73] w-[100px] shrink-0 truncate">{label}</span>
+      <span className="text-[10px] text-[#5A5E62] w-[100px] shrink-0 truncate">{label}</span>
       <div className="flex-1 h-4 bg-[#F1F3F4] rounded overflow-hidden">
         <div className="h-full rounded transition-all" style={{ width: `${pct}%`, backgroundColor: color }} />
       </div>
@@ -90,7 +90,7 @@ function MiniTable({ headers, rows }: { headers: string[]; rows: (string | numbe
 function SubSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mt-3 first:mt-0">
-      <p className="text-[10px] font-bold text-[#6A6F73] uppercase tracking-[0.1em] mb-2 pb-1 border-b border-[#F1F3F4]">{title}</p>
+      <p className="text-[10px] font-bold text-[#5A5E62] uppercase tracking-[0.1em] mb-2 pb-1 border-b border-[#F1F3F4]">{title}</p>
       {children}
     </div>
   );
@@ -261,7 +261,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
             ])}
           />
           {ct.tax_holiday.transition_reduction && (
-            <p className="text-[10px] text-[#6A6F73] mt-1">+ {ct.tax_holiday.transition_years} yr transition at {ct.tax_holiday.transition_reduction}% reduction</p>
+            <p className="text-[10px] text-[#5A5E62] mt-1">+ {ct.tax_holiday.transition_years} yr transition at {ct.tax_holiday.transition_reduction}% reduction</p>
           )}
         </SubSection>
       )}
@@ -296,7 +296,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
         <SubSection title="Concessionary Tax Rates">
           {Object.entries(ct.concessionary_rates).map(([k, v]: [string, any]) => (
             <div key={k} className="flex items-center justify-between py-1 border-b border-[#F1F3F4] last:border-0">
-              <span className="text-[10px] text-[#6A6F73]">{humanKey(k)}</span>
+              <span className="text-[10px] text-[#5A5E62]">{humanKey(k)}</span>
               <div className="flex gap-1.5">
                 {v.rate_range && <Badge color="teal">{v.rate_range}</Badge>}
                 {v.rate !== undefined && <Badge color="teal">{v.rate}%</Badge>}
@@ -320,7 +320,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
       {/* SG: Foreign Sourced Income */}
       {ct.foreign_sourced_income_exemption && (
         <SubSection title="Foreign Sourced Income Exemption">
-          <p className="text-[10px] text-[#6A6F73] mb-1">Conditions:</p>
+          <p className="text-[10px] text-[#5A5E62] mb-1">Conditions:</p>
           <ul className="space-y-0.5">
             {ct.foreign_sourced_income_exemption.conditions.map((c: string, i: number) => (
               <li key={i} className="text-[10px] text-[#0D0E0F] flex items-start gap-1">
@@ -328,7 +328,7 @@ function CorporateTaxSection({ ct, code }: { ct: any; code: string }) {
               </li>
             ))}
           </ul>
-          <p className="text-[10px] text-[#6A6F73] mt-1">Applies to: {ct.foreign_sourced_income_exemption.applicable_to.join(', ')}</p>
+          <p className="text-[10px] text-[#5A5E62] mt-1">Applies to: {ct.foreign_sourced_income_exemption.applicable_to.join(', ')}</p>
         </SubSection>
       )}
 
@@ -456,7 +456,7 @@ function IndirectTaxSection({ data }: { data: any }) {
               <DataRow label="State Sales Tax Range" value={`${vatEq.state_range.min}% - ${vatEq.state_range.max}%`} />
             </div>
           )}
-          {vatEq.note && <p className="text-[10px] text-[#6A6F73] mt-1">{vatEq.note}</p>}
+          {vatEq.note && <p className="text-[10px] text-[#5A5E62] mt-1">{vatEq.note}</p>}
         </div>
       )}
 
@@ -582,7 +582,7 @@ function PayrollSection({ data }: { data: any }) {
             if (v.min !== undefined && v.max !== undefined) {
               return (
                 <div key={k} className="flex items-center gap-2 py-1">
-                  <span className="text-[10px] text-[#6A6F73] w-[100px] shrink-0 truncate">{humanKey(k)}</span>
+                  <span className="text-[10px] text-[#5A5E62] w-[100px] shrink-0 truncate">{humanKey(k)}</span>
                   <div className="flex-1 h-4 bg-[#F1F3F4] rounded overflow-hidden">
                     <div className="h-full rounded bg-[#DDE1E3]" style={{ width: `${(v.max / 25) * 100}%` }} />
                   </div>
@@ -626,7 +626,7 @@ function PayrollSection({ data }: { data: any }) {
             return null;
           })}
           {statePayroll.range && (
-            <p className="text-[10px] text-[#6A6F73] mt-1">Range: {statePayroll.range.min}% - {statePayroll.range.max}%</p>
+            <p className="text-[10px] text-[#5A5E62] mt-1">Range: {statePayroll.range.min}% - {statePayroll.range.max}%</p>
           )}
         </SubSection>
       )}
@@ -1367,7 +1367,7 @@ function AdditionalDataSection({ data }: { data: any }) {
                     if (typeof v[0] === 'string') {
                       return (
                         <div key={k} className="mt-1">
-                          <span className="text-[10px] text-[#6A6F73]">{humanKey(k)}: </span>
+                          <span className="text-[10px] text-[#5A5E62]">{humanKey(k)}: </span>
                           <span className="text-[10px] text-[#0D0E0F]">{v.join(', ')}</span>
                         </div>
                       );
@@ -1454,7 +1454,7 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
           { label: 'Tax Treaties', value: String(summary.treatyCount), color: '#0052C4', sub: summary.treatyCount >= 80 ? 'Extensive network' : undefined },
         ].map((m) => (
           <div key={m.label} className="bg-white border border-[#E4E7E9] rounded-lg p-4">
-            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6A6F73] mb-1">{m.label}</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#5A5E62] mb-1">{m.label}</p>
             <p className="text-2xl font-extrabold tracking-tight font-mono" style={{ color: m.color }}>{m.value}</p>
             {m.sub && <p className="text-[9px] text-[#6A6F73] mt-0.5">{m.sub}</p>}
           </div>

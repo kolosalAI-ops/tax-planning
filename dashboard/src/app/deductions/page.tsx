@@ -326,7 +326,7 @@ function CountryDetailCard({ code }: { code: CountryCode }) {
         <span className="text-xl">{COUNTRY_FLAGS[code]}</span>
         <div>
           <h3 className="text-sm font-bold text-[#0D0E0F]">{COUNTRY_LABELS[code]}</h3>
-          <span className="text-[10px] font-mono text-[#6A6F73]">{t.tax_year}</span>
+          <span className="text-[10px] font-mono text-[#5A5E62]">{t.tax_year}</span>
         </div>
       </div>
 
@@ -337,7 +337,7 @@ function CountryDetailCard({ code }: { code: CountryCode }) {
           <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#F0F6FE] text-[#0052C4]">{rnd.type}</span>
         </div>
         <div className="text-lg font-extrabold text-[#0052C4] font-mono">{rnd.rate}%</div>
-        <div className="text-[10px] text-[#6A6F73]">{rnd.label}</div>
+        <div className="text-[10px] text-[#5A5E62]">{rnd.label}</div>
         <div className="mt-2 space-y-1">
           {rndDetails.map((item) => (
             <div key={item.label} className="flex justify-between text-[10px]">
@@ -445,7 +445,7 @@ export default function DeductionsPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Depreciation Methods — Key Asset Classes</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">SL = Straight-Line, DB = Declining Balance, DV = Diminishing Value, IBA = Industrial Building Allowance</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">SL = Straight-Line, DB = Declining Balance, DV = Diminishing Value, IBA = Industrial Building Allowance</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[10px]">
@@ -483,7 +483,7 @@ export default function DeductionsPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">R&amp;D Incentive — Effective Benefit Rate Comparison</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Estimated effective tax benefit per dollar of qualifying R&amp;D expenditure (higher = more generous)</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Estimated effective tax benefit per dollar of qualifying R&amp;D expenditure (higher = more generous)</p>
         </div>
         <div className="px-4 py-4 space-y-3">
           {rndBars.map((bar) => (
@@ -524,7 +524,7 @@ export default function DeductionsPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Net Operating Loss (NOL) Rules Comparison</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Carry-forward periods, carry-back availability, and annual utilisation limits</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Carry-forward periods, carry-back availability, and annual utilisation limits</p>
         </div>
         <div className="p-4">
           {/* NOL Header Row */}

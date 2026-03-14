@@ -125,7 +125,7 @@ function HeatmapTable({
     <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
       <div className="px-4 py-3 border-b border-[#E4E7E9]">
         <h3 className="text-sm font-bold text-[#0D0E0F]">{title}</h3>
-        <p className="text-[10px] text-[#6A6F73] mt-0.5">{subtitle}</p>
+        <p className="text-[10px] text-[#5A5E62] mt-0.5">{subtitle}</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-center">
@@ -259,7 +259,7 @@ export default function TreatyPage() {
         <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
           <div className="px-4 py-3 border-b border-[#E4E7E9]">
             <h3 className="text-sm font-bold text-[#0D0E0F]">Most Tax-Efficient Corridors</h3>
-            <p className="text-[10px] text-[#6A6F73] mt-0.5">Lowest combined WHT (Div + Int + Roy)</p>
+            <p className="text-[10px] text-[#5A5E62] mt-0.5">Lowest combined WHT (Div + Int + Roy)</p>
           </div>
           <table className="w-full">
             <thead>
@@ -295,7 +295,7 @@ export default function TreatyPage() {
         <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
           <div className="px-4 py-3 border-b border-[#E4E7E9]">
             <h3 className="text-sm font-bold text-[#0D0E0F]">Highest WHT Corridors</h3>
-            <p className="text-[10px] text-[#6A6F73] mt-0.5">Corridors with highest combined withholding burden</p>
+            <p className="text-[10px] text-[#5A5E62] mt-0.5">Corridors with highest combined withholding burden</p>
           </div>
           <table className="w-full">
             <thead>
@@ -339,7 +339,7 @@ export default function TreatyPage() {
 
       {/* Color Legend */}
       <div className="bg-white border border-[#E4E7E9] rounded-lg p-4">
-        <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6A6F73] mb-3">Heatmap Legend</h3>
+        <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#5A5E62] mb-3">Heatmap Legend</h3>
         <div className="flex flex-wrap gap-4 text-[11px]">
           <span className="inline-flex items-center gap-1.5">
             <span className="w-4 h-4 rounded bg-[#E8F5E9] border border-[#E4E7E9]" /> 0% (exempt)

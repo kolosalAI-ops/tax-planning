@@ -21,7 +21,7 @@ export default function CountryCard({ code }: CountryCardProps) {
           <p className="text-xs font-bold text-[#0D0E0F] leading-tight group-hover:text-[#0052C4] transition-colors">
             {COUNTRY_LABELS[code]}
           </p>
-          <p className="text-[10px] text-[#6A6F73] font-mono">{code}</p>
+          <p className="text-[10px] text-[#5A5E62] font-mono">{code}</p>
         </div>
       </div>
       <div className="space-y-1">

@@ -77,12 +77,12 @@ export default function CasesPage() {
                   <div className="flex items-center gap-4">
                     <div className="text-center">
                       <p className="text-xl font-extrabold font-mono text-[#0052C4]">{arch.effectiveRate}%</p>
-                      <p className="text-[10px] text-[#6A6F73] uppercase">Effective Rate</p>
+                      <p className="text-[10px] text-[#5A5E62] uppercase">Effective Rate</p>
                     </div>
                     {ranking && (
                       <div className="text-center">
                         <p className="text-xl font-extrabold font-mono text-[#0D0E0F]">${Math.round(ranking.afterTaxProfit).toLocaleString()}</p>
-                        <p className="text-[10px] text-[#6A6F73] uppercase">After-Tax Profit</p>
+                        <p className="text-[10px] text-[#5A5E62] uppercase">After-Tax Profit</p>
                       </div>
                     )}
                   </div>
@@ -91,7 +91,7 @@ export default function CasesPage() {
                 <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* Structure Diagram */}
                   <div>
-                    <h4 className="text-[10px] font-bold text-[#6A6F73] uppercase tracking-wider mb-3">Entity Structure</h4>
+                    <h4 className="text-[10px] font-bold text-[#5A5E62] uppercase tracking-wider mb-3">Entity Structure</h4>
                     <div className="space-y-2">
                       {/* Principal */}
                       <div className="border-2 border-[#0052C4] rounded-lg p-3 bg-[#F0F6FE]">
@@ -117,7 +117,7 @@ export default function CasesPage() {
                               <span className="text-sm">{COUNTRY_FLAGS[lrd.country]}</span>
                               <div className="flex-1 min-w-0">
                                 <p className="text-[11px] font-semibold text-[#0D0E0F]">{lrd.role}</p>
-                                <p className="text-[10px] text-[#6A6F73] truncate" title={lrd.regime}>{lrd.regime}</p>
+                                <p className="text-[10px] text-[#5A5E62] truncate" title={lrd.regime}>{lrd.regime}</p>
                               </div>
                             </div>
                           </div>
@@ -128,7 +128,7 @@ export default function CasesPage() {
 
                   {/* Tax Breakdown */}
                   <div>
-                    <h4 className="text-[10px] font-bold text-[#6A6F73] uppercase tracking-wider mb-3">Tax Breakdown ($5M Revenue)</h4>
+                    <h4 className="text-[10px] font-bold text-[#5A5E62] uppercase tracking-wider mb-3">Tax Breakdown ($5M Revenue)</h4>
                     {ranking ? (
                       <div className="space-y-2">
                         {[
@@ -174,7 +174,7 @@ export default function CasesPage() {
 
                     {/* Legal Basis */}
                     <div className="mt-4">
-                      <h4 className="text-[10px] font-bold text-[#6A6F73] uppercase tracking-wider mb-2">Legal Basis</h4>
+                      <h4 className="text-[10px] font-bold text-[#5A5E62] uppercase tracking-wider mb-2">Legal Basis</h4>
                       <div className="flex flex-wrap gap-1">
                         {arch.legalBasis.map((lb) => (
                           <span key={lb} className="text-[9px] font-mono bg-[#F0F6FE] text-[#0052C4] px-2 py-0.5 rounded">
@@ -195,7 +195,7 @@ export default function CasesPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Investment Corridor Examples</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Per $100K gross profit repatriation</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Per $100K gross profit repatriation</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
@@ -238,7 +238,7 @@ export default function CasesPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Multi-Dimensional Country Scoring</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Score 0-100 per dimension; higher is better</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Score 0-100 per dimension; higher is better</p>
         </div>
         <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {scores

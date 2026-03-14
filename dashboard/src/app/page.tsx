@@ -59,7 +59,7 @@ export default function HomePage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Top Jurisdictions by Use Case</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Based on multi-dimensional tax competitiveness scoring (0-100)</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Based on multi-dimensional tax competitiveness scoring (0-100)</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#E4E7E9]">
           {[
@@ -69,7 +69,7 @@ export default function HomePage() {
             { label: 'Investor Friendly', country: bestInvestor, score: bestInvestor.investorFriendliness, desc: 'Dividend WHT, CGT, repatriation, FX controls' },
           ].map((dim) => (
             <Link key={dim.label} href={`/countries/${dim.country.code}`} className="p-4 hover:bg-[#F8F9F9] transition-colors group">
-              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6A6F73] mb-2">{dim.label}</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#5A5E62] mb-2">{dim.label}</p>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-xl">{COUNTRY_FLAGS[dim.country.code]}</span>
                 <div>
@@ -77,7 +77,7 @@ export default function HomePage() {
                   <p className="text-lg font-extrabold font-mono text-[#0052C4]">{dim.score.toFixed(0)}</p>
                 </div>
               </div>
-              <p className="text-[10px] text-[#6A6F73] leading-tight">{dim.desc}</p>
+              <p className="text-[10px] text-[#5A5E62] leading-tight">{dim.desc}</p>
             </Link>
           ))}
         </div>
@@ -109,7 +109,7 @@ export default function HomePage() {
               Full Analysis →
             </Link>
           </div>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Net amount an investor receives per $100K of pre-tax corporate profit</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Net amount an investor receives per $100K of pre-tax corporate profit</p>
         </div>
         <div className="p-4 space-y-2">
           {COUNTRY_ORDER.map((code) => {

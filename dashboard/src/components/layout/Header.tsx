@@ -8,6 +8,8 @@ const PAGE_TITLES: Record<string, string> = {
   '/compare': 'Country Comparison',
   '/investors': 'International Investors',
   '/deductions': 'Deductions & Allowances',
+  '/rnd': 'R&D Incentives',
+  '/treaty': 'Treaty & WHT',
   '/pipeline': 'Tax Pipeline',
   '/cases': 'Case Studies',
 };
@@ -27,7 +29,7 @@ export default function Header() {
           className="md:hidden p-1.5 -ml-1.5 rounded-md text-[#6A6F73] hover:text-[#0D0E0F] hover:bg-[#F1F3F4] transition-colors"
           aria-label="Toggle sidebar"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="18" x2="21" y2="18" />
@@ -35,7 +37,7 @@ export default function Header() {
         </button>
         <div>
           <h2 className="text-[17px] font-bold text-[#0D0E0F] tracking-[-0.02em]">{title}</h2>
-          <p className="text-[12px] text-[#6A6F73]">
+          <p className="text-[12px] text-[#5A5E62]">
             Kolosal Tax Advisory — 7-Country Analysis
           </p>
         </div>

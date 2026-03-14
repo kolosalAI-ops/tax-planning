@@ -154,7 +154,7 @@ export default function RndPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Effective Benefit per $1M R&amp;D Spend — All 45 Countries</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Tax saved per $1M of qualifying R&amp;D expenditure at statutory CIT rate. Sorted by benefit descending.</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Tax saved per $1M of qualifying R&amp;D expenditure at statutory CIT rate. Sorted by benefit descending.</p>
         </div>
         <div className="p-4 space-y-1">
           {allCountries.map((c) => {
@@ -187,7 +187,7 @@ export default function RndPage() {
           {regionStats.map((r) => (
             <div key={r.key} className="bg-white border border-[#E4E7E9] rounded-lg p-4 border-l-[3px] border-l-[#0052C4]">
               <h3 className="text-xs font-bold text-[#0D0E0F]">{r.name}</h3>
-              <p className="text-[10px] text-[#6A6F73] mb-3">{r.count} countries</p>
+              <p className="text-[10px] text-[#5A5E62] mb-3">{r.count} countries</p>
               <div className="grid grid-cols-2 gap-2 mb-3">
                 <div>
                   <p className="text-lg font-extrabold font-mono text-[#0052C4]">
@@ -223,7 +223,7 @@ export default function RndPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Mechanism Distribution</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">How countries deliver R&amp;D tax benefits</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">How countries deliver R&amp;D tax benefits</p>
         </div>
         <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {Object.entries(mechanismGroups)
@@ -250,7 +250,7 @@ export default function RndPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Patent Box / IP Regimes — {patentBoxCountries.length} Countries</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Preferential tax rates on income from qualifying intellectual property</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Preferential tax rates on income from qualifying intellectual property</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -274,7 +274,7 @@ export default function RndPage() {
                     <td className="px-3 py-2 text-[11px] font-mono text-right">
                       ${(c.effective_benefit_per_1m_usd / 1000).toFixed(0)}K
                     </td>
-                    <td className="px-3 py-2 text-[10px] text-[#6A6F73] max-w-xs truncate">{c.notes}</td>
+                    <td className="px-3 py-2 text-[10px] text-[#5A5E62] max-w-xs truncate">{c.notes}</td>
                   </tr>
                 ))}
             </tbody>
@@ -286,7 +286,7 @@ export default function RndPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Refundable R&amp;D Credits — {refundableCountries.length} Countries</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Jurisdictions that provide cash refunds for R&amp;D investment, even without tax liability</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Jurisdictions that provide cash refunds for R&amp;D investment, even without tax liability</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -306,7 +306,7 @@ export default function RndPage() {
                   <td className="px-3 py-2 text-[11px] font-mono font-bold text-[#0052C4] text-right">
                     ${(c.effective_benefit_per_1m_usd / 1000).toFixed(0)}K
                   </td>
-                  <td className="px-3 py-2 text-[10px] text-[#6A6F73] max-w-xs truncate">{c.notes}</td>
+                  <td className="px-3 py-2 text-[10px] text-[#5A5E62] max-w-xs truncate">{c.notes}</td>
                 </tr>
               ))}
             </tbody>
@@ -318,7 +318,7 @@ export default function RndPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Complete 45-Country Reference</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Full data for all covered jurisdictions — headline incentive, mechanism, benefit, and legal basis</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Full data for all covered jurisdictions — headline incentive, mechanism, benefit, and legal basis</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -337,7 +337,7 @@ export default function RndPage() {
               {allCountries.map((c, i) => (
                 <tr key={c.code} className={`border-b border-[#F1F3F4] ${i % 2 === 0 ? '' : 'bg-[#F8F9F9]'}`}>
                   <td className="px-3 py-2 text-[11px] font-semibold text-[#0D0E0F] whitespace-nowrap">
-                    <span className="font-mono text-[10px] text-[#6A6F73] mr-1.5">{c.code}</span>
+                    <span className="font-mono text-[10px] text-[#5A5E62] mr-1.5">{c.code}</span>
                     {c.country}
                   </td>
                   <td className="px-3 py-2 text-[10px] text-[#3C3E40] max-w-[200px] truncate">{c.headline_incentive}</td>

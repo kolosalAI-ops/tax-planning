@@ -67,7 +67,7 @@ export default function ComparePage() {
               <span className="text-2xl">{COUNTRY_FLAGS[code]}</span>
               <p className="text-xs font-bold text-[#0D0E0F] mt-1 group-hover:text-[#0052C4] transition-colors">{COUNTRY_LABELS[code]}</p>
               <p className="text-lg font-extrabold text-[#0052C4] font-mono mt-1">{s.corporateRate.toFixed(1)}%</p>
-              <p className="text-[10px] text-[#6A6F73] uppercase tracking-wider">CIT Rate</p>
+              <p className="text-[10px] text-[#5A5E62] uppercase tracking-wider">CIT Rate</p>
               <p className="text-[9px] font-bold uppercase tracking-wider text-[#0052C4] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Details →</p>
             </Link>
           );

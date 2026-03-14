@@ -177,7 +177,7 @@ export default function InvestorsPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Withholding Tax Rates — Dividends, Interest &amp; Royalties</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Default (non-treaty) rates for payments to non-residents</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Default (non-treaty) rates for payments to non-residents</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
@@ -236,7 +236,7 @@ export default function InvestorsPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Branch vs Subsidiary Comparison</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Effective tax on repatriated profits — branch (CIT + BPT) vs subsidiary (CIT + dividend WHT)</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Effective tax on repatriated profits — branch (CIT + BPT) vs subsidiary (CIT + dividend WHT)</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
@@ -299,7 +299,7 @@ export default function InvestorsPage() {
         <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
           <div className="px-4 py-3 border-b border-[#E4E7E9]">
             <h3 className="text-sm font-bold text-[#0D0E0F]">CFC Rules Comparison</h3>
-            <p className="text-[10px] text-[#6A6F73] mt-0.5">Controlled foreign corporation regimes and key thresholds</p>
+            <p className="text-[10px] text-[#5A5E62] mt-0.5">Controlled foreign corporation regimes and key thresholds</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-[11px]">
@@ -355,7 +355,7 @@ export default function InvestorsPage() {
         <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
           <div className="px-4 py-3 border-b border-[#E4E7E9]">
             <h3 className="text-sm font-bold text-[#0D0E0F]">Treaty Network Coverage</h3>
-            <p className="text-[10px] text-[#6A6F73] mt-0.5">Comprehensive double-tax treaties in force + LOB/PPT provisions</p>
+            <p className="text-[10px] text-[#5A5E62] mt-0.5">Comprehensive double-tax treaties in force + LOB/PPT provisions</p>
           </div>
           <div className="p-4 space-y-2.5">
             {treatyData
@@ -402,7 +402,7 @@ export default function InvestorsPage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">FX Controls &amp; Repatriation Risk</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Capital repatriation restrictions, FX controls, and central bank requirements</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Capital repatriation restrictions, FX controls, and central bank requirements</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
@@ -468,7 +468,7 @@ export default function InvestorsPage() {
         <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
           <div className="px-4 py-3 border-b border-[#E4E7E9]">
             <h3 className="text-sm font-bold text-[#0D0E0F]">Permanent Establishment Thresholds</h3>
-            <p className="text-[10px] text-[#6A6F73] mt-0.5">Construction PE (months) and service PE (days) trigger points</p>
+            <p className="text-[10px] text-[#5A5E62] mt-0.5">Construction PE (months) and service PE (days) trigger points</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-[11px]">
@@ -530,7 +530,7 @@ export default function InvestorsPage() {
         <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
           <div className="px-4 py-3 border-b border-[#E4E7E9]">
             <h3 className="text-sm font-bold text-[#0D0E0F]">Foreign Tax Credit Methods</h3>
-            <p className="text-[10px] text-[#6A6F73] mt-0.5">Relief method, limitation basis, and carry forward/back periods</p>
+            <p className="text-[10px] text-[#5A5E62] mt-0.5">Relief method, limitation basis, and carry forward/back periods</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-[11px]">
@@ -579,7 +579,7 @@ export default function InvestorsPage() {
         <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
           <div className="px-4 py-3 border-b border-[#E4E7E9]">
             <h3 className="text-sm font-bold text-[#0D0E0F]">Top Investment Corridors</h3>
-            <p className="text-[10px] text-[#6A6F73] mt-0.5">Ranked by effective tax rate on repatriated profits (per $100K gross)</p>
+            <p className="text-[10px] text-[#5A5E62] mt-0.5">Ranked by effective tax rate on repatriated profits (per $100K gross)</p>
           </div>
           <div className="p-4 space-y-2">
             {corridors.top_corridors.map((c, i) => {
@@ -599,7 +599,7 @@ export default function InvestorsPage() {
                     />
                   </div>
                   <span className="text-[11px] font-mono font-bold text-[#0D0E0F] w-12 text-right">{c.effectiveRate}%</span>
-                  <span className="text-[10px] font-mono text-[#6A6F73] w-16 text-right">${c.net.toLocaleString()}</span>
+                  <span className="text-[10px] font-mono text-[#5A5E62] w-16 text-right">${c.net.toLocaleString()}</span>
                 </div>
               );
             })}
@@ -610,7 +610,7 @@ export default function InvestorsPage() {
         <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
           <div className="px-4 py-3 border-b border-[#E4E7E9]">
             <h3 className="text-sm font-bold text-[#0D0E0F]">Optimal Structure by Investor Country</h3>
-            <p className="text-[10px] text-[#6A6F73] mt-0.5">B2B startup scenario ($500K revenue, 15% margin)</p>
+            <p className="text-[10px] text-[#5A5E62] mt-0.5">B2B startup scenario ($500K revenue, 15% margin)</p>
           </div>
           <div className="p-4 space-y-2">
             {Object.entries(b2b.best_per_investor).map(([code, info]) => (
@@ -619,12 +619,12 @@ export default function InvestorsPage() {
                   <span className="text-lg">{COUNTRY_FLAGS[code as CountryCode]}</span>
                   <div>
                     <p className="text-xs font-bold text-[#0D0E0F]">{COUNTRY_LABELS[code as CountryCode]} Investor</p>
-                    <p className="text-[10px] font-mono text-[#6A6F73]">{info.structure}</p>
+                    <p className="text-[10px] font-mono text-[#5A5E62]">{info.structure}</p>
                   </div>
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-extrabold font-mono text-[#0052C4]">{info.effectiveRate}%</p>
-                  <p className="text-[10px] text-[#6A6F73]">effective rate</p>
+                  <p className="text-[10px] text-[#5A5E62]">effective rate</p>
                 </div>
               </div>
             ))}

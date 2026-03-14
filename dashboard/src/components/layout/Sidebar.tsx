@@ -44,7 +44,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           <span className="text-[#0066F5]">Kolosal</span>{' '}
           <span className="text-[#DDE1E3]">Tax</span>
         </h1>
-        <p className="text-[10px] text-[#6A6F73] mt-0.5">7-Country Dashboard</p>
+        <p className="text-[10px] text-[#5A5E62] mt-0.5">7-Country Dashboard</p>
       </div>
 
       {/* Navigation */}
@@ -100,7 +100,16 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
       </nav>
 
       {/* Footer */}
-      <div className="px-4 py-3 border-t border-[#3C3E40]">
+      <div className="px-4 py-3 border-t border-[#3C3E40] space-y-2">
+        <a
+          href="../"
+          className="flex items-center gap-2 text-[12px] font-medium text-[#9C9FA1] hover:text-white transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          Back to Resource Hub
+        </a>
         <p className="text-[11px] text-[#9C9FA1]">Tax Year 2024/2025</p>
       </div>
     </>
@@ -131,7 +140,7 @@ export default function Sidebar() {
               className="absolute top-4 right-3 text-[#6A6F73] hover:text-white p-1"
               aria-label="Close sidebar"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>

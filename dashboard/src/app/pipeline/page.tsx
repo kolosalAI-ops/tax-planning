@@ -76,7 +76,7 @@ export default function PipelinePage() {
           { label: 'Structures Evaluated', value: '2,401', sub: '7^4 combinations' },
         ].map((m) => (
           <div key={m.label} className="bg-white border border-[#E4E7E9] rounded-lg p-4">
-            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6A6F73] mb-1">{m.label}</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#5A5E62] mb-1">{m.label}</p>
             <p className="text-2xl font-extrabold tracking-tight text-[#0D0E0F]">{m.value}</p>
             <p className="text-xs text-[#6A6F73] mt-1">{m.sub}</p>
           </div>
@@ -87,7 +87,7 @@ export default function PipelinePage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Top 10 Structures (Lowest Effective Rate)</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Incorp / Ops / IP Hold / Investor</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Incorp / Ops / IP Hold / Investor</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
@@ -125,7 +125,7 @@ export default function PipelinePage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Single Entity Ranking</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Domestic-only structures ranked by total effective rate</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Domestic-only structures ranked by total effective rate</p>
         </div>
         <div className="p-4 space-y-2">
           {singleRanking.map((r, i) => {
@@ -148,7 +148,7 @@ export default function PipelinePage() {
                     <span className="text-[10px] font-mono font-bold text-white">{r.effectiveRate}%</span>
                   </div>
                 </div>
-                <span className="text-[10px] text-[#6A6F73] w-48 truncate hidden lg:block" title={r.regime}>{r.regime}</span>
+                <span className="text-[10px] text-[#5A5E62] w-48 truncate hidden lg:block" title={r.regime}>{r.regime}</span>
               </div>
             );
           })}
@@ -159,7 +159,7 @@ export default function PipelinePage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Revenue Sensitivity Analysis</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">Effective tax rate (%) by revenue level and country</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">Effective tax rate (%) by revenue level and country</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
@@ -203,7 +203,7 @@ export default function PipelinePage() {
       <div className="bg-white border border-[#E4E7E9] rounded-lg overflow-hidden">
         <div className="px-4 py-3 border-b border-[#E4E7E9]">
           <h3 className="text-sm font-bold text-[#0D0E0F]">Product Principal Rankings</h3>
-          <p className="text-[10px] text-[#6A6F73] mt-0.5">$5M global revenue, 35% operating margin, 20% R&amp;D spend</p>
+          <p className="text-[10px] text-[#5A5E62] mt-0.5">$5M global revenue, 35% operating margin, 20% R&amp;D spend</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
@@ -246,7 +246,7 @@ export default function PipelinePage() {
                   <h4 className="text-xs font-bold text-[#0D0E0F]">{arch.name}</h4>
                   <span className="text-xs font-mono font-bold text-[#0052C4]">{arch.effectiveRate}%</span>
                 </div>
-                <p className="text-[10px] text-[#6A6F73] mt-1">{arch.description}</p>
+                <p className="text-[10px] text-[#5A5E62] mt-1">{arch.description}</p>
               </div>
               <div className="p-3 space-y-1.5">
                 <div className="flex items-center gap-1.5 text-[11px]">
@@ -254,7 +254,7 @@ export default function PipelinePage() {
                   <span>{COUNTRY_FLAGS[arch.principal]} {COUNTRY_LABELS[arch.principal]}</span>
                 </div>
                 {arch.lrds.map((lrd, i) => (
-                  <div key={i} className="flex items-center gap-1.5 text-[10px] text-[#6A6F73]">
+                  <div key={i} className="flex items-center gap-1.5 text-[10px] text-[#5A5E62]">
                     <span>{COUNTRY_FLAGS[lrd.country]}</span>
                     <span className="font-semibold text-[#0D0E0F]">{lrd.role}</span>
                     <span className="truncate" title={lrd.regime}>- {lrd.regime}</span>
