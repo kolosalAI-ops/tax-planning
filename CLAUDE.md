@@ -69,6 +69,16 @@ tax-planning/
   /* Typography */
   --sans: 'Inter', sans-serif;
   --mono: 'Geist Mono', monospace;
+
+  /* Spacing (4px base, 8px rhythm) */
+  --space-xs: 4px;   --space-sm: 8px;   --space-md: 16px;
+  --space-lg: 24px;  --space-xl: 32px;  --space-2xl: 40px;
+  --space-3xl: 48px; --space-4xl: 64px; --space-5xl: 72px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
 }
 ```
 
@@ -76,12 +86,12 @@ tax-planning/
 
 | Class | Size | Weight | Transform | Usage |
 |-------|------|--------|-----------|-------|
-| `.label` | 9–10px | 700 | uppercase, 0.14em spacing | Section labels |
-| `.title` | 36–42px | 800 | -0.03em spacing | Slide titles |
-| `.title-slide .title` | 40–48px | 800 | -0.035em spacing | Title slide heading |
-| `.subtitle` | 14–16px | 400 | — | Title slide description |
-| `.h2` | 22–28px | 700 | -0.02em spacing | Content slide headings |
-| `.h3` | 10–13px | 700 | uppercase, 0.06em spacing | Card/section subheadings |
+| `.label` | 10px | 700 | uppercase, 0.10em spacing | Section labels |
+| `.title` | 38px | 800 | -0.035em spacing | Slide titles |
+| `.title-slide .title` | 46px | 800 | -0.045em spacing | Title slide heading |
+| `.subtitle` | 15px | 400 | line-height 1.7 | Title slide description |
+| `.h2` | 28px | 700 | -0.02em spacing | Content slide headings |
+| `.h3` | 11px | 700 | uppercase, 0.06em spacing | Card/section subheadings |
 | `.mono` | — | — | — | Monospace override class |
 
 ### Slide Types
@@ -95,18 +105,18 @@ tax-planning/
 
 | Component | Classes | Description |
 |-----------|---------|-------------|
-| **Card** | `.card` | 1px border, 3px left accent border, 10px radius, subtle shadow |
-| **Metrics bar** | `.metrics` > `.metric` | Flex row of stat boxes with accent top bar |
-| **Metric value** | `.metric-val` | 22px mono bold; `.metric-lbl` 8px uppercase muted |
-| **Key point** | `.key-point` | Left accent border callout, accent-light bg, 8px right radius |
-| **Data table** | `.dtable` | Dark header, alternating rows, 2px bottom border on last row |
-| **Bar chart** | `.hbar` > `.hbar-row` | Label (76px) + track + fill + value (52px mono) |
+| **Card** | `.card` | 1px border, 3px left accent border, 12px radius, shadow-sm; hover: shadow-lg |
+| **Metrics bar** | `.metrics` > `.metric` | Flex row of stat boxes with 2px solid accent top bar |
+| **Metric value** | `.metric-val` | 28px mono bold, tabular-nums; `.metric-lbl` 8px uppercase muted |
+| **Key point** | `.key-point` | Left accent border callout, accent-light bg, 8px right radius, 12.5px font |
+| **Data table** | `.dtable` | Dark header (6px corner radius), row hover, 8px 12px cell padding |
+| **Bar chart** | `.hbar` > `.hbar-row` | Label (80px) + track (20px, inset shadow) + fill + value (56px mono) |
 | **Bar variants** | `.hbar-fill` | Default: accent; `.alt`: medium; `.accent`: amber; `.high`: red |
-| **Tags** | `.tag` / `.tag.filled` | 8px uppercase badges; filled = accent bg |
+| **Tags** | `.tag` / `.tag.filled` | 8px uppercase badges, 6px radius; filled = accent bg + subtle shadow |
 | **Checklist** | `.checklist` | Checkbox-prefixed list items with bottom borders |
-| **Timeline** | `.timeline` > `.tl-item` | Left border with dot markers; `.tl-year` mono accent |
+| **Timeline** | `.timeline` > `.tl-item` | Solid accent left border with dot markers; `.tl-year` mono accent |
 | **Flow diagram** | `.flow` > `.flow-node` + `.flow-arrow` | Bordered boxes with arrow connectors |
-| **Layout: 2-col** | `.two-col` | CSS grid 1fr 1fr, 28px gap |
+| **Layout: 2-col** | `.two-col` | CSS grid 1fr 1fr, 32px gap |
 | **Layout: 3-col** | `.three-col` | CSS grid 1fr 1fr 1fr, 16px gap |
 | **Slide header** | `.slide-header` | Icon box + h2, flex aligned |
 | **VS comparison** | `.vs-grid` > `.vs-box` | 3-col grid: panel / divider / panel; `.vs-box.win` for winner |
@@ -114,8 +124,10 @@ tax-planning/
 ### Animation
 
 - Class `.anim-item` on elements triggers `fadeInUp` animation when parent slide gets `.active`
-- Staggered: nth-child delays from 0.05s to 0.3s
+- Keyframe: `translateY(16px) opacity:0` to `translateY(0) opacity:1`, duration 0.3s
+- Staggered: nth-child delays at 0.04s increments, capped at 6th child (0.24s)
 - MutationObserver resets animations on slide change
+- `prefers-reduced-motion` supported: all animations and transitions disabled
 
 ### Navigation (Bottom Bar)
 
@@ -131,9 +143,12 @@ tax-planning/
 </nav>
 ```
 
-- Keyboard: ArrowRight/Space = next, ArrowLeft = back
-- Touch: swipe detection (50px threshold)
-- Progress bar: fixed top, 3px, accent gradient
+- Keyboard: ArrowRight/Space = next, ArrowLeft = back, Home = first, End = last
+- `?` key toggles keyboard shortcut overlay (top-right, auto-dismiss 4s, hidden on mobile)
+- Touch: swipe detection (60px threshold + velocity check >0.5px/ms), edge flash feedback
+- Progress bar: fixed bottom (above nav), 2px, accent gradient with subtle glow
+- Nav bar: 52px height, frosted glass (`backdrop-filter: blur(8px)`), 6px radius buttons
+- Slide counter shows section name: `01 / 53 · Section Name`
 
 ### Print Styles
 
@@ -146,7 +161,7 @@ tax-planning/
 
 - Single breakpoint: `@media (max-width: 768px)`
 - Multi-column grids collapse to single column
-- Title font scales down to 28px
+- Title font scales down to 30px
 - Metrics wrap
 
 ---
