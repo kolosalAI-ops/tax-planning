@@ -44,7 +44,7 @@
 body {
     font-family: var(--sans);
     font-size: 9.5pt;
-    line-height: 1.55;
+    line-height: 1.6;
     color: var(--fg);
     font-feature-settings: 'kern' 1, 'liga' 1;
     background: var(--bg);
@@ -76,7 +76,7 @@ h1 {
     padding-bottom: 8px;
     margin-top: 0;
     margin-bottom: 12px;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.03em;
 }
 h2 {
     font-size: 15pt;
@@ -87,7 +87,7 @@ h2 {
     margin-top: 28px;
     page-break-before: always;
     break-after: avoid;
-    letter-spacing: -0.4px;
+    letter-spacing: -0.02em;
 }
 h3 {
     font-size: 11pt;
@@ -119,7 +119,7 @@ table {
 th {
     background-color: var(--fg);
     color: var(--bg);
-    padding: 6px 8px;
+    padding: 8px 12px;
     text-align: left;
     font-weight: 600;
     font-size: 8pt;
@@ -127,14 +127,24 @@ th {
     letter-spacing: 0.04em;
     border: 1px solid var(--dark);
 }
+th:first-child {
+    border-radius: 6px 0 0 0;
+}
+th:last-child {
+    border-radius: 0 6px 0 0;
+}
 td {
-    padding: 6px 8px;
+    padding: 8px 12px;
     border: 1px solid var(--border);
     vertical-align: top;
     color: var(--dark);
+    font-variant-numeric: tabular-nums;
 }
 tr:nth-child(even) td {
     background-color: var(--light);
+}
+tbody tr:hover td {
+    background: #F1F3F4;
 }
 tr.highlight td {
     box-shadow: inset 3px 0 0 var(--accent);
@@ -243,6 +253,12 @@ a:hover {
     }
     a {
         border-bottom: none;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }
 </style>
