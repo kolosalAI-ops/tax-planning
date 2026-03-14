@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kolosal Tax Advisory resource hub: 45-country tax planning presentations, R&D incentives, corporate tax analysis, and cross-border structuring guides.">
+<meta property="og:title" content="Kolosal Tax Advisory — Resource Hub">
+<meta property="og:description" content="International tax planning presentations, interactive dashboards, and research covering 45 countries.">
+<meta property="og:type" content="website">
 <title>Kolosal Tax Advisory — Resource Hub</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -35,6 +39,18 @@
     background-color: var(--color-neutral-white);
   }
   body img { display: block; }
+  .skip-link {
+    position: absolute; left: -9999px; top: auto;
+    width: 1px; height: 1px; overflow: hidden;
+    z-index: 100; padding: 8px 16px;
+    background: var(--color-text-900); color: var(--color-neutral-white);
+    font-size: 13px; font-weight: 600; text-decoration: none;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    position: fixed; left: 0; top: 0;
+    width: auto; height: auto;
+  }
 
   /* ============================================
      KOLOSAL COLORS
@@ -130,7 +146,18 @@
     margin-left: 8px; margin-right: 8px;
   }
   .header-logo p { font-size: 13px; color: var(--color-text-700); }
-  .header-logo img { height: 18px; width: auto; }
+  .header-nav {
+    display: flex; align-items: center; gap: 4px;
+  }
+  .header-nav-link {
+    font-size: 13px; font-weight: 500; letter-spacing: -0.2px;
+    color: var(--color-text-700); text-decoration: none;
+    padding: 6px 12px; border-radius: 6px;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+  .header-nav-link:hover {
+    color: var(--color-text-900); background: var(--color-grey-600);
+  }
   .header-wordmark {
     font-family: "Inter", sans-serif; font-size: 15px; font-weight: 800;
     letter-spacing: -0.4px; color: var(--color-text-900);
@@ -177,7 +204,7 @@
   }
   .hero-stat-lbl {
     font-size: 11px; line-height: 16px; letter-spacing: -0.1px;
-    color: var(--color-text-600); margin-top: 4px;
+    color: var(--color-text-700); margin-top: 4px;
   }
 
   /* ============================================
@@ -268,7 +295,7 @@
     padding: 28px; text-decoration: none; color: var(--color-text-900);
     display: flex; flex-direction: column; transition: background 0.2s ease;
   }
-  .card:hover { background: var(--color-grey-600); }
+  .card:hover { background: var(--color-grey-500); }
 
   .card-badge {
     display: flex; align-items: center; justify-content: center;
@@ -377,7 +404,7 @@
     font-family: "Geist Mono", monospace;
     font-size: 11px; line-height: 16px; letter-spacing: -0.4px;
     font-weight: 500; padding: 3px 7px; border-radius: 5px;
-    transition: background 0.15s ease; cursor: default;
+    transition: background 0.15s ease;
   }
   .country-tag:hover { opacity: 0.8; }
   .country-tag.primary {
@@ -412,17 +439,19 @@
      ============================================ */
   .fade-up {
     opacity: 0; transform: translateY(8px);
+  }
+  .fade-up.visible {
     animation: fadeUp 0.35s ease forwards;
   }
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
   }
-  .fade-up:nth-child(1) { animation-delay: 0.04s; }
-  .fade-up:nth-child(2) { animation-delay: 0.08s; }
-  .fade-up:nth-child(3) { animation-delay: 0.12s; }
-  .fade-up:nth-child(4) { animation-delay: 0.16s; }
-  .fade-up:nth-child(5) { animation-delay: 0.2s; }
-  .fade-up:nth-child(6) { animation-delay: 0.24s; }
+  .fade-up.visible:nth-child(1) { animation-delay: 0.04s; }
+  .fade-up.visible:nth-child(2) { animation-delay: 0.08s; }
+  .fade-up.visible:nth-child(3) { animation-delay: 0.12s; }
+  .fade-up.visible:nth-child(4) { animation-delay: 0.16s; }
+  .fade-up.visible:nth-child(5) { animation-delay: 0.2s; }
+  .fade-up.visible:nth-child(6) { animation-delay: 0.24s; }
 
   /* ============================================
      RESPONSIVE
@@ -431,9 +460,11 @@
     .hero { padding-top: 48px; padding-bottom: 48px; }
     .hero h1 { font-size: 30px; line-height: 40px; letter-spacing: -0.2px; }
     .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .hero-stat + .hero-stat::before { display: none; }
     .hero-stat-val { font-size: 20px; line-height: 32px; }
     .section { padding-top: 40px; padding-bottom: 40px; }
-    .cards { grid-template-columns: 1fr; gap: 8px; }
+    .cards { grid-template-columns: 1fr; gap: 1px; }
+    .header-nav { display: none; }
     .coverage-grid { grid-template-columns: 1fr; }
     .dashboard-cta { flex-direction: column; align-items: flex-start; }
     .header-main { padding-top: 12px; padding-bottom: 12px; }
@@ -447,8 +478,21 @@
      ============================================ */
   @media print {
     body { background: white; }
+    header { position: static; backdrop-filter: none; box-shadow: none; }
     .card { break-inside: avoid; }
-    header { position: static; border: none; }
+    .hero { padding-top: 32px; padding-bottom: 32px; }
+    .hero h1 { font-size: 28px; }
+    .cards { border: 1px solid #ccc; }
+    .card { border-bottom: 1px solid #eee; }
+    .card-action { border: 1px solid #ccc; }
+    .card-action.primary { background: #333; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .dashboard-cta { border: 1px solid #ccc; }
+    .coverage-grid { border: 1px solid #ccc; }
+    .coverage-card { border-bottom: 1px solid #eee; }
+    a[href]::after { content: " (" attr(href) ")"; font-size: 11px; color: #666; }
+    .card-action[href]::after, .dashboard-cta[href]::after { content: none; }
+    .skip-link { display: none; }
+    .fade-up { opacity: 1; transform: none; }
   }
 
   /* ============================================
@@ -464,6 +508,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <header>
   <div class="header-main container">
     <div class="header-logo">
@@ -471,6 +517,11 @@
       <div class="divider"></div>
       <p style="font-family: 'Geist Mono', monospace; font-size: 14px; line-height: 20px; letter-spacing: -0.4px;">Tax Advisory</p>
     </div>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="#dashboard" class="header-nav-link">Dashboard</a>
+      <a href="#presentations" class="header-nav-link">Presentations</a>
+      <a href="#coverage" class="header-nav-link">Coverage</a>
+    </nav>
   </div>
 </header>
 
@@ -502,13 +553,13 @@
   </div>
 </div>
 
-<main>
+<main id="main-content">
 
   <!-- Interactive Dashboard CTA -->
-  <div class="section section-cta container">
+  <div id="dashboard" class="section section-cta container">
     <a href="dashboard/" class="dashboard-cta">
       <div class="dashboard-cta-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
       </div>
       <div class="dashboard-cta-content">
         <div class="dashboard-cta-title">Interactive Tax Dashboard</div>
@@ -518,13 +569,13 @@
         </div>
       </div>
       <div class="dashboard-cta-arrow">
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </div>
     </a>
   </div>
 
   <!-- Presentations -->
-  <div class="section container">
+  <div id="presentations" class="section container">
     <div class="section-header">
       <span class="section-label">Presentations</span>
       <span class="section-title">Tax Planning Slide Decks</span>
@@ -533,7 +584,7 @@
 
       <div class="card fade-up">
         <span class="card-badge success">Level 100</span>
-        <div class="card-title">Foundational Tax Planning</div>
+        <h3 class="card-title">Foundational Tax Planning</h3>
         <div class="card-desc">
           Core concepts of international tax planning. Corporate tax rates, entity structures,
           transfer pricing basics, and foundational strategies for 7 primary jurisdictions.
@@ -541,11 +592,11 @@
         <div class="card-slide-count">53 slides</div>
         <div class="card-actions">
           <a href="viewer.html?deck=presentation.html" class="card-action">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
             View Pages
           </a>
           <a href="presentation.html" class="card-action primary">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             Present
           </a>
         </div>
@@ -553,7 +604,7 @@
 
       <div class="card fade-up">
         <span class="card-badge info">Level 201</span>
-        <div class="card-title">Intermediate Tax Strategies</div>
+        <h3 class="card-title">Intermediate Tax Strategies</h3>
         <div class="card-desc">
           Deeper dive into deductions, allowances, treaty networks, and regional tax optimization
           techniques across multiple jurisdictions.
@@ -561,11 +612,11 @@
         <div class="card-slide-count">45 slides</div>
         <div class="card-actions">
           <a href="viewer.html?deck=presentation-201.html" class="card-action">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
             View Pages
           </a>
           <a href="presentation-201.html" class="card-action primary">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             Present
           </a>
         </div>
@@ -573,7 +624,7 @@
 
       <div class="card fade-up">
         <span class="card-badge warning">Level 301</span>
-        <div class="card-title">Advanced Cross-Border Structuring</div>
+        <h3 class="card-title">Advanced Cross-Border Structuring</h3>
         <div class="card-desc">
           Advanced international tax planning, holding structures, IP migration,
           cross-border financing, and multi-entity optimization frameworks.
@@ -581,11 +632,11 @@
         <div class="card-slide-count">81 slides</div>
         <div class="card-actions">
           <a href="viewer.html?deck=presentation-301.html" class="card-action">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
             View Pages
           </a>
           <a href="presentation-301.html" class="card-action primary">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             Present
           </a>
         </div>
@@ -593,7 +644,7 @@
 
       <div class="card fade-up">
         <span class="card-badge neutral">Startup</span>
-        <div class="card-title">B2B Startup Tax Optimization</div>
+        <h3 class="card-title">B2B Startup Tax Optimization</h3>
         <div class="card-desc">
           Tailored tax planning for B2B startups and product principals. Entity selection,
           R&D credits, equity compensation, and growth-stage tax strategies.
@@ -601,11 +652,11 @@
         <div class="card-slide-count">66 slides</div>
         <div class="card-actions">
           <a href="viewer.html?deck=presentation-startup.html" class="card-action">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
             View Pages
           </a>
           <a href="presentation-startup.html" class="card-action primary">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             Present
           </a>
         </div>
@@ -613,7 +664,7 @@
 
       <div class="card fade-up">
         <span class="card-badge success">R&D</span>
-        <div class="card-title">R&D Tax Incentives — 45 Countries</div>
+        <h3 class="card-title">R&D Tax Incentives — 45 Countries</h3>
         <div class="card-desc">
           Comprehensive analysis of R&D tax credits, enhanced deductions, patent boxes,
           and innovation incentives across 45 countries worldwide.
@@ -621,11 +672,11 @@
         <div class="card-slide-count">23 slides</div>
         <div class="card-actions">
           <a href="viewer.html?deck=presentation-rnd.html" class="card-action">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
             View Pages
           </a>
           <a href="presentation-rnd.html" class="card-action primary">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             Present
           </a>
         </div>
@@ -633,15 +684,15 @@
 
       <div class="card fade-up">
         <span class="card-badge info">International</span>
-        <div class="card-title">International Tax Planning Guide</div>
+        <h3 class="card-title">International Tax Planning Guide</h3>
         <div class="card-desc">
           Complete guide for international investors. Withholding taxes, treaty benefits,
           repatriation strategies, and foreign investor-specific planning.
         </div>
         <div class="card-slide-count">Document</div>
         <div class="card-actions">
-          <a href="International_Tax_Planning_Guide.html" class="card-action primary" style="flex:1;">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <a href="International_Tax_Planning_Guide.html" class="card-action primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
             Open Guide
           </a>
         </div>
@@ -652,7 +703,7 @@
 
   <!-- Country Coverage -->
 
-  <div class="section container">
+  <div id="coverage" class="section container">
     <div class="section-header">
       <span class="section-label">Research Coverage</span>
       <span class="section-title">Country & Jurisdiction Data</span>
@@ -729,6 +780,27 @@
     <p class="footer-copy">&copy; 2026 Kolosal. Research data current as of February 2026. For advisory purposes only.</p>
   </div>
 </footer>
+
+<script>
+  // Scroll-triggered fade-up animations
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }
+</script>
 
 </body>
 </html>
