@@ -26,6 +26,9 @@
     --amber-light: #FFFAF3;
     --red: #CC2727;
     --red-light: #FFF3F3;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue-alt: #2563eb;
     --sans: 'Inter', sans-serif;
     --mono: 'Geist Mono', monospace;
   }
@@ -36,6 +39,12 @@
   .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); display: flex; flex-direction: column; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), transform 0.45s cubic-bezier(0.4, 0, 0.2, 1); transform: translateX(40px) scale(0.98); overflow-y: auto; overflow-x: hidden; }
   .slide.active { opacity: 1; pointer-events: auto; transform: translateX(0) scale(1); z-index: 10; }
   .inner { max-width: 1280px; width: 100%; margin: 0 auto; padding: 36px 72px 64px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  /* Gradient slide backgrounds */
+  .slide.bg-teal { background: linear-gradient(135deg, var(--bg) 0%, #f0fdfa 100%); }
+  .slide.bg-warm { background: linear-gradient(135deg, var(--bg) 0%, #f8fffe 100%); }
+  .slide.bg-blue { background: linear-gradient(160deg, var(--bg) 0%, #f0f9ff 100%); }
+  .slide.bg-purple { background: linear-gradient(135deg, var(--bg) 0%, #f5f3ff 50%, var(--bg) 100%); }
+
   .inner.content { justify-content: flex-start; padding-top: 28px; }
   .inner.centered { align-items: center; text-align: center; }
   .nav { position: fixed; bottom: 0; left: 0; right: 0; height: 48px; background: var(--bg); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: center; gap: 24px; padding: 0 28px; z-index: 100; }
@@ -165,6 +174,10 @@
     .section-slide .inner { justify-content: center; }
   }
   @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+  @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(0,82,196,0.1); } 50% { box-shadow: 0 0 20px 4px rgba(0,82,196,0.08); } }
   .slide.active .anim-item { animation: fadeInUp 0.5s ease both; }
   .slide.active .anim-item:nth-child(1) { animation-delay: 0.05s; }
   .slide.active .anim-item:nth-child(2) { animation-delay: 0.1s; }
@@ -254,7 +267,7 @@
   <div class="label">Part I</div>
   <div class="title">Incentive Mechanisms</div>
   <div class="divider" style="margin: 16px auto;"></div>
-  <div class="subtitle" style="color:#94a3b8;">Tax Credits, Enhanced Deductions, Patent Boxes &amp; Hybrid Models — Understanding the three pillars of R&amp;D tax policy</div>
+  <div class="subtitle" style="color: var(--muted);">Tax Credits, Enhanced Deductions, Patent Boxes &amp; Hybrid Models — Understanding the three pillars of R&amp;D tax policy</div>
   <div style="margin-top: 20px;">
     <span class="tag">Tax Credits</span>
     <span class="tag">Super Deductions</span>
@@ -455,7 +468,7 @@
   <div class="label">Part II</div>
   <div class="title">Regional Analysis</div>
   <div class="divider" style="margin: 16px auto;"></div>
-  <div class="subtitle" style="color:#94a3b8;">Comparing R&amp;D incentive landscapes across Americas, Europe, Asia-Pacific, and Middle East &amp; Africa</div>
+  <div class="subtitle" style="color: var(--muted);">Comparing R&amp;D incentive landscapes across Americas, Europe, Asia-Pacific, and Middle East &amp; Africa</div>
   <div style="margin-top: 20px;">
     <span class="tag">Americas (7)</span>
     <span class="tag">Europe (19)</span>
@@ -619,7 +632,7 @@
   <div class="label">Deep Dives</div>
   <div class="title">Country Spotlights</div>
   <div class="divider" style="margin: 16px auto;"></div>
-  <div class="subtitle" style="color:#94a3b8;">In-depth analysis of the world's most distinctive R&amp;D incentive regimes — unique features, stacking opportunities, and worked examples</div>
+  <div class="subtitle" style="color: var(--muted);">In-depth analysis of the world's most distinctive R&amp;D incentive regimes — unique features, stacking opportunities, and worked examples</div>
   <div style="margin-top: 20px;">
     <span class="tag">France</span>
     <span class="tag">Canada</span>
@@ -805,7 +818,7 @@
   <div class="label">Part III</div>
   <div class="title">Refundability &amp; Cash Flow</div>
   <div class="divider" style="margin: 16px auto;"></div>
-  <div class="subtitle" style="color:#94a3b8;">Which jurisdictions return cash to pre-revenue startups and loss-making R&amp;D-intensive companies?</div>
+  <div class="subtitle" style="color: var(--muted);">Which jurisdictions return cash to pre-revenue startups and loss-making R&amp;D-intensive companies?</div>
   <div style="margin-top: 20px;">
     <span class="tag">Cash Refunds</span>
     <span class="tag">Payroll Offsets</span>
@@ -912,7 +925,7 @@
   <div class="label">Part IV</div>
   <div class="title">Startup &amp; SME Provisions</div>
   <div class="divider" style="margin: 16px auto;"></div>
-  <div class="subtitle" style="color:#94a3b8;">Enhanced rates, refundable credits, and special programs designed for early-stage and small-to-medium enterprises</div>
+  <div class="subtitle" style="color: var(--muted);">Enhanced rates, refundable credits, and special programs designed for early-stage and small-to-medium enterprises</div>
   <div style="margin-top: 20px;">
     <span class="tag">Enhanced Rates</span>
     <span class="tag">Cash Payouts</span>
@@ -1019,7 +1032,7 @@
   <div class="label">Part V</div>
   <div class="title">Strategic Planning</div>
   <div class="divider" style="margin: 16px auto;"></div>
-  <div class="subtitle" style="color:#94a3b8;">Location selection, incentive stacking, and IP structuring frameworks for multinational R&amp;D operations</div>
+  <div class="subtitle" style="color: var(--muted);">Location selection, incentive stacking, and IP structuring frameworks for multinational R&amp;D operations</div>
   <div style="margin-top: 20px;">
     <span class="tag">Location Selection</span>
     <span class="tag">Stacking</span>
@@ -1611,12 +1624,12 @@
   <div class="label">Kolosal Tax Advisory</div>
   <div class="title">Global R&amp;D Tax Incentives</div>
   <div class="divider" style="margin: 16px auto;"></div>
-  <div class="subtitle" style="color:#94a3b8;">45-country comparative analysis covering tax credits, super deductions, patent boxes, refundability, and strategic planning frameworks for multinational R&amp;D optimization.</div>
+  <div class="subtitle" style="color: var(--muted);">45-country comparative analysis covering tax credits, super deductions, patent boxes, refundability, and strategic planning frameworks for multinational R&amp;D optimization.</div>
   <div class="title-meta" style="margin-top: 28px;">
-    <div class="title-meta-item" style="color:#94a3b8;">Coverage<strong style="color:#e2e8f0;">45 Countries</strong></div>
-    <div class="title-meta-item" style="color:#94a3b8;">Mechanisms<strong style="color:#e2e8f0;">Credits · Deductions · Patent Boxes</strong></div>
-    <div class="title-meta-item" style="color:#94a3b8;">Data Year<strong style="color:#e2e8f0;">2024 / 2025</strong></div>
-    <div class="title-meta-item" style="color:#94a3b8;">Prepared By<strong style="color:#e2e8f0;">Kolosal Tax Advisory</strong></div>
+    <div class="title-meta-item" style="color: var(--muted);">Coverage<strong style="color: var(--medium);">45 Countries</strong></div>
+    <div class="title-meta-item" style="color: var(--muted);">Mechanisms<strong style="color: var(--medium);">Credits · Deductions · Patent Boxes</strong></div>
+    <div class="title-meta-item" style="color: var(--muted);">Data Year<strong style="color: var(--medium);">2024 / 2025</strong></div>
+    <div class="title-meta-item" style="color: var(--muted);">Prepared By<strong style="color: var(--medium);">Kolosal Tax Advisory</strong></div>
   </div>
   <div style="margin-top: 24px;">
     <span class="tag">R&amp;D Credits</span>

@@ -27,6 +27,9 @@
     --amber-light: #FFFAF3;
     --red: #CC2727;
     --red-light: #FFF3F3;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue-alt: #2563eb;
     --sans: 'Inter', sans-serif;
     --mono: 'Geist Mono', monospace;
   }
@@ -57,6 +60,12 @@
     padding: 36px 72px 64px; flex: 1;
     display: flex; flex-direction: column; justify-content: center;
   }
+  /* Gradient slide backgrounds */
+  .slide.bg-teal { background: linear-gradient(135deg, var(--bg) 0%, #f0fdfa 100%); }
+  .slide.bg-warm { background: linear-gradient(135deg, var(--bg) 0%, #f8fffe 100%); }
+  .slide.bg-blue { background: linear-gradient(160deg, var(--bg) 0%, #f0f9ff 100%); }
+  .slide.bg-purple { background: linear-gradient(135deg, var(--bg) 0%, #f5f3ff 50%, var(--bg) 100%); }
+
   /* Content-heavy slides: align top with compact padding */
   .inner.content {
     justify-content: flex-start;
@@ -922,7 +931,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="10">
+<div class="slide bg-teal" data-s="10">
 <div class="inner content">
 <div class="label">Full Architecture</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-server"></use></svg></div><h2 class="h2">Principal Structure for B2B SaaS</h2></div>
@@ -1217,7 +1226,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="21">
+<div class="slide bg-teal" data-s="21">
 <div class="inner content">
 <div class="label">Singapore</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-star"></use></svg></div><h2 class="h2">Singapore: The Startup Tax Stack</h2></div>
@@ -1426,8 +1435,8 @@
 <div class="label">LATAM Opportunity</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-globe"></use></svg></div><h2 class="h2">Brazil &amp; Mexico: Startup-Specific Tax Plays</h2></div>
 <div class="two-col">
-<div class="card" style="border-left-color:#009b3a;">
-<div class="h3" style="border:none;padding:0;color:#009b3a;">Brazil</div>
+<div class="card" style="border-left-color:var(--green);">
+<div class="h3" style="border:none;padding:0;color:var(--green);">Brazil</div>
 <div style="font-size:11px;color:var(--dark);line-height:1.55;">
 <strong>Lucro Presumido regime:</strong> For startups with &lt;R$78M revenue. Presume 32% of service revenue as taxable base &rarr; effective CIT <span class="num">~10.88%</span> (vs 34% Lucro Real). SaaS likely qualifies as service.<br/><br/>
 <strong>Simples Nacional:</strong> Revenue &lt;R$4.8M. Annex III (services): starts at <span class="num">6%</span> all-in. Annex V (technology): 15.5&ndash;30.5%. Factor &ldquo;r&rdquo; (payroll/revenue) determines annex &mdash; high payroll ratio qualifies for lower Annex III rates.<br/><br/>
@@ -1436,8 +1445,8 @@
 <strong>Best startup role:</strong> LATAM sales hub. Lucro Presumido for service revenue. Keep IP outside Brazil (WHT on outbound royalties 15% + CIDE 10% = 25% total &mdash; expensive).
 </div>
 </div>
-<div class="card" style="border-left-color:#006847;">
-<div class="h3" style="border:none;padding:0;color:#006847;">Mexico</div>
+<div class="card" style="border-left-color:var(--green);">
+<div class="h3" style="border:none;padding:0;color:var(--green);">Mexico</div>
 <div style="font-size:11px;color:var(--dark);line-height:1.55;">
 <strong>RESICO:</strong> Simplified regime for individuals with &lt;MXN 3.5M revenue. Rates <span class="num">1&ndash;2.5%</span>. For founder sole proprietors only, not companies.<br/><br/>
 <strong>Border zone incentive:</strong> 20% ISR rate (vs 30%) + 8% IVA (vs 16%) for businesses in northern/southern border municipalities. If your MX sales office is in Tijuana, Monterrey border: <span class="num">10pp CIT savings</span>.<br/><br/>
@@ -1657,7 +1666,7 @@ Key agreements for startups with mobile employees:<br/>
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="38">
+<div class="slide bg-teal" data-s="38">
 <div class="inner content">
 <div class="label">Entity Design</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-building"></use></svg></div><h2 class="h2">Optimal Holding Structure for B2B SaaS</h2></div>

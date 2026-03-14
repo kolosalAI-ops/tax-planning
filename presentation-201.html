@@ -27,6 +27,9 @@
     --amber-light: #FFFAF3;
     --red: #CC2727;
     --red-light: #FFF3F3;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue-alt: #2563eb;
     --sans: 'Inter', sans-serif;
     --mono: 'Geist Mono', monospace;
   }
@@ -47,6 +50,12 @@
     padding: 44px 72px 80px; flex: 1;
     display: flex; flex-direction: column; justify-content: center;
   }
+  /* Gradient slide backgrounds */
+  .slide.bg-teal { background: linear-gradient(135deg, var(--bg) 0%, #f0fdfa 100%); }
+  .slide.bg-warm { background: linear-gradient(135deg, var(--bg) 0%, #f8fffe 100%); }
+  .slide.bg-blue { background: linear-gradient(160deg, var(--bg) 0%, #f0f9ff 100%); }
+  .slide.bg-purple { background: linear-gradient(135deg, var(--bg) 0%, #f5f3ff 50%, var(--bg) 100%); }
+
 
   /* Nav */
   .nav {
@@ -668,7 +677,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="2">
+<div class="slide bg-warm" data-s="2">
 <div class="inner">
 <div class="label">Fundamentals</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-building"></use></svg></div><h2 class="h2">Corporate Tax Rates: 17pp Spread Across 7 Jurisdictions</h2></div>
@@ -789,7 +798,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="6">
+<div class="slide bg-teal" data-s="6">
 <div class="inner">
 <div class="label">Fundamentals</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-globe"></use></svg></div><h2 class="h2">Parent Country CFC Implications</h2></div>
@@ -925,7 +934,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="10">
+<div class="slide bg-blue" data-s="10">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Structuring</div>
   <div class="slide-header anim-item"><div class="icon-box"><svg class="si"><use href="#i-layers"></use></svg></div><h2 class="h2">How to Pick a Holding Company Jurisdiction (2/2)</h2></div>
   <div class="metrics anim-item" style="margin-bottom:16px;">
@@ -1053,7 +1062,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #fefffe 0%, #f5f3ff 50%, #ffffff 100%);" data-s="14">
+<div class="slide bg-purple" data-s="14">
 <div class="inner">
 <div class="label">Repatriation</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-dollar"></use></svg></div><h2 class="h2">Repatriating $10M to a Singapore Parent</h2></div>
@@ -1151,7 +1160,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="18">
+<div class="slide bg-warm" data-s="18">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Incentive Programs</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-award"></use></svg></div><h2 class="h2">Tax Holidays &amp; Reduced Rates</h2></div>
   <div class="two-col">
@@ -1286,7 +1295,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="22">
+<div class="slide bg-teal" data-s="22">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Transfer Pricing</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-search"></use></svg></div><h2 class="h2">Methods &amp; Enforcement</h2></div>
   <div class="h3"><svg class="si"><use href="#i-search"></use></svg> Pricing Methods (Most to Least Direct)</div>
@@ -1397,7 +1406,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="26">
+<div class="slide bg-blue" data-s="26">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Loss Utilization</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-battery"></use></svg></div><h2 class="h2">Net Operating Loss Rules &amp; Strategy</h2></div>
   <table class="dtable">
@@ -1523,7 +1532,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #fefffe 0%, #f5f3ff 50%, #ffffff 100%);" data-s="30">
+<div class="slide bg-purple" data-s="30">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Deductions</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-briefcase"></use></svg></div><h2 class="h2">Meals, Entertainment &amp; Travel</h2></div>
   <div class="h3"><svg class="si"><use href="#i-briefcase"></use></svg> Deductibility by Category</div>
@@ -1641,7 +1650,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="34">
+<div class="slide bg-warm" data-s="34">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Industry Focus</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-grid"></use></svg></div><h2 class="h2">Financial Services &amp; Digital</h2></div>
   <div class="h3"><svg class="si"><use href="#i-grid"></use></svg> Financial Services &amp; Digital — Sector-Specific Rules</div>
@@ -1826,7 +1835,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="38">
+<div class="slide bg-teal" data-s="38">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Anti-Avoidance</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-alert"></use></svg></div><h2 class="h2">Domestic GAARs</h2></div>
   <div class="h3"><svg class="si"><use href="#i-alert"></use></svg> Domestic GAARs</div>
@@ -1955,7 +1964,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="42">
+<div class="slide bg-blue" data-s="42">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Implementation</div>
   <div class="slide-header anim-item"><div class="icon-box"><svg class="si"><use href="#i-check-square"></use></svg></div><h2 class="h2">Repatriation &amp; Exit Checklist</h2></div>
   <div class="two-col anim-item">

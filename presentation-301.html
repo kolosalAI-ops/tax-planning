@@ -27,6 +27,9 @@
     --amber-light: #FFFAF3;
     --red: #CC2727;
     --red-light: #FFF3F3;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue-alt: #2563eb;
     --sans: 'Inter', sans-serif;
     --mono: 'Geist Mono', monospace;
   }
@@ -50,6 +53,12 @@
     padding: 36px 72px 64px; flex: 1;
     display: flex; flex-direction: column; justify-content: center;
   }
+  /* Gradient slide backgrounds */
+  .slide.bg-teal { background: linear-gradient(135deg, var(--bg) 0%, #f0fdfa 100%); }
+  .slide.bg-warm { background: linear-gradient(135deg, var(--bg) 0%, #f8fffe 100%); }
+  .slide.bg-blue { background: linear-gradient(160deg, var(--bg) 0%, #f0f9ff 100%); }
+  .slide.bg-purple { background: linear-gradient(135deg, var(--bg) 0%, #f5f3ff 50%, var(--bg) 100%); }
+
 
   /* Nav */
   .nav {
@@ -704,7 +713,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="6">
+<div class="slide bg-warm" data-s="6">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;">
 <div class="label">Employment Costs</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-users"></use></svg></div><h2 class="h2">Payroll &amp; Employer Social Contributions</h2></div>
@@ -774,7 +783,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="10">
+<div class="slide bg-teal" data-s="10">
 <div class="inner">
 <div class="label">Fundamentals</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-globe"></use></svg></div><h2 class="h2">Territorial vs. Worldwide Tax Systems</h2></div>
@@ -852,7 +861,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="14">
+<div class="slide bg-blue" data-s="14">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">US International Tax</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-dollar"></use></svg></div><h2 class="h2">GILTI Worked Calculation</h2></div>
   <div class="h3"><svg class="si"><use href="#i-bar-chart"></use></svg> GILTI Worked Calculation</div>
@@ -936,7 +945,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #fefffe 0%, #f5f3ff 50%, #ffffff 100%);" data-s="18">
+<div class="slide bg-purple" data-s="18">
 <div class="inner">
 <div class="label">Structuring</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-building"></use></svg></div><h2 class="h2">How to Pick a Holding Company Jurisdiction</h2></div>
@@ -993,7 +1002,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="22">
+<div class="slide bg-warm" data-s="22">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Treaty Planning</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-link"></use></svg></div><h2 class="h2">Default vs Best Treaty Rate (Dividends)</h2></div>
   <div class="h3"><svg class="si"><use href="#i-bar-chart"></use></svg> Default vs Best Treaty Rate (Dividends)</div>
@@ -1082,7 +1091,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="26">
+<div class="slide bg-teal" data-s="26">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Double Tax Relief</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-layers"></use></svg></div><h2 class="h2">Other Jurisdictions</h2></div>
   <div class="h3"><svg class="si"><use href="#i-globe"></use></svg> Other Jurisdictions</div>
@@ -1177,7 +1186,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="30">
+<div class="slide bg-blue" data-s="30">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Singapore Deep-Dive</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-globe"></use></svg></div><h2 class="h2">Pioneer + Pillar 2 Worked Example</h2></div>
   <div class="h3"><svg class="si"><use href="#i-bar-chart"></use></svg> Pioneer + Pillar 2 Worked Example</div>
@@ -1234,7 +1243,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #fefffe 0%, #f5f3ff 50%, #ffffff 100%);" data-s="34">
+<div class="slide bg-purple" data-s="34">
 <div class="inner" style="justify-content:flex-start;padding-top:20px;">
 <div class="label">Case Study</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-link"></use></svg></div><h2 class="h2">Multi-Tier Leveraging: SG → ID &amp; AU Case Study</h2></div>
@@ -1319,7 +1328,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="38">
+<div class="slide bg-warm" data-s="38">
 <div class="inner" style="justify-content:flex-start;padding-top:24px;">
 <div class="label">R&amp;D Strategy</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-flask"></use></svg></div><h2 class="h2">Where to Place Your R&amp;D Hub</h2></div>
@@ -1393,7 +1402,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="42">
+<div class="slide bg-teal" data-s="42">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Incentive Programs</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-award"></use></svg></div><h2 class="h2">Other Highlights</h2></div>
   <div class="h3"><svg class="si"><use href="#i-star"></use></svg> Other Highlights</div>
@@ -1453,7 +1462,7 @@
 <div class="slide" data-s="45">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Pillar 2 Impact</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-grid"></use></svg></div><h2 class="h2">Survives Pillar 2</h2></div>
-  <div class="h3 anim-item" style="border-bottom-color:#16a34a;">Incentives That Survive Pillar 2</div>
+  <div class="h3 anim-item" style="border-bottom-color: var(--green);">Incentives That Survive Pillar 2</div>
   <table class="dtable anim-item">
 <tr><th>Incentive</th><th>Country</th><th>Type</th><th>Why It Survives</th></tr>
 <tr><td><strong>SR&amp;ED 35% ITC</strong></td><td>Canada</td><td class="num">QRTC</td><td>Refundable credit excluded from GloBE ETR</td></tr>
@@ -1466,10 +1475,10 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="46">
+<div class="slide bg-blue" data-s="46">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Pillar 2 Impact</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-grid"></use></svg></div><h2 class="h2">⚠️ Diminished</h2></div>
-  <div class="h3" style="border-bottom-color:#dc2626;">Diminished by Pillar 2</div>
+  <div class="h3" style="border-bottom-color: var(--red);">Diminished by Pillar 2</div>
   <div class="hbar">
 <div class="hbar-row"><span class="hbar-label" style="width:120px;">SG Pioneer/DEI/GTP</span><div class="hbar-track"><div class="hbar-fill high" style="width:100%"></div></div><span class="hbar-val">0-10% → 15%</span></div>
 <div class="hbar-row"><span class="hbar-label" style="width:120px;">SG EIS 400%</span><div class="hbar-track"><div class="hbar-fill high" style="width:80%"></div></div><span class="hbar-val">Rate capped</span></div>
@@ -1483,7 +1492,7 @@
 <div class="slide" data-s="47">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Pillar 2 Impact</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-grid"></use></svg></div><h2 class="h2">🛡️ Unaffected (&lt;€750M)</h2></div>
-  <div class="h3" style="border-bottom-color:#2563eb;">Unaffected (&lt;€750M)</div>
+  <div class="h3" style="border-bottom-color: var(--blue);">Unaffected (&lt;€750M)</div>
   <div class="two-col">
 <div class="card"><div class="h3" style="border:none;padding:0;">SG SUTE/PTE</div><div style="font-size:11px;color:var(--dark);line-height:1.5;">Targets SMEs — below Pillar 2 threshold</div></div>
 <div class="card"><div class="h3" style="border:none;padding:0;">ID MSME</div><div style="font-size:11px;color:var(--dark);line-height:1.5;">0.5% final tax — IDR 4.8B revenue cap</div></div>
@@ -1590,7 +1599,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #fefffe 0%, #f5f3ff 50%, #ffffff 100%);" data-s="54">
+<div class="slide bg-purple" data-s="54">
 <div class="inner" style="justify-content:flex-start;padding-top:24px;">
 <div class="label">PE Risk Deep-Dive</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-map-pin"></use></svg></div><h2 class="h2">Construction PE Threshold Arbitrage</h2></div>
@@ -1599,7 +1608,7 @@
 <tr><th>Country</th><th>Construction PE</th><th>Service PE</th><th>Agent PE</th><th>Digital PE</th></tr>
 <tr><td><strong>United States</strong></td><td class="num">12 months</td><td>No specific rule</td><td>Yes (common law)</td><td>No</td></tr>
 <tr><td><strong>Canada</strong></td><td class="num">12 months</td><td class="num">183 days</td><td>Yes (ITA §253)</td><td>No (DST separate)</td></tr>
-<tr><td><strong>Indonesia</strong></td><td class="num">6 months</td><td class="num" style="color:#dc2626;">60 days</td><td>Yes (18 categories)</td><td>No (VAT only)</td></tr>
+<tr><td><strong>Indonesia</strong></td><td class="num">6 months</td><td class="num" style="color: var(--red);">60 days</td><td>Yes (18 categories)</td><td>No (VAT only)</td></tr>
 <tr><td><strong>Brazil</strong></td><td class="num">6 months</td><td class="num">183 days</td><td>Yes (RIR Art. 399)</td><td>No</td></tr>
 <tr><td><strong>Mexico</strong></td><td class="num">6 months</td><td class="num">183 days</td><td>Yes (LISR Art. 168)</td><td>No</td></tr>
 <tr><td><strong>Australia</strong></td><td class="num">12 months</td><td class="num">183 days</td><td>Yes (ITAA 1936)</td><td>No (MAAL/DPT)</td></tr>
@@ -1663,7 +1672,7 @@
 </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="58">
+<div class="slide bg-warm" data-s="58">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Corridor Analysis</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-compass"></use></svg></div><h2 class="h2">ETR Walk-Through: $10M Pre-Tax Profit</h2></div>
   <div class="flow" style="justify-content:flex-start;margin-bottom:10px;">
@@ -1759,7 +1768,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="62">
+<div class="slide bg-teal" data-s="62">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Corridor Analysis</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-compass"></use></svg></div><h2 class="h2">GILTI High-Tax Exclusion</h2></div>
   <div class="h3"><svg class="si"><use href="#i-zap"></use></svg> GILTI High-Tax Exclusion</div>
@@ -1832,7 +1841,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(160deg, #ffffff 0%, #f0f9ff 100%);" data-s="66">
+<div class="slide bg-blue" data-s="66">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Advanced Strategy</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-refresh"></use></svg></div><h2 class="h2">Key NOL Rules by Country</h2></div>
   <div class="h3"><svg class="si"><use href="#i-bar-chart"></use></svg> Key NOL Rules by Country</div>
@@ -1843,7 +1852,7 @@
 <tr><td><strong>US</strong></td><td>Indefinite</td><td>None</td><td class="num">80%</td></tr>
 <tr><td><strong>CA</strong></td><td>20yr</td><td>3yr (refund)</td><td>100%</td></tr>
 <tr><td><strong>MX</strong></td><td>10yr</td><td>None</td><td>100%</td></tr>
-<tr><td><strong>ID</strong></td><td class="num" style="color:#dc2626;">5yr</td><td>None</td><td>100%</td></tr>
+<tr><td><strong>ID</strong></td><td class="num" style="color: var(--red);">5yr</td><td>None</td><td>100%</td></tr>
 <tr><td><strong>BR</strong></td><td>Indefinite</td><td>None</td><td class="num">30%</td></tr>
 </table>
   <div class="key-point"><strong>Indonesia risk:</strong> 5-year window means startup losses can permanently expire. Always consider branch phase for ID operations.</div>
@@ -1896,7 +1905,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #fefffe 0%, #f5f3ff 50%, #ffffff 100%);" data-s="70">
+<div class="slide bg-purple" data-s="70">
 <div class="inner" style="justify-content:flex-start;padding-top:24px;">
 <div class="label">Exit Taxation</div>
 <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-bar-chart"></use></svg></div><h2 class="h2">Non-Resident Capital Gains Tax on Share Disposal</h2></div>
@@ -1926,13 +1935,13 @@
 </div>
   <div class="h3 anim-item"><svg class="si"><use href="#i-bar-chart"></use></svg> Overall Rankings (Post-Pillar 2 Adjusted)</div>
   <div class="hbar anim-item">
-<div class="score-row"><span class="score-label">Singapore</span><div class="score-track"><div class="score-fill" style="width:88%;background:var(--fg);"><span>8.8</span></div></div><span class="score-delta" style="color:#dc2626;">&#8595; 0.5</span></div>
-<div class="score-row"><span class="score-label">Australia</span><div class="score-track"><div class="score-fill" style="width:74%;background:var(--dark);"><span>7.4</span></div></div><span class="score-delta" style="color:#16a34a;">&#8593; 0.2</span></div>
-<div class="score-row"><span class="score-label">Canada</span><div class="score-track"><div class="score-fill" style="width:70%;background:var(--dark);"><span>7.0</span></div></div><span class="score-delta" style="color:#16a34a;">&#8593; 0.3</span></div>
+<div class="score-row"><span class="score-label">Singapore</span><div class="score-track"><div class="score-fill" style="width:88%;background:var(--fg);"><span>8.8</span></div></div><span class="score-delta" style="color: var(--red);">&#8595; 0.5</span></div>
+<div class="score-row"><span class="score-label">Australia</span><div class="score-track"><div class="score-fill" style="width:74%;background:var(--dark);"><span>7.4</span></div></div><span class="score-delta" style="color: var(--green);">&#8593; 0.2</span></div>
+<div class="score-row"><span class="score-label">Canada</span><div class="score-track"><div class="score-fill" style="width:70%;background:var(--dark);"><span>7.0</span></div></div><span class="score-delta" style="color: var(--green);">&#8593; 0.3</span></div>
 <div class="score-row"><span class="score-label">Mexico</span><div class="score-track"><div class="score-fill" style="width:65%;background:var(--accent);"><span>6.5</span></div></div><span class="score-delta">&#8595; 0.1</span></div>
 <div class="score-row"><span class="score-label">United States</span><div class="score-track"><div class="score-fill" style="width:61%;background:var(--accent);"><span>6.1</span></div></div><span class="score-delta">&#8595; 0.1</span></div>
 <div class="score-row"><span class="score-label">Brazil</span><div class="score-track"><div class="score-fill" style="width:55%;background:var(--muted);"><span>5.5</span></div></div><span class="score-delta">&#8595; 0.1</span></div>
-<div class="score-row"><span class="score-label">Indonesia</span><div class="score-track"><div class="score-fill" style="width:50%;background:var(--muted);"><span>5.0</span></div></div><span class="score-delta" style="color:#dc2626;">&#8595; 0.4</span></div>
+<div class="score-row"><span class="score-label">Indonesia</span><div class="score-track"><div class="score-fill" style="width:50%;background:var(--muted);"><span>5.0</span></div></div><span class="score-delta" style="color: var(--red);">&#8595; 0.4</span></div>
 </div>
   <div class="key-point anim-item"><strong>Pillar 2 reshuffles the deck:</strong> Singapore drops 0.5 but retains #1 by wide margin. Australia and Canada gain from QRTC-safe R&amp;D credits. Indonesia drops most as Tax Holiday floors at 15% for in-scope MNEs.</div>
   </div>
@@ -1980,7 +1989,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);" data-s="74">
+<div class="slide bg-warm" data-s="74">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Decision Framework</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-compass"></use></svg></div><h2 class="h2">Q3: Profitability Timeline?</h2></div>
   <div class="h3">Q3: Profitability Timeline?</div>
@@ -2062,7 +2071,7 @@
   </div>
 </div>
 
-<div class="slide" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);" data-s="78">
+<div class="slide bg-teal" data-s="78">
 <div class="inner" style="justify-content:flex-start;padding-top:28px;"><div class="label">Implementation</div>
   <div class="slide-header"><div class="icon-box"><svg class="si"><use href="#i-check-square"></use></svg></div><h2 class="h2">Repatriation &amp; Exit Checklist</h2></div>
   <div class="two-col anim-item">

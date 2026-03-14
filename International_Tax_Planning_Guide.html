@@ -4,6 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+:root {
+    --bg: #FFFFFF;
+    --fg: #0D0E0F;
+    --card-hover: #F8F9F9;
+    --border: #E4E7E9;
+    --muted: #6A6F73;
+    --light: #F1F3F4;
+    --medium: #DDE1E3;
+    --dark: #3C3E40;
+    --accent: #0052C4;
+    --accent-light: #F0F6FE;
+    --accent-mid: #0066F5;
+    --blue: #0052C4;
+    --blue-light: #F0F6FE;
+    --amber: #CC8727;
+    --amber-light: #FFFAF3;
+    --red: #CC2727;
+    --red-light: #FFF3F3;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --sans: 'Inter', sans-serif;
+    --mono: 'Geist Mono', monospace;
+}
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @page {
     size: A4;
@@ -17,18 +40,18 @@
     -moz-osx-font-smoothing: grayscale;
 }
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--sans);
     font-size: 9pt;
     line-height: 1.5;
-    color: #0D0E0F;
+    color: var(--fg);
     max-width: 100%;
     padding: 0 10px;
 }
 h1 {
     font-size: 22pt;
     font-weight: 700;
-    color: #0D0E0F;
-    border-bottom: 2px solid #E4E7E9;
+    color: var(--fg);
+    border-bottom: 2px solid var(--border);
     padding-bottom: 8px;
     margin-top: 0;
     letter-spacing: -0.6px;
@@ -36,8 +59,8 @@ h1 {
 h2 {
     font-size: 15pt;
     font-weight: 600;
-    color: #0D0E0F;
-    border-bottom: 1px solid #E4E7E9;
+    color: var(--fg);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 5px;
     margin-top: 32px;
     page-break-before: always;
@@ -46,14 +69,14 @@ h2 {
 h3 {
     font-size: 11pt;
     font-weight: 600;
-    color: #3C3E40;
+    color: var(--dark);
     margin-top: 20px;
     margin-bottom: 6px;
 }
 h4 {
     font-size: 10pt;
     font-weight: 500;
-    color: #6A6F73;
+    color: var(--muted);
     margin-top: 14px;
 }
 p {
@@ -67,57 +90,57 @@ table {
     font-size: 7.5pt;
 }
 th {
-    background-color: #0D0E0F;
-    color: #FFFFFF;
+    background-color: var(--fg);
+    color: var(--bg);
     padding: 6px 5px;
     text-align: left;
     font-weight: 600;
     font-size: 7.5pt;
-    border: 1px solid #3C3E40;
+    border: 1px solid var(--dark);
 }
 td {
     padding: 4px 5px;
-    border: 1px solid #E4E7E9;
+    border: 1px solid var(--border);
     vertical-align: top;
-    color: #3C3E40;
+    color: var(--dark);
 }
 tr:nth-child(even) td {
-    background-color: #F8F9F9;
+    background-color: var(--card-hover);
 }
 strong {
-    color: #0D0E0F;
+    color: var(--fg);
 }
 img {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 14px auto;
-    border: 1px solid #E4E7E9;
+    border: 1px solid var(--border);
     border-radius: 8px;
 }
 blockquote {
-    border-left: 3px solid #0052C4;
+    border-left: 3px solid var(--accent);
     margin: 10px 0;
     padding: 8px 14px;
-    background-color: #F0F6FE;
-    color: #3C3E40;
+    background-color: var(--accent-light);
+    color: var(--dark);
     font-size: 8.5pt;
     border-radius: 0 8px 8px 0;
 }
 code {
-    background-color: #F1F3F4;
+    background-color: var(--light);
     padding: 1px 4px;
     border-radius: 4px;
     font-size: 8pt;
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--mono);
 }
 hr {
     border: none;
-    border-top: 1px solid #E4E7E9;
+    border-top: 1px solid var(--border);
     margin: 20px 0;
 }
 em {
-    color: #6A6F73;
+    color: var(--muted);
 }
 ul, ol {
     margin: 6px 0;
