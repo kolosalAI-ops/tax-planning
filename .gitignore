@@ -1,0 +1,11 @@
+# Auth secrets — never commit plaintext credentials
+.env
+
+# Generated auth config — commit this (hash only, no plaintext)
+# auth-config.js is intentionally NOT gitignored
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
