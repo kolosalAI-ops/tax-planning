@@ -1,0 +1,8 @@
+{
+  "name": "kolosal-tax-planning",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "generate-auth": "node scripts/generate-auth.js"
+  }
+}
