@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — Kolosal Tax Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #0D0E0F;
+    --border: #E4E7E9;
+    --muted: #6A6F73;
+    --light: #F1F3F4;
+    --medium: #DDE1E3;
+    --accent: #0052C4;
+    --accent-light: #F0F6FE;
+    --accent-mid: #0066F5;
+    --red: #CC2727;
+    --red-light: #FFF3F3;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
+    --sans: 'Inter', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--light);
+    color: var(--fg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-mark svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .logo-text {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+  }
+
+  .logo-text span {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--fg);
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg);
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 82, 196, 0.12);
+  }
+
+  input.error {
+    border-color: var(--red);
+    background: var(--red-light);
+  }
+
+  input.error:focus {
+    box-shadow: 0 0 0 3px rgba(204, 39, 39, 0.12);
+  }
+
+  .error-msg {
+    font-size: 12px;
+    color: var(--red);
+    margin-top: 12px;
+    display: none;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .error-msg.visible {
+    display: flex;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 11px 16px;
+    margin-top: 24px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+  }
+
+  .btn:hover:not(:disabled) { background: var(--accent-mid); }
+  .btn:active:not(:disabled) { transform: scale(0.99); }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  .btn.loading .spinner { display: block; }
+  .btn.loading .btn-text { display: none; }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+  }
+
+  .card.shake {
+    animation: shake 0.4s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 28px 20px; }
+    h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<script src="auth-config.js"></script>
+<script>
+  // If already authenticated, skip login
+  if (window.AUTH_CONFIG && sessionStorage.getItem('kolosal_auth') === window.AUTH_CONFIG.passHash) {
+    location.replace('index.html');
+  }
+</script>
+
+<div class="card" id="card">
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+    </div>
+    <div class="logo-text">Kolosal <span>Tax Advisory</span></div>
+  </div>
+
+  <h1>Sign in</h1>
+  <p class="subtitle">Access the Kolosal Tax Planning resource hub.</p>
+
+  <form id="form" novalidate>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email" placeholder="ops@kolosal.ai" required>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required>
+    </div>
+
+    <div class="error-msg" id="errorMsg">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      Invalid credentials. Please try again.
+    </div>
+
+    <button type="submit" class="btn" id="submitBtn">
+      <span class="btn-text">Sign in</span>
+      <div class="spinner"></div>
+    </button>
+  </form>
+</div>
+
+<script>
+(function () {
+  const form = document.getElementById('form');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const submitBtn = document.getElementById('submitBtn');
+  const errorMsg = document.getElementById('errorMsg');
+  const card = document.getElementById('card');
+
+  function hexFromBuffer(buf) {
+    return Array.from(new Uint8Array(buf))
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+  }
+
+  async function sha256Hex(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return hexFromBuffer(buf);
+  }
+
+  async function pbkdf2Hex(password, saltHex, iterations) {
+    const passKey = await crypto.subtle.importKey(
+      'raw',
+      new TextEncoder().encode(password),
+      { name: 'PBKDF2' },
+      false,
+      ['deriveBits']
+    );
+    const saltBuf = new Uint8Array(saltHex.match(/.{2}/g).map(b => parseInt(b, 16)));
+    const derivedBuf = await crypto.subtle.deriveBits(
+      { name: 'PBKDF2', hash: 'SHA-256', salt: saltBuf, iterations },
+      passKey,
+      256  // 32 bytes = 256 bits
+    );
+    return hexFromBuffer(derivedBuf);
+  }
+
+  function showError() {
+    emailInput.classList.add('error');
+    passwordInput.classList.add('error');
+    errorMsg.classList.add('visible');
+    card.classList.remove('shake');
+    // Force reflow to restart animation
+    void card.offsetWidth;
+    card.classList.add('shake');
+  }
+
+  function clearError() {
+    emailInput.classList.remove('error');
+    passwordInput.classList.remove('error');
+    errorMsg.classList.remove('visible');
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    clearError();
+
+    if (!window.AUTH_CONFIG) {
+      showError();
+      return;
+    }
+
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (!email || !password) {
+      showError();
+      return;
+    }
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+
+    try {
+      const userHash = await sha256Hex(email);
+      const passHash = await pbkdf2Hex(password, window.AUTH_CONFIG.salt, 310000);
+
+      if (userHash === window.AUTH_CONFIG.userHash && passHash === window.AUTH_CONFIG.passHash) {
+        sessionStorage.setItem('kolosal_auth', passHash);
+        location.replace('index.html');
+      } else {
+        showError();
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+      }
+    } catch (err) {
+      showError();
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+    }
+  });
+
+  // Clear error state when user starts typing
+  [emailInput, passwordInput].forEach(input => {
+    input.addEventListener('input', clearError);
+  });
+})();
+</script>
+</body>
+</html>
