@@ -772,6 +772,13 @@
 </style>
 </head>
 <body>
+<script src="auth-config.js"></script>
+<script>
+  if (!window.AUTH_CONFIG || sessionStorage.getItem('kolosal_auth') !== window.AUTH_CONFIG.passHash) {
+    location.replace('login.html');
+  }
+</script>
+<button onclick="sessionStorage.removeItem('kolosal_auth'); location.replace('login.html')" style="position:fixed;top:12px;right:16px;z-index:9999;padding:5px 12px;font-family:inherit;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;background:#fff;color:#6A6F73;border:1px solid #E4E7E9;border-radius:6px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.04);" onmouseover="this.style.color='#0D0E0F'" onmouseout="this.style.color='#6A6F73'">Sign out</button>
 <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg">
 <symbol id="i-zap" viewbox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></symbol>
 <symbol id="i-building" viewbox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"></path><path d="M2 22h20"></path><rect height="1" rx=".5" width="1.5" x="9" y="8"></rect><rect height="1" rx=".5" width="1.5" x="13.5" y="8"></rect><rect height="1" rx=".5" width="1.5" x="9" y="12"></rect><rect height="1" rx=".5" width="1.5" x="13.5" y="12"></rect><rect height="1" rx=".5" width="1.5" x="9" y="16"></rect><rect height="1" rx=".5" width="1.5" x="13.5" y="16"></rect></symbol>

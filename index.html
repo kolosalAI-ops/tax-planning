@@ -507,6 +507,13 @@
 </style>
 </head>
 <body>
+<script src="auth-config.js"></script>
+<script>
+  if (!window.AUTH_CONFIG || sessionStorage.getItem('kolosal_auth') !== window.AUTH_CONFIG.passHash) {
+    location.replace('login.html');
+  }
+</script>
+<button onclick="sessionStorage.removeItem('kolosal_auth'); location.replace('login.html')" style="position:fixed;top:12px;right:16px;z-index:9999;padding:5px 12px;font-family:inherit;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;background:#fff;color:#6A6F73;border:1px solid #E4E7E9;border-radius:6px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.04);" onmouseover="this.style.color='#0D0E0F'" onmouseout="this.style.color='#6A6F73'">Sign out</button>
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
