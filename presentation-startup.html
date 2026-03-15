@@ -774,7 +774,7 @@
 <body>
 <script src="auth-config.js"></script>
 <script>
-  if (!window.AUTH_CONFIG || sessionStorage.getItem('kolosal_auth') !== window.AUTH_CONFIG.passHash) {
+  if (!window.AUTH_CONFIG || sessionStorage.getItem('kolosal_auth') !== window.AUTH_CONFIG.userHash + window.AUTH_CONFIG.passHash) {
     location.replace('login.html');
   }
 </script>

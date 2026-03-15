@@ -228,7 +228,7 @@
 <script src="auth-config.js"></script>
 <script>
   // If already authenticated, skip login
-  if (window.AUTH_CONFIG && sessionStorage.getItem('kolosal_auth') === window.AUTH_CONFIG.passHash) {
+  if (window.AUTH_CONFIG && sessionStorage.getItem('kolosal_auth') === window.AUTH_CONFIG.userHash + window.AUTH_CONFIG.passHash) {
     location.replace('index.html');
   }
 </script>
@@ -247,7 +247,7 @@
   <form id="form" novalidate>
     <div class="field">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" autocomplete="email" placeholder="ops@kolosal.ai" required>
+      <input type="email" id="email" name="email" autocomplete="email" placeholder="Enter your email" required>
     </div>
     <div class="field">
       <label for="password">Password</label>
@@ -349,7 +349,7 @@
       const passHash = await pbkdf2Hex(password, window.AUTH_CONFIG.salt, 310000);
 
       if (userHash === window.AUTH_CONFIG.userHash && passHash === window.AUTH_CONFIG.passHash) {
-        sessionStorage.setItem('kolosal_auth', passHash);
+        sessionStorage.setItem('kolosal_auth', userHash + passHash);
         location.replace('index.html');
       } else {
         showError();
