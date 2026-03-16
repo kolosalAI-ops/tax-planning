@@ -128,7 +128,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 | **Annual cap** | **No cap** — 100% of taxable income may be offset |
 | **Ownership change restriction** | Losses forfeited if >50% of shares change ownership (directly or indirectly) during the loss year or after — EVL §122 |
 | **Dispensation** | The Tax Administration may grant permission to use losses despite ownership change if continuation of business is justified — EVL §122 (3) |
-| **Income source separation** | Losses from business income source may only offset business income; losses from other income source offset only that source — EVL §119 (Note: the income source system was reformed effective 2020) |
+| **Income source separation** | The separate income source system (EVL business income vs. TVL other income) was significantly reformed by Laki elinkeinotulon verottamisesta 30.12.2019/1401 effective 2020. For most corporate taxpayers, the separate income source distinction for passive income was abolished so that losses from one source may now generally offset income from the other — EVL §2a [unverified — confirm current application with local counsel] |
 
 ### 5.2 Loss Carry-Back
 

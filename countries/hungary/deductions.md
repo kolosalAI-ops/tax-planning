@@ -164,7 +164,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 | **Purpose** | Reserve for future qualifying investments in tangible assets |
 | **Usage period** | Must be used for qualifying investments within 4 years of allocation — TAO §7 (1) f |
 | **Effect** | Reduces corporate tax base in the year of allocation |
-| **Non-use** | If reserve is not used within 4 years, it must be reversed into the tax base plus a 20% penalty surcharge — TAO §7 (15) |
+| **Non-use** | If reserve is not used within 4 years, it must be reversed into the tax base plus a 20% penalty surcharge — TAO §7 (15) [unverified — confirm rate with local counsel] |
 
 ### 6.2 Bad Debt Provisions — TAO §7 (1) n
 

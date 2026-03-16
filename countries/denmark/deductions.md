@@ -116,13 +116,13 @@ Interest expenses are generally deductible on an accrual basis. Denmark applies 
 
 ### 3.5 Combined Effect
 
-Both the asset test (§11B) and EBITDA test (§11C) apply independently. Interest expense is non-deductible to the extent it exceeds the lower of the two caps (after applying the DKK 21.3M de minimis). The thin capitalization rule (§11) applies separately and first.
+Both the asset test (§11B) and EBITDA test (§11C) apply independently. Interest expense is non-deductible to the extent it exceeds the lower of the two caps (after applying the DKK 21.3M de minimis) [unverified — the precise interaction mechanics between §11B and §11C should be confirmed with local counsel]. The thin capitalization rule (§11) applies separately and first.
 
 ---
 
 ## 4. Research & Development
 
-Denmark provides a 130% super-deduction for qualifying R&D expenditures under Ligningsloven §8B. This means that for every DKK 100 of qualifying R&D expense, the company may deduct DKK 130 from taxable income, resulting in an additional 30% benefit. The enhanced deduction has been made permanent from 2026.
+Denmark provides a 130% super-deduction for qualifying R&D expenditures under Ligningsloven §8B. This means that for every DKK 100 of qualifying R&D expense, the company may deduct DKK 130 from taxable income, resulting in an additional 30% benefit. The enhanced deduction has been made permanent from 2026 [unverified — confirm with local counsel].
 
 See [R&D Incentives](rnd_incentives.md) for full program detail.
 
