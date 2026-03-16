@@ -122,7 +122,7 @@ Expenditure and losses actually incurred in the production of income, provided t
 | Exempt entities | Banks, insurers, and certain regulated financial institutions |
 | Legal basis | §23M, ITA (as amended by Taxation Laws Amendment Act, 2021) |
 
-> **Note:** The original §23M used a 40% of adjusted taxable income formula adjusted by a repo rate factor. The 2021/2022 amendments tightened this to align with the OECD BEPS Action 4 recommendation (30% of EBITDA equivalent). Confirm the exact version in force for the relevant tax year with SARS guidance.
+> **Currently applicable (from 2022):** The 30% adjusted taxable income limitation under §23M (as amended by the Taxation Laws Amendment Act 2021) is the current rule. **Historical context:** The pre-2022 §23M used a 40% of adjusted taxable income formula adjusted by a repo rate factor — this rate no longer applies [unverified — confirm the precise effective date with SARS guidance].
 
 ### §23N, ITA — Acquisition of Controlling Interest
 

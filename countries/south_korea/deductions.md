@@ -245,7 +245,7 @@ South Korea has over 90 double tax agreements. The MLI was ratified and entered 
 
 | Reference | Citation |
 |---|---|
-| Corporate Tax Act (법인세법 — CTA) | §45 (이월결손금 — NOL carry-forward); Art. 19, 19-2, 21, 23, 24, 25, 26, 27, 28, 33–35, 72, 80 |
+| Corporate Tax Act (법인세법 — CTA) | §45 (이월결손금 — NOL carry-forward); Art. 19, 19-2, 21, 23, 24, 25, 26, 27, 28, 33–35, 72 |
 | CTA Enforcement Decree | Art. 26; Appendix 5 & 6 (asset useful lives) |
 | Restriction of Special Taxation Act (조세특례제한법 — RSTA) | Art. 5, 6, 10, 24, 25, 28 |
 | Act for Coordination of International Tax Affairs (ACITA) | Art. 4–14, 22-4 |

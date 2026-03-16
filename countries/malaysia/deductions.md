@@ -225,7 +225,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 | Incentive | Benefit |
 |---|---|
 | Pioneer Status | 70%–100% tax exemption on statutory income for 5–10 years |
-| Investment Tax Allowance (ITA) | 60%–100% of QCE to set off against 70%–100% of statutory income for 5–10 years |
+| Investment Tax Allowance (IT Allowance) | 60%–100% of QCE to set off against 70%–100% of statutory income for 5–10 years |
 | New key industries | Enhanced 100% exemption for qualifying sectors |
 
 ### 7.3 Principal Hub Incentive

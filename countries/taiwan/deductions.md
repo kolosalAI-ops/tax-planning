@@ -42,7 +42,7 @@ Fixed assets other than land are depreciable for tax purposes. The taxpayer may 
 
 #### Salvage Value
 
-A salvage value of **10%** of cost was traditionally required under ITA Art. 54; however, recent practice allows **0%** salvage value where justified. Confirm current treatment with local counsel.
+A salvage value of **10%** of cost was traditionally required under ITA Art. 54; however, recent practice allows **0%** salvage value where justified [unverified — confirm current treatment with local counsel].
 
 ### 1.2 Revaluation of Fixed Assets
 
