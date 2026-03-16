@@ -300,7 +300,7 @@
 
 ---
 
-## 12. Transfer Pricing Documentation
+## 12. Treaties & Transfer Pricing
 
 > **Legal basis**: CFF Artículos 76-A, 76-B (transfer pricing documentation obligations); CFF Artículo 179 (transfer pricing methods); CFF Artículo 180 (arm's length range)
 
@@ -314,6 +314,16 @@
 | Methods accepted | CUP, RPM, CPM, PSM, TNMM, residual PSM | CFF Art. 179 |
 | Arm's length range | Interquartile range of comparable results | CFF Art. 180 |
 | Penalties | 55-75% of underpaid tax on TP adjustments | CFF Art. 76 |
+
+### Treaty Network
+
+Mexico has over **70** double taxation agreements — one of the broadest treaty networks in Latin America, covering major trade partners including Canada, Chile, China, France, Germany, India, Japan, Netherlands, Singapore, South Korea, Spain, United Kingdom, and United States. Treaties generally reduce withholding taxes on dividends (0%–15%), interest (4.9%–10%), and royalties (0%–15%).
+
+| Income Type | Typical Treaty Rate |
+|---|---|
+| Dividends | 0%–15% |
+| Interest | 4.9%–10% |
+| Royalties | 0%–15% |
 
 ---
 

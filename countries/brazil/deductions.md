@@ -159,7 +159,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 ---
 
-## 7. Transfer Pricing (Lei 14.596/2023 - New Rules)
+## 7. Treaties & Transfer Pricing
 
 > **Legal Basis**: Lei No. 14.596/2023 (new transfer pricing rules, arm's length principle, OECD-aligned)
 
@@ -183,6 +183,12 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 | CPL (import) | 20% of cost |
 | PVEx (export) | 15% of export price |
 | CAP (export) | 15% of acquisition cost |
+
+### Treaty Network
+
+Brazil has over **35** double taxation agreements, including with major trading partners: Argentina, Austria, Belgium, Canada, Chile, China, Czech Republic, Denmark, Ecuador, Finland, France, Hungary, India, Israel, Italy, Japan, Luxembourg, Mexico, Netherlands, Norway, Peru, Philippines, Portugal, Slovakia, South Africa, South Korea, Spain, Sweden, Trinidad and Tobago, Turkey, Ukraine, and Uruguay. Standard treaty rates reduce withholding taxes on dividends (10%–15%), interest (10%–15%), and royalties (10%–15%).
+
+> **Note**: Brazil does not have a tax treaty with the United States. Cross-border US-Brazil transactions are governed by domestic withholding tax rates (15% for most income types; 25% for residents of low-tax jurisdictions).
 
 ---
 
