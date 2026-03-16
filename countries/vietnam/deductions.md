@@ -3,7 +3,7 @@
 > **Jurisdiction**: National (General Department of Taxation — GDT)
 > **Governing Law**: Corporate Income Tax Law No. 14/2008/QH12 (CIT Law); Decree 218/2013/ND-CP; Circular 78/2014/TT-BTC; Circular 96/2015/TT-BTC; Decree 132/2020/ND-CP
 > **Tax Year**: 2024/2025
-> **Currency**: VND (VND)
+> **Currency**: VND (₫)
 
 ---
 

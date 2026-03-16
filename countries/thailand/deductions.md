@@ -3,7 +3,7 @@
 > **Jurisdiction**: National (Revenue Department — RD)
 > **Governing Law**: Revenue Code (RC)
 > **Tax Year**: 2024/2025
-> **Currency**: THB (THB)
+> **Currency**: THB (฿)
 
 ---
 

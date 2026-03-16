@@ -99,7 +99,7 @@ Deductions are permitted for expenses incurred **wholly, reasonably, exclusively
 | Parameter | Detail |
 |---|---|
 | Original rule | Total debt not to exceed **70%** of total assets (70:100 debt-to-assets ratio, approximately 2.33:1 debt-to-equity); interest on excess non-deductible |
-| NTA 2025 update | Interest deduction limited to **30%** of earnings before interest, depreciation, and amortisation (EBITDA); aligned with OECD BEPS Action 4 |
+| NTA 2025 update | Interest deduction limited to **30%** of earnings before interest, taxes, depreciation, and amortisation (EBITDA); aligned with OECD BEPS Action 4 |
 | Carry-forward | Disallowed interest may be carried forward for up to **5 years** [unverified — confirm carry-forward period under NTA] |
 | Exempt entities | Banks, insurance companies, and other regulated financial institutions |
 | Legal basis | §16, CITA; NTA, 2025 |

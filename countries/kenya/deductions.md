@@ -123,7 +123,7 @@ See [R&D Incentives](rnd_incentives.md) for details on Kenya's R&D deduction tre
 | Carry-back | **Not permitted** |
 | Ring-fencing | Losses from rental income are ring-fenced and may only be offset against future rental income — §15(5), ITA |
 | Farming losses | May be ring-fenced in certain circumstances |
-| Change of ownership | SARS KRA may disallow losses if the change of ownership was primarily for tax purposes [unverified — confirm anti-avoidance provisions] |
+| Change of ownership | KRA may disallow losses if the change of ownership was primarily for tax purposes [unverified — confirm anti-avoidance provisions] |
 
 > **Historical note:** Prior to recent amendments, losses were limited to a 4-year carry-forward period. The Tax Laws (Amendment) Act, 2020 extended this, but subsequent amendments may have further modified these rules. Confirm the current carry-forward period with KRA or a local adviser.
 

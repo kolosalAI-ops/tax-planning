@@ -109,7 +109,7 @@ Interest on business indebtedness is deductible, subject to the reduction rule f
 
 | Parameter | Value |
 |---|---|
-| Reduction | Deductible interest expense reduced by **20%** of interest income subjected to final withholding tax (CREATE MORE Act; previously 33% under CREATE Act) [unverified — confirm with local counsel] |
+| Reduction | Deductible interest expense reduced by **20%** of interest income subjected to final withholding tax (CREATE MORE Act; previously 33% under CREATE Act) [unverified — confirm implementing Revenue Regulations are in force] |
 | Purpose | Prevent double benefit from tax-free interest income and interest expense deduction |
 
 ### 3.3 Thin Capitalisation

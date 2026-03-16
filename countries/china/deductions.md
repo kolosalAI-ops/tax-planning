@@ -3,7 +3,7 @@
 > **Jurisdiction**: National (State Taxation Administration — STA/SAT)
 > **Governing Law**: Enterprise Income Tax Law 2007 (EITL); EITL Implementation Regulations (IR)
 > **Tax Year**: 2024/2025
-> **Currency**: CNY (¥)
+> **Currency**: CNY / RMB (¥)
 
 ---
 
