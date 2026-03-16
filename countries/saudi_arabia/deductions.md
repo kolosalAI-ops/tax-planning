@@ -161,8 +161,8 @@ See [R&D Incentives](rnd_incentives.md) for full details on the R&D deduction fr
 | Tax rate — oil | **50%–85%** (graduated based on internal rate of return under concession agreement) |
 | Tax rate — natural gas | **20%** on adjusted net income |
 | Depreciation | Separate rules under petroleum fiscal terms; geological/exploration costs: Group 3 at 20% declining balance |
-| Deductions | Governed by individual concession agreements and the Income Tax Law provisions for hydrocarbons |
-| Legal basis | Art. 4, Income Tax Law; Ministerial Resolutions for petroleum companies |
+| Deductions | Governed by individual concession agreements and the Petroleum and Petrochemical Industries Taxes Act (PPITA) provisions for upstream hydrocarbons |
+| Legal basis | Art. 4, Income Tax Law; PPITA (Petroleum and Petrochemical Industries Taxes Act); Ministerial Resolutions for petroleum companies [unverified — confirm current PPITA structure with local counsel] |
 
 ### Regional Headquarters (RHQ) Programme
 

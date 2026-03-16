@@ -358,7 +358,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 ---
 
-## Sources & Legal References
+## 16. Sources & Legal References
 
 | Reference | Citation |
 |---|---|

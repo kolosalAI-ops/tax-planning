@@ -99,14 +99,7 @@ Payments to non-residents are subject to withholding tax, which may affect the t
 
 ## 4. Research & Development
 
-Israel provides substantial R&D incentives through the Capital Investment Encouragement Law 5719-1959 (as amended, commonly called the "Innovation Law") and the Encouragement of Research, Development and Technological Innovation in Industry Law 5744-1984.
-
-| Programme | Benefit | Legal Basis |
-|---|---|---|
-| Preferred Enterprise | **16%** corporate tax (or **7.5%** in Development Area A) on preferred income | §51, Capital Investment Encouragement Law |
-| Preferred Technological Enterprise | **12%** corporate tax (or **7.5%** in Development Area A) on income from IP developed in Israel | §51D, Capital Investment Encouragement Law |
-| Special Preferred Technological Enterprise | **6%** on IP income where consolidated group revenue ≥ ILS 10B | §51E, Capital Investment Encouragement Law |
-| R&D expense deduction | **100%** of R&D expenditure deductible as current expense (capital R&D may qualify for immediate write-off under IIA grants) | §20A, ITO |
+Israel provides substantial R&D incentives through two main frameworks: (1) the Capital Investment Encouragement Law 5719-1959 (the "Innovation Law"), which offers preferential corporate tax rates for Preferred and Preferred Technological Enterprises earning income from IP developed in Israel, and (2) the Encouragement of Research, Development and Technological Innovation in Industry Law 5744-1984, which provides grants via the Israel Innovation Authority (IIA) and allows 100% current expensing of qualifying R&D expenditure under §20A ITO. Benefits are conditional on compliance with restrictions on the transfer of know-how and IP developed with IIA support.
 
 See [R&D Incentives](rnd_incentives.md) for full programme details, including Israel Innovation Authority grants and patent box regime.
 

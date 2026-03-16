@@ -136,15 +136,7 @@ Expenditure and losses actually incurred in the production of income, provided t
 
 ## 4. Research & Development
 
-### §11D, ITA — R&D Deduction
-
-| Parameter | Detail |
-|---|---|
-| Enhanced deduction | **150%** of qualifying R&D expenditure (i.e., 50% additional deduction over the normal 100%) |
-| Qualifying activities | Systematic investigative or experimental activities for the discovery of novel, practical, and non-obvious information; approval required from Department of Science and Innovation (DSI) |
-| Capital R&D expenditure | **50/30/20** accelerated allowance for R&D machinery |
-| Approval | Pre-approval from DSI required before claiming the additional 50% |
-| Legal basis | §11D, ITA |
+South Africa's primary R&D incentive under §11D of the Income Tax Act No. 58 of 1962 (ITA) allows a 150% deduction (i.e., 100% normal deduction plus a 50% additional deduction) on qualifying R&D expenditure incurred on systematic investigative or experimental activities; pre-approval from the Department of Science and Innovation (DSI) is required to claim the enhanced 50% portion. Capital expenditure on R&D assets qualifies for an accelerated 50/30/20 allowance under §11D.
 
 See [R&D Incentives](rnd_incentives.md) for full programme details including the approval process, qualifying criteria, and interaction with other incentives.
 

@@ -132,23 +132,7 @@ Interest on loans used for business purposes is generally deductible, subject to
 
 ## 4. Research & Development
 
-Turkey provides significant R&D deductions through dedicated legislation:
-
-| Programme | Benefit | Legal Basis |
-|---|---|---|
-| R&D Centres (Ar-Ge Merkezleri) | **100%** additional deduction of R&D expenditure from CIT base; income tax and social security exemptions for R&D personnel | Law No. 5746 on Supporting Research, Development and Design Activities |
-| Technology Development Zones (TDZ — Teknoloji Geliştirme Bölgeleri) | Profits from R&D, software, and design activities exempt from CIT (extended to 31 December 2028); personnel income tax exemption | Law No. 4691 on Technology Development Zones |
-| Design Centres | **100%** deduction of design expenditure; similar personnel incentives as R&D centres | Law No. 5746 |
-| Minimum staffing | R&D centres: ≥15 full-time R&D personnel; design centres: ≥10 full-time design personnel | Law No. 5746 |
-| Capitalisation | Successful R&D project costs must be capitalised and amortised over **5 years**; failed project costs may be expensed immediately | Law No. 5746; VUK |
-
-### Minimum Tax Interaction (2025)
-
-| Parameter | Detail |
-|---|---|
-| Rule | From 1 January 2025, domestic minimum tax of **10%** applies on pre-exemption/pre-deduction corporate income — Law No. 7524 (KVK Art. 32/C) |
-| Impact | R&D deductions and TDZ exemptions remain available, but the minimum 10% tax floor applies; the higher of normal CIT (25%) and the 10% minimum tax is payable |
-| Duration limits | Law No. 7524 (November 2024) introduces a maximum **10-year** duration for CIT incentives, including R&D and TDZ exemptions [unverified — confirm effective date and scope] |
+Turkey provides significant R&D deductions through Law No. 5746 on Supporting Research, Development and Design Activities, which allows a 100% additional deduction on qualifying R&D expenditure at approved R&D Centres (minimum 15 full-time researchers), and Law No. 4691 on Technology Development Zones, which exempts profits from R&D and software activities in approved Technology Development Zones from CIT (extended to 31 December 2028). From 1 January 2025, a domestic minimum tax of 10% applies on pre-deduction corporate income under Law No. 7524 (KVK Art. 32/C), limiting the effective benefit of R&D deductions and TDZ exemptions in certain cases [unverified — confirm with local counsel].
 
 See [R&D Incentives](rnd_incentives.md) for full programme details, eligibility criteria, and application process.
 
