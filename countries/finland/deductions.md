@@ -17,8 +17,10 @@ Finland applies declining balance depreciation for most tangible assets used in 
 |---|---|
 | **Method** | Declining balance — EVL §30 |
 | **Maximum rate** | 25% per year — EVL §30 |
+| **Accelerated rate (2020-2025)** | 50% declining balance for newly acquired machinery/equipment — Laki koneiden, kaluston ja muun niihin verrattavan irtaimen käyttöomaisuuden korotetuista poistoista verovuosina 2020-2025 |
 | **Pooling** | All machinery and equipment are pooled — EVL §30 |
 | **Disposal** | Proceeds reduce the pool balance |
+| **Low-value assets** | Assets with acquisition cost ≤€1,200 may be fully expensed in the year of acquisition — EVL §33 |
 | **Small items** | Items with useful life ≤3 years may be fully expensed — EVL §33 |
 
 ### 1.2 Buildings — EVL §34

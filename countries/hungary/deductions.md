@@ -100,12 +100,20 @@ Interest expenses are generally deductible if incurred in connection with busine
 | **Scope** | Applies to all borrowing costs (related and unrelated party) |
 | **Stand-alone entities** | Stand-alone entities exempt from the limitation |
 
-### 3.3 Thin Capitalization (Historical)
+### 3.3 Thin Capitalization — TAO §8 (1) j
 
 | Parameter | Detail |
 |---|---|
-| **Status** | Thin capitalization rules were replaced by the EBITDA rule from 2019; no separate DER test applies |
-| **Related-party** | Arm's length required — TAO §18 |
+| **Debt-to-equity ratio** | 3:1 — interest on liabilities exceeding 3× adjusted equity is non-deductible — TAO §8 (1) j |
+| **Scope** | Applies to all liabilities including bank loans (not limited to related-party) — TAO §8 (1) j |
+| **Interaction** | Both thin capitalization (3:1) and EBITDA rules apply independently; interest denied under either rule is non-deductible |
+
+### 3.4 Related-Party Debt — TAO §18
+
+| Parameter | Detail |
+|---|---|
+| **Arm's length** | Related-party transactions must be at arm's length — TAO §18 |
+| **Related party definition** | Majority ownership or common control — TAO §4 (23) |
 
 ---
 
@@ -123,7 +131,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 | Parameter | Detail |
 |---|---|
-| **Duration** | **5 years** (indefinite for losses arising before 2015; 5-year limit applies to losses from 2015 onward) — TAO §17 (1)-(2) [unverified — confirm with local counsel] |
+| **Duration** | **Indefinite** carry-forward (the former time limitation was abolished; losses declared in previous years may be offset without time restriction from the 2025 tax year onward) — TAO §17 as amended |
 | **Annual cap** | **50%** of current year's taxable income (before loss offset) — TAO §17 (1a) |
 | **Example** | If pre-loss taxable income = HUF 100M: maximum loss offset = HUF 50M |
 | **Ownership change** | Tax authority approval required if >50% ownership change occurs — TAO §17 (9) |
@@ -284,7 +292,8 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 | **Dividends paid** | Distribution of profits | N/A |
 | **Unused development reserve** | Reversed plus 20% penalty | TAO §7 (15) |
 | **Related-party bad debt provisions** | Not deductible | TAO §7 (1) n |
-| **Excessive interest** | Beyond EBITDA limitation | TAO §8 (1) dz |
+| **Thin capitalization excess interest** | Interest on liabilities exceeding 3× equity | TAO §8 (1) j |
+| **Excess borrowing costs above EBITDA** | Above HUF 939.81M / 30% EBITDA | TAO §8 (1) dz |
 | **Non-arm's length pricing adjustments** | Transfer pricing adjustments increase tax base | TAO §18 |
 | **Impairment losses (certain)** | Accounting impairment not always followed for tax | TAO §8 (1) gy |
 

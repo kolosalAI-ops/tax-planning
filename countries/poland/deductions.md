@@ -67,7 +67,7 @@ Poland's tax depreciation rules are set out in Articles 16a-16m and Annex 1 of t
 
 | Parameter | Detail |
 |---|---|
-| **Depreciation cap** | PLN 150,000 for electric vehicles; PLN 150,000 for other vehicles — CIT Art. 16 (1) 4 |
+| **Depreciation cap** | PLN 225,000 for electric vehicles; PLN 150,000 for other vehicles — CIT Art. 16 (1) 4 |
 | **Leasing cap** | Operating lease payments deductible proportionally to the PLN 150,000 cap — CIT Art. 16 (1) 49a |
 | **Insurance cap** | Insurance deductible up to PLN 150,000 of vehicle value — CIT Art. 16 (1) 49 |
 

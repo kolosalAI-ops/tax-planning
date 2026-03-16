@@ -67,7 +67,22 @@ Czech tax depreciation is governed by ZDP §26-33. Assets with acquisition cost 
 
 **Note:** From 2021, the obligation to amortize intangibles over minimum statutory periods has been relaxed; intangible assets may follow accounting amortization for tax purposes [unverified — confirm with local counsel].
 
-### 1.5 Low-Value Assets
+### 1.5 Emission-Free Vehicles — ZDP §30a (from 2024)
+
+| Parameter | Detail |
+|---|---|
+| **Accelerated period** | 24 months — ZDP §30a |
+| **Applicable period** | Vehicles placed in service 2024-2028 |
+| **Method** | Monthly depreciation (100% over 24 months) |
+
+### 1.6 Passenger Car Depreciation Cap (from 2024)
+
+| Parameter | Detail |
+|---|---|
+| **Cap** | Maximum depreciable acquisition cost: CZK 2,000,000 — ZDP §29 (10) (effective from 1 January 2024) |
+| **Excess** | Depreciation on amount exceeding CZK 2M is non-deductible |
+
+### 1.7 Low-Value Assets
 
 | Parameter | Detail |
 |---|---|
@@ -292,6 +307,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 | **Dividends paid** | Distribution of profits | N/A |
 | **50% of entertainment expenses** | Statutory cap | ZDP §25 (1) t [unverified — confirm with local counsel] |
 | **Excessive depreciation** | Depreciation beyond statutory rates | ZDP §25 (1) a |
+| **Depreciation above CZK 2M passenger car cap** | Non-deductible from 2024 | ZDP §25 (1) a; §29 (10) |
 | **Private/personal expenses** | Not business-related | ZDP §25 (1) u |
 | **Shortages and losses above insurance proceeds** | Non-deductible to the extent not covered by insurance | ZDP §25 (1) n |
 | **Gifts and donations (beyond 10% limit)** | Capped deductibility | ZDP §20 (8) |
