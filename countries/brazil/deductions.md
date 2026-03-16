@@ -107,6 +107,8 @@
 | IRPJ reduction on technology royalty payments | **50%** reduction for IPI on R&D equipment | **Lei No. 11.196/2005, Artigo 17, V** |
 | Eligibility | Must be under Lucro Real regime and profitable | **Lei No. 11.196/2005, Artigo 19, caput** |
 
+See [R&D Incentives](rnd_incentives.md) for full program detail.
+
 ---
 
 ## 5. Allowable Business Expenses

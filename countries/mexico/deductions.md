@@ -330,6 +330,8 @@
 | Certification | Must be certified by CONACYT/CONAHCYT |
 | Carry-forward | **10 years** — LISR Art. 202 |
 
+See [R&D Incentives](rnd_incentives.md) for full program detail.
+
 ---
 
 ## 14. Provisions & Reserves
