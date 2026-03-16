@@ -158,11 +158,11 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 ## 5. Loss Carry-Forward & Carry-Back
 
-### 5.1 Loss Carry-Forward — ZDP §34 (1)
+### 5.1 Loss Carry-Forward — ZDP §38n
 
 | Parameter | Detail |
 |---|---|
-| **Duration** | **5 years** — ZDP §34 (1) |
+| **Duration** | **5 years** — ZDP §38n |
 | **Annual cap** | **No cap** — 100% of taxable income may be offset in any year |
 | **Ownership change** | Losses may be restricted on substantial change of ownership (>25%) if the nature of business also changes — ZDP §38na |
 | **Merger** | Losses may transfer in qualifying mergers subject to conditions — ZDP §23d |
@@ -321,7 +321,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 | Reference | Citation |
 |---|---|
-| **Zakon o danich z prijmu (ZDP) c. 586/1992 Sb.** | §§20, 23, 23d, 23e, 24, 25, 26-33, 34, 38da, 38na — depreciation, deductions, non-deductibles, loss carry-forward, TP, CbCR |
+| **Zakon o danich z prijmu (ZDP) c. 586/1992 Sb.** | §§20, 23, 23d, 23e, 24, 25, 26-33, 34, 38n, 38na, 38da — depreciation, deductions, non-deductibles, R&D extra deduction (§34), loss carry-forward (§38n), ownership change restriction (§38na), TP, CbCR |
 | **Zakon o rezervach c. 593/1992 Sb.** | §§5-10, 8a — tax-deductible reserves and bad debt provisions |
 | **Zakon o investicnich pobidkach c. 72/2000 Sb.** | Investment incentives |
 | **Danovy rad c. 280/2009 Sb.** | §§251-252 — penalties and interest |

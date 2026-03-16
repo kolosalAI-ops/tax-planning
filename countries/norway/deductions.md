@@ -187,8 +187,11 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 ### 7.1 Petroleum Sector — Petroleumsskatteloven
 
+Petroleumsskatteloven §3 establishes the general deductibility framework for companies engaged in petroleum activities on the Norwegian continental shelf, providing that costs incurred in connection with petroleum production are deductible. Specific deduction categories in §§3b, 3c, and 5 derive from this foundational provision.
+
 | Deduction | Detail | Statutory Basis |
 |---|---|---|
+| **General deductibility** | Costs incurred in connection with petroleum production are deductible | Petroleumsskatteloven §3 |
 | **Special petroleum tax** | 71.8% total marginal rate (22% corporate + 49.8% special tax [unverified — confirm with local counsel]) | Petroleumsskatteloven §5 |
 | **Uplift (friinntekt)** | Extra deduction on investment costs (currently 0% after 2024 reform [unverified — confirm with local counsel]) | Petroleumsskatteloven §5 (previously 5.2%/year over 4 years) |
 | **Immediate expensing** | Investment costs may be expensed in year of incurrence against special tax base | Petroleumsskatteloven §3b |
