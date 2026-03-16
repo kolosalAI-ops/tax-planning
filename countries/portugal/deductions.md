@@ -127,8 +127,11 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 | Parameter | Value |
 |---|---|
-| Duration | **12 years** (increased from 5 years to 12 years; applicable to losses from 2023 onward) [unverified — confirm with local counsel] |
-| Restriction | Losses offset up to **65%** of taxable income per year (reduced from 70% — effective from 2023) [unverified — confirm with local counsel] |
+| Duration (FY 2023 onwards) | **Indefinite** (unlimited carry-forward period) — Art. 52.1 CIRC as amended by Lei 24-D/2022 (State Budget 2023) |
+| Duration (FY 2017–2022) | **12 years** |
+| Duration (FY 2014–2016) | **12 years** |
+| Transition | Losses assessed before 2023 whose carry-forward period had not expired as of 1 January 2023 also benefit from the unlimited period |
+| Restriction | Losses offset up to **65%** of taxable income per year — Art. 52.2 CIRC |
 | Change of ownership | Losses forfeited if ≥50% ownership change, unless tax authority authorisation obtained — Art. 52.8 CIRC |
 
 ### Loss Carry-Back

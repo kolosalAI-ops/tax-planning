@@ -105,7 +105,7 @@ Business expenses are deductible if incurred for the purpose of the enterprise, 
 
 | Parameter | Value |
 |---|---|
-| Deductible limit | Net interest expense up to **20%** of tax-EBITDA (reduced from 30% effective 1 January 2022) |
+| Deductible limit | Net interest expense up to **20%** of tax-EBITDA (FY 2024); increased to **24.5%** from 1 January 2025 — Art. 15b Vpb |
 | De minimis | **€1,000,000** net interest expense |
 | Group ratio rule | Alternative: group net interest/EBITDA ratio if higher |
 | Carry-forward | Disallowed interest carried forward **indefinitely** |
