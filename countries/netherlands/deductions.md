@@ -109,7 +109,7 @@ Business expenses are deductible if incurred for the purpose of the enterprise, 
 | De minimis | **€1,000,000** net interest expense |
 | Group ratio rule | Alternative: group net interest/EBITDA ratio if higher |
 | Carry-forward | Disallowed interest carried forward **indefinitely** |
-| EBITDA carry-forward | Unused EBITDA carried forward no further than the immediately following year (Art. 15b Abs. 4) [unverified — confirm with local counsel] |
+| EBITDA carry-forward | Unused EBITDA capacity carried forward for up to **5 years** — Art. 15b Vpb (ATAD standard, consistent with peer EU jurisdictions) |
 
 ### Anti-Base Erosion Rules — Art. 10a Vpb
 

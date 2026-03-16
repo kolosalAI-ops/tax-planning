@@ -3,7 +3,7 @@
 > **Jurisdiction**: Federal (ESTV / FTA — Eidgenössische Steuerverwaltung) + Cantonal/Communal
 > **Governing Law**: Bundesgesetz über die direkte Bundessteuer (DBG); Steuerharmonisierungsgesetz (StHG); Cantonal tax laws
 > **Tax Year**: 2024/2025
-> **Currency**: CHF (CHF)
+> **Currency**: CHF (Fr.)
 
 ---
 

@@ -100,7 +100,7 @@ Expenses are deductible if they are incurred to obtain or guarantee taxable inco
 |---|---|
 | Deductible limit | Net interest expense up to the greater of: (i) **30%** of tax-EBITDA, or (ii) **€1,000,000** |
 | De minimis | **€1,000,000** net interest expense |
-| Carry-forward of excess interest | **5 years** |
+| Carry-forward of excess (disallowed) interest | **Indefinite** — Art. 67 CIRC (as amended by Lei 24-D/2022) |
 | EBITDA carry-forward | Unused EBITDA carried forward **5 years** |
 | Group | Computed per entity; RETGS groups may apply consolidated |
 

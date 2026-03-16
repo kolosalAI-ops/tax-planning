@@ -80,7 +80,7 @@
 |---|---|---|
 | Deductibility | **100%** deductible from IRPJ and CSLL base | **Lei No. 9.249/1995, Artigo 9o, caput** |
 | Rate limit | TJLP (Taxa de Juros de Longo Prazo) - set by CMN quarterly | **Lei No. 9.249/1995, Artigo 9o, caput** |
-| TJLP rate (2024) | **6.91%** per annum (varies quarterly; set by CMN) | CMN resolutions (updated quarterly) |
+| TJLP rate (2024) | **6.91%** per annum (varies quarterly; set by CMN) [unverified — confirm current quarter rate against latest CMN resolution] | CMN resolutions (updated quarterly) |
 | Base | Applied to shareholder's equity | **Lei No. 9.249/1995, Artigo 9o, caput** |
 | Maximum deduction | Greater of: 50% of current year profit (before JCP) or 50% of retained earnings + profit reserves | **Lei No. 9.249/1995, Artigo 9o, SS1o** |
 | WHT on payment (through 2025) | **15%** (or 25% to tax haven residents) | **Lei No. 9.249/1995, Artigo 9o, SS2o; RIR/2018, Artigo 726** |

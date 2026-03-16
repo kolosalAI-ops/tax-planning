@@ -248,7 +248,7 @@ France has over **120** double taxation agreements.
 | Expense | Statutory Reference |
 |---|---|
 | Corporate income tax (IS) | Not deductible |
-| Vehicle depreciation exceeding caps | Art. 39-4 CGI — cap €18,300 for CO₂ >130g/km; €30,000 for CO₂ ≤20g/km; €20,300 for 20–50g/km; €9,900 for >160g/km [unverified — confirm with local counsel] |
+| Vehicle depreciation exceeding caps | Art. 39-4 CGI — the 2024 regime uses five CO₂ emission categories; indicative caps: €30,000 for ≤20g/km; €20,300 for 21–50g/km; €18,300 for 51–160g/km; lower bands for >160g/km [unverified — the pre-2023 band structure shown here may be outdated; confirm current-year DGFiP tables before use] |
 | Lease payments on vehicles exceeding cap | Art. 39-4 CGI — same caps applied to excess lease portion |
 | Hunting, fishing, yachts, pleasure boats | **Fully non-deductible** — Art. 39-4 CGI |
 | Luxury residences (châteaux) | **Fully non-deductible** — Art. 39-4 CGI |

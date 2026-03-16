@@ -202,7 +202,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 | Parameter | Value |
 |---|---|
 | Deduction | Tax shelter for qualifying audiovisual works and performing arts |
-| Rate | **421%** of amounts invested (provisional exemption) — resulting in effective benefit |
+| Rate | **421%** of amounts invested (provisional tax exemption — this is the fiscal leverage ratio: a €1 investment yields a provisional CIT-base exemption of ~€4.21, not a 421% cash return) — Art. 194ter WIB 92 |
 | Cap | Lesser of €750,000 per work or 50% of taxable profit |
 
 ### Diamond Industry — Art. 67ter WIB 92

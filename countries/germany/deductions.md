@@ -16,7 +16,7 @@ Germany uses the term "Absetzung für Abnutzung" (AfA) for tax depreciation. The
 | Method | Availability | Notes |
 |---|---|---|
 | Straight-line (linear) | Default method for all assets | §7 Abs. 1 EStG |
-| Declining balance (degressiv) | Reintroduced for assets acquired 2020–2024 at **20%** (max 2× straight-line) | §7 Abs. 2 EStG (as amended by Wachstumschancengesetz 2024) [unverified — confirm with local counsel] |
+| Declining balance (degressiv) | Reintroduced for assets acquired 2020–2024 at **20%** (max 2× straight-line) | §7 Abs. 2 EStG (as amended by Wachstumschancengesetz 2024, enacted 27 March 2024) |
 
 ### Key Depreciation Rates — BMF AfA-Tabellen
 

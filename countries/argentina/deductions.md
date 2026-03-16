@@ -55,7 +55,7 @@
 | Infrastructure / mines / quarries / forests | Amortized over **60% of estimated useful life** | Ley 27.742 |
 | Stability period | **30 years** from registration date | Ley 27.742 |
 | Income tax rate under RIGI | **25%** (reduced from general 35% rate) | Ley 27.742 |
-| Application deadline | July 8, 2027 (extended by one year) | Decreto 2025 |
+| Application deadline | July 8, 2027 (extended by one year) [unverified — confirm decree number with local counsel] | Decreto 2025 [decree number unconfirmed] |
 
 ---
 
@@ -176,7 +176,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 | Provision Type | Deductibility | Notes |
 |---|---|---|
-| Bad debts | **Deductible** — if meet specific requirements (bankruptcy, judicial collection, prescription) | LIG Art. 91; Decreto 1.344/1998 |
+| Bad debts | **Deductible** — if meet specific requirements (bankruptcy, judicial collection, prescription) | LIG Art. 87; Decreto 1.344/1998 |
 | Bad debt reserve method | **Not allowed** for tax purposes; must use direct write-off | |
 | Vacation accruals | **Deductible** when accrued (mandatory labour obligation) | |
 | Mandatory severance (indemnización) | **Deductible** when paid | |
@@ -245,8 +245,8 @@ Argentina has approximately 20 bilateral tax treaties in force (including with G
 | Income tax (Impuesto a las Ganancias) itself | LIG Art. 88, inciso a) |
 | Personal expenses of shareholders/directors | LIG Art. 88, inciso a) |
 | Fines and penalties (governmental) | LIG Art. 88, inciso i) |
-| Automobile depreciation above cap (ARS 20,000) | LIG Art. 92 |
-| Automobile expenses above ARS 7,200/year cap | LIG Art. 92 |
+| Automobile depreciation above cap (ARS 20,000 [unverified — historic nominal cap]) | LIG Art. 92 |
+| Automobile expenses above ARS 7,200/year cap [unverified — historic nominal cap] | LIG Art. 92 |
 | Losses from transactions with non-cooperative jurisdictions | LIG Art. 88 |
 | Donations exceeding 5% of net income | LIG Art. 85, inciso c) |
 | Expenses not necessary for producing, maintaining or preserving taxable income | LIG Art. 83 (inverse) |

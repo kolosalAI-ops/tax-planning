@@ -163,6 +163,8 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 ## 6. Provisions & Reserves
 
+### Tax-Deductible Provisions — TCA 1997 §81
+
 | Provision Type | Deductibility | Notes |
 |---|---|---|
 | Specific bad debt provisions | Deductible | Must be specific and related to identified debts |

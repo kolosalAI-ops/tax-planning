@@ -33,7 +33,7 @@ Depreciation (ammortamento) is allowed on tangible and intangible fixed assets u
 
 | Parameter | Value |
 |---|---|
-| Year of acquisition | Depreciation limited to **50%** of the normal rate | Art. 102 Abs. 1 TUIR |
+| Year of acquisition | Depreciation limited to **50%** of the normal rate | Art. 102 co. 1 TUIR |
 | Year of disposal | No depreciation in year of sale |
 
 ### Super-Depreciation and Hyper-Depreciation (Historical)
@@ -44,7 +44,7 @@ Depreciation (ammortamento) is allowed on tangible and intangible fixed assets u
 | Iper-ammortamento (150–270%) | **Expired** — replaced by Credito d'Imposta Beni Strumentali | L. 232/2016 |
 | Tax credit for capital goods (Industria 4.0) | **Active** — 20% credit for ordinary assets in 2024; 20% for 4.0 tangible assets; 5–10% for 4.0 intangibles | Art. 1 para. 1051–1063 L. 178/2020 (as amended) [unverified — confirm with local counsel] |
 
-### Low-Value Assets — Art. 102 Abs. 5 TUIR
+### Low-Value Assets — Art. 102 co. 5 TUIR
 
 | Parameter | Value |
 |---|---|
@@ -66,7 +66,7 @@ Business expenses (costi e oneri) are deductible in the fiscal year in which the
 | Employer social contributions (INPS, INAIL) | Fully deductible | |
 | Rent and lease payments | Fully deductible | Arm's-length for related parties |
 | Professional fees | Fully deductible | Withholding obligation at source (20%) |
-| Repairs and maintenance | Deductible up to **5%** of depreciable asset value per year; excess carried forward over 5 years | Art. 102 Abs. 6 TUIR |
+| Repairs and maintenance | Deductible up to **5%** of depreciable asset value per year; excess carried forward over 5 years | Art. 102 co. 6 TUIR |
 | Bad debts | Deductible when debtor is subject to insolvency proceedings or loss is certain and definite | Art. 101 Abs. 5 TUIR |
 | Insurance premiums | Fully deductible | |
 | Start-up and organisation costs | Deductible in year incurred or amortised over 5 years | Art. 108 TUIR |
@@ -198,7 +198,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 | Parameter | Value |
 |---|---|
 | Substitute tax on revaluation | Available periodically under specific laws |
-| IMU (municipal property tax) | **Not deductible** for IRES (20% deductible prior to 2023; confirmed 0% for 2024 [unverified — confirm with local counsel]) |
+| IMU (municipal property tax) | **Not deductible** for IRES from 2022 onwards — D.L. 3/2023 (historically 20% deductible pre-2022; 0% from 2022) [unverified — confirm exact effective year with local counsel] |
 
 ### Agriculture
 
