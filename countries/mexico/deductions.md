@@ -172,7 +172,7 @@
 
 ## 5. Employee Profit Sharing (PTU) Deduction
 
-> **Legal basis**: Ley Federal del Trabajo (LFT) Artículos 117-131; LISR Artículo 9 párrafo 3
+> **Legal basis**: Ley Federal del Trabajo (LFT) Artículos 117-131; LISR Artículo 9 párrafo 3; LISR Artículo 28 fracción XXV (PTU deductibility limit)
 
 | Parameter | Value |
 |---|---|
@@ -317,18 +317,9 @@
 
 ---
 
-## 13. R&D Incentives
+## 13. Research & Development
 
-> **Legal basis**: LISR Artículo 202 (R&D tax credit — 30% incremental)
-
-| Parameter | Value |
-|---|---|
-| R&D tax credit (EFIDT) | **30%** of incremental R&D expenditures — LISR Art. 202 |
-| Maximum credit | **MXN 50 million** per year — LISR Art. 202 |
-| Incremental basis | Over average of prior 3 years |
-| Eligible expenses | Research directly related to new products/processes |
-| Certification | Must be certified by CONACYT/CONAHCYT |
-| Carry-forward | **10 years** — LISR Art. 202 |
+Mexico offers a 30% tax credit on incremental qualifying R&D expenditures under LISR Art. 202 (EFIDT program), capped at MXN 50 million per year, with a 10-year carry-forward for unused credits; the increment is measured against the average of the prior three years and certification by CONAHCYT is required. In addition, qualifying R&D expenditures are fully deductible as ordinary business expenses under LISR Art. 25 fracción XII in the year incurred.
 
 See [R&D Incentives](rnd_incentives.md) for full program detail.
 

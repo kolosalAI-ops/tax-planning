@@ -92,20 +92,9 @@
 
 ---
 
-## 4. R&D Deductions - Lei do Bem (Lei 11.196/2005)
+## 4. Research & Development
 
-> **Legal Basis**: Lei No. 11.196/2005, Capitulo III, Artigos 17-26 (Lei do Bem R&D incentives)
-
-| Incentive | Value | Legal Reference |
-|---|---|---|
-| Additional deduction from IRPJ/CSLL base | **60%** of R&D expenditures (on top of 100% normal deduction) | **Lei No. 11.196/2005, Artigo 19, caput** |
-| If headcount increases >5% | Additional **20%** (total 80% extra) | **Lei No. 11.196/2005, Artigo 19, SS1o** |
-| If patent granted | Additional **20%** (total 80% extra) | **Lei No. 11.196/2005, Artigo 19, SS2o** |
-| Maximum combined extra deduction | **80%** of R&D expenditures | **Lei No. 11.196/2005, Artigo 19, SS3o** |
-| Accelerated depreciation on R&D equipment | **100%** in year of acquisition | **Lei No. 11.196/2005, Artigo 17, III** |
-| Accelerated amortization on R&D intangibles | **100%** in year of acquisition | **Lei No. 11.196/2005, Artigo 17, IV** |
-| IRPJ reduction on technology royalty payments | **50%** reduction for IPI on R&D equipment | **Lei No. 11.196/2005, Artigo 17, V** |
-| Eligibility | Must be under Lucro Real regime and profitable | **Lei No. 11.196/2005, Artigo 19, caput** |
+Brazil's primary R&D incentive is the **Lei do Bem** (Lei No. 11.196/2005, Arts. 17–26), which grants Lucro Real companies an additional 60–80% deduction on qualifying R&D expenditures on top of the normal 100% deduction, together with accelerated depreciation of R&D equipment and amortization of R&D intangibles. The Lei de Informática (Lei No. 8.248/1991) and the broader Lei do Bem framework also provide IPI reductions and other benefits linked to technology investment. Access to these incentives requires the company to be profitable (no cash refund); loss-making entities cannot monetise the benefit.
 
 See [R&D Incentives](rnd_incentives.md) for full program detail.
 
@@ -268,7 +257,7 @@ See [R&D Incentives](rnd_incentives.md) for full program detail.
 
 ---
 
-## Sources & Legal References
+## 13. Sources & Legal References
 
 | Reference | Citation |
 |---|---|
