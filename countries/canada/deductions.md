@@ -3,11 +3,13 @@
 > **Jurisdiction**: Federal (CRA) + Provincial/Territorial
 > **Governing Law**: Income Tax Act (ITA), R.S.C. 1985, c. 1 (5th Supp.)
 > **Tax Year**: 2024/2025
-> **Currency**: Canadian Dollar (CAD / C$)
+> **Currency**: CAD (C$)
 
 ---
 
-## 1. Capital Cost Allowance (CCA) - Depreciation
+## 1. Depreciation & Capital Allowances
+
+### Capital Cost Allowance (CCA) System
 
 > **Legal Basis**: ITA §20(1)(a) (CCA deduction), Income Tax Regulations Part XI, Schedule II (CCA class definitions and rates), ITA §13(21) (definitions)
 
@@ -22,14 +24,14 @@ Canada uses the Capital Cost Allowance (CCA) system instead of GAAP depreciation
 | **3** | **5%** | Declining balance | Buildings acquired before 1988 |
 | **6** | **10%** | Declining balance | Frame/log buildings, fences, greenhouses |
 | **7** | **15%** | Declining balance | Canoes, boats, most vessels |
-| **8** | **20%** | Declining balance | Misc. tangible property - furniture, appliances, tools >$500, equipment |
+| **8** | **20%** | Declining balance | Misc. tangible property — furniture, appliances, tools >$500, equipment |
 | **9** | **25%** | Declining balance | Aircraft |
 | **10** | **30%** | Declining balance | Motor vehicles, passenger vehicles |
-| **10.1** | **30%** | Declining balance | Passenger vehicles costing >$37,000 (2024 limit) |
+| **10.1** | **30%** | Declining balance | Passenger vehicles costing >C$37,000 (2024 limit) |
 | **12** | **100%** | Declining balance | China, cutlery, linen, uniforms, dies, tools <$500, computer software |
 | **13** | **SL** | Straight-line | Leasehold improvements (over remaining lease term + 1 renewal, max 40 years) |
 | **14** | **SL** | Straight-line | Patents, franchises, concessions with limited life |
-| **14.1** | **5%** | Declining balance | Goodwill, unlimited-life intangibles (replaces old ¾ CEC rules) |
+| **14.1** | **5%** | Declining balance | Goodwill, unlimited-life intangibles (replaces old 3/4 CEC rules) |
 | **16** | **40%** | Declining balance | Taxis, rental vehicles, coin-operated games |
 | **17** | **8%** | Declining balance | Roads, parking lots, sidewalks |
 | **29** | **50%** SL | Straight-line | M&P equipment (eligible, acquired before 2016) |
@@ -41,9 +43,16 @@ Canada uses the Capital Cost Allowance (CCA) system instead of GAAP depreciation
 | **46** | **30%** | Declining balance | Data network infrastructure |
 | **50** | **55%** | Declining balance | Computer equipment acquired after Jan 2011 |
 | **53** | **50%** | Declining balance | M&P equipment acquired after 2015 |
-| **54** | **30%** | Declining balance | Zero-emission vehicles (up to prescribed limit) |
-| **55** | **40%** | Declining balance | Zero-emission vehicles (no prescribed limit) |
+| **54** | **30%** | Declining balance | Zero-emission passenger vehicles (up to C$61,000 prescribed limit for 2025) |
+| **55** | **40%** | Declining balance | Zero-emission commercial vehicles (no prescribed limit) |
 | **56** | **30%** | Declining balance | Zero-emission automotive equipment |
+
+### Zero-Emission Vehicle Enhanced First-Year CCA Phase-Out
+
+| Class | Before 2024 | 2024–2025 | 2026–2027 |
+|---|---|---|---|
+| Class 54 | 2 1/3x net addition | 1 1/2x net addition | 5/8x net addition |
+| Class 55 | 100% first-year deduction | 75% first-year deduction | 55% first-year deduction |
 
 ### Accelerated Investment Incentive Property (AIIP)
 
@@ -51,63 +60,125 @@ Canada uses the Capital Cost Allowance (CCA) system instead of GAAP depreciation
 
 | Parameter | Value | Statutory Reference |
 |---|---|---|
-| Enhanced first-year allowance | **Up to 1.5× normal CCA** in first year | ITA §13(7.1) |
-| Mechanism | Suspends the half-year rule; applies full rate in year of acquisition | Regulations §1100(0.1) (half-year rule) |
+| Enhanced first-year allowance | **Up to 1.5x normal CCA** in first year | ITA §13(7.1) |
+| Mechanism | Suspends the half-year rule; applies full rate in year of acquisition | Regulations §1100(0.1) |
 | Eligible property | Most property acquired after Nov 20, 2018 and before 2028 | ITA §13(7.1) |
-| Phase-out schedule | 100% of enhancement for 2024-2025, then phase-down | |
+| Phase-out schedule | 100% of enhancement for 2024–2025, then phase-down | |
 | Excluded | Property transferred from related parties at same or similar use | ITA §13(7.1)(e) |
 
 ### Immediate Expensing for CCPCs
 
 | Parameter | Value |
 |---|---|
-| Limit | **$1.5 million** per taxation year |
+| Limit | **C$1.5 million** per taxation year |
 | Eligible property | Property in CCA classes other than 1, 3, 6, 14.1, 17, 47, 49, 51 |
 | Eligible businesses | CCPCs, eligible partnerships, unincorporated businesses |
 | Available for | Property acquired after April 19, 2021 and before Jan 1, 2025 |
 
 ---
 
-## 2. Scientific Research & Experimental Development (SR&ED)
+## 2. Business Operating Expenses
 
-> **Legal Basis**: ITA §37(1) (SR&ED expenditure deduction), ITA §127(5)-(9) (investment tax credit), ITA §127(10.1) (enhanced ITC rate of 35% for CCPCs)
+### General Deductibility — ITA §18(1)(a)
 
-### Investment Tax Credit Rates
+Expenses are deductible if incurred for the purpose of gaining or producing income from a business or property.
 
-| Parameter | CCPC (Enhanced Rate) | Other Corporations | Statutory Reference |
-|---|---|---|---|
-| ITC rate | **35%** | **15%** | ITA §127(10.1) (CCPC 35%), ITA §127(9) "specified percentage" (15%) |
-| Expenditure limit (35% rate) | First **$3 million** of qualified SR&ED expenditures | N/A | ITA §127(10.1), §127(10.2) |
-| Expenditure above limit | 15% rate | 15% rate | ITA §127(5), §127(9) |
-| Refundability (CCPC) | **100%** refundable on first $3M | Not refundable (carry-forward) | ITA §127.1(2) |
-| Carry-forward | 20 years | 20 years | ITA §127(9) "investment tax credit" (e) |
-| Carry-back | 3 years | 3 years | ITA §127(9) "investment tax credit" (e) |
+### Meals & Entertainment — ITA §67.1
 
-### Eligible SR&ED Expenditures
-
-| Type | Treatment | Statutory Reference |
+| Expense Type | Deductibility | Statutory Reference |
 |---|---|---|
-| Current expenditures (salaries, materials) | **100%** deductible in year incurred | ITA §37(1)(a) |
-| Capital expenditures | **No longer eligible** for ITC (since 2014) | ITA §37(1)(b) (repealed) |
-| Proxy amount (overhead) | **55%** of salary base (simplified method) | Regulations §2900(4) |
-| Contractors | **80%** of amount paid | ITA §37(1)(a)(i.1) |
-| Third-party payments | **80%** eligible for ITC | ITA §127(9) "qualified expenditure" |
+| Meals and entertainment (general) | **50%** deductible | ITA §67.1(1) |
+| Long-haul truck driver meals | **80%** deductible | ITA §67.1(1.1) |
+| Fundraising events (charities) | **100%** deductible | ITA §67.1(2)(b) |
+| Company-wide events (holiday parties, picnics) | **100%** deductible | ITA §67.1(2)(d) |
+| Club dues (recreational) | **Not deductible** | ITA §18(1)(l) |
+| Golf greens fees | **Not deductible** | ITA §18(1)(l) |
 
-### Taxable Capital Phase-Out (for 35% rate)
+### Vehicle Expense Limits (2024–2025)
 
-| Parameter | Value |
-|---|---|
-| Phase-out begins | Taxable capital employed in Canada > **$10 million** |
-| Phase-out complete | Taxable capital > **$50 million** |
-| Expenditure limit reduction | Linear reduction from $3M to $0 |
+> **Legal Basis**: ITA §67.2 (interest limitation), ITA §67.3 (leasing cost limitation)
+
+| Parameter | Value | Statutory Reference |
+|---|---|---|
+| CCA Class 10.1 ceiling (passenger vehicle) | **C$37,000** + tax | Regulations §7307(1) |
+| Monthly leasing cost limit | **C$950** + tax | ITA §67.3, Regulations §7307(4) |
+| Deductible interest on auto loans | **C$300/month** | ITA §67.2, Regulations §7307(2) |
+| Tax-exempt auto allowance (per km) | First 5,000 km: **C$0.70/km**; thereafter: **C$0.64/km** | Regulations §7306 |
+| Zero-emission vehicle (Class 54) limit | **C$61,000** + tax | Regulations §7307(1.1) |
+
+### Charitable Donations — ITA §110.1
+
+| Parameter | Value | Statutory Reference |
+|---|---|---|
+| Maximum deduction | **75%** of net income | ITA §110.1(1) |
+| Carry-forward | **5 years** | ITA §110.1(1) |
+| Cultural gifts | No income limit | ITA §110.1(1)(c) |
+| Ecologically sensitive land | No income limit | ITA §110.1(1)(d) |
+
+### Home Office Deductions
+
+> **Legal Basis**: ITA §8(1)(i) (employee), ITA §18(12) (self-employed)
+
+| Method | Details | Statutory Reference |
+|---|---|---|
+| Detailed method | Actual expenses x (office space / total home space) | ITA §8(1)(i) (employees), §18(12) (self-employed) |
+| Eligible expenses | Rent, utilities, maintenance, internet (proportional) | ITA §8(1)(i)(ii)–(iii) |
+| Mortgage interest | Deductible for self-employed (proportional) | ITA §18(1)(a) |
+| Property tax | Deductible for self-employed (proportional) | ITA §18(1)(a) |
+| CCA on home | Can be claimed but NOT recommended (principal residence exemption impact) | ITA §20(1)(a), §40(2)(b) |
+| Limitation | Cannot create or increase a business loss | ITA §18(12) |
 
 ---
 
-## 3. Loss Rules
+## 3. Interest & Financing Costs
 
-> **Legal Basis**: ITA §111(1)(a) (non-capital loss carry-forward, 20 years), ITA §111(1)(b) (net capital loss carry-forward), ITA §111(8)(a) (3-year carry-back)
+### General Rule — ITA §20(1)(c)
 
-### Non-Capital Losses
+| Parameter | Value | Statutory Reference |
+|---|---|---|
+| Basic rule | Interest deductible if borrowed money used to earn business or property income | ITA §20(1)(c) |
+| Prescribed rate (Q1 2024) | **6%** (for employee/shareholder loans, etc.) | ITA §80.4, Regulations §4301 |
+
+### Thin Capitalization (Legacy Rule) — ITA §18(4)
+
+| Parameter | Value | Statutory Reference |
+|---|---|---|
+| Debt-to-equity ratio | **1.5:1** for non-resident related-party debt | ITA §18(4) |
+| Effect | Interest on excess debt is non-deductible and recharacterized as a dividend subject to WHT | ITA §18(4), §214(16) |
+| Status | Remains in effect as a standalone rule, but largely **superseded** by EIFEL for affected taxpayers | |
+
+### Excessive Interest and Financing Expenses Limitation (EIFEL) — ITA §18.2
+
+> **Legal Basis**: ITA §18.2 (enacted via Bill C-59, royal assent June 20, 2024)
+
+| Parameter | Value | Statutory Reference |
+|---|---|---|
+| Effective date | Tax years beginning on or after **October 1, 2023** | ITA §18.2(1) |
+| Transitional ratio (Oct 1 – Dec 31, 2023) | **40%** of tax-EBITDA | ITA §18.2(2) (transitional) |
+| Standard ratio (Jan 1, 2024+) | **30%** of tax-EBITDA | ITA §18.2(2) |
+| Carry-forward of denied expenses | **20 years** | ITA §18.2(4) |
+| Carry-forward of unused capacity | **3 years** | ITA §18.2(4) |
+| Interest and financing revenue | Relevant for group ratio and capacity calculations | ITA §18.21 |
+| Exemption — Canadian groups | Groups with all entities in Canada | ITA §18.2(1) "excluded entity" |
+| Exemption — threshold | **C$250,000** of net interest expense | ITA §18.2(1) "excluded entity" |
+| Exemption — CCPCs | CCPCs with taxable capital employed in Canada < **C$50 million** | ITA §18.2(1) "excluded entity" |
+| Group ratio election | Can elect to use worldwide group ratio if higher than 30% | ITA §18.2(6) |
+
+> EIFEL is the primary interest limitation regime for most multinational groups operating in Canada. The legacy thin-cap rule under ITA §18(4) still applies separately (e.g., to recharacterize excess interest as dividends for WHT purposes).
+
+---
+
+## 4. Research & Development
+
+Canada provides a Scientific Research and Experimental Development (SR&ED) program that offers both a 100% current deduction for eligible R&D expenditures (ITA §37(1)(a)) and an investment tax credit of up to 35% for CCPCs on the first C$3 million of qualified expenditures (ITA §127(10.1)), with a 15% rate for other corporations. The enhanced 35% rate phases out for CCPCs with taxable capital between C$10 million and C$50 million.
+
+See [R&D Incentives](rnd_incentives.md) for full program detail.
+
+---
+
+## 5. Loss Carry-Forward & Carry-Back
+
+### Non-Capital Losses — ITA §111(1)(a)
 
 | Parameter | Value | Statutory Reference |
 |---|---|---|
@@ -116,14 +187,14 @@ Canada uses the Capital Cost Allowance (CCA) system instead of GAAP depreciation
 | Restriction on acquisition of control | Losses expire if control acquired, unless same or similar business test met | ITA §111(5) |
 | Streaming | Losses from specific sources may only offset income from same source | ITA §111(5)(a) |
 
-### Net Capital Losses
+### Net Capital Losses — ITA §111(1)(b)
 
 | Parameter | Value | Statutory Reference |
 |---|---|---|
 | Carry-forward | **Indefinite** | ITA §111(1)(b) |
 | Carry-back | **3 years** | ITA §111(1)(b), §111(8)(a) |
 | Usage | Can only offset taxable capital gains | ITA §111(1.1) |
-| Capital gains inclusion rate | **50%** (first $250,000), **66.67%** (above $250,000) - effective June 25, 2024 | ITA §38(a), §38(a.1) |
+| Capital gains inclusion rate | **50%** (first C$250,000), **66.67%** (above C$250,000) — effective June 25, 2024 | ITA §38(a), §38(a.1) |
 
 ### Allowable Business Investment Losses (ABIL)
 
@@ -138,141 +209,93 @@ Canada uses the Capital Cost Allowance (CCA) system instead of GAAP depreciation
 | Parameter | Value |
 |---|---|
 | Full-time farmers | Full deduction |
-| Part-time farmers (chief source not farming) | First $2,500 + 50% of next $30,000 = max **$17,500** |
+| Part-time farmers (chief source not farming) | First C$2,500 + 50% of next C$30,000 = max **C$17,500** |
 | Restricted farm loss carry-forward | 20 years |
 
 ---
 
-## 4. Interest Deductibility
+## 6. Provisions & Reserves
 
-> **Legal Basis**: ITA §20(1)(c) (general interest deduction), ITA §18(4) (thin capitalization - old rules), ITA §18.2 (EIFEL - excessive interest and financing expenses limitation), ITA §18.21 (interest and financing revenue)
+### Permitted Reserves — ITA §20(1)
 
-### General Rule (Paragraph 20(1)(c))
-
-| Parameter | Value | Statutory Reference |
+| Reserve Type | Treatment | Statutory Reference |
 |---|---|---|
-| Basic rule | Interest deductible if borrowed money used to earn business or property income | ITA §20(1)(c) |
-| Prescribed rate (Q1 2024) | **6%** (for employee/shareholder loans, etc.) | ITA §80.4, Regulations §4301 |
-| Thin capitalization (old rules) | 1.5:1 debt-to-equity ratio for non-resident related party debt | ITA §18(4) |
-
-### Excessive Interest and Financing Expenses Limitation (EIFEL) Rules
-
-| Parameter | Value | Statutory Reference |
-|---|---|---|
-| Effective date | Tax years beginning on or after October 1, 2023 | ITA §18.2(1) |
-| Limitation | **30%** of tax-EBITDA | ITA §18.2(2) |
-| Carry-forward of denied expenses | **20 years** | ITA §18.2(4) |
-| Carry-forward of unused capacity | **3 years** | ITA §18.2(4) |
-| Interest and financing revenue | Relevant for group ratio and capacity calculations | ITA §18.21 |
-| Exemption - Canadian groups | Groups with all entities in Canada | ITA §18.2(1) "excluded entity" |
-| Exemption - threshold | **$250,000** of net interest expense | ITA §18.2(1) "excluded entity" |
-| Ratio election | Can elect to use worldwide group ratio if higher than 30% | ITA §18.2(6) |
+| Doubtful debts | Reserve for doubtful trade receivables is deductible | ITA §20(1)(l) |
+| Goods and services not delivered | Reserve allowed for amounts received for goods/services to be delivered after year-end | ITA §20(1)(m) |
+| Unpaid amounts (instalment sales) | Reasonable reserve for profit element of instalment receivables | ITA §20(1)(n) |
+| General rule | Reserves not specifically permitted are **non-deductible** | ITA §18(1)(e) |
+| Reserve reversal | All permitted reserves must be included in income the following year (then may re-establish) | ITA §12(1)(d)–(e) |
 
 ---
 
-## 5. Business Meals & Entertainment
+## 7. Industry-Specific Deductions
 
-> **Legal Basis**: ITA §67.1(1) (50% limitation on meals and entertainment)
+### Resource Industry
 
-| Expense Type | Deductibility | Statutory Reference |
-|---|---|---|
-| Meals and entertainment (general) | **50%** deductible | ITA §67.1(1) |
-| Long-haul truck driver meals | **80%** deductible | ITA §67.1(1.1) |
-| Fundraising events (charities) | **100%** deductible | ITA §67.1(2)(b) |
-| Company-wide events (holiday parties, picnics) | **100%** deductible | ITA §67.1(2)(d) |
-| Club dues (recreational) | **Not deductible** | ITA §18(1)(l) |
-| Golf greens fees | **Not deductible** | ITA §18(1)(l) |
-
----
-
-## 6. Vehicle Expense Limits (2024)
-
-> **Legal Basis**: ITA §67.2 (limitation on interest for passenger vehicles), ITA §67.3 (limitation on leasing costs for passenger vehicles)
-
-| Parameter | Value | Statutory Reference |
-|---|---|---|
-| CCA Class 10.1 ceiling (passenger vehicle) | **$37,000** + tax | Regulations §7307(1) |
-| Monthly leasing cost limit | **$950** + tax | ITA §67.3, Regulations §7307(4) |
-| Deductible interest on auto loans | **$300/month** | ITA §67.2, Regulations §7307(2) |
-| Tax-exempt auto allowance (per km) | First 5,000 km: **$0.70/km**; thereafter: **$0.64/km** | Regulations §7306 |
-| Zero-emission vehicle (Class 54) limit | **$61,000** + tax | Regulations §7307(1.1) |
-
----
-
-## 7. Home Office Deductions
-
-> **Legal Basis**: ITA §8(1)(i) (employee home office expenses - limited applicability; requires Form T2200), ITA §18(12) (home office for self-employed - cannot create a loss)
-
-| Method | Details | Statutory Reference |
-|---|---|---|
-| Detailed method | Actual expenses × (office space / total home space) | ITA §8(1)(i) (employees), §18(12) (self-employed) |
-| Eligible expenses | Rent, utilities, maintenance, internet (proportional) | ITA §8(1)(i)(ii)-(iii) |
-| Mortgage interest | Deductible for self-employed (proportional) | ITA §18(1)(a) |
-| Property tax | Deductible for self-employed (proportional) | ITA §18(1)(a) |
-| CCA on home | Can be claimed but NOT recommended (principal residence exemption impact) | ITA §20(1)(a), §40(2)(b) (principal residence) |
-| Limitation | Cannot create or increase a business loss | ITA §18(12) |
-
----
-
-## 8. Charitable Donations
-
-> **Legal Basis**: ITA §110.1(1) (deduction for charitable donations by corporations, limited to 75% of net income)
-
-### Corporate Limits
-
-| Parameter | Value | Statutory Reference |
-|---|---|---|
-| Maximum deduction | **75%** of net income | ITA §110.1(1) |
-| Carry-forward | **5 years** | ITA §110.1(1) |
-| Cultural gifts | No income limit | ITA §110.1(1)(c) |
-| Ecologically sensitive land | No income limit | ITA §110.1(1)(d) |
-| First-time donor super credit | Expired (was 2013-2017) | (Former ITA §118.1(3.1), repealed) |
-
----
-
-## 9. Scientific Research Deductions (Section 37)
-
-> **Legal Basis**: ITA §37(1) (deduction for SR&ED expenditures)
-
-| Expenditure Type | Deduction | Statutory Reference |
-|---|---|---|
-| Current SR&ED expenditures | **100%** in year incurred (or pooled and deducted at any rate) | ITA §37(1)(a) |
-| Capital SR&ED expenditures | Added to CCA class (no special deduction since 2014) | ITA §37(1)(b) (repealed for post-2013) |
-| Payments to approved research institutes | **100%** deductible | ITA §37(1)(a)(ii.1) |
-| Elective treatment | Can choose to capitalize and amortize | ITA §37(8) |
-
----
-
-## 10. Resource Industry Deductions
-
-### Canadian Exploration Expense (CEE)
+**Canadian Exploration Expense (CEE):**
 
 | Parameter | Value |
 |---|---|
 | Deduction rate | **100%** in year incurred |
 | Includes | Grassroots exploration, mining exploration, oil/gas exploration drilling |
 
-### Canadian Development Expense (CDE)
+**Canadian Development Expense (CDE):**
 
 | Parameter | Value |
 |---|---|
 | Deduction rate | **30%** declining balance |
 | Includes | Development wells, mine development, oil sands |
 
-### Canadian Oil and Gas Property Expense (COGPE)
+**Canadian Oil and Gas Property Expense (COGPE):**
 
 | Parameter | Value |
 |---|---|
 | Deduction rate | **10%** declining balance |
 | Includes | Acquisition costs of oil/gas properties |
 
+### Apprenticeship Job Creation Tax Credit
+
+| Parameter | Value |
+|---|---|
+| Credit rate | **10%** of eligible salaries |
+| Maximum per apprentice | **C$2,000** per year |
+| Eligible trades | Red Seal trades |
+| Refundable | No (but can carry forward 20 years, back 3 years) |
+
+### Film and Media Tax Credits
+
+| Credit | Federal Rate | Notes |
+|---|---|---|
+| Canadian Film or Video Production Tax Credit (CPTC) | **25%** of qualified labour | Must be Canadian content |
+| Film or Video Production Services Tax Credit (PSTC) | **16%** of qualified Canadian labour | For foreign/service productions |
+| Provincial credits | 20–70% combined | Varies significantly by province |
+
 ---
 
-## 11. Non-Deductible Expenses
+## 8. Treaties & Transfer Pricing
 
-> **Legal Basis**: ITA §18(1)(a) (general limitation - expense must be for purpose of earning income), ITA §18(1)(b) (capital expenditure prohibition), ITA §18(1)(e) (reserves prohibition), ITA §18(1)(h) (personal expenses prohibition)
+### Transfer Pricing — ITA §247
 
-| Expense | Reference | Description of Limitation |
+| Parameter | Value | Statutory Reference |
+|---|---|---|
+| Standard | Arm's length principle | ITA §247(2) |
+| Recharacterization | CRA may recharacterize non-arm's length transactions | ITA §247(2)(b)–(d) |
+| Documentation | Contemporaneous documentation required | ITA §247(4) |
+| Penalty for non-compliance | 10% of transfer pricing adjustment | ITA §247(3) |
+| Country-by-Country reporting | Required for MNE groups with consolidated revenue ≥ €750M | ITA §233.8 |
+| APA program | Advance pricing arrangement available through CRA Competent Authority | IC 94-4R |
+
+### Treaty Network
+
+Canada has over 90 bilateral tax treaties. Treaty benefits may reduce withholding tax rates, allocate taxing rights, and provide mutual agreement procedures.
+
+---
+
+## 9. Non-Deductible Items
+
+> **Legal Basis**: ITA §18(1)(a) (general limitation), ITA §18(1)(b) (capital expenditure prohibition), ITA §18(1)(e) (reserves prohibition), ITA §18(1)(h) (personal expenses prohibition)
+
+| Expense | Reference | Description |
 |---|---|---|
 | General limitation (must be for income) | ITA §18(1)(a) | No deduction unless incurred for the purpose of gaining or producing income |
 | Capital expenditures | ITA §18(1)(b) | Capital outlays not deductible (use CCA instead; terminal loss per ITA §20(16)) |
@@ -286,39 +309,30 @@ Canada uses the Capital Cost Allowance (CCA) system instead of GAAP depreciation
 | Reserves (general, beyond permitted) | ITA §18(1)(e) | Not deductible beyond statutory reserve provisions |
 | Prepaid expenses (beyond current period) | ITA §18(9) | Must be allocated to the period to which they relate |
 | Interest on money borrowed for non-income purpose | ITA §18(1)(a), §20(1)(c) (inverse) | Not deductible if no income-earning purpose |
-| Superficial losses (on repurchased identical property) | ITA §54 "superficial loss", §40(2)(g)(i) | Loss denied on repurchase within 30 days |
-| Bad debts | ITA §20(1)(p) | Deductible only when established to have become bad (not merely doubtful) |
-| Terminal loss on CCA | ITA §20(16) | Deductible when last asset in a CCA class is disposed of below UCC |
-| Change of use rules | ITA §13(21.1) | Deemed disposition on change of use; affects CCA class |
+| Superficial losses (on repurchased identical property) | ITA §54, §40(2)(g)(i) | Loss denied on repurchase within 30 days |
 
 ---
 
-## 12. Apprenticeship Job Creation Tax Credit
+## 10. Sources & Legal References
 
-| Parameter | Value |
+| Reference | Citation |
 |---|---|
-| Credit rate | **10%** of eligible salaries |
-| Maximum per apprentice | **$2,000** per year |
-| Eligible trades | Red Seal trades |
-| Refundable | No (but can carry forward 20 years, back 3 years) |
-
----
-
-## 13. Film and Media Tax Credits
-
-| Credit | Federal Rate | Notes |
-|---|---|---|
-| Canadian Film or Video Production Tax Credit (CPTC) | **25%** of qualified labour | Must be Canadian content |
-| Film or Video Production Services Tax Credit (PSTC) | **16%** of qualified Canadian labour | For foreign/service productions |
-| Provincial credits | 20-70% combined | Varies significantly by province |
-
----
-
-## Sources & References
-
-- Income Tax Act (R.S.C. 1985, c. 1 (5th Supp.))
-- Income Tax Regulations (CCA classes)
-- CRA Income Tax Folio S3-F4-C1 (General Discussion of CCA)
-- CRA SR&ED Program guides
-- Bill C-59 (EIFEL rules implementation)
-- Federal Budget 2024 (capital gains inclusion rate changes)
+| Income Tax Act | R.S.C. 1985, c. 1 (5th Supp.) |
+| Income Tax Regulations | CCA classes — Schedule II, Part XI |
+| CRA Income Tax Folio S3-F4-C1 | General Discussion of CCA |
+| CRA SR&ED Program guides | SR&ED policies and claims |
+| Bill C-59 (2024) | EIFEL rules implementation — ITA §18.2 |
+| Federal Budget 2024 | Capital gains inclusion rate changes — ITA §38 |
+| ITA §20(1)(a) | CCA deduction |
+| ITA §20(1)(c) | Interest deduction |
+| ITA §18(4) | Thin capitalization (legacy 1.5:1 rule) |
+| ITA §18.2 | EIFEL — 30% tax-EBITDA limitation (effective Oct 1, 2023) |
+| ITA §18.21 | Interest and financing revenue (EIFEL) |
+| ITA §37(1) | SR&ED expenditure deduction |
+| ITA §67.1 | Meals and entertainment — 50% limitation |
+| ITA §110.1 | Charitable donation deduction |
+| ITA §111(1)(a) | Non-capital loss carry-forward (20 years) / carry-back (3 years) |
+| ITA §111(1)(b) | Net capital loss carry-forward (indefinite) |
+| ITA §127(5)–(10.1) | SR&ED investment tax credit |
+| ITA §247 | Transfer pricing — arm's length principle |
+| Regulations §7307 | Automobile deduction limits |

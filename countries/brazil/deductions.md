@@ -80,13 +80,15 @@
 |---|---|---|
 | Deductibility | **100%** deductible from IRPJ and CSLL base | **Lei No. 9.249/1995, Artigo 9o, caput** |
 | Rate limit | TJLP (Taxa de Juros de Longo Prazo) - set by CMN quarterly | **Lei No. 9.249/1995, Artigo 9o, caput** |
-| TJLP rate (2024) | ~**6-7%** per annum (varies quarterly) | CMN resolutions (updated quarterly) |
+| TJLP rate (2024) | **6.91%** per annum (varies quarterly; set by CMN) | CMN resolutions (updated quarterly) |
 | Base | Applied to shareholder's equity | **Lei No. 9.249/1995, Artigo 9o, caput** |
 | Maximum deduction | Greater of: 50% of current year profit (before JCP) or 50% of retained earnings + profit reserves | **Lei No. 9.249/1995, Artigo 9o, SS1o** |
-| WHT on payment | **15%** (or 25% to tax haven residents) | **Lei No. 9.249/1995, Artigo 9o, SS2o; RIR/2018, Artigo 726** |
-| Net benefit | ~19% effective deduction (34% - 15% WHT = 19% tax saving) | Effective combined benefit |
+| WHT on payment (through 2025) | **15%** (or 25% to tax haven residents) | **Lei No. 9.249/1995, Artigo 9o, SS2o; RIR/2018, Artigo 726** |
+| WHT on payment (from 2026) | **17.5%** (per Complementary Law No. 224/2025) | **LC 224/2025** |
+| Net benefit (through 2025) | ~19% effective deduction (34% - 15% WHT = 19% tax saving) | Effective combined benefit |
+| JCP calculation base (from 2024) | Narrowed — excludes treasury shares (Lei No. 14.789/2023) | **Lei No. 14.789/2023, Artigo 3o** |
 
-> **Note**: Proposed legislation (PL 3394/2024) may limit or eliminate JCP deduction in upcoming reform.
+> **Note**: Starting January 1, 2024, the JCP calculation base was narrowed by Lei 14.789/2023, excluding treasury shares and certain reserves. From 2026, the WHT rate on JCP increases to 17.5% under Complementary Law 224/2025.
 
 ---
 
@@ -154,7 +156,7 @@
 |---|---|---|
 | Debt-to-equity ratio | **2:1** (related parties) | **Lei No. 12.249/2010, Artigo 24** |
 | Interest deduction denied | On excess debt above 2:1 ratio | **Lei No. 12.249/2010, Artigo 24, SS1o** |
-| Related parties abroad in tax havens | **0.3:1** (30% of equity) | **Lei No. 12.249/2010, Artigo 25** |
+| Related parties abroad in tax havens | **30% of net equity** (patrimonio liquido) of the Brazilian borrower — effective ratio of ~0.3:1 | **Lei No. 12.249/2010, Artigo 25** |
 
 ### Any Foreign Lender
 
@@ -264,41 +266,21 @@
 
 ---
 
-## Sources & References
+## Sources & Legal References
 
-### Depreciation & Asset Rules
-- **RIR/2018 (Decreto No. 9.580/2018)** - Artigo 311 (depreciation general rules); Artigo 312 (depreciation start); Artigo 313 (depreciation rates)
-- **IN RFB No. 1.700/2017, Anexo III** - Approved depreciation rates by asset class
-- **RIR/2018, Artigo 323** - Accelerated depreciation (shift-based: 1.5x for 2 shifts, 2x for 3 shifts)
-- **Lei No. 6.404/1976, Artigo 183** - Asset valuation (accounting basis for depreciation)
-
-### Loss Carry-Forward
-- **RIR/2018, Artigos 320-322** - NOL carry-forward (indefinite period, 30% annual cap)
-
-### JCP (Interest on Equity)
-- **Lei No. 9.249/1995, Artigo 9o** - JCP deduction (applied to shareholder's equity, limited to TJLP)
-
-### R&D Incentives
-- **Lei No. 11.196/2005, Capitulo III, Artigos 17-26** - Lei do Bem R&D incentives (60-80% additional deduction)
-
-### Thin Capitalization
-- **Lei No. 12.249/2010, Artigos 24-26** - Thin capitalization rules (debt-to-equity ratio 2:1)
-
-### Transfer Pricing
-- **Lei No. 14.596/2023** - New transfer pricing rules (arm's length, OECD-aligned, effective 2024)
-
-### Non-Deductible Expenses
-- **RIR/2018, Artigo 345** - Non-deductible expenses list
-- **RIR/2018, Artigo 347** - Penalties and fines not deductible
-
-### Goodwill
-- **Lei No. 12.973/2014, Artigos 20-22** - Goodwill amortization rules (minimum 60 months)
-
-### Donations & PAT
-- **RIR/2018, Artigo 340** - Charitable donations limit (max 2% operating profit)
-- **RIR/2018, Artigo 365** - Meals/food program (PAT) deduction
-
-### Other Laws Referenced
-- **Lei No. 9.249/1995** - IRPJ/CSLL rules
-- **Lei No. 9.430/1996** - Tax procedures
-- **Emenda Constitucional No. 132/2023** - Tax reform
+| Reference | Citation |
+|---|---|
+| RIR/2018 (Decreto No. 9.580/2018) | Arts. 311–313, 320–323, 340, 345–347, 358, 365, 386, 726 |
+| IN RFB No. 1.700/2017, Anexo III | Approved depreciation rates by asset class |
+| Lei No. 6.404/1976, Art. 183 | Asset valuation (accounting basis for depreciation) |
+| Lei No. 8.981/1995, Art. 42 | CSLL loss offset — 30% annual cap |
+| Lei No. 9.065/1995, Art. 15 | NOL carry-forward — 30% taxable income annual cap |
+| Lei No. 9.249/1995, Art. 9o | JCP deduction (shareholder's equity, limited to TJLP) |
+| Lei No. 9.430/1996 | Tax procedures |
+| Lei No. 11.196/2005, Arts. 17–26 | Lei do Bem R&D incentives (60–80% additional deduction) |
+| Lei No. 12.249/2010, Arts. 24–26 | Thin capitalization (2:1 debt-to-equity; 30% net equity for tax havens) |
+| Lei No. 12.973/2014, Arts. 20–22 | Goodwill amortization (minimum 60 months) |
+| Lei No. 14.596/2023 | New transfer pricing rules (arm's length, OECD-aligned, effective 2024) |
+| Lei No. 14.789/2023 | JCP calculation base reform (2024) — excludes treasury shares |
+| Complementary Law 224/2025 | JCP WHT rate increase to 17.5% from Jan 1, 2026 |
+| Emenda Constitucional No. 132/2023 | Tax reform framework |

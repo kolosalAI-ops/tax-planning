@@ -85,6 +85,41 @@
 | Eligible assets | New fixed assets used exclusively in stimulus zone |
 | Documentation | Must be invoiced and paid within the zone |
 
+### Plan Mexico Accelerated Depreciation (2025–2030)
+
+> **Legal basis**: Presidential Decree published January 21, 2025 (DOF) — accelerated depreciation incentive under "Plan Mexico" strategy
+
+| Parameter | Value |
+|---|---|
+| Effective period | January 22, 2025 through September 30, 2030 |
+| Eligible assets | New fixed assets used for productive economic activities |
+| Minimum holding period | 2 years after the year of deduction |
+| Rate range (2025–2026) | **41–91%** of investment in year 1 (depending on asset type) |
+| Rate range (2027–2030) | **35–89%** of investment in year 1 (depending on asset type) |
+| Budget cap | MXN 28.5 billion total for the program |
+| Eligibility | All taxpayers — no size, industry, or location restriction |
+
+**Selected immediate deduction percentages (2025–2026):**
+
+| Asset Type | 2025–2026 Rate | 2027–2030 Rate |
+|---|---|---|
+| Buildings | **74%** | **67%** |
+| Computers | **88%** | **85%** |
+| Automobiles | **83%** | **78%** |
+| General machinery | **74%** | **67%** |
+| Electricity generation equipment | **56%** | **49%** |
+| Hydrocarbon equipment | **72%** | **67%** |
+
+[unverified — confirm specific percentage rates with SAT or published Decree tables]
+
+### Additional Deduction for Training & Innovation (Plan Mexico)
+
+| Parameter | Value |
+|---|---|
+| Deduction | **25%** of the increase in training or innovation expenses vs. average of prior 3 years |
+| Period | Fiscal years 2025–2030 |
+| Budget cap | MXN 1.5 billion total |
+
 ---
 
 ## 3. Net Operating Losses (Pérdida Fiscal) - LISR Artículo 57
@@ -297,7 +332,24 @@
 
 ---
 
-## 14. General Deduction Requirements (LISR Arts. 25, 27)
+## 14. Provisions & Reserves
+
+> **Legal basis**: LISR Artículo 28 fracción V (general non-deductibility of provisions and reserves)
+
+| Provision Type | Treatment | Legal Reference |
+|---|---|---|
+| General provisions and reserves | **Not deductible** — must be added back | LISR Art. 28 fracción V |
+| Warranty reserves | **Not deductible** until actual claim is paid | LISR Art. 28 fracción V |
+| Contingency reserves | **Not deductible** until liability crystallises | LISR Art. 28 fracción V |
+| Bad debt reserves (general) | **Not deductible** — specific write-off rules apply per Art. 27 fracción VI | LISR Art. 28 fracción XIII |
+| Employee severance accruals | **Deductible** only when actually paid | LISR Art. 28 fracción V |
+| Vacation accruals | **Deductible** when paid | LISR Art. 25 fracción III |
+
+> Mexico follows a strict cash/accrual hybrid system where most provisions are non-deductible until the underlying obligation is settled.
+
+---
+
+## 15. General Deduction Requirements (LISR Arts. 25, 27)
 
 > **Legal basis**: LISR Artículo 25 (authorized deductions list); LISR Artículo 27 (general requirements for deductions — 29 fractions)
 
@@ -313,14 +365,17 @@
 
 ---
 
-## Sources & References
+## Sources & Legal References
 
-- Ley del Impuesto Sobre la Renta (LISR) 2024 — Arts. 9, 25, 27, 28, 31-38, 57, 202
-- Código Fiscal de la Federación (CFF) — Arts. 76-A, 76-B, 179, 180
-- Resolución Miscelánea Fiscal 2024
-- Ley Federal del Trabajo (LFT) — Arts. 117-131 (PTU provisions)
-- Ley del Seguro Social (LSS) — Arts. 25, 106-147
-- Ley del INFONAVIT — Arts. 29, 36
-- Ley de los Sistemas de Ahorro para el Retiro
-- SAT (www.sat.gob.mx)
-- CONACYT/CONAHCYT R&D certification guidelines
+| Reference | Citation |
+|---|---|
+| Ley del Impuesto Sobre la Renta (LISR) 2024 | Arts. 9, 25, 27, 28, 31–38, 57, 166, 202 |
+| Codigo Fiscal de la Federacion (CFF) | Arts. 76, 76-A, 76-B, 179, 180 |
+| Resolucion Miscelanea Fiscal 2024 | Annual administrative rules |
+| Ley Federal del Trabajo (LFT) | Arts. 117–131 (PTU provisions) |
+| Ley del Seguro Social (LSS) | Arts. 25, 106–147 |
+| Ley del INFONAVIT | Arts. 29, 36 (housing contributions) |
+| Ley de los Sistemas de Ahorro para el Retiro | SAR/Afore retirement contributions |
+| Presidential Decree (DOF, Jan 21, 2025) | Plan Mexico accelerated depreciation and training incentives (2025–2030) |
+| SAT (www.sat.gob.mx) | Tax authority official guidance |
+| CONACYT/CONAHCYT | R&D certification guidelines — LISR Art. 202 |
